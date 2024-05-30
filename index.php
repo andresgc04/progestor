@@ -1,3 +1,14 @@
+<?php
+require_once("config/connection.php");
+
+if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
+    require_once("models/Usuarios.php");
+
+    $usuarios = new Usuarios();
+    $usuarios->login();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +37,43 @@
             <div class="card-body">
                 <p class="login-box-msg">Iniciar Sesión</p>
 
-                <form id="loginForm" method="post">
+                <?php
+                if (isset($_GET["m"])) {
+                    switch ($_GET["m"]) {
+                        case "1";
+                ?>
+                            <div class="alert alert-warning" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    <span>El usuario y/o contraseña son incorrectos.</span>
+                                </div>
+                            </div>
+                        <?php
+                            break;
+
+                        case "2";
+                        ?>
+                            <div class="alert alert-warning" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    <span>Los campos estan vacios.</span>
+                                </div>
+                            </div>
+                <?php
+                            break;
+                    }
+                }
+                ?>
+
+                <form id="loginForm" action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Ingrese su usuario." />
+                        <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" placeholder="Ingrese su usuario." />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -36,13 +81,14 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Ingrese su password" />
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Ingrese su password" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="enviar" class="form-control" value="si" />
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
