@@ -14,7 +14,7 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
     <!-- JQVMap -->
-    <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/jqvmap/jqvmap.min.css" /> -->
+    <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/jqvmap/jqvmap.min.css" />
     <!-- DataTables -->
     <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />

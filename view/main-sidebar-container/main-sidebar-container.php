@@ -87,7 +87,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../pages/home-countries/" class="nav-link">
+                            <a href="../home-countries/" class="nav-link">
                                 <i class="fas fa-globe nav-icon"></i>
                                 <p>Pa&iacute;ses</p>
                             </a>
