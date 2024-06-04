@@ -26,7 +26,7 @@ class Usuarios extends Connection
                     $_SESSION["usuario_id"] = $resultado["usuario_id"];
                     $_SESSION["nombre_usuario"] = $resultado["nombre_usuario"];
 
-                    header("Location:" . Connection::path() . "view/pages/dashboard/");
+                    header("Location:" . Connection::path() . "view/dashboard/");
                     exit();
                 } else {
                     header("Location:" . Connection::path() . "index.php?m=1");

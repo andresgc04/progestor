@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="../../../public/lib/adminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
+        <img src="../../public/lib/adminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../../../public/lib/adminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
+                <img src="../../public/lib/adminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
             </div>
             <div class="info">
                 <a href="#" class="d-block">Alexander Pierce</a>
@@ -66,18 +66,6 @@
                 </li>
                 <li class="nav-header">MANTENIMIENTOS</li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>Gallery</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
-                        <p>Kanban Board</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-envelope"></i>
                         <p>
@@ -89,7 +77,7 @@
                         <li class="nav-item">
                             <a href="/colegios-electorales" class="nav-link">
                                 <i class="fas fa-school nav-icon"></i>
-                                <p>Colegios Electorales</p>
+                                <p>Ciudades</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -99,7 +87,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/paises" class="nav-link">
+                            <a href="../pages/home-countries/" class="nav-link">
                                 <i class="fas fa-globe nav-icon"></i>
                                 <p>Pa&iacute;ses</p>
                             </a>

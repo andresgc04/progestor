@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Head -->
-<?php require_once('../../../view/templates/head.php')?>
+<?php require_once('../head/head.php') ?>
 <!-- <%- include("../../templates/head.ejs", {titleWeb: 'Dashboard'}); %> -->
 <!-- /. Head -->
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Preloader -->
-        <?php require_once('../../../view/templates/preloader.php') ?>
+        <?php require_once('../preloader/preloader.php') ?>
         <!-- <%- include("../../templates/preloader.ejs"); %> -->
         <!-- /. Preloader -->
 
         <!-- Navbar -->
-        <?php require_once('../../../view/templates/navbar.php') ?>
+        <?php require_once('../navbar/navbar.php') ?>
         <!-- <%- include("../../templates/navbar.ejs") %> -->
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <?php require_once('../../../view/templates/main-sidebar-container.php') ?>
+        <?php require_once('../main-sidebar-container/main-sidebar-container.php') ?>
         <!-- <%- include("../../templates/main-sidebar-container.ejs") %> -->
         <!-- /. Main Sidebar Container -->
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <?php require_once('../../../view/templates/content-header.php') ?>
+            <?php require_once('../content-header/content-header.php') ?>
             <!-- <%- include("../../templates/content-header.ejs", { titleContentHeader: -->
             <!-- 'Dashboard', linkContentHeader:'/dashboard', -->
             <!-- titleBreadCrumbContentHeader: 'Dashboard', -->
@@ -166,7 +166,7 @@
                                                 <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="../../../public/lib/adminLTE/dist/img/user1-128x128.jpg" alt="message user image" />
+                                            <img class="direct-chat-img" src="../../public/lib/adminLTE/dist/img/user1-128x128.jpg" alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">
                                                 Is this template really for free? That's unbelievable!
@@ -182,7 +182,7 @@
                                                 <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="../../../public/lib/adminLTE/dist/img/user3-128x128.jpg" alt="message user image" />
+                                            <img class="direct-chat-img" src="../../public/lib/adminLTE/dist/img/user3-128x128.jpg" alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">
                                                 You better believe it!
@@ -198,7 +198,7 @@
                                                 <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="../../../public/lib/adminLTE/dist/img/user1-128x128.jpg" alt="message user image" />
+                                            <img class="direct-chat-img" src="../../public/lib/adminLTE/dist/img/user1-128x128.jpg" alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">
                                                 Working with AdminLTE on a great new app! Wanna join?
@@ -214,7 +214,7 @@
                                                 <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="../../../public/lib/adminLTE/dist/img/user3-128x128.jpg" alt="message user image" />
+                                            <img class="direct-chat-img" src="../../public/lib/adminLTE/dist/img/user3-128x128.jpg" alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">I would love to.</div>
                                             <!-- /.direct-chat-text -->
@@ -228,7 +228,7 @@
                                         <ul class="contacts-list">
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../../../public/lib/adminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" />
+                                                    <img class="contacts-list-img" src="../../public/lib/adminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -243,7 +243,7 @@
                                             <!-- End Contact Item -->
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../../../public/lib/adminLTE/dist/img/user7-128x128.jpg" alt="User Avatar" />
+                                                    <img class="contacts-list-img" src="../../public/lib/adminLTE/dist/img/user7-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -258,7 +258,7 @@
                                             <!-- End Contact Item -->
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../../../public/lib/adminLTE/dist/img/user3-128x128.jpg" alt="User Avatar" />
+                                                    <img class="contacts-list-img" src="../../public/lib/adminLTE/dist/img/user3-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -273,7 +273,7 @@
                                             <!-- End Contact Item -->
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../../../public/lib/adminLTE/dist/img/user5-128x128.jpg" alt="User Avatar" />
+                                                    <img class="contacts-list-img" src="../../public/lib/adminLTE/dist/img/user5-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -288,7 +288,7 @@
                                             <!-- End Contact Item -->
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../../../public/lib/adminLTE/dist/img/user6-128x128.jpg" alt="User Avatar" />
+                                                    <img class="contacts-list-img" src="../../public/lib/adminLTE/dist/img/user6-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -303,7 +303,7 @@
                                             <!-- End Contact Item -->
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../../../public/lib/adminLTE/dist/img/user8-128x128.jpg" alt="User Avatar" />
+                                                    <img class="contacts-list-img" src="../../public/lib/adminLTE/dist/img/user8-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -632,19 +632,19 @@
         <!-- /.content-wrapper -->
 
         <!-- Footer -->
-        <?php require_once('../../../view/templates/footer.php') ?>
+        <?php require_once('../footer/footer.php') ?>
         <!-- <%- include("../../templates/footer.ejs"); %> -->
         <!-- /.Footer-->
 
         <!-- Control Sidebar -->
-        <?php require_once('../../../view/templates/control-sidebar.php') ?>
+        <?php require_once('../control-sidebar/control-sidebar.php') ?>
         <!-- <%- include("../../templates/control-sidebar.ejs"); %> -->
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <?php require_once('../../../view/templates/scripts.php') ?>
+    <?php require_once('../scripts/scripts.php') ?>
     <!-- <%- include("../../templates/scripts"); %> -->
 </body>
 
