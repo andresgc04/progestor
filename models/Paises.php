@@ -16,4 +16,22 @@ class Paises extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function listado_paises()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT paises.PAIS_ID, 
+                         UCASE(paises.PAIS) PAISES, UCASE(estados.ESTADO) ESTADOS
+                    FROM PAISES paises 
+              INNER JOIN ESTADOS estados
+                      ON paises.ESTADO_ID = estados.ESTADO_ID
+                   WHERE paises.ESTADO_ID = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
