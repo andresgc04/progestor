@@ -44,7 +44,7 @@
                                     <div class="row mb-4">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                             <div class="d-flex justify-content-end">
-                                                <button type="button" class="btn btn-primary">
+                                                <button id="newCountryButton" type="button" class="btn btn-primary">
                                                     <span class="mr-1">Registrar Nuevo Pa&iacute;s</span>
                                                     <i class="fas fa-plus-circle"></i>
                                                 </button>
@@ -72,6 +72,8 @@
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
+
+                            <?php require_once('components/new-country.php')?>
                         </section>
                         <!-- /. col content -->
                     </div>
