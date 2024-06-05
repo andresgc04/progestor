@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-header">MANTENIMIENTOS</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a id="navLinkMaintenance" href="#" class="nav-link">
                         <i class="nav-icon far fa-envelope"></i>
                         <p>
                             Mantenimientos
@@ -87,8 +87,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../home-countries/" class="nav-link">
-                                <i class="fas fa-globe nav-icon"></i>
+                            <a id="navLinkHomeCountries" href="../home-countries/" class="nav-link">
+                                <i class="fas fa-city nav-icon"></i>
                                 <p>Pa&iacute;ses</p>
                             </a>
                         </li>

@@ -1,3 +1,7 @@
+navLinkPrimary("navLinkMaintenance");
+
+navLinkSecondary("navLinkHomeCountries");
+
 setContentHeaderTitle("Listado De Países");
 
 setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");

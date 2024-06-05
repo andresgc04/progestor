@@ -35,7 +35,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
-                                        <i class="fas fa-users mr-1"></i>
+                                        <i class="fas fa-city mr-1"></i>
                                         <span>Listado De Pa&iacute;ses</span>
                                     </h3>
                                 </div>
@@ -73,7 +73,7 @@
                             </div>
                             <!-- /.card -->
 
-                            <?php require_once('components/new-country.php')?>
+                            <?php require_once('components/new-country.php') ?>
                         </section>
                         <!-- /. col content -->
                     </div>
@@ -98,6 +98,7 @@
     <!-- jQuery -->
     <?php require_once('../scripts/scripts.php') ?>
     <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
+    <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
     <script type="text/javascript" src="home-countries.js"></script>
     <!-- <script type="text/javascript" src="js/paises/paises.js"></script> -->
 </body>
