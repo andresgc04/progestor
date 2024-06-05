@@ -13,7 +13,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="nombrePais">País</label>
-                                <input id="nombrePais" type="nombrePais" name="nombrePais" class="form-control" placeholder="Ingrese el nombre del país.">
+                                <input type="text" id="nombrePais" name="nombrePais" class="form-control" placeholder="Ingrese el nombre del país.">
                             </div>
                         </div>
                     </div>

@@ -41,5 +41,10 @@
 <script src="../../public/lib/adminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../public/lib/adminLTE/dist/js/adminlte.js"></script>
+<!-- SweetAlert2 -->
+<script src="../../public/lib/adminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- jquery-validation -->
+<script src="../../public/lib/adminLTE/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../public/lib/adminLTE/plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="../../public/lib/adminLTE/dist/js/pages/dashboard.js"></script> -->

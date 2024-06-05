@@ -63,7 +63,7 @@ if (isset($usuarioID)) {
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="table-responsive">
-                                                    <table id="paisesListTable" class="table table-bordered table-striped">
+                                                    <table id="listadoPaisesDataTable" class="table table-bordered table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
@@ -109,6 +109,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-countries.js"></script>
+        <script type="text/javascript" src="new-country.js"></script>
         <!-- <script type="text/javascript" src="js/paises/paises.js"></script> -->
     </body>
 
