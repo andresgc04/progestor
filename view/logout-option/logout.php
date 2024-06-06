@@ -1,5 +1,5 @@
 <?php
 require_once("../../config/connection.php");
 session_destroy();
-header("Location:" . Connection::path() . "index.php");
+header("Location:../../index.php");
 exit();
