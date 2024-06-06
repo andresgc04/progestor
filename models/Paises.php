@@ -34,4 +34,15 @@ class Paises extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_listado_opciones_paises(){
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = '';
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query -> fetchAll();
+    }
 }
