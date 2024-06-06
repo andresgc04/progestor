@@ -1,8 +1,6 @@
 <?php
 require_once("../../public/php/constants/sessions-constants.php");
 
-session_start();
-
 $usuarioID = $_SESSION[$USUARIO_ID];
 
 if (isset($usuarioID)) {
