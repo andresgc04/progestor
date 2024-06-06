@@ -93,9 +93,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/partidos-politicos" class="nav-link">
-                                <i class="fas fa-award nav-icon"></i>
-                                <p>Partidos Politicos</p>
+                            <a id="navLinkHomeProvinces" href="../home-provinces/" class="nav-link">
+                                <i class="fas fa-city nav-icon"></i>
+                                <p>Provincias</p>
                             </a>
                         </li>
                         <li class="nav-item">

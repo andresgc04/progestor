@@ -35,14 +35,19 @@ class Paises extends Connection
         return $resultado = $query->fetchAll();
     }
 
-    public function obtener_listado_opciones_paises(){
+    public function obtener_listado_opciones_paises()
+    {
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = '';
+        $query = 'SELECT PAIS_ID, PAIS 
+                    FROM PAISES
+                   WHERE ESTADO_ID = 1
+                 ';
+
         $query = $conectar->prepare($query);
         $query->execute();
 
-        return $resultado = $query -> fetchAll();
+        return $resultado = $query->fetchAll();
     }
 }

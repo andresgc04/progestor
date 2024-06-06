@@ -47,7 +47,7 @@ switch ($_GET["op"]) {
             $html .= "<option selected disabled>Por favor seleccione el país.</option>";
 
             foreach ($datos as $row) {
-                $html .= "<option value='" . $row[''] . "'>" . $row[''] . "</option>";
+                $html .= "<option value='" . $row['PAIS_ID'] . "'>" . $row['PAIS'] . "</option>";
             }
 
             echo $html;
