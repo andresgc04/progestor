@@ -83,7 +83,7 @@ if (isset($usuarioID)) {
                                 </div>
                                 <!-- /.card -->
 
-                                <?php require_once('components/new-provinces-form-modal.php') ?>
+                                <?php require_once('components/new-province.php') ?>
                             </section>
                             <!-- /. col content -->
                         </div>
@@ -110,7 +110,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="home-provinces.js"></script>
-        <script type="text/javascript" src="new-provinces.js"></script>
+    <!-- <script type="text/javascript" src="new-provinces.js"></script> -->
     </body>
 
     </html>

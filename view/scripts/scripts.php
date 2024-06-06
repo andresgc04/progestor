@@ -46,5 +46,7 @@
 <!-- jquery-validation -->
 <script src="../../public/lib/adminLTE/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="../../public/lib/adminLTE/plugins/jquery-validation/additional-methods.min.js"></script>
+<!-- Select2 -->
+<script src="../../public/lib/adminLTE/plugins/select2/js/select2.full.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="../../public/lib/adminLTE/dist/js/pages/dashboard.js"></script> -->
