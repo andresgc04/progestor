@@ -73,19 +73,14 @@ const obtenerListadoProvinciasDataTable = () => {
 
 (function () {
   //Initialize Select2 Elements
-  $(".select2").select2();
-
-  //Initialize Select2 Elements
-  $(".select2bs4").select2({
-    theme: "bootstrap4",
-  });
+  $(".select2").select2({ theme: "bootstrap4" });
 
   obtenerListadoProvinciasDataTable();
 
   $.post(
     "../../controller/PaisesController.php?op=obtener_listado_opciones_paises",
     function (data, status) {
-      //$("#paisID").html(data);
+      $("#paisID").html(data);
     }
   );
 })();

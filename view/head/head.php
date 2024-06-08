@@ -29,4 +29,7 @@
     <link rel="stylesheet" hreflang="../../public/lib/adminLTE/plugins/summernote/summernote-bs4.min.css" />
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../public/lib/adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 </head>
