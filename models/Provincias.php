@@ -1,6 +1,23 @@
 <?php
 class Provincias extends Connection
 {
+    public function registrar_provincia($paisID, $provincia, $creadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO PROVINCIAS (PAIS_ID, PROVINCIA, ESTADO_ID, CREADO_POR, FECHA_CREACION)
+                                   VALUES(?, ?, 1, ?, NOW());';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->bindValue(2, $provincia);
+        $query->bindValue(4, $creadoPor);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
+
     public function listado_provincias()
     {
         $conectar = parent::Connection();
