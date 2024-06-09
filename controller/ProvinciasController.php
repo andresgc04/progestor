@@ -8,6 +8,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $provincias = new Provincias();
 
 switch ($_GET["op"]) {
+    case "registrar_provincia":
+        $provincias->registrar_provincia($_POST["paisID"], $_POST["nombreProvincia"], $creadoPor);
+        break;
     case "listado_provincias":
         $datos = $provincias->listado_provincias();
         $data = array();
