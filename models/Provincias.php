@@ -40,4 +40,17 @@ class Provincias extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_listado_opciones_provincias()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = '';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
