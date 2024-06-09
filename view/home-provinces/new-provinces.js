@@ -17,11 +17,9 @@ function saveNewProvince() {
         timerProgressBar: true,
       }).then(
         (willClose = () => {
-          $.post(
+          getSelectListProvincesOptions(
             "../../controller/PaisesController.php?op=obtener_listado_opciones_paises",
-            function (data, status) {
-              $("#paisID").html(data);
-            }
+            "#paisID"
           );
 
           $("#nombreProvincia").val("");
