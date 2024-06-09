@@ -29,7 +29,9 @@ class Ciudades extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = '';
+        $query = 'SELECT CIUDAD_ID, CIUDAD 
+                    FROM CIUDADES
+                   WHERE ESTADO_ID = 1';
 
         $query = $conectar->prepare($query);
         $query ->execute();
