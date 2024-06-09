@@ -12,7 +12,7 @@ class Provincias extends Connection
         $query = $conectar->prepare($query);
         $query->bindValue(1, $paisID);
         $query->bindValue(2, $provincia);
-        $query->bindValue(4, $creadoPor);
+        $query->bindValue(3, $creadoPor);
         $query->execute();
 
         return $resultado = $query->fetchAll();

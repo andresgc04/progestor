@@ -111,7 +111,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public//js//functions/select2-elements/set-select2-elements.js"></script>
         <script type="text/javascript" src="home-provinces.js"></script>
-    <!-- <script type="text/javascript" src="new-provinces.js"></script> -->
+        <script type="text/javascript" src="new-provinces.js"></script>
     </body>
 
     </html>
