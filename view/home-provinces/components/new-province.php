@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label for="nombreProvincia">País:</label>
+                                <label for="nombreProvincia">Provincia:</label>
                                 <input type="text" id="nombreProvincia" name="nombreProvincia" class="form-control" placeholder="Ingrese el nombre de la provincia.">
                             </div>
                         </div>

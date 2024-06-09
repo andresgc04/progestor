@@ -8,6 +8,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $ciudades = new Ciudades();
 
 switch ($_GET["op"]) {
+    case "registrar_ciudad":
+        $ciudades->registrar_ciudad($_POST['paisID'], $_POST['provinciaID'], $_POST['nombreCiudad'], $creadoPor);
+        break;
     case "listado_ciudades":
         $datos = $ciudades->listado_ciudades();
         $data = array();
