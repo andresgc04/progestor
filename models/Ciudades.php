@@ -1,6 +1,24 @@
 <?php
 class Ciudades extends Connection
 {
+    public function registrar_ciudad($paisID, $provinciaID, $ciudad, $creadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO CIUDADES (PAIS_ID, PROVINCIA_ID, CIUDAD, ESTADO_ID, CREADO_POR, FECHA_CREACION)
+                                 VALUES(?, ?, ?, 1, ?, NOW());';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->bindValue(2, $provinciaID);
+        $query->bindValue(3, $ciudad);
+        $query->bindValue(4, $creadoPor);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
+
     public function listado_ciudades()
     {
         $conectar = parent::Connection();
@@ -25,7 +43,8 @@ class Ciudades extends Connection
         return $resultado = $query->fetchAll();
     }
 
-    public function obtener_listado_opciones_ciudades() {
+    public function obtener_listado_opciones_ciudades()
+    {
         $conectar = parent::Connection();
         parent::set_names();
 
@@ -34,7 +53,7 @@ class Ciudades extends Connection
                    WHERE ESTADO_ID = 1';
 
         $query = $conectar->prepare($query);
-        $query ->execute();
+        $query->execute();
 
         return $resultado = $query->fetchAll();
     }
