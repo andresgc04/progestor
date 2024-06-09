@@ -61,18 +61,12 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <!-- <li class="nav-item">
-                            <a href="/colegios-electorales" class="nav-link">
-                                <i class="fas fa-school nav-icon"></i>
+                        <li class="nav-item">
+                            <a id="navLinkHomeCities" href="../home-cities/" class="nav-link">
+                                <i class="fas fa-city nav-icon"></i>
                                 <p>Ciudades</p>
                             </a>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a href="/personas" class="nav-link">
-                                <i class="fas fa-users nav-icon"></i>
-                                <p>Personas</p>
-                            </a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a id="navLinkHomeCountries" href="../home-countries/" class="nav-link">
                                 <i class="fas fa-city nav-icon"></i>
@@ -85,18 +79,6 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                                 <p>Provincias</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="/posiciones-politicas" class="nav-link">
-                                <i class="fas fa-user-tie nav-icon"></i>
-                                <p>Posiciones Politicas</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Read</p>
-                            </a>
-                        </li> -->
                     </ul>
                 </li>
             </ul>
