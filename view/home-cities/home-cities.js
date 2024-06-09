@@ -77,8 +77,19 @@ const obtenerListadoCiudadesDataTable = () => {
 
   obtenerListadoCiudadesDataTable();
 
-  getSelectListProvincesOptions(
+  getSelectListCountriesOptions(
     "../../controller/PaisesController.php?op=obtener_listado_opciones_paises",
     "#paisID"
   );
 })();
+
+const paisSelectInput = document.getElementById("paisID");
+paisSelectInput.onchange = (event) => {
+  const paisID = event.target.value;
+
+  getSelectListProvincesOptionsByPaisID(
+    "../../controller/ProvinciasController.php?op=obtener_listado_opciones_provincias_por_paisID",
+    paisID,
+    "#provinciaID"
+  );
+};
