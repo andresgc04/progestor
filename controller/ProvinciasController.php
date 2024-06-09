@@ -45,4 +45,30 @@ switch ($_GET["op"]) {
 
         echo json_encode($resultados);
         break;
+    case "obtener_listado_opciones_provincias":
+        $datos = $provincias->obtener_listado_opciones_provincias();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione la provincia.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['PROVINCIA_ID'] . '">' . $row['PROVINCIA'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
+    case 'obtener_listado_opciones_provincias_por_paisID':
+        $datos = $provincias->obtener_listado_opciones_provincias_por_paisID($_POST['paisID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione la provincia.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['PROVINCIA_ID'] . '">' . $row['PROVINCIA'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }

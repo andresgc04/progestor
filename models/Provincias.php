@@ -46,9 +46,28 @@ class Provincias extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = '';
+        $query = 'SELECT PROVINCIA_ID, PROVINCIA 
+                    FROM PROVINCIAS
+                   WHERE ESTADO_ID = 1;';
 
         $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
+
+    public function obtener_listado_opciones_provincias_por_paisID($paisID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT PROVINCIA_ID, PROVINCIA
+                    FROM PROVINCIAS
+                   WHERE PAIS_ID = ? AND ESTADO_ID = 1;
+                 ';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
         $query->execute();
 
         return $resultado = $query->fetchAll();
