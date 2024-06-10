@@ -79,6 +79,12 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                                 <p>Provincias</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a id="navLinkHomeTypesMaterialResources" href="../home-types-material-resources/" class="nav-link">
+                                <i class="fas fa-warehouse nav-icon"></i>
+                                <p>Tipos De Recursos Materiales</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
