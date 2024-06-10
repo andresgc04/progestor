@@ -29,7 +29,8 @@ class TiposRecursosMateriales extends Connection
                          FROM TIPOS_RECURSOS_MATERIALES tiposRecursosMateriales
                    INNER JOIN ESTADOS estados
                            ON tiposRecursosMateriales.ESTADO_ID = estados.ESTADO_ID
-                        WHERE tiposRecursosMateriales.ESTADO_ID = 1;';
+                        WHERE tiposRecursosMateriales.ESTADO_ID = 1
+                      ORDER BY tiposRecursosMateriales.TIPO_RECURSO_MATERIAL_ID DESC, tiposRecursosMateriales.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
