@@ -17,4 +17,23 @@ class TiposRecursosMateriales extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function listado_tipos_recursos_materiales()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT tiposRecursosMateriales.TIPO_RECURSO_MATERIAL_ID,
+                              tiposRecursosMateriales.TIPO_RECURSO_MATERIAL,
+                              estados.ESTADO
+                         FROM TIPOS_RECURSOS_MATERIALES tiposRecursosMateriales
+                   INNER JOIN ESTADOS estados
+                           ON tiposRecursosMateriales.ESTADO_ID = estados.ESTADO_ID
+                        WHERE tiposRecursosMateriales.ESTADO_ID = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
