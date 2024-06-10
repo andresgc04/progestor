@@ -7,7 +7,7 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 
 $tiposRecursosMateriales = new TiposRecursosMateriales();
 
-switch ($_GET['op']) {
+switch ($_GET["op"]) {
     case 'registrar_tipos_recursos_materiales':
         $tiposRecursosMateriales->registrar_tipos_recursos_materiales($_POST['nombreTipoRecursoMaterial'], $creadoPor);
         break;
