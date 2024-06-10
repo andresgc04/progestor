@@ -25,7 +25,7 @@ class TiposRecursosMateriales extends Connection
 
         $query = 'SELECT tiposRecursosMateriales.TIPO_RECURSO_MATERIAL_ID,
                               tiposRecursosMateriales.TIPO_RECURSO_MATERIAL,
-                              estados.ESTADO
+                              estados.ESTADOS
                          FROM TIPOS_RECURSOS_MATERIALES tiposRecursosMateriales
                    INNER JOIN ESTADOS estados
                            ON tiposRecursosMateriales.ESTADO_ID = estados.ESTADO_ID
