@@ -110,7 +110,6 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-countries.js"></script>
         <script type="text/javascript" src="new-country.js"></script>
-        <!-- <script type="text/javascript" src="js/paises/paises.js"></script> -->
     </body>
 
     </html>

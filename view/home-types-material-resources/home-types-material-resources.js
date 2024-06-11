@@ -1,4 +1,4 @@
-navLinkPrimary("navLinkMaintenance");
+navLinkPrimary("navLinkMaterialResources");
 
 navLinkSecondary("navLinkHomeTypesMaterialResources");
 

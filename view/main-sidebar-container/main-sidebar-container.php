@@ -50,11 +50,40 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a id="navLinkMaterialResources" href="#" class="nav-link">
+                        <i class="fas fa-warehouse nav-icon"></i>
+                        <p>
+                            Recursos Materiales
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a id="navLinkHomeTypesMaterialResources" href="../home-types-material-resources/" class="nav-link">
+                                <i class="fas fa-warehouse nav-icon"></i>
+                                <p>Tipos De Recursos Materiales</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="navLinkHomeMaterialResources" href="../home-cities/" class="nav-link">
+                                <i class="fas fa-warehouse nav-icon"></i>
+                                <p>Recursos Materiales</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="navLinkHomeMaterialResourcesSuppliers" href="../home-countries/" class="nav-link">
+                                <i class="fas fa-warehouse nav-icon"></i>
+                                <p>Recursos Materiales Por Proveedores</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-header">MANTENIMIENTOS</li>
                 <li class="nav-item">
                     <a id="navLinkMaintenance" href="#" class="nav-link">
-                        <i class="nav-icon far fa-envelope"></i>
+                        <i class="nav-icon fas fa-tools"></i>
                         <p>
                             Mantenimientos
                             <i class="fas fa-angle-left right"></i>
@@ -77,12 +106,6 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                             <a id="navLinkHomeProvinces" href="../home-provinces/" class="nav-link">
                                 <i class="fas fa-city nav-icon"></i>
                                 <p>Provincias</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="navLinkHomeTypesMaterialResources" href="../home-types-material-resources/" class="nav-link">
-                                <i class="fas fa-warehouse nav-icon"></i>
-                                <p>Tipos De Recursos Materiales</p>
                             </a>
                         </li>
                     </ul>
