@@ -44,4 +44,17 @@ switch ($_GET["op"]) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_tipos_recursos_materiales':
+        $datos = $tiposRecursosMateriales->obtener_listado_opciones_tipos_recursos_materiales();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el tipo de recurso material.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '">' . $row['TIPO_RECURSO_MATERIAL'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
