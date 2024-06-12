@@ -18,4 +18,17 @@ class RecursosMateriales extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function listado_recursos_materiales()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = '';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
