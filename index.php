@@ -71,7 +71,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                 }
                 ?>
 
-                <form id="loginForm" action="" method="post">
+                <form id="loginForm" action="" method="post" class="mb-3">
                     <div class="input-group mb-3">
                         <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" placeholder="Ingrese su usuario." />
                         <div class="input-group-append">
@@ -103,6 +103,11 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                 <!-- <p class="mb-1">
                     <a href="forgot-password.html">Olvidé mi contraseña</a>
                 </p> -->
+                <p class="mb-0">
+                    <a id="newUserClientButton" type="button" class="text-center">Registrarse nuevo cliente</a>
+                </p>
+
+                <?php require_once('new-user-client-form-modal.php') ?>
             </div>
             <!-- /.card-body -->
         </div>
@@ -116,6 +121,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script src="public/lib/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="public/lib/adminLTE/dist/js/adminlte.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>
