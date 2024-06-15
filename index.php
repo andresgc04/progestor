@@ -23,6 +23,25 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <link rel="stylesheet" href="public/lib/adminLTE/plugins/fontawesome-free/css/all.min.css" />
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="public/lib/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="public/lib/adminLTE/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="public/lib/adminLTE/dist/css/adminlte.min.css" />
 </head>
@@ -121,6 +140,29 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script src="public/lib/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="public/lib/adminLTE/dist/js/adminlte.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="public/lib/adminLTE/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- Select2 -->
+    <script src="public/lib/adminLTE/plugins/select2/js/select2.full.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="public/lib/adminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- InputMask -->
+    <script src="public/lib/adminLTE/plugins/moment/moment.min.js"></script>
+    <script src="public/lib/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="public/lib/adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="public/lib/adminLTE/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="public/lib/adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="public/lib/adminLTE/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <!-- dropzonejs -->
+    <script src="public/lib/adminLTE/plugins/dropzone/min/dropzone.min.js"></script>
+
+    <script type="text/javascript" src="public/js/functions/select2-elements/set-select2-elements.js"></script>
+    <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
+    <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </body>
 
