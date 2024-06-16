@@ -57,4 +57,22 @@ class Ciudades extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_listado_opciones_ciudades_por_paisID_provinciaID($paisID, $provinciaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT CIUDAD_ID, CIUDAD 
+                    FROM CIUDADES
+                   WHERE PAIS_ID = ? AND PROVINCIA_ID = ? AND ESTADO_ID = 1;
+                 ';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->bindValue(2, $provinciaID);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
