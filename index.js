@@ -29,6 +29,11 @@ newUserClientButton.addEventListener("click", () => {
     "#sexoID"
   );
 
+  getSelectListNationalitiesOptions(
+    "controller/NacionalidadesController.php?op=obtener_listado_opciones_nacionalidades",
+    "#nacionalidadID"
+  );
+
   getSelectListCountriesOptions(
     "controller/PaisesController.php?op=obtener_listado_opciones_paises",
     "#paisID"
