@@ -50,3 +50,16 @@ paisSelectInput.onchange = (event) => {
     "#provinciaID"
   );
 };
+
+const provinciaSelectInput = document.getElementById("provinciaID");
+provinciaSelectInput.onchange = (event) => {
+  const paisID = document.getElementById("paisID").value;
+  const provinciaID = event.target.value;
+
+  getSelectListCitiesOptionsByPaisIDAndProvinciaID(
+    "controller/CiudadesController.php?op=obtener_listado_opciones_ciudades_por_paisID_provinciaID",
+    paisID,
+    provinciaID,
+    "#ciudadID"
+  );
+};
