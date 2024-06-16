@@ -11,17 +11,23 @@ newUserClientButton.addEventListener("click", () => {
   //Initialize Select2 Elements:
   initializeSelect2Elements();
 
+  //Initialize InputMask:
+  $("[data-mask]").inputmask();
+
+  //Initialize Date picker:
+  $("#fechaNacimiento").datetimepicker({
+    format: "L",
+  });
+
+  getSelectListTypesClientsOptions(
+    "controller/TiposClientesController.php?op=obtener_listado_opciones_tipos_clientes",
+    "#tipoClienteID"
+  );
+
   getSelectListCountriesOptions(
     "controller/PaisesController.php?op=obtener_listado_opciones_paises",
     "#paisID"
   );
-
-  $("[data-mask]").inputmask();
-
-  //Date picker
-  $("#fechaNacimiento").datetimepicker({
-    format: "L",
-  });
 })();
 
 const paisSelectInput = document.getElementById("paisID");

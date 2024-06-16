@@ -161,6 +161,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script src="public/lib/adminLTE/plugins/dropzone/min/dropzone.min.js"></script>
 
     <script type="text/javascript" src="public/js/functions/select2-elements/set-select2-elements.js"></script>
+    <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_types_clients_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
     <script type="text/javascript" src="index.js"></script>
