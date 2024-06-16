@@ -59,4 +59,17 @@ switch ($_GET["op"]) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_ciudades_por_paisID_provinciaID':
+        $datos = $ciudades->obtener_listado_opciones_ciudades_por_paisID_provinciaID($_POST['paisID'], $_POST['provinciaID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione la ciudad.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['CIUDAD_ID'] . '">' . $row['CIUDAD'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
