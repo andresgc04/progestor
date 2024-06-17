@@ -16,28 +16,32 @@ class Usuarios extends Connection
                 exit();
             } else {
                 $query = 'SELECT usuarios.USUARIO_ID, usuarios.EMPLEADO_ID, usuarios.CLIENTE_ID, 
-                                 usuarios.NOMBRE_USUARIO, usuarios.ESTADO_ID
+                                 usuarios.NOMBRE_USUARIO, usuarios.PASSWORD, usuarios.ESTADO_ID
                             FROM USUARIOS usuarios
-                           WHERE usuarios.NOMBRE_USUARIO = ? 
-                             AND usuarios.PASSWORD = ?
+                           WHERE usuarios.NOMBRE_USUARIO = ?
                              AND usuarios.ESTADO_ID = 1
                          ';
 
                 $stmt = $connection->prepare($query);
                 $stmt->bindValue(1, $nombreUsuario);
-                $stmt->bindValue(2, $password);
                 $stmt->execute();
                 $resultado = $stmt->fetch();
 
                 if (is_array($resultado) and count($resultado) > 0) {
-                    $_SESSION["USUARIO_ID"] = $resultado["USUARIO_ID"];
-                    $_SESSION["EMPLEADO_ID"] = $resultado["EMPLEADO_ID"];
-                    $_SESSION["CLIENTE_ID"] = $resultado["CLIENTE_ID"];
-                    $_SESSION["NOMBRE_USUARIO"] = $resultado["NOMBRE_USUARIO"];
-                    $_SESSION["ESTADO_ID"] = $resultado["ESTADO_ID"];
+                    //Verificar la contraseña hasheada usando el password_verify:
+                    if (password_verify($password, $resultado['PASSWORD'])) {
+                        $_SESSION["USUARIO_ID"] = $resultado["USUARIO_ID"];
+                        $_SESSION["EMPLEADO_ID"] = $resultado["EMPLEADO_ID"];
+                        $_SESSION["CLIENTE_ID"] = $resultado["CLIENTE_ID"];
+                        $_SESSION["NOMBRE_USUARIO"] = $resultado["NOMBRE_USUARIO"];
+                        $_SESSION["ESTADO_ID"] = $resultado["ESTADO_ID"];
 
-                    header("Location:" . Connection::path() . "view/dashboard/");
-                    exit();
+                        header("Location:" . Connection::path() . "view/dashboard/");
+                        exit();
+                    } else {
+                        header("Location:" . Connection::path() . "index.php?m=1");
+                        exit();
+                    }
                 } else {
                     header("Location:" . Connection::path() . "index.php?m=1");
                     exit();
@@ -63,10 +67,8 @@ class Usuarios extends Connection
         $telefonoCelular,
         $correoElectronico,
         $tipoClienteID,
-
         $nombreUsuario,
         $password,
-
         $creadoPor
     ) {
         $conectar = parent::Connection();

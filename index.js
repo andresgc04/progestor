@@ -16,7 +16,7 @@ newUserClientButton.addEventListener("click", () => {
 
   //Initialize Date picker:
   $("#fechaNacimiento").datetimepicker({
-    format: "L",
+    format: "YYYY/MM/DD",
   });
 
   getSelectListTypesClientsOptions(

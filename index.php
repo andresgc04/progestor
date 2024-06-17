@@ -159,6 +159,9 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script src="public/lib/adminLTE/plugins/bs-stepper/js/bs-stepper.min.js"></script>
     <!-- dropzonejs -->
     <script src="public/lib/adminLTE/plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="public/lib/adminLTE/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="public/lib/adminLTE/plugins/jquery-validation/additional-methods.min.js"></script>
 
     <script type="text/javascript" src="public/js/functions/select2-elements/set-select2-elements.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_types_clients_options.js"></script>
@@ -168,6 +171,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_cities_options.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="new-user-client.js"></script>
 </body>
 
 </html>

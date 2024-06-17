@@ -30,7 +30,7 @@ switch ($_GET['op']) {
             $_POST['correoElectronico'],
             $_POST['tipoClienteID'],
             $_POST['nuevoNombreUsuario'],
-            $_POST[$hashed_password],
+            $hashed_password,
             $_POST[$creadoPor]
         );
         break;
