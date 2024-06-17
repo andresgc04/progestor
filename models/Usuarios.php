@@ -45,4 +45,93 @@ class Usuarios extends Connection
             }
         }
     }
+
+    public function registrar_usuarios_clientes(
+        $primerNombre,
+        $segundoNombre,
+        $primerApellido,
+        $segundoApellido,
+        $sexoID,
+        $cedula,
+        $fechaNacimiento,
+        $nacionalidadID,
+        $paisID,
+        $provinciaID,
+        $ciudadID,
+        $direccion,
+        $telefonoResidencial,
+        $telefonoCelular,
+        $correoElectronico,
+        $tipoClienteID,
+
+        $nombreUsuario,
+        $password,
+
+        $creadoPor
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $queryInsertCliente = 'INSERT INTO CLIENTES (PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, 
+                                                     SEXO_ID, CEDULA, FECHA_NACIMIENTO, NACIONALIDAD_ID,
+                                                     PAIS_ID, PROVINCIA_ID, CIUDAD_ID, DIRECCION,
+                                                     TELEFONO_RESIDENCIAL, TELEFONO_CELULAR, CORREO_ELECTRONICO, TIPO_CLIENTE_ID,
+                                                     ESTADO_ID, CREADO_POR, FECHA_CREACION
+                                                    )
+                                              VALUES(?, ?, ?, ?,
+                                                     ?, ?, ?, ?,
+                                                     ?, ?, ?, ?,
+                                                     ?, ?, ?, ?,
+                                                     1, ?, NOW() 
+                                                    );
+                              ';
+
+        $queryInsertCliente = $conectar->prepare($queryInsertCliente);
+        $queryInsertCliente->bindValue(1, $primerNombre);
+        $queryInsertCliente->bindValue(2, $segundoNombre);
+        $queryInsertCliente->bindValue(3, $primerApellido);
+        $queryInsertCliente->bindValue(4, $segundoApellido);
+        $queryInsertCliente->bindValue(5, $sexoID);
+        $queryInsertCliente->bindValue(6, $cedula);
+        $queryInsertCliente->bindValue(7, $fechaNacimiento);
+        $queryInsertCliente->bindValue(8, $nacionalidadID);
+        $queryInsertCliente->bindValue(9, $paisID);
+        $queryInsertCliente->bindValue(10, $provinciaID);
+        $queryInsertCliente->bindValue(11, $ciudadID);
+        $queryInsertCliente->bindValue(12, $direccion);
+        $queryInsertCliente->bindValue(13, $telefonoResidencial);
+        $queryInsertCliente->bindValue(14, $telefonoCelular);
+        $queryInsertCliente->bindValue(15, $correoElectronico);
+        $queryInsertCliente->bindValue(16, $tipoClienteID);
+        $queryInsertCliente->bindValue(17, $creadoPor);
+        $queryInsertCliente->execute();
+
+        //Obtener el cliente_id del registro insertado de un nuevo cliente:
+        $clienteID = $conectar->lastInsertId();
+
+        $queryInsertUser = 'INSERT INTO USUARIOS (CLIENTE_ID, NOMBRE_USUARIO, PASSWORD, ESTADO_ID, CREADO_POR, FECHA_CREACION)
+                                           VALUES(?, ?, ?, 1, ?, NOW());
+                           ';
+
+        $queryInsertUser = $conectar->prepare($queryInsertUser);
+        $queryInsertUser->bindValue(1, $clienteID);
+        $queryInsertUser->bindValue(2, $nombreUsuario);
+        $queryInsertUser->bindValue(3, $password);
+        $queryInsertUser->bindValue(4, $creadoPor);
+        $queryInsertUser->execute();
+
+        //Obtener el usuario_id del registro insertado de un nuevo usuario:
+        $usuarioID = $conectar->lastInsertId();
+
+        $queryInsertUsersRoles = 'INSERT INTO USUARIOS_ROLES (USUARIO_ID, ROL_ID, ESTADO_ID, CREADO_POR, FECHA_CREACION)
+                                                       VALUES(?, 2, 1, ?, NOW());
+                                 ';
+
+        $queryInsertUsersRoles = $conectar->prepare($queryInsertUsersRoles);
+        $queryInsertUsersRoles->bindValue(1, $usuarioID);
+        $queryInsertUsersRoles->bindValue(2, $creadoPor);
+        $queryInsertUsersRoles->execute();
+
+        return $resultado = $queryInsertUsersRoles->fetchAll();
+    }
 }
