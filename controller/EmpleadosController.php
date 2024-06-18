@@ -19,9 +19,9 @@ switch ($_GET['op']) {
             $sub_array[] = $row['puestos'];
             $sub_array[] = $row['departamentos'];
             $sub_array[] = $row['supervisores'];
-            $sub_array[] = $row['fecha_contratacion'];
+            $sub_array[] = $row['fechas_contrataciones'];
 
-            if ($row['ESTADO'] === "ACTIVO") {
+            if ($row['estados'] === "ACTIVO") {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
             }
 

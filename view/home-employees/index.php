@@ -71,7 +71,7 @@ if (isset($usuarioID)) {
                                                                 <th>PUESTOS</th>
                                                                 <th>DEPARTAMENTOS</th>
                                                                 <th>SUPERVISOR</th>
-                                                                <th>FECHA DE CONTRATACI&Oacute;N</th>
+                                                                <th>FECHA CONTRATACI&Oacute;N</th>
                                                                 <th>ESTADOS</th>
                                                                 <th>ACCIONES</th>
                                                             </tr>

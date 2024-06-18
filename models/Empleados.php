@@ -12,7 +12,7 @@ class Empleados extends Connection
                        UCASE(puestos.puesto) AS puestos, UCASE(departamentos.departamento) AS departamentos,
                        UCASE(CONCAT(supervisores.primer_nombre, ' ', supervisores.segundo_nombre, '', 
                        supervisores.primer_apellido, ' ', supervisores.segundo_apellido)) AS supervisores,
-                       empleados.fecha_contratacion, UCASE(estados.estado) estados
+                       DATE_FORMAT(empleados.fecha_contratacion, '%d/%m/%Y') AS fechas_contrataciones, UCASE(estados.estado) AS estados
                   FROM EMPLEADOS empleados
                        INNER JOIN PUESTOS puestos
                     ON empleados.puesto_id = puestos.puesto_id
