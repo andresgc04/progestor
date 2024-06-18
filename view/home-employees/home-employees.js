@@ -63,3 +63,12 @@ const obtenerListadoEmpleadosDataTable = () => {
 (function () {
   obtenerListadoEmpleadosDataTable();
 })();
+
+const goNewEmployeesForm = () => {
+  window.location.href = "../new-employees/";
+};
+
+const newEmployeesButton = document.getElementById("newEmployeesButton");
+newEmployeesButton.addEventListener("click", function () {
+  goNewEmployeesForm();
+});

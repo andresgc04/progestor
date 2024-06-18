@@ -10,6 +10,8 @@
 <script src="../../public/lib/adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../public/lib/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../../public/lib/adminLTE/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <!-- Select2 -->
 <script src="../../public/lib/adminLTE/plugins/select2/js/select2.full.min.js"></script>
 <!-- ChartJS -->
@@ -24,6 +26,8 @@
 <!-- daterangepicker -->
 <script src="../../public/lib/adminLTE/plugins/moment/moment.min.js"></script>
 <script src="../../public/lib/adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../../public/lib/adminLTE/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="../../public/lib/adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
@@ -47,6 +51,13 @@
 <script src="../../public/lib/adminLTE/dist/js/adminlte.js"></script>
 <!-- SweetAlert2 -->
 <script src="../../public/lib/adminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- InputMask -->
+<script src="../../public/lib/adminLTE/plugins/moment/moment.min.js"></script>
+<script src="../../public/lib/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- BS-Stepper -->
+<script src="../../public/lib/adminLTE/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="../../public/lib/adminLTE/plugins/dropzone/min/dropzone.min.js"></script>
 <!-- jquery-validation -->
 <script src="../../public/lib/adminLTE/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="../../public/lib/adminLTE/plugins/jquery-validation/additional-methods.min.js"></script>
