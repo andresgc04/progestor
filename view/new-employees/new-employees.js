@@ -89,3 +89,189 @@ departamentoSelectInput.onchange = (event) => {
     "#supervisorID"
   );
 };
+
+function saveNewEmployee() {
+  let newEmployeesFormData = new FormData($("#newEmployeesForm")[0]);
+
+  $.ajax({
+    url: "../../controller/EmpleadosController.php?op=registrar_empleado",
+    type: "POST",
+    data: newEmployeesFormData,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Empleado Registrado Correctamente",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.href = "../home-employees/";
+        })
+      );
+    },
+    error: function (data) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Ocurrio un error inesperado",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    },
+  });
+}
+
+$(function () {
+  $.validator.setDefaults({
+    submitHandler: function () {
+      saveNewEmployee();
+    },
+  });
+
+  $("#newEmployeesForm").validate({
+    rules: {
+      primerNombre: {
+        required: true,
+      },
+      primerApellido: {
+        required: true,
+      },
+      sexoID: {
+        required: true,
+      },
+      estadoCivilID: {
+        required: true,
+      },
+      cedula: {
+        required: true,
+      },
+      fechaNacimiento: {
+        required: true,
+      },
+      nacionalidadID: {
+        required: true,
+      },
+      paisID: {
+        required: true,
+      },
+      provinciaID: {
+        required: true,
+      },
+      ciudadID: {
+        required: true,
+      },
+      direccion: {
+        required: true,
+      },
+      telefonoResidencial: {
+        required: true,
+      },
+      telefonoCelular: {
+        required: true,
+      },
+      correoElectronico: {
+        required: true,
+      },
+      puestoID: {
+        required: true,
+      },
+      departamentoID: {
+        required: true,
+      },
+      supervisorID: {
+        required: true,
+      },
+      salario: {
+        required: true,
+      },
+      numeroSeguridadSocial: {
+        required: true,
+      },
+      fechaContratacion: {
+        required: true,
+      },
+    },
+    messages: {
+      primerNombre: {
+        required: "Por favor ingrese el primer nombre.",
+      },
+      primerApellido: {
+        required: "Por favor ingrese el primer apellido.",
+      },
+      sexoID: {
+        required: "Por favor seleccione el sexo.",
+      },
+      estadoCivilID: {
+        required: "Por favor seleccione el estado civil.",
+      },
+      cedula: {
+        required: "Por favor ingrese la cedula.",
+      },
+      fechaNacimiento: {
+        required: "Por favor seleccione la fecha de nacimiento.",
+      },
+      nacionalidadID: {
+        required: "Por favor seleccione la nacionalidad.",
+      },
+      paisID: {
+        required: "Por favor seleccione el país.",
+      },
+      provinciaID: {
+        required: "Por favor seleccione la provincia.",
+      },
+      ciudadID: {
+        required: "Por favor seleccione la ciudad.",
+      },
+      direccion: {
+        required: "Por favor ingrese la dirección.",
+      },
+      telefonoResidencial: {
+        required: "Por favor ingrese el télefono residencial.",
+      },
+      telefonoCelular: {
+        required: "Por favor ingrese el télefono celular.",
+      },
+      correoElectronico: {
+        required: "Por favor ingrese el correo electrónico.",
+      },
+      puestoID: {
+        required: "Por favor seleccione el puesto.",
+      },
+      departamentoID: {
+        required: "Por favor seleccione el departamento.",
+      },
+      supervisorID: {
+        required: "Por favor seleccione el supervisor.",
+      },
+      salario: {
+        required: "Por favor ingrese el salario del empleado.",
+      },
+      numeroSeguridadSocial: {
+        required: "Por favor ingrese el número social del empleado.",
+      },
+      fechaContratacion: {
+        required: "Por favor seleccione la fecha de contratación.",
+      },
+    },
+    errorElement: "span",
+    errorPlacement: function (error, element) {
+      error.addClass("invalid-feedback");
+      element.closest(".form-group").append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass("is-invalid");
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass("is-invalid");
+    },
+  });
+});

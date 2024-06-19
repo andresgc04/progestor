@@ -240,7 +240,10 @@ if (isset($usuarioID)) {
                                         </div>
                                         <!-- /.card-body -->
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <div class="d-flex justify-content-between">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="mr-2">Cancelar</span><span><i class="fas fa-times-circle"></i></span></button>
+                                                <button type="submit" class="btn btn-primary"><span class="mr-2">Guardar</span><span><i class="fas fa-save"></i></span></button>
+                                            </div>
                                         </div>
                                         <!-- /.card-footer -->
                                     </form>
