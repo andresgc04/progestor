@@ -45,4 +45,17 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_supervisores_por_departamentoID':
+        $datos = $empleados->obtener_listado_opciones_supervisores_por_departamentoID($_POST['departamentoID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el supervisor.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['EMPLEADO_ID'] . '">' . $row['SUPERVISORES'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
