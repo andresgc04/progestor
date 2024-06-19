@@ -30,4 +30,34 @@ class Empleados extends Connection
 
       return $resultado = $query->fetchAll();
    }
+
+   public function obtener_listado_opciones_supervisores_por_departamentoID($departamentoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = "SELECT empleados.EMPLEADO_ID,
+                       UCASE(CONCAT(empleados.PRIMER_NOMBRE, ' ', empleados.SEGUNDO_NOMBRE, ' ',
+                       empleados.PRIMER_APELLIDO, ' ', empleados.SEGUNDO_APELLIDO)) 
+                    AS SUPERVISORES
+                  FROM EMPLEADOS empleados
+            INNER JOIN PUESTOS puestos
+                    ON empleados.PUESTO_ID = puestos.PUESTO_ID
+                 WHERE empleados.DEPARTAMENTO_ID = 1
+                   AND puestos.PUESTO 
+                    IN ('Gerente de Proyecto', 
+                        'Director de Proyectos',
+                        'Jefe de Obra',
+                        'Supervisor de Obra',
+                        'Gerente De Tecnología De La Información',
+                        'Gerente De Recursos Humanos')
+                    AND empleados.ESTADO_ID = 1;
+                ";
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $departamentoID);
+      $query->execute();
+
+      return $resultado = $query->fetchAll();
+   }
 }
