@@ -27,6 +27,11 @@ setBreadCrumbContentHeaderSubTitle("Registrar Nuevo Empleado");
     "#sexoID"
   );
 
+  getSelectListMaritalStatusesOptions(
+    "../../controller/EstadosCivilesController.php?op=obtener_listado_opciones_estados_civiles",
+    "#estadoCivilID"
+  );
+
   getSelectListNationalitiesOptions(
     "../../controller/NacionalidadesController.php?op=obtener_listado_opciones_nacionalidades",
     "#nacionalidadID"
@@ -35,6 +40,16 @@ setBreadCrumbContentHeaderSubTitle("Registrar Nuevo Empleado");
   getSelectListCountriesOptions(
     "../../controller/PaisesController.php?op=obtener_listado_opciones_paises",
     "#paisID"
+  );
+
+  getSelectListPositionsOptions(
+    "../../controller/PuestosController.php?op=obtener_listado_opciones_puestos",
+    "#puestoID"
+  );
+
+  getSelectListDepartmentOptions(
+    "../../controller/DepartamentosController.php?op=obtener_listado_opciones_departamentos",
+    "#departamentoID"
   );
 })();
 
@@ -59,5 +74,18 @@ provinciaSelectInput.onchange = (event) => {
     paisID,
     provinciaID,
     "#ciudadID"
+  );
+};
+
+const departamentoSelectInput = document.getElementById("departamentoID");
+departamentoSelectInput.onchange = (event) => {
+  const departamentoID = event.target.value;
+
+  console.log(departamentoID);
+
+  getSelectListSupervisorsOptionsByDepartamentoID(
+    "../../controller/EmpleadosController.php?op=obtener_listado_opciones_supervisores_por_departamentoID",
+    departamentoID,
+    "#supervisorID"
   );
 };

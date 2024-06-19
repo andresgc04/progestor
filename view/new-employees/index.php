@@ -273,10 +273,14 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/select2-elements/set-select2-elements.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_sex_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_marital_statuses.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_nationalities_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_cities_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_positions.options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_department_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_employees_options.js"></script>
         <script type="text/javascript" src="new-employees.js"></script>
     </body>
 

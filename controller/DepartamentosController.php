@@ -15,7 +15,7 @@ switch ($_GET['op']) {
             $html .= '<option selected disabled>Por favor seleccione el departamento.</option>';
 
             foreach ($datos as $row) {
-                $html .= '<option value="' . $row['DEPARTAMENTO_ID'] . '">"' . $row['DEPARTAMENTO'] . '"</option>';
+                $html .= '<option value="' . $row['DEPARTAMENTO_ID'] . '">' . $row['DEPARTAMENTO'] . '</option>';
             }
 
             echo $html;

@@ -43,7 +43,7 @@ class Empleados extends Connection
                   FROM EMPLEADOS empleados
             INNER JOIN PUESTOS puestos
                     ON empleados.PUESTO_ID = puestos.PUESTO_ID
-                 WHERE empleados.DEPARTAMENTO_ID = 1
+                 WHERE empleados.DEPARTAMENTO_ID = ?
                    AND puestos.PUESTO 
                     IN ('Gerente de Proyecto', 
                         'Director de Proyectos',
