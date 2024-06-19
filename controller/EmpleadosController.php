@@ -8,6 +8,33 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $empleados = new Empleados();
 
 switch ($_GET['op']) {
+    case "registrar_empleado":
+        $empleados->registrar_empleado(
+            $_POST['primerNombre'],
+            $_POST['segundoNombre'],
+            $_POST['primerApellido'],
+            $_POST['segundoApellido'],
+            $_POST['sexoID'],
+            $_POST['estadoCivilID'],
+            $_POST['cedula'],
+            $_POST['fechaNacimiento'],
+            $_POST['nacionalidadID'],
+            $_POST['paisID'],
+            $_POST['provinciaID'],
+            $_POST['ciudadID'],
+            $_POST['direccion'],
+            $_POST['telefonoResidencial'],
+            $_POST['telefonoCelular'],
+            $_POST['correoElectronico'],
+            $_POST['puestoID'],
+            $_POST['departamentoID'],
+            $_POST['supervisorID'],
+            $_POST['salario'],
+            $_POST['numeroSeguridadSocial'],
+            $_POST['fechaContratacion'],
+            $creadoPor
+        );
+        break;
     case 'listado_empleados':
         $datos = $empleados->listado_empleados();
         $data = array();
