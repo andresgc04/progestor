@@ -37,3 +37,27 @@ setBreadCrumbContentHeaderSubTitle("Registrar Nuevo Empleado");
     "#paisID"
   );
 })();
+
+const paisSelectInput = document.getElementById("paisID");
+paisSelectInput.onchange = (event) => {
+  const paisID = event.target.value;
+
+  getSelectListProvincesOptionsByPaisID(
+    "../../controller/ProvinciasController.php?op=obtener_listado_opciones_provincias_por_paisID",
+    paisID,
+    "#provinciaID"
+  );
+};
+
+const provinciaSelectInput = document.getElementById("provinciaID");
+provinciaSelectInput.onchange = (event) => {
+  const paisID = document.getElementById("paisID").value;
+  const provinciaID = event.target.value;
+
+  getSelectListCitiesOptionsByPaisIDAndProvinciaID(
+    "../../controller/CiudadesController.php?op=obtener_listado_opciones_ciudades_por_paisID_provinciaID",
+    paisID,
+    provinciaID,
+    "#ciudadID"
+  );
+};

@@ -275,6 +275,8 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_sex_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_nationalities_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_cities_options.js"></script>
         <script type="text/javascript" src="new-employees.js"></script>
     </body>
 
