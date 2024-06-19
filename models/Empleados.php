@@ -1,6 +1,80 @@
 <?php
 class Empleados extends Connection
 {
+   public function registrar_empleado(
+      $primerNombre,
+      $segundoNombre,
+      $primerApellido,
+      $segundoApellido,
+      $sexoID,
+      $estadoCivilID,
+      $cedula,
+      $fechaNacimiento,
+      $nacionalidadID,
+      $paisID,
+      $provinciaID,
+      $ciudadID,
+      $direccion,
+      $telefonoResidencial,
+      $telefonoCelular,
+      $correoElectronico,
+      $puestoID,
+      $departamentoID,
+      $supervisorID,
+      $salario,
+      $numeroSeguridadSocial,
+      $fechaContratacion,
+      $creadoPor
+   ) {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'INSERT INTO EMPLEADOS (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido,
+                                       sexo_id, estado_civil_id, cedula, fecha_nacimiento,
+                                       nacionalidad_id, pais_id, provincia_id, ciudad_id,
+                                       direccion, telefono_residencial, telefono_celular,
+                                       correo_electronico, puesto_id, departamento_id, supervisor_id,
+                                       salario, numero_seguridad_social, fecha_contratacion,
+                                       estado_id, creado_por, fecha_creacion
+                                       )
+                                 VALUES(?, ?, ?, ?,
+                                        ?, ?, ?, ?,
+                                        ?, ?, ?, ?,
+                                        ?, ?, ?,
+                                        ?, ?, ?, ?,
+                                        ?, ?, ?,
+                                        1, ?, NOW() 
+                                       );';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $primerNombre);
+      $query->bindValue(2, $segundoNombre);
+      $query->bindValue(3, $primerApellido);
+      $query->bindValue(4, $segundoApellido);
+      $query->bindValue(5, $sexoID);
+      $query->bindValue(6, $estadoCivilID);
+      $query->bindValue(7, $cedula);
+      $query->bindValue(8, $fechaNacimiento);
+      $query->bindValue(9, $nacionalidadID);
+      $query->bindValue(10, $paisID);
+      $query->bindValue(11, $provinciaID);
+      $query->bindValue(12, $ciudadID);
+      $query->bindValue(13, $direccion);
+      $query->bindValue(14, $telefonoResidencial);
+      $query->bindValue(15, $telefonoCelular);
+      $query->bindValue(16, $correoElectronico);
+      $query->bindValue(17, $puestoID);
+      $query->bindValue(18, $departamentoID);
+      $query->bindValue(19, $supervisorID);
+      $query->bindValue(20, $salario);
+      $query->bindValue(21, $numeroSeguridadSocial);
+      $query->bindValue(22, $fechaContratacion);
+      $query->bindValue(23, $creadoPor);
+      $query->execute();
+
+      return $resultado = $query->fetchAll();
+   }
+
    public function listado_empleados()
    {
       $conectar = parent::Connection();
