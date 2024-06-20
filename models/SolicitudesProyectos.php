@@ -1,7 +1,7 @@
 <?php
 class SolicitudesProyectos extends Connection
 {
-    public function listado_solicitudes_proyectos()
+    public function listado_solicitudes_proyectos_por_usuarioID($usuarioID)
     {
         $conectar = parent::Connection();
         parent::set_names();
@@ -18,11 +18,12 @@ class SolicitudesProyectos extends Connection
                       ON usuarios.cliente_id = clientes.cliente_id
                          INNER JOIN ESTADOS estados
                       ON solicitudesProyectos.estado_id = estados.estado_id
-                   WHERE solicitudesProyectos.creado_por = ''
+                   WHERE solicitudesProyectos.creado_por = ?
                 ORDER BY solicitudesProyectos.solicitud_proyecto_id DESC, 
                          solicitudesProyectos.fecha_creacion DESC;";
 
         $query = $conectar->prepare($query);
+        $query->bindValue(1, $usuarioID);
         $query->execute();
 
         return $resultado = $query->fetchAll();
