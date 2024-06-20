@@ -65,3 +65,14 @@ const obtenerListadoUsuariosAsignadosEmpleadosDataTable = () => {
 (function () {
   obtenerListadoUsuariosAsignadosEmpleadosDataTable();
 })();
+
+const openNewAssignUserEmployeeForm = () => {
+  window.location.href = "../new-assign-user-employee/";
+};
+
+const newAssignUserEmployeeButton = document.getElementById(
+  "newAssignUserEmployeeButton"
+);
+newAssignUserEmployeeButton.addEventListener("click", () => {
+  openNewAssignUserEmployeeForm();
+});

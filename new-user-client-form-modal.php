@@ -150,7 +150,7 @@
                         <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="nuevoPassword">Password:</label>
-                                <input type="nuevoPassword" id="nuevoPassword" name="nuevoPassword" class="form-control" placeholder="Ingrese el password.">
+                                <input type="password" id="nuevoPassword" name="nuevoPassword" class="form-control" placeholder="Ingrese el password.">
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
