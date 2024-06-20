@@ -134,4 +134,24 @@ class Empleados extends Connection
 
       return $resultado = $query->fetchAll();
    }
+
+   public function obtener_listado_opciones_empleados()
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = "SELECT empleado_id, UCASE(CONCAT(primer_nombre, ' ',
+                                                 segundo_nombre, ' ',
+                                                 primer_apellido, ' ',
+                                                 segundo_apellido, ' - ',
+                                                 cedula
+                                               )) AS empleados
+                  FROM EMPLEADOS
+                 WHERE estado_id = 1;";
+
+      $query = $conectar->prepare($query);
+      $query->execute();
+
+      return $resultado = $query->fetchAll();
+   }
 }
