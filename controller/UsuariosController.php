@@ -34,4 +34,38 @@ switch ($_GET['op']) {
             $_POST[$creadoPor]
         );
         break;
+    case 'listado_usuarios_asignados_empleados':
+        $datos = $usuarios->listado_usuarios_asignados_empleados();
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['usuario_id'];
+            $sub_array[] = $row['empleados'];
+            $sub_array[] = $row['usuarios'];
+            $sub_array[] = $row['roles'];
+
+            if ($row['estados'] === "ACTIVO") {
+                $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
+            }
+
+            $sub_array[] = '<td class="text-right py-0 align-middle">
+                                <div class="btn-group btn-group-sm">
+                                    <button type="button" id="' . $row['usuario_id'] . '" onclick="verDetalleUsuariosAsignadosEmpleados(' . $row['usuario_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" id="' . $row['usuario_id'] . '" onclick="eliminarUsuarioAsignadoEmpleado(' . $row['usuario_id'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
+        break;
 }

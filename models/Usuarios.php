@@ -150,7 +150,7 @@ class Usuarios extends Connection
                          ) AS empleados,
                          UCASE(usuarios.nombre_usuario) AS usuarios,
                          UCASE(roles.rol) AS roles,
-                         UCASE(estados.estado) estados
+                         UCASE(estados.estado) AS estados
                     FROM USUARIOS usuarios
               INNER JOIN EMPLEADOS empleados
                       ON usuarios.empleado_id = empleados.empleado_id
