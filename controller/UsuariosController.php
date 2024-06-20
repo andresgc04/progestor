@@ -9,8 +9,12 @@ $usuarios = new Usuarios();
 
 //Codificar el password con hash:
 $hashed_password = password_hash($_POST['nuevoPassword'], PASSWORD_DEFAULT);
+$hashed_user_employee_password = password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT);
 
 switch ($_GET['op']) {
+    case 'registrar_usuarios_empleados':
+        $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], $hashed_user_employee_password, $_POST['rolID'], $creadoPor);
+        break;
     case 'registrar_usuarios_clientes':
         $usuarios->registrar_usuarios_clientes(
             $_POST['primerNombre'],
