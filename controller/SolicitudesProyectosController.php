@@ -9,6 +9,9 @@ $creadoPor = $usuarioID;
 $solicitudesProyectos = new SolicitudesProyectos();
 
 switch ($_GET['op']) {
+    case 'registrar_solicitudes_proyectos':
+        $solicitudesProyectos->registrar_solicitudes_proyectos($_POST['descripcionProyecto'], $_POST['objetivoProyecto'], $_POST['presupuesto'], $_POST['requerimientoSolicitudProyecto'], $creadoPor);
+        break;
     case 'listado_solicitudes_proyectos_por_usuarioID':
         $datos = $solicitudesProyectos->listado_solicitudes_proyectos_por_usuarioID($usuarioID);
         $data = array();
