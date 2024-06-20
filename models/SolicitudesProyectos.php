@@ -5,52 +5,69 @@ class SolicitudesProyectos extends Connection
       $descripcionProyecto,
       $objetivoProyecto,
       $presupuestoProyecto,
-
       $descripcionRequerimiento,
-
       $creadoPor
    ) {
       $conectar = parent::Connection();
       parent::set_names();
 
-      $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (descripcion_proyecto,
-                                                                               objetivo_proyecto,
-                                                                               presupuesto_proyecto,
-                                                                               estado_id,
-                                                                               creado_por,
-                                                                               fecha_creacion
-                                                                              )
-                                                                        VALUES(?, ?, ?, 1, ?, NOW());';
+      try {
+         // Iniciar la transacción
+         $conectar->beginTransaction();
 
-      $queryInsertarSolicitudesProyectos = $conectar->prepare($queryInsertarSolicitudesProyectos);
-      $queryInsertarSolicitudesProyectos->bindValue(1, $descripcionProyecto);
-      $queryInsertarSolicitudesProyectos->bindValue(2, $objetivoProyecto);
-      $queryInsertarSolicitudesProyectos->bindValue(3, $presupuestoProyecto);
-      $queryInsertarSolicitudesProyectos->bindValue(4, $creadoPor);
-      $queryInsertarSolicitudesProyectos->execute();
+         // Insertar la solicitud del proyecto
+         $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (
+              descripcion_proyecto,
+              objetivo_proyecto,
+              presupuesto_proyecto,
+              estado_id,
+              creado_por,
+              fecha_creacion
+          ) VALUES (?, ?, ?, 1, ?, NOW())';
 
-      $solicitudProyectoID = $conectar->lastInsertId();
+         $stmtSolicitud = $conectar->prepare($queryInsertarSolicitudesProyectos);
+         $stmtSolicitud->execute([
+            $descripcionProyecto,
+            $objetivoProyecto,
+            $presupuestoProyecto,
+            $creadoPor
+         ]);
 
-      $countDescripcionRequerimiento = count($descripcionRequerimiento);
+         // Obtener el ID de la última inserción
+         $solicitudProyectoID = $conectar->lastInsertId();
 
-      for ($requerimientoSolicitudProyectoIndex = 0; $requerimientoSolicitudProyectoIndex <= $countDescripcionRequerimiento; $requerimientoSolicitudProyectoIndex++) {
-         $queryInsertarRequerimientosSolicitudesProyectos = 'INSERT INTO REQUERIMIENTOS_SOLICITUDES_PROYECTOS (solicitud_proyecto_id,
-                                                                                                               descripcion_requerimiento,
-                                                                                                               estado_id,
-                                                                                                               creado_por,
-                                                                                                               fecha_creacion
-                                                                                                               )
-                                                                                                         VALUES(?, ?, 1, ?, NOW());';
+         // Preparar la consulta para los requerimientos
+         $queryInsertarRequerimientosSolicitudesProyectos = 'INSERT INTO REQUERIMIENTOS_SOLICITUDES_PROYECTOS (
+              solicitud_proyecto_id,
+              descripcion_requerimiento,
+              estado_id,
+              creado_por,
+              fecha_creacion
+          ) VALUES (?, ?, 1, ?, NOW())';
 
-         $queryInsertarRequerimientosSolicitudesProyectos = $conectar->prepare($queryInsertarRequerimientosSolicitudesProyectos);
-         $queryInsertarRequerimientosSolicitudesProyectos->bindValue(1, $solicitudProyectoID);
-         $queryInsertarRequerimientosSolicitudesProyectos->bindValue(2, $descripcionRequerimiento[$requerimientoSolicitudProyectoIndex]);
-         $queryInsertarRequerimientosSolicitudesProyectos->bindValue(3, $creadoPor);
-         $queryInsertarRequerimientosSolicitudesProyectos->execute();
+         $stmtRequerimiento = $conectar->prepare($queryInsertarRequerimientosSolicitudesProyectos);
+
+         // Insertar cada requerimiento
+         foreach ($descripcionRequerimiento as $requerimiento) {
+            $stmtRequerimiento->execute([
+               $solicitudProyectoID,
+               $requerimiento,
+               $creadoPor
+            ]);
+         }
+
+         // Confirmar la transacción
+         $conectar->commit();
+
+         return true;
+      } catch (Exception $e) {
+         // Revertir la transacción en caso de error
+         $conectar->rollBack();
+         error_log($e->getMessage());
+         return false;
       }
-
-      return $resultado = $queryInsertarRequerimientosSolicitudesProyectos->fetchAll();
    }
+
 
    public function listado_solicitudes_proyectos_por_usuarioID($usuarioID)
    {

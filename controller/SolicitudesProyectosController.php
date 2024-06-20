@@ -4,7 +4,7 @@ require_once('../models/SolicitudesProyectos.php');
 require_once('../public/php/constants/sessions-constants.php');
 
 $usuarioID = $_SESSION[$USUARIO_ID];
-$creadoPor = $usuarioID;
+$creadoPor = $_SESSION[$USUARIO_ID];
 
 $solicitudesProyectos = new SolicitudesProyectos();
 

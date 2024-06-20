@@ -32,3 +32,89 @@ const addProjectRequirementsButton = document.getElementById(
 addProjectRequirementsButton.onclick = function () {
   newProjectRequirements();
 };
+
+function saveNewProjectRequests() {
+  let newProjectRequestsFormData = new FormData(
+    $("#newProjectRequestsForm")[0]
+  );
+
+  $.ajax({
+    url: "../../controller/SolicitudesProyectosController.php?op=registrar_solicitudes_proyectos",
+    type: "POST",
+    data: newProjectRequestsFormData,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Solicitud Proyecto Registrado Correctamente",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.href = "../home-project-requests/";
+        })
+      );
+    },
+    error: function (data) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Ocurrio un error inesperado",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    },
+  });
+}
+
+$(function () {
+  $.validator.setDefaults({
+    submitHandler: function () {
+      saveNewProjectRequests();
+    },
+  });
+
+  $("#newProjectRequestsForm").validate({
+    rules: {
+      descripcionProyecto: {
+        required: true,
+      },
+      objetivoProyecto: {
+        required: true,
+      },
+      presupuesto: {
+        required: true,
+      },
+    },
+    messages: {
+      descripcionProyecto: {
+        required: "Por favor ingrese la descripcion del proyecto.",
+      },
+      objetivoProyecto: {
+        required: "Por favor ingrese el objetivo del proyecto.",
+      },
+      presupuesto: {
+        required: "Por favor ingrese el presupuesto destinado al proyecto.",
+      },
+    },
+    errorElement: "span",
+    errorPlacement: function (error, element) {
+      error.addClass("invalid-feedback");
+      element.closest(".form-group").append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass("is-invalid");
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass("is-invalid");
+    },
+  });
+});
