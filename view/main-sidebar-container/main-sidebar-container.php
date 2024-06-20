@@ -63,6 +63,23 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a id="navLinkUsers" href="#" class="nav-link">
+                        <i class="fas fa-user-shield nav-icon"></i>
+                        <p>
+                            Usuarios
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a id="navLinkHomeAssignUserEmployee" href="../home-assign-user-employee/" class="nav-link">
+                                <i class="fas fa-user nav-icon"></i>
+                                <p>Asignar Usuario A Empleado</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
                     <a id="navLinkMaterialResources" href="#" class="nav-link">
                         <i class="fas fa-warehouse nav-icon"></i>
                         <p>
