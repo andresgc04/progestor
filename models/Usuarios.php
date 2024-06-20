@@ -50,6 +50,48 @@ class Usuarios extends Connection
         }
     }
 
+    public function registrar_usuarios_empleados(
+        $empleadoID,
+        $nombreUsuario,
+        $password,
+
+        $rol,
+
+        $creadoPor
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $queryInsertUsuariosEmpleados = 'INSERT INTO USUARIOS (empleado_id,
+                                                               nombre_usuario,
+                                                               password,
+                                                               estado_id,
+                                                               creado_por,
+                                                               fecha_creacion)
+                                                        VALUES(?, ?, ?, 1, ?, NOW());';
+
+        $queryInsertUsuariosEmpleados = $conectar->prepare($queryInsertUsuariosEmpleados);
+        $queryInsertUsuariosEmpleados->bindValue(1, $empleadoID);
+        $queryInsertUsuariosEmpleados->bindValue(2, $nombreUsuario);
+        $queryInsertUsuariosEmpleados->bindValue(3, $password);
+        $queryInsertUsuariosEmpleados->bindValue(4, $creadoPor);
+        $queryInsertUsuariosEmpleados->execute();
+
+        //Obtener el usuario_id del registro insertado de un nuevo usuario:
+        $usuarioID = $conectar->lastInsertId();
+
+        $queryInsertUsersRoles = 'INSERT INTO USUARIOS_ROLES (USUARIO_ID, ROL_ID, ESTADO_ID, CREADO_POR, FECHA_CREACION)
+                                                       VALUES(?, ?, 1, ?, NOW());';
+
+        $queryInsertUsersRoles = $conectar->prepare($queryInsertUsersRoles);
+        $queryInsertUsersRoles->bindValue(1, $usuarioID);
+        $queryInsertUsersRoles->bindValue(2, $rol);
+        $queryInsertUsersRoles->bindValue(3, $creadoPor);
+        $queryInsertUsersRoles->execute();
+
+        return $resultado = $queryInsertUsersRoles->fetchAll();
+    }
+
     public function registrar_usuarios_clientes(
         $primerNombre,
         $segundoNombre,

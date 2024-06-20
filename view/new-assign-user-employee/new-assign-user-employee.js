@@ -19,4 +19,9 @@ setBreadCrumbContentHeaderSubTitle("Asignar Usuario A Empleado");
     "../../controller/EmpleadosController.php?op=obtener_listado_opciones_empleados",
     "#empleadoID"
   );
+
+  getSelectListRolesOptions(
+    "../../controller/RolesController.php?op=obtener_listado_opciones_roles",
+    "#rolID"
+  );
 })();
