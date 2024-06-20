@@ -63,3 +63,14 @@ const obtenerListadoSolicitudesProyectosPorUsuarioIDDataTable = () => {
 (function () {
   obtenerListadoSolicitudesProyectosPorUsuarioIDDataTable();
 })();
+
+const goNewProjectRequestsForm = () => {
+  window.location.href = "../new-project-requests/";
+};
+
+const newProjectRequestsButton = document.getElementById(
+  "newProjectRequestsButton"
+);
+newProjectRequestsButton.addEventListener("click", () => {
+  goNewProjectRequestsForm();
+});
