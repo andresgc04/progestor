@@ -6,7 +6,8 @@ class SolicitudesProyectos extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = "SELECT UCASE(solicitudesProyectos.descripcion_proyecto) AS descripcion_proyecto,
+        $query = "SELECT solicitudesProyectos.solicitud_proyecto_id,
+                         UCASE(solicitudesProyectos.descripcion_proyecto) AS descripcion_proyecto,
                          UCASE(solicitudesProyectos.objetivo_proyecto) AS objetivo_proyecto,
                          UCASE(solicitudesProyectos.creado_por) AS solicitado_por,
                          DATE_FORMAT(solicitudesProyectos.fecha_creacion, '%d/%m/%Y') AS fecha_solicitud,
