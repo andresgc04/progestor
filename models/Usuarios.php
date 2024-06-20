@@ -136,4 +136,36 @@ class Usuarios extends Connection
 
         return $resultado = $queryInsertUsersRoles->fetchAll();
     }
+
+    public function listado_usuarios_asignados_empleados()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = "SELECT usuarios.usuario_id,
+                         UCASE(CONCAT(empleados.primer_nombre, ' ',
+                         empleados.segundo_nombre, ' ',
+                         empleados.primer_apellido, ' ',
+                         empleados.segundo_apellido)
+                         ) AS empleados,
+                         UCASE(usuarios.nombre_usuario) AS usuarios,
+                         UCASE(roles.rol) AS roles,
+                         UCASE(estados.estado) estados
+                    FROM USUARIOS usuarios
+              INNER JOIN EMPLEADOS empleados
+                      ON usuarios.empleado_id = empleados.empleado_id
+                         INNER JOIN USUARIOS_ROLES usuariosRoles
+                      ON usuarios.usuario_id = usuariosRoles.usuario_id
+       	                 INNER JOIN ROLES roles 
+                      ON usuariosRoles.rol_id = roles.rol_id
+                         INNER JOIN ESTADOS estados
+                      ON usuarios.estado_id = estados.estado_id
+                   WHERE usuarios.estado_id = 1
+                ORDER BY usuarios.usuario_id DESC, usuarios.fecha_creacion DESC;";
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
