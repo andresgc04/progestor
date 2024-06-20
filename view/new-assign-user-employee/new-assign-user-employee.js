@@ -10,3 +10,13 @@ setBreadCrumbContentHeaderTitle(
 );
 
 setBreadCrumbContentHeaderSubTitle("Asignar Usuario A Empleado");
+
+(function () {
+  //Initialize Select2 Elements:
+  initializeSelect2Elements();
+
+  getSelectListEmployeesOptions(
+    "../../controller/EmpleadosController.php?op=obtener_listado_opciones_empleados",
+    "#empleadoID"
+  );
+})();
