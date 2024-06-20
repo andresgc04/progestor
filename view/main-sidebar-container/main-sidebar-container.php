@@ -51,6 +51,12 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a id="navLinkHomeProjectRequests" href="../home-project-requests/" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>Solicitudes Proyectos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a id="navLinkHomeEmployees" href="../home-employees/" class="nav-link">
                         <i class="nav-icon fas fa-user-tie"></i>
                         <p>Empleados</p>
