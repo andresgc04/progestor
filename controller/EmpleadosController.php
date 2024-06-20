@@ -85,4 +85,17 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_empleados':
+        $datos = $empleados->obtener_listado_opciones_empleados();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el empleado.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['empleado_id'] . '">' . $row['empleados'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
