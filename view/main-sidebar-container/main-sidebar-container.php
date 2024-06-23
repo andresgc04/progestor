@@ -137,6 +137,12 @@ $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
                                 <p>Provincias</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a id="navLinkHomeSuppliers" href="../home-suppliers/" class="nav-link">
+                                <i class="fas fa-people-arrows nav-icon"></i>
+                                <p>Tipos Proveedores</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
