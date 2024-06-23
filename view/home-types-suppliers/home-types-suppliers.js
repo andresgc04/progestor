@@ -8,6 +8,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Tipos De Proveedores");
 
+const openNewTypesSuppliersFormModal = () => {
+  $("#newTypesSuppliersFormModal").modal("show");
+};
+
+const newTypesSuppliersButton = document.getElementById(
+  "newTypesSuppliersButton"
+);
+newTypesSuppliersButton.addEventListener("click", () => {
+  openNewTypesSuppliersFormModal();
+});
+
 const obtenerListadoTiposProveedoresDataTable = () => {
   $("#listadoTiposProveedoresDataTable")
     .dataTable({
