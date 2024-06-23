@@ -53,7 +53,7 @@ if (isset($usuarioID)) {
                                         <div class="row mb-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="d-flex justify-content-end">
-                                                    <button id="newSuppliersButton" type="button" class="btn btn-primary">
+                                                    <button id="newTypesSuppliersButton" type="button" class="btn btn-primary">
                                                         <span class="mr-1">Registrar Nuevo Tipo De Proveedor</span>
                                                         <i class="fas fa-plus-circle"></i>
                                                     </button>
@@ -63,7 +63,7 @@ if (isset($usuarioID)) {
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="table-responsive">
-                                                    <table id="listadoProveedoresDataTable" class="table table-bordered table-striped">
+                                                    <table id="listadoTiposProveedoresDataTable" class="table table-bordered table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
@@ -82,7 +82,7 @@ if (isset($usuarioID)) {
                                 </div>
                                 <!-- /.card -->
 
-                                <?php require_once('components/new-suppliers.php') ?>
+                                <?php require_once('components/new-types-suppliers.php') ?>
                             </section>
                             <!-- /. col content -->
                         </div>
@@ -108,8 +108,8 @@ if (isset($usuarioID)) {
         <?php require_once('../scripts/scripts.php') ?>
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
-        <script type="text/javascript" src="home-suppliers.js"></script>
-        <script type="text/javascript" src="new-suppliers.js"></script>
+        <script type="text/javascript" src="home-types-suppliers.js"></script>
+        <script type="text/javascript" src="new-types-suppliers.js"></script>
     </body>
 
     </html>
