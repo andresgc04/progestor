@@ -37,7 +37,7 @@ const obtenerListadoTiposProveedoresDataTable = () => {
           console.log(e.responseText);
         },
       },
-      ordering: true,
+      ordering: false,
       bDestroy: true,
       responsive: true,
       bInfo: true,

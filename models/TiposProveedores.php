@@ -28,7 +28,8 @@ class TiposProveedores extends Connection
                     FROM TIPOS_PROVEEDORES tiposProveedores
                          INNER JOIN ESTADOS estados
                       ON tiposProveedores.estado_id = estados.estado_id
-                   WHERE tiposProveedores.ESTADO_ID = 1;';
+                   WHERE tiposProveedores.ESTADO_ID = 1
+                ORDER BY tiposProveedores.TIPO_PROVEEDOR_ID DESC, tiposProveedores.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
