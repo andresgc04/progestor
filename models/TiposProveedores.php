@@ -36,4 +36,19 @@ class TiposProveedores extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_listado_opciones_tipos_proveedores()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT TIPO_PROVEEDOR_ID, TIPO_PROVEEDOR 
+                    FROM TIPOS_PROVEEDORES
+                   WHERE ESTADO_ID = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
 }
