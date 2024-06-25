@@ -63,3 +63,12 @@ const obtenerListadoProveedoresDataTable = () => {
 (function () {
   obtenerListadoProveedoresDataTable();
 })();
+
+const goNewSuppliersForm = () => {
+  window.location.href = "../new-suppliers/";
+};
+
+const newSuppliersButton = document.getElementById("newSuppliersButton");
+newSuppliersButton.addEventListener("click", function () {
+  goNewSuppliersForm();
+});
