@@ -7,6 +7,7 @@ class Proveedores extends Connection
         parent::set_names();
 
         $query = 'SELECT proveedores.proveedor_id,
+                         UCASE(proveedores.nombre_proveedor) proveedor,
                          UCASE(tiposProveedores.tipo_proveedor) tipo_proveedor,
                          UCASE(estados.estado) estado
                     FROM PROVEEDORES proveedores
