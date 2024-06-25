@@ -8,6 +8,22 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $proveedores = new Proveedores();
 
 switch ($_GET['op']) {
+    case "registrar_proveedores":
+        $proveedores->registrar_proveedores(
+            $_POST['nombreProveedor'],
+            $_POST['paisID'],
+            $_POST['provinciaID'],
+            $_POST['ciudadID'],
+            $_POST['direccion'],
+            $_POST['telefono'],
+            $_POST['correoElectronico'],
+            $_POST['condicionPagoID'],
+            $_POST['tipoProveedorID'],
+            $_POST['nombreRepresentanteVentas'],
+            $_POST['contactoRepresentanteVentas'],
+            $creadoPor
+        );
+        break;
     case "listado_proveedores":
         $datos = $proveedores->listado_proveedores();
         $data = array();
