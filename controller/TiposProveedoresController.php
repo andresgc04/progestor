@@ -8,6 +8,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $tiposProveedores = new TiposProveedores();
 
 switch ($_GET['op']) {
+    case "registrar_tipos_proveedores":
+        $tiposProveedores->registrar_tipos_proveedores($_POST['tipoProveedor'], $creadoPor);
+        break;
     case "listado_tipos_proveedores":
         $datos = $tiposProveedores->listado_tipos_proveedores();
         $data = array();
