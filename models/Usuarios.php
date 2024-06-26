@@ -92,66 +92,69 @@ class Usuarios extends Connection
         return $resultado = $queryInsertUsersRoles->fetchAll();
     }
 
-    public function registrar_usuarios_clientes(
-        $primerNombre,
-        $segundoNombre,
-        $primerApellido,
-        $segundoApellido,
-        $sexoID,
-        $cedula,
-        $fechaNacimiento,
-        $nacionalidadID,
+    public function registrar_usuarios_clientes_individuales(
+        $nombreCliente,
+        $telefono,
+        $correoElectronico,
         $paisID,
         $provinciaID,
         $ciudadID,
         $direccion,
-        $telefonoResidencial,
-        $telefonoCelular,
-        $correoElectronico,
-        $tipoClienteID,
+
+        $apellidos,
+        $sexoID,
+        $cedula,
+        $fechaNacimiento,
+        $nacionalidadID,
+
         $nombreUsuario,
         $password,
+
         $creadoPor
     ) {
         $conectar = parent::Connection();
         parent::set_names();
 
-        $queryInsertCliente = 'INSERT INTO CLIENTES (PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, 
-                                                     SEXO_ID, CEDULA, FECHA_NACIMIENTO, NACIONALIDAD_ID,
-                                                     PAIS_ID, PROVINCIA_ID, CIUDAD_ID, DIRECCION,
-                                                     TELEFONO_RESIDENCIAL, TELEFONO_CELULAR, CORREO_ELECTRONICO, TIPO_CLIENTE_ID,
-                                                     ESTADO_ID, CREADO_POR, FECHA_CREACION
-                                                    )
-                                              VALUES(?, ?, ?, ?,
-                                                     ?, ?, ?, ?,
-                                                     ?, ?, ?, ?,
-                                                     ?, ?, ?, ?,
-                                                     1, ?, NOW() 
-                                                    );
-                              ';
+        $queryInsertCliente = 'INSERT INTO CLIENTES (nombre_cliente, tipo_cliente_id, telefono, correo_electronico, 
+                                                     pais_id, provincia_id, ciudad_id, direccion, estado_id,
+                                                     creado_por, fecha_creacion
+                                                     )
+                                               VALUES(
+                                                      ?, 5, ?, ?,
+                                                      ?, ?, ?, ?, 1,
+                                                      ?, NOW()
+                                                     );';
 
         $queryInsertCliente = $conectar->prepare($queryInsertCliente);
-        $queryInsertCliente->bindValue(1, $primerNombre);
-        $queryInsertCliente->bindValue(2, $segundoNombre);
-        $queryInsertCliente->bindValue(3, $primerApellido);
-        $queryInsertCliente->bindValue(4, $segundoApellido);
-        $queryInsertCliente->bindValue(5, $sexoID);
-        $queryInsertCliente->bindValue(6, $cedula);
-        $queryInsertCliente->bindValue(7, $fechaNacimiento);
-        $queryInsertCliente->bindValue(8, $nacionalidadID);
-        $queryInsertCliente->bindValue(9, $paisID);
-        $queryInsertCliente->bindValue(10, $provinciaID);
-        $queryInsertCliente->bindValue(11, $ciudadID);
-        $queryInsertCliente->bindValue(12, $direccion);
-        $queryInsertCliente->bindValue(13, $telefonoResidencial);
-        $queryInsertCliente->bindValue(14, $telefonoCelular);
-        $queryInsertCliente->bindValue(15, $correoElectronico);
-        $queryInsertCliente->bindValue(16, $tipoClienteID);
-        $queryInsertCliente->bindValue(17, $creadoPor);
+        $queryInsertCliente->bindValue(1, $nombreCliente);
+        $queryInsertCliente->bindValue(2, $telefono);
+        $queryInsertCliente->bindValue(3, $correoElectronico);
+        $queryInsertCliente->bindValue(4, $paisID);
+        $queryInsertCliente->bindValue(5, $provinciaID);
+        $queryInsertCliente->bindValue(6, $ciudadID);
+        $queryInsertCliente->bindValue(7, $direccion);
+        $queryInsertCliente->bindValue(8, $creadoPor);
         $queryInsertCliente->execute();
 
         //Obtener el cliente_id del registro insertado de un nuevo cliente:
         $clienteID = $conectar->lastInsertId();
+
+        $queryInsertClienteIndividual = 'INSERT INTO CLIENTES_INDIVIDUALES (cliente_id, apellidos, sexo_id, cedula, fecha_nacimiento,
+                                                                            nacionalidad_id, estado_id, creado_por, fecha_creacion
+                                                                           )
+                                                                     VALUES(?, ?, ?, ?, ?,
+                                                                            ?, 1, ?, NOW()
+                                                                           );';
+
+        $queryInsertClienteIndividual = $conectar->prepare($queryInsertClienteIndividual);
+        $queryInsertClienteIndividual->bindValue(1, $clienteID);
+        $queryInsertClienteIndividual->bindValue(2, $apellidos);
+        $queryInsertClienteIndividual->bindValue(3, $sexoID);
+        $queryInsertClienteIndividual->bindValue(4, $cedula);
+        $queryInsertClienteIndividual->bindValue(5, $fechaNacimiento);
+        $queryInsertClienteIndividual->bindValue(6, $nacionalidadID);
+        $queryInsertClienteIndividual->bindValue(7, $creadoPor);
+        $queryInsertClienteIndividual->execute();
 
         $queryInsertUser = 'INSERT INTO USUARIOS (CLIENTE_ID, NOMBRE_USUARIO, PASSWORD, ESTADO_ID, CREADO_POR, FECHA_CREACION)
                                            VALUES(?, ?, ?, 1, ?, NOW());

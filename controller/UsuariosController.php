@@ -8,34 +8,30 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $usuarios = new Usuarios();
 
 //Codificar el password con hash:
-$hashed_password = password_hash($_POST['nuevoPassword'], PASSWORD_DEFAULT);
+$hashed_password_individual_client = password_hash($_POST['nuevoPasswordClienteIndividual'], PASSWORD_DEFAULT);
 $hashed_user_employee_password = password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT);
 
 switch ($_GET['op']) {
     case 'registrar_usuarios_empleados':
         $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], $hashed_user_employee_password, $_POST['rolID'], $creadoPor);
         break;
-    case 'registrar_usuarios_clientes':
-        $usuarios->registrar_usuarios_clientes(
-            $_POST['primerNombre'],
-            $_POST['segundoNombre'],
-            $_POST['primerApellido'],
-            $_POST['segundoApellido'],
-            $_POST['sexoID'],
-            $_POST['cedula'],
-            $_POST['fechaNacimiento'],
-            $_POST['nacionalidadID'],
-            $_POST['paisID'],
-            $_POST['provinciaID'],
-            $_POST['ciudadID'],
-            $_POST['direccion'],
-            $_POST['telefonoResidencial'],
-            $_POST['telefonoCelular'],
-            $_POST['correoElectronico'],
-            $_POST['tipoClienteID'],
-            $_POST['nuevoNombreUsuario'],
-            $hashed_password,
-            $_POST[$creadoPor]
+    case 'registrar_usuarios_clientes_individuales':
+        $usuarios->registrar_usuarios_clientes_individuales(
+            $_POST['nombreClienteClienteIndividual'],
+            $_POST['telefonoClienteIndividual'],
+            $_POST['correoElectronicoClienteIndividual'],
+            $_POST['paisIDClienteIndividual'],
+            $_POST['provinciaIDClienteIndividual'],
+            $_POST['ciudadIDClienteIndividual'],
+            $_POST['direccionClienteIndividual'],
+            $_POST['apellidoClienteClienteIndividual'],
+            $_POST['sexoIDClienteIndividual'],
+            $_POST['cedulaClienteIndividual'],
+            $_POST['fechaNacimientoClienteIndividual'],
+            $_POST['nacionalidadIDClienteIndividual'],
+            $_POST['nuevoNombreUsuarioClienteIndividual'],
+            $hashed_password_individual_client,
+            $creadoPor
         );
         break;
     case 'listado_usuarios_asignados_empleados':

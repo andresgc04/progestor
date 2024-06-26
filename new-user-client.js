@@ -1,17 +1,19 @@
-function saveNewUserClient() {
-  let newUserClientFormData = new FormData($("#newUserClientForm")[0]);
+function saveNewUserIndividualClient() {
+  let newUserIndividualClientFormData = new FormData(
+    $("#newUserIndividualClientForm")[0]
+  );
 
   $.ajax({
-    url: "controller/UsuariosController.php?op=registrar_usuarios_clientes",
+    url: "controller/UsuariosController.php?op=registrar_usuarios_clientes_individuales",
     type: "POST",
-    data: newUserClientFormData,
+    data: newUserIndividualClientFormData,
     contentType: false,
     processData: false,
     success: function (data) {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Usuario Cliente Registrado Correctamente",
+        title: "Usuario Cliente Individual Registrado Correctamente",
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
@@ -41,120 +43,102 @@ function saveNewUserClient() {
 $(function () {
   $.validator.setDefaults({
     submitHandler: function () {
-      saveNewUserClient();
+      saveNewUserIndividualClient();
     },
   });
 
-  $("#newUserClientForm").validate({
+  $("#newUserIndividualClientForm").validate({
     rules: {
-      tipoClienteID: {
+      nombreClienteClienteIndividual: {
         required: true,
       },
-      primerNombre: {
+      apellidoClienteClienteIndividual: {
         required: true,
       },
-      primerApellido: {
+      sexoIDClienteIndividual: {
         required: true,
       },
-      segundoApellido: {
+      cedulaClienteIndividual: {
         required: true,
       },
-      sexoID: {
+      fechaNacimientoClienteIndividual: {
         required: true,
       },
-      cedula: {
+      nacionalidadIDClienteIndividual: {
         required: true,
       },
-      fechaNacimiento: {
+      telefonoClienteIndividual: {
         required: true,
       },
-      nacionalidadID: {
+      correoElectronicoClienteIndividual: {
         required: true,
       },
-      paisID: {
+      paisIDClienteIndividual: {
         required: true,
       },
-      provinciaID: {
+      provinciaIDClienteIndividual: {
         required: true,
       },
-      ciudadID: {
+      ciudadIDClienteIndividual: {
         required: true,
       },
-      direccion: {
+      direccionClienteIndividual: {
         required: true,
       },
-      telefonoResidencial: {
+      nuevoNombreUsuarioClienteIndividual: {
         required: true,
       },
-      telefonoCelular: {
+      nuevoPasswordClienteIndividual: {
         required: true,
       },
-      correoElectronico: {
-        required: true,
-      },
-      nuevoNombreUsuario: {
-        required: true,
-      },
-      nuevoPassword: {
-        required: true,
-      },
-      confirmarNuevoPassword: {
+      confirmarNuevoPasswordClienteIndividual: {
         required: true,
       },
     },
     messages: {
-      tipoClienteID: {
-        required: "Por favor seleccione el tipo de cliente.",
+      nombreClienteClienteIndividual: {
+        required: "Por favor ingrese el nombre.",
       },
-      primerNombre: {
-        required: "Por favor ingrese el primer nombre.",
+      apellidoClienteClienteIndividual: {
+        required: "Por favor ingrese el apellido.",
       },
-      primerApellido: {
-        required: "Por favor ingrese el primer apellido.",
-      },
-      segundoApellido: {
-        required: "Por favor ingrese el segundo apellido.",
-      },
-      sexoID: {
+      sexoIDClienteIndividual: {
         required: "Por favor seleccione el sexo.",
       },
-      cedula: {
+      cedulaClienteIndividual: {
         required: "Por favor ingrese la cedula.",
       },
-      fechaNacimiento: {
+      fechaNacimientoClienteIndividual: {
         required: "Por favor seleccione la fecha de nacimiento.",
       },
-      nacionalidadID: {
+      nacionalidadIDClienteIndividual: {
         required: "Por favor seleccione la nacionalidad.",
       },
-      paisID: {
+      telefonoClienteIndividual: {
+        required: "Por favor ingrese el télefono.",
+      },
+      correoElectronicoClienteIndividual: {
+        required: "Por favor ingrese el correo electronico.",
+      },
+      paisIDClienteIndividual: {
         required: "Por favor seleccione el país.",
       },
-      provinciaID: {
+      provinciaIDClienteIndividual: {
         required: "Por favor seleccione la provincia.",
       },
-      ciudadID: {
+      ciudadIDClienteIndividual: {
         required: "Por favor seleccione la ciudad.",
       },
-      direccion: {
+      direccionClienteIndividual: {
         required: "Por favor ingrese la dirección.",
       },
-      telefonoResidencial: {
-        required: "Por favor ingrese el télefono residencial.",
-      },
-      telefonoCelular: {
-        required: "Por favor ingrese el télefono celular.",
-      },
-      correoElectronico: {
-        required: "Por favor ingrese el correo electrónico.",
-      },
-      nuevoNombreUsuario: {
+      nuevoNombreUsuarioClienteIndividual: {
         required: "Por favor ingrese el nombre de usuario.",
       },
-      nuevoPassword: {
+      nuevoPasswordClienteIndividual: {
         required: "Por favor ingrese el password.",
       },
-      confirmarNuevoPassword: {
+      confirmarNuevoPasswordClienteIndividual: {
         required: "Por favor confirme el password.",
       },
     },

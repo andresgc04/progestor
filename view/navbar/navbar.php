@@ -21,8 +21,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-danger" href="../logout-option/logout.php">
-                <i class="fas fa-sign-out-alt"></i>
+            <a class="nav-link btn btn" href="../logout-option/logout.php">
+                <i class="fas fa-sign-out-alt" style="color:#dc3545"></i>
             </a>
         </li>
     </ul>

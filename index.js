@@ -1,10 +1,21 @@
-const openNewUserClientFormModal = () => {
-  $("#newUserClientFormModal").modal("show");
+const openSelectClientTypeModal = () => {
+  $("#selectClientTypeModal").modal("show");
 };
 
 const newUserClientButton = document.getElementById("newUserClientButton");
 newUserClientButton.addEventListener("click", () => {
-  openNewUserClientFormModal();
+  openSelectClientTypeModal();
+});
+
+const openNewUserIndividualClientFormModal = () => {
+  $("#newUserIndividualClientFormModal").modal("show");
+};
+
+const individualClientButton = document.getElementById(
+  "individualClientButton"
+);
+individualClientButton.addEventListener("click", () => {
+  openNewUserIndividualClientFormModal();
 });
 
 (function () {
@@ -15,59 +26,63 @@ newUserClientButton.addEventListener("click", () => {
   $("[data-mask]").inputmask();
 
   //Initialize Date picker:
-  $("#fechaNacimiento").datetimepicker({
+  $("#fechaNacimientoClienteIndividual").datetimepicker({
     format: "YYYY/MM/DD",
   });
 
-  getSelectListTypesClientsOptions(
-    "controller/TiposClientesController.php?op=obtener_listado_opciones_tipos_clientes",
-    "#tipoClienteID"
-  );
+  // getSelectListTypesClientsOptions(
+  //   "controller/TiposClientesController.php?op=obtener_listado_opciones_tipos_clientes",
+  //   "#tipoClienteID"
+  // );
 
   getSelectListSexOptions(
     "controller/SexosController.php?op=obtener_listado_opciones_sexos",
-    "#sexoID"
+    "#sexoIDClienteIndividual"
   );
 
   getSelectListNationalitiesOptions(
     "controller/NacionalidadesController.php?op=obtener_listado_opciones_nacionalidades",
-    "#nacionalidadID"
+    "#nacionalidadIDClienteIndividual"
   );
 
   getSelectListCountriesOptions(
     "controller/PaisesController.php?op=obtener_listado_opciones_paises",
-    "#paisID"
+    "#paisIDClienteIndividual"
   );
 })();
 
-const paisSelectInput = document.getElementById("paisID");
-paisSelectInput.onchange = (event) => {
+const paisSelectIndividualClientInput = document.getElementById(
+  "paisIDClienteIndividual"
+);
+paisSelectIndividualClientInput.onchange = (event) => {
   const paisID = event.target.value;
 
   getSelectListProvincesOptionsByPaisID(
     "controller/ProvinciasController.php?op=obtener_listado_opciones_provincias_por_paisID",
     paisID,
-    "#provinciaID"
+    "#provinciaIDClienteIndividual"
   );
 };
 
-const provinciaSelectInput = document.getElementById("provinciaID");
-provinciaSelectInput.onchange = (event) => {
-  const paisID = document.getElementById("paisID").value;
+const provinciaSelectIndividualClientInput = document.getElementById(
+  "provinciaIDClienteIndividual"
+);
+provinciaSelectIndividualClientInput.onchange = (event) => {
+  const paisID = document.getElementById("paisIDClienteIndividual").value;
   const provinciaID = event.target.value;
 
   getSelectListCitiesOptionsByPaisIDAndProvinciaID(
     "controller/CiudadesController.php?op=obtener_listado_opciones_ciudades_por_paisID_provinciaID",
     paisID,
     provinciaID,
-    "#ciudadID"
+    "#ciudadIDClienteIndividual"
   );
 };
 
 document
-  .getElementById("confirmarNuevoPassword")
+  .getElementById("confirmarNuevoPasswordClienteIndividual")
   .addEventListener("change", function (event) {
-    const nuevoPasswordInput = document.getElementById("nuevoPassword");
+    const nuevoPasswordInput = document.getElementById("nuevoPasswordClienteIndividual");
     const confirmarNuevoPasswordInput = event.target;
 
     const nuevoPassword = nuevoPasswordInput.value;

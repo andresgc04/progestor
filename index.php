@@ -126,7 +126,8 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <a id="newUserClientButton" type="button" class="text-center">Registrarse nuevo cliente</a>
                 </p>
 
-                <?php require_once('new-user-client-form-modal.php') ?>
+                <?php require_once('select-client-type.php') ?>
+                <?php require_once('new-user-individual-client-form-modal.php')?>
             </div>
             <!-- /.card-body -->
         </div>
