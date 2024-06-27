@@ -214,7 +214,7 @@ class Usuarios extends Connection
         return $resultado = $query->fetchAll();
     }
 
-    public function obtener_informacion_usuario_logeado()
+    public function obtener_informacion_usuario_logeado($usuarioID)
     {
         $conectar = parent::Connection();
         parent::set_names();
@@ -227,19 +227,22 @@ class Usuarios extends Connection
                          UCASE(clientes.nombre_cliente) nombre_cliente,
                          roles.rol
                     FROM USUARIOS usuarios
-                         RIGHT JOIN EMPLEADOS empleados
+                         LEFT JOIN EMPLEADOS empleados
                       ON usuarios.empleado_id = empleados.empleado_id
-                         RIGHT JOIN CLIENTES clientes
+                         LEFT JOIN CLIENTES clientes
                       ON usuarios.cliente_id = clientes.cliente_id
                          INNER JOIN USUARIOS_ROLES usuariosRoles
                       ON usuarios.usuario_id = usuariosRoles.usuario_id
                          INNER JOIN ROLES roles 
-                      ON usuariosRoles.rol_id = roles.rol
-                   WHERE usuarios.usuario_id = 5;";
+                      ON usuariosRoles.rol_id = roles.rol_id
+                   WHERE usuarios.usuario_id = ?";
 
         $query = $conectar->prepare($query);
+        $query->bindValue(1, $usuarioID);
         $query->execute();
 
-        return $resultado = $query->fetchAll();
+        $resultado = $query->fetchAll();
+
+        return $resultado;
     }
 }
