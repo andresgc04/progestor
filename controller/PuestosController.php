@@ -8,6 +8,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $puestos = new Puestos();
 
 switch ($_GET['op']) {
+    case "registrar_puestos":
+        $puestos->registrar_puestos($_POST["puesto"], $creadoPor);
+        break;
     case "listado_puestos":
         $datos = $puestos->listado_puestos();
         $data = array();
