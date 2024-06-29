@@ -1,6 +1,25 @@
 <?php
 class Roles extends Connection
 {
+    public function listado_roles()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT roles.ROL_ID,
+                         UCASE(roles.ROL) ROL,
+                         UCASE(estados.ESTADO) ESTADO
+                    FROM ROLES roles
+                         INNER JOIN ESTADOS estados
+                      ON roles.ESTADO_ID = estados.ESTADO_ID
+                   WHERE roles.ESTADO_ID = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
+
     public function obtener_listado_opciones_roles()
     {
         $conectar = parent::Connection();
