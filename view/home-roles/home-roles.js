@@ -8,6 +8,15 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Roles");
 
+const openNewRolFormModal = () => {
+  $("#newRolFormModal").modal("show");
+};
+
+const newRolButton = document.getElementById("newRolButton");
+newRolButton.addEventListener("click", () => {
+  openNewRolFormModal();
+});
+
 const obtenerListadoRolesDataTable = () => {
   $("#listadoRolesDataTable")
     .dataTable({
