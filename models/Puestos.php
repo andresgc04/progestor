@@ -7,7 +7,7 @@ class Puestos extends Connection
         parent::set_names();
 
         $query = 'SELECT puestos.PUESTO_ID,
-                         UCASE(puestos.PUESTO),
+                         UCASE(puestos.PUESTO) PUESTO,
                          UCASE(estados.ESTADO) ESTADO
                     FROM PUESTOS
                          INNER JOIN ESTADOS estados
