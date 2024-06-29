@@ -7,7 +7,7 @@ class Roles extends Connection
         parent::set_names();
 
         $query = 'INSERT INTO ROLES (ROL, ESTADO_ID, CREADO_POR, FECHA_CREACION)
-      		                  VALUES(?, 1, ?, NOW());';
+      		                  VALUES(UCASE(?), 1, ?, NOW());';
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $rol);
