@@ -166,6 +166,12 @@ if (!empty($datos)) {
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a id="navLinkHomePositions" href="../home-positions/" class="nav-link">
+                                    <i class="far fa-id-badge nav-icon"></i>
+                                    <p>Puestos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a id="navLinkHomeRoles" href="../home-roles/" class="nav-link">
                                     <i class="fas fa-user-tag nav-icon"></i>
                                     <p>Roles</p>
