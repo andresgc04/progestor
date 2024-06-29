@@ -8,6 +8,15 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Puestos");
 
+const openNewPositionsFormModal = () => {
+  $("#newPositionsFormModal").modal("show");
+};
+
+const newPositionsButton = document.getElementById("newPositionsButton");
+newPositionsButton.addEventListener("click", () => {
+  openNewPositionsFormModal();
+});
+
 const obtenerListadoPuestosDataTable = () => {
   $("#listadoPuestosDataTable")
     .dataTable({
