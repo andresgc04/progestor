@@ -51,4 +51,21 @@ class Puestos extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_detalle_puesto_por_puestoID($puestoID){
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT PUESTO_ID, UCASE(PUESTO) PUESTO 
+                    FROM PUESTOS
+                   WHERE PUESTO_ID = ?;';
+
+        $query=$conectar->prepare($query);
+        $query->bindValue(1, $puestoID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado; 
+    }
 }
