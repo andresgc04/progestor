@@ -30,7 +30,7 @@ const obtenerListadoPuestosDataTable = () => {
       bDestroy: true,
       responsive: true,
       bInfo: true,
-      iDisplayLength: 10,
+      iDisplayLength: 5,
       autoWidth: false,
       language: {
         sProcessing: "Procesando...",
