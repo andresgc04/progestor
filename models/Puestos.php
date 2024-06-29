@@ -1,6 +1,22 @@
 <?php
 class Puestos extends Connection
 {
+    public function registrar_puestos($puesto, $creadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO PUESTOS (PUESTO, ESTADO_ID, CREADO_POR, FECHA_CREACION)
+                                VALUES(UCASE(?), 1, ?, NOW());';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $puesto);
+        $query->bindValue(2, $creadoPor);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
+
     public function listado_puestos()
     {
         $conectar = parent::Connection();
