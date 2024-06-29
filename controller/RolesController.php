@@ -8,6 +8,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $roles = new Roles();
 
 switch ($_GET['op']) {
+    case "registrar_roles":
+        $roles->registrar_roles($_POST["rol"], $creadoPor);
+        break;
     case "listado_roles":
         $datos = $roles->listado_roles();
         $data = array();
