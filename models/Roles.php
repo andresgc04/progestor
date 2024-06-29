@@ -12,7 +12,8 @@ class Roles extends Connection
                     FROM ROLES roles
                          INNER JOIN ESTADOS estados
                       ON roles.ESTADO_ID = estados.ESTADO_ID
-                   WHERE roles.ESTADO_ID = 1;';
+                   WHERE roles.ESTADO_ID = 1
+                ORDER BY roles.ROL_ID DESC, roles.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
