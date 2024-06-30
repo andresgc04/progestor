@@ -74,3 +74,7 @@ const obtenerListadoPaisesDataTable = () => {
 (function () {
   obtenerListadoPaisesDataTable();
 })();
+
+const verDetallePais = (paisID) => {
+  console.log(paisID);
+};

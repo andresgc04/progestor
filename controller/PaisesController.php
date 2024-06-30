@@ -24,7 +24,12 @@ switch ($_GET["op"]) {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
             }
 
-            $sub_array[] = '<button type="button" id="' . $row["PAIS_ID"] . '" class="btn btn-primary"><i class="fa fa-eye"></i></button>';
+            $sub_array[] = '<td class="text-right py-0 align-middle">
+                                <div class="btn-group btn-group-sm">
+                                    <button type="button" id="' . $row['PAIS_ID'] . '" onclick="verDetallePais(' . $row['PAIS_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" id="' . $row['PAIS_ID'] . '" onclick="eliminarPais(' . $row['PAIS_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>';
 
             $data[] = $sub_array;
         }

@@ -50,4 +50,22 @@ class Paises extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_detalle_pais_por_paisID($paisID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT PAIS_ID, UCASE(PAIS) PAIS
+                    FROM PAISES 
+                   WHERE PAIS_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
