@@ -88,4 +88,22 @@ class Puestos extends Connection
 
         return $resultado;
     }
+
+    public function eliminar_puestos_por_puestoID($puestoID, $modificadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE PUESTOS SET ESTADO_ID = 4, MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                               WHERE PUESTO_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $puestoID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
