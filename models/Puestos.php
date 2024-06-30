@@ -52,7 +52,8 @@ class Puestos extends Connection
         return $resultado = $query->fetchAll();
     }
 
-    public function obtener_detalle_puesto_por_puestoID($puestoID){
+    public function obtener_detalle_puesto_por_puestoID($puestoID)
+    {
         $conectar = parent::Connection();
         parent::set_names();
 
@@ -60,12 +61,31 @@ class Puestos extends Connection
                     FROM PUESTOS
                    WHERE PUESTO_ID = ?;';
 
-        $query=$conectar->prepare($query);
+        $query = $conectar->prepare($query);
         $query->bindValue(1, $puestoID);
         $query->execute();
 
         $resultado = $query->fetchAll();
 
-        return $resultado; 
+        return $resultado;
+    }
+
+    public function modificar_puestos_por_puestoID($modificarPuesto, $puestoID, $modificadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE PUESTOS SET PUESTO = ?, MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                               WHERE PUESTO_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificarPuesto);
+        $query->bindValue(2, $modificadoPor);
+        $query->bindValue(3, $puestoID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
     }
 }
