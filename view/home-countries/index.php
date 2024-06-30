@@ -83,6 +83,9 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-country.php') ?>
+
+                                <?php require_once('components/update-country.php') ?>
+                                
                             </section>
                             <!-- /. col content -->
                         </div>

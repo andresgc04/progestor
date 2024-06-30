@@ -76,5 +76,57 @@ const obtenerListadoPaisesDataTable = () => {
 })();
 
 const verDetallePais = (paisID) => {
-  console.log(paisID);
+  $.post(
+    "../../controller/PaisesController.php?op=obtener_detalle_pais_por_paisID",
+    {
+      paisID: paisID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { paisID, pais } = responseData;
+
+        const paisIDInput = document.getElementById("paisID");
+        const modificarNombrepaisInput = document.getElementById(
+          "modificarNombrePais"
+        );
+
+        paisIDInput.value = paisID != null ? paisID : "";
+        modificarNombrepaisInput.value = pais != null ? pais : "";
+
+        $("#updateCountryFormModal").modal("show");
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };
