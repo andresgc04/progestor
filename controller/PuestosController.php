@@ -4,6 +4,7 @@ require_once('../models/Puestos.php');
 require_once('../public/php/constants/sessions-constants.php');
 
 $creadoPor = $_SESSION[$USUARIO_ID];
+$modificadoPor = $creadoPor;
 
 $puestos = new Puestos();
 
@@ -89,5 +90,8 @@ switch ($_GET['op']) {
         } else {
             echo json_encode(['data' => []]);
         }
+        break;
+    case 'modificar_puestos_por_puestoID':
+        $puestos->modificar_puestos_por_puestoID($_POST['modificarPuesto'], $_POST['puestoID'], $modificadoPor);
         break;
 }
