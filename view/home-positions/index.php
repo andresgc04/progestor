@@ -83,6 +83,8 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-positions.php') ?>
+
+                                <?php require_once('components/update-positions.php') ?>
                             </section>
                             <!-- /. col content -->
                         </div>

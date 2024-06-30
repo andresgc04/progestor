@@ -74,3 +74,57 @@ const obtenerListadoPuestosDataTable = () => {
 (function () {
   obtenerListadoPuestosDataTable();
 })();
+
+const verDetallePuesto = (puestoID) => {
+  $.post(
+    "../../controller/PuestosController.php?op=obtener_detalle_puesto_por_puestoID",
+    {
+      puestoID: puestoID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { puestoID, puesto } = responseData;
+
+        const puestoIDInput = document.getElementById("puestoID");
+        const puestoInput = document.getElementById("modificarPuesto");
+
+        puestoIDInput.value = puestoID != null ? puestoID : "";
+        puestoInput.value = puesto != null ? puesto : "";
+
+        $("#updatePositionsFormModal").modal("show");
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
