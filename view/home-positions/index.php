@@ -112,6 +112,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-positions.js"></script>
         <script type="text/javascript" src="new-positions.js"></script>
+        <script type="text/javascript" src="update-positions.js"></script>
     </body>
 
     </html>
