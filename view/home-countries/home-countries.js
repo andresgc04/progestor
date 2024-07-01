@@ -130,3 +130,52 @@ const verDetallePais = (paisID) => {
       );
     });
 };
+
+const eliminarPais = (paisID) => {
+  Swal.fire({
+    title: "¿Deseas eliminar este país seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/PaisesController.php?op=eliminar_paises_por_paisID",
+        {
+          paisID: paisID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "País eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
