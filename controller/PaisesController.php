@@ -4,6 +4,7 @@ require_once("../models/Paises.php");
 require_once("../public/php/constants/sessions-constants.php");
 
 $creadoPor = $_SESSION[$USUARIO_ID];
+$modificadoPor = $creadoPor;
 
 $paises = new Paises();
 
@@ -89,5 +90,8 @@ switch ($_GET["op"]) {
         } else {
             echo json_encode(['data' => []]);
         }
+        break;
+    case 'modificar_puestos_por_puestoID':
+        $paises->modificar_paises_por_paisID($_POST['modificarNombrePais'], $_POST['paisID'], $modificadoPor);
         break;
 }
