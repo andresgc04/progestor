@@ -88,4 +88,22 @@ class Paises extends Connection
 
         return $resultado;
     }
+
+    public function eliminar_paises_por_paisID($paisID, $modificadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE PAISES SET ESTADO_ID = 4, MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                              WHERE PAIS_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $paisID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
