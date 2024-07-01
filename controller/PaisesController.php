@@ -94,4 +94,7 @@ switch ($_GET["op"]) {
     case 'modificar_puestos_por_puestoID':
         $paises->modificar_paises_por_paisID($_POST['modificarNombrePais'], $_POST['paisID'], $modificadoPor);
         break;
+    case 'eliminar_paises_por_paisID':
+        $paises->eliminar_paises_por_paisID($_POST['paisID'], $modificadoPor);
+        break;
 }
