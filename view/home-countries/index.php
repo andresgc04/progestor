@@ -85,7 +85,7 @@ if (isset($usuarioID)) {
                                 <?php require_once('components/new-country.php') ?>
 
                                 <?php require_once('components/update-country.php') ?>
-                                
+
                             </section>
                             <!-- /. col content -->
                         </div>
@@ -113,6 +113,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-countries.js"></script>
         <script type="text/javascript" src="new-country.js"></script>
+        <script type="text/javascript" src="update-country.js"></script>
     </body>
 
     </html>

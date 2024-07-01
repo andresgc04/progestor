@@ -27,7 +27,8 @@ class Paises extends Connection
                     FROM PAISES paises 
               INNER JOIN ESTADOS estados
                       ON paises.ESTADO_ID = estados.ESTADO_ID
-                   WHERE paises.ESTADO_ID = 1;';
+                   WHERE paises.ESTADO_ID = 1
+                ORDER BY paises.PAIS_ID DESC, paises.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
