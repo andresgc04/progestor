@@ -240,15 +240,15 @@ class Usuarios extends Connection
                                                                             NOW()
                                                                            );';
 
-        $queryInsertClienteIndividual = $conectar->prepare($queryInsertClienteEmpresaPrivada);
-        $queryInsertClienteIndividual->bindValue(1, $clienteID);
-        $queryInsertClienteIndividual->bindValue(2, $rnc);
-        $queryInsertClienteIndividual->bindValue(3, $nombreContacto);
-        $queryInsertClienteIndividual->bindValue(4, $cargoContacto);
-        $queryInsertClienteIndividual->bindValue(5, $numeroEmpleados);
-        $queryInsertClienteIndividual->bindValue(6, $sector);
-        $queryInsertClienteIndividual->bindValue(7, $creadoPor);
-        $queryInsertClienteIndividual->execute();
+        $queryInsertClienteEmpresaPrivada = $conectar->prepare($queryInsertClienteEmpresaPrivada);
+        $queryInsertClienteEmpresaPrivada->bindValue(1, $clienteID);
+        $queryInsertClienteEmpresaPrivada->bindValue(2, $rnc);
+        $queryInsertClienteEmpresaPrivada->bindValue(3, $nombreContacto);
+        $queryInsertClienteEmpresaPrivada->bindValue(4, $cargoContacto);
+        $queryInsertClienteEmpresaPrivada->bindValue(5, $numeroEmpleados);
+        $queryInsertClienteEmpresaPrivada->bindValue(6, $sector);
+        $queryInsertClienteEmpresaPrivada->bindValue(7, $creadoPor);
+        $queryInsertClienteEmpresaPrivada->execute();
 
         $queryInsertUser = 'INSERT INTO USUARIOS (CLIENTE_ID, NOMBRE_USUARIO, PASSWORD, ESTADO_ID, CREADO_POR, FECHA_CREACION)
                                            VALUES(?, ?, ?, 1, ?, NOW());
