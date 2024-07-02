@@ -129,13 +129,13 @@ document
     actualizarClases(contraseñasCoinciden);
   });
 
-const openNewUserBusinessClientFormModal = () => {
-  $("#newUserBusinessClientFormModal").modal("show");
+const openNewUserPrivateBusinessClientFormModal = () => {
+  $("#newUserPrivateBusinessClientFormModal").modal("show");
 };
 
 const businessClientButton = document.getElementById("businessClientButton");
 businessClientButton.addEventListener("click", () => {
-  openNewUserBusinessClientFormModal();
+  openNewUserPrivateBusinessClientFormModal();
 });
 
 const paisSelectBusinessClientInput = document.getElementById(

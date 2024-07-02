@@ -10,6 +10,7 @@ $usuarios = new Usuarios();
 //Codificar el password con hash:
 $hashed_password_individual_client = password_hash($_POST['nuevoPasswordClienteIndividual'], PASSWORD_DEFAULT);
 $hashed_user_employee_password = password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT);
+$hashed_password_user_private_business_client = password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT);
 
 switch ($_GET['op']) {
     case 'registrar_usuarios_empleados':
@@ -31,6 +32,26 @@ switch ($_GET['op']) {
             $_POST['nacionalidadIDClienteIndividual'],
             $_POST['nuevoNombreUsuarioClienteIndividual'],
             $hashed_password_individual_client,
+            $creadoPor
+        );
+        break;
+    case 'registrar_usuarios_clientes_empresas_privadas':
+        $usuarios->registrar_usuarios_clientes_empresas_privadas(
+            $_POST['nombreEmpresaClienteEmpresa'],
+            $_POST['tipoClienteIDClienteEmpresa'],
+            $_POST['telefonoClienteEmpresa'],
+            $_POST['correoElectronicoClienteEmpresa'],
+            $_POST['paisIDClienteEmpresa'],
+            $_POST['provinciaIDClienteEmpresa'],
+            $_POST['ciudadIDClienteEmpresa'],
+            $_POST['direccionClienteEmpresa'],
+            $_POST['rncClienteEmpresa'],
+            $_POST['nombreContactoClienteEmpresa'],
+            $_POST['cargoContactoClienteEmpresa'],
+            $_POST['numeroEmpleadosClienteEmpresa'],
+            $_POST['sectorClienteEmpresa'],
+            $_POST['nuevoNombreUsuarioClienteEmpresa'],
+            $hashed_password_user_private_business_client,
             $creadoPor
         );
         break;

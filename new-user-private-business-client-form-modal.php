@@ -1,4 +1,4 @@
-<div class="modal fade" id="newUserBusinessClientFormModal">
+<div class="modal fade" id="newUserPrivateBusinessClientFormModal">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="newUserBusinessClientForm" name="newUserBusinessClientForm" method="post">
+            <form id="newUserPrivateBusinessClientForm" name="newUserPrivateBusinessClientForm" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
