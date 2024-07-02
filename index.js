@@ -82,7 +82,9 @@ provinciaSelectIndividualClientInput.onchange = (event) => {
 document
   .getElementById("confirmarNuevoPasswordClienteIndividual")
   .addEventListener("change", function (event) {
-    const nuevoPasswordInput = document.getElementById("nuevoPasswordClienteIndividual");
+    const nuevoPasswordInput = document.getElementById(
+      "nuevoPasswordClienteIndividual"
+    );
     const confirmarNuevoPasswordInput = event.target;
 
     const nuevoPassword = nuevoPasswordInput.value;
@@ -121,3 +123,12 @@ document
     const contraseñasCoinciden = nuevoPassword === confirmarNuevoPassword;
     actualizarClases(contraseñasCoinciden);
   });
+
+const openNewUserBusinessClientFormModal = () => {
+  $("#newUserBusinessClientFormModal").modal("show");
+};
+
+const businessClientButton = document.getElementById("businessClientButton");
+businessClientButton.addEventListener("click", () => {
+  openNewUserBusinessClientFormModal();
+});

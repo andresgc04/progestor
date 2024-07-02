@@ -127,7 +127,8 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                 </p>
 
                 <?php require_once('select-client-type.php') ?>
-                <?php require_once('new-user-individual-client-form-modal.php')?>
+                <?php require_once('new-user-individual-client-form-modal.php') ?>
+                <?php require_once('new-user-business-client-form-modal.php') ?>
             </div>
             <!-- /.card-body -->
         </div>
