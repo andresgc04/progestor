@@ -176,6 +176,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="new-user-client.js"></script>
     <script type="text/javascript" src="new-user-private-business-client.js"></script>
+    <script type="text/javascript" src="new-user-government-client.js"></script>
 </body>
 
 </html>
