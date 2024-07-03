@@ -11,6 +11,7 @@ $usuarios = new Usuarios();
 $hashed_password_individual_client = password_hash($_POST['nuevoPasswordClienteIndividual'], PASSWORD_DEFAULT);
 $hashed_user_employee_password = password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT);
 $hashed_password_user_private_business_client = password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT);
+$hashed_password_user_government_client = password_hash($_POST['nuevoPasswordClienteEmpresaGubernamental'], PASSWORD_DEFAULT);
 
 switch ($_GET['op']) {
     case 'registrar_usuarios_empleados':
@@ -52,6 +53,26 @@ switch ($_GET['op']) {
             $_POST['sectorClienteEmpresa'],
             $_POST['nuevoNombreUsuarioClienteEmpresa'],
             $hashed_password_user_private_business_client,
+            $creadoPor
+        );
+        break;
+    case 'registrar_usuarios_clientes_empresas_gubernamentales':
+        $usuarios->registrar_usuarios_clientes_empresas_gubernamentales(
+            $_POST['nombreEmpresaClienteEmpresaGubernamental'],
+            $_POST['tipoClienteIDClienteEmpresaGubernamental'],
+            $_POST['telefonoClienteEmpresaGubernamental'],
+            $_POST['correoElectronicoClienteEmpresaGubernamental'],
+            $_POST['paisIDClienteEmpresaGubernamental'],
+            $_POST['provinciaIDClienteEmpresaGubernamental'],
+            $_POST['ciudadIDClienteEmpresaGubernamental'],
+            $_POST['direccionClienteEmpresaGubernamental'],
+            $_POST['rncClienteEmpresaGubernamental'],
+            $_POST['nombreContactoClienteEmpresaGubernamental'],
+            $_POST['cargoContactoClienteEmpresaGubernamental'],
+            $_POST['sectorClienteEmpresaGubernamental'],
+            $_POST['presupuestoAnualClienteEmpresaGubernamental'],
+            $_POST['nuevoNombreUsuarioClienteEmpresaGubernamental'],
+            $hashed_password_user_government_client,
             $creadoPor
         );
         break;
