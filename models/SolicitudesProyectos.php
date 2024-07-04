@@ -97,4 +97,53 @@ class SolicitudesProyectos extends Connection
 
       return $resultado = $query->fetchAll();
    }
+
+   public function obtener_encabezado_solicitudes_proyectos_por_solicitud_proyecto_ID($solicitudProyectoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'SELECT solicitudesProyectos.SOLICITUD_PROYECTO_ID,
+                       UCASE(solicitudesProyectos.DESCRIPCION_PROYECTO) DESCRIPCION_PROYECTO,
+                       UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) OBJETIVO_PROYECTO,
+                       solicitudesProyectos.PRESUPUESTO_PROYECTO,
+                       UCASE(estados.ESTADO) ESTADO
+                  FROM SOLICITUDES_PROYECTOS solicitudesProyectos 
+	                    INNER JOIN ESTADOS estados
+                    ON solicitudesProyectos.estado_id = estados.estado_id
+                 WHERE solicitudesProyectos.ESTADO_ID = 1 
+                   AND solicitudesProyectos.SOLICITUD_PROYECTO_ID = ?;';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $solicitudProyectoID);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
+
+   public function obtener_requerimientos_solicitudes_proyectos_por_solicitud_proyecto_ID($solicitudProyectoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'SELECT requerimientosSolicitudesProyectos.SOLICITUD_PROYECTO_ID,
+                       requerimientosSolicitudesProyectos.REQUERIMIENTO_SOLICITUD_PROYECTO_ID,
+                       UCASE(requerimientosSolicitudesProyectos.DESCRIPCION_REQUERIMIENTO) AS DESCRIPCION_REQUERIMIENTO,
+                       UCASE(estados.ESTADO) ESTADO
+                  FROM REQUERIMIENTOS_SOLICITUDES_PROYECTOS requerimientosSolicitudesProyectos
+                       INNER JOIN ESTADOS estados
+                    ON requerimientosSolicitudesProyectos.ESTADO_ID = estados.ESTADO_ID
+                 WHERE requerimientosSolicitudesProyectos.ESTADO_ID = 1 
+                   AND requerimientosSolicitudesProyectos.SOLICITUD_PROYECTO_ID = ?;';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $solicitudProyectoID);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
