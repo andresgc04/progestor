@@ -146,4 +146,27 @@ class SolicitudesProyectos extends Connection
 
       return $resultado;
    }
+
+   public function modificar_solicitudes_proyectos_por_solicitud_proyecto_ID($descripcionProyecto, $objetivoProyecto, $presupuestoProyecto, $modificadoPor, $solicitudProyectoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $queryModificarEncabezadoSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET DESCRIPCION_PROYECTO = ?, OBJETIVO_PROYECTO = ?,
+                                                                                     PRESUPUESTO_PROYECTO = ?, ESTADO_ID = 1,
+                                                                                     MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                                                                               WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarEncabezadoSolicitudProyecto = $conectar->prepare($queryModificarEncabezadoSolicitudProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(1, $descripcionProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(2, $objetivoProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(3, $presupuestoProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(4, $modificadoPor);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $solicitudProyectoID);
+      $queryModificarEncabezadoSolicitudProyecto->execute();
+
+      $resultado = $queryModificarEncabezadoSolicitudProyecto->fetchAll();
+
+      return $resultado;
+   }
 }
