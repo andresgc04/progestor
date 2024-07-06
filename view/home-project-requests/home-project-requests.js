@@ -74,3 +74,7 @@ const newProjectRequestsButton = document.getElementById(
 newProjectRequestsButton.addEventListener("click", () => {
   goNewProjectRequestsForm();
 });
+
+const verDetalleSolicitudProyecto = (solicitudProyectoID) => {
+  window.location.href = `../project-request-details/index.php?solicitudProyectoID=${solicitudProyectoID}`;
+};

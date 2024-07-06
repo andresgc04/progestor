@@ -34,8 +34,8 @@ switch ($_GET['op']) {
 
             $sub_array[] = '<td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
-                                    <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onClick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                    <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onClick="eliminarDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="eliminarDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                             ';
@@ -63,7 +63,7 @@ switch ($_GET['op']) {
                 // Si los datos son un array asociativo con claves numéricas y asociativas,
                 // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
                 $normalizedItem = [
-                    'puestoID' => $item['SOLICITUD_PROYECTO_ID'],
+                    'solicitudProyectoID' => $item['SOLICITUD_PROYECTO_ID'],
                     'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
                     'objetivoProyecto' => $item['OBJETIVO_PROYECTO'],
                     'presupuestoProyecto' => $item['PRESUPUESTO_PROYECTO'],
