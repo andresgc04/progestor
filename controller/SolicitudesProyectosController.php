@@ -5,6 +5,7 @@ require_once('../public/php/constants/sessions-constants.php');
 
 $usuarioID = $_SESSION[$USUARIO_ID];
 $creadoPor = $_SESSION[$USUARIO_ID];
+$modificadoPor = $creadoPor;
 
 $solicitudesProyectos = new SolicitudesProyectos();
 
@@ -125,5 +126,14 @@ switch ($_GET['op']) {
         );
 
         echo json_encode($resultados);
+        break;
+    case 'modificar_solicitudes_proyectos_por_solicitud_proyecto_ID':
+        $solicitudesProyectos->modificar_solicitudes_proyectos_por_solicitud_proyecto_ID(
+            $_POST['descripcionProyecto'],
+            $_POST['objetivoProyecto'],
+            $_POST['presupuestoProyecto'],
+            $modificadoPor,
+            $_POST['solicitudProyectoID']
+        );
         break;
 }
