@@ -64,7 +64,7 @@ switch ($_GET['op']) {
                 // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
                 $normalizedItem = [
                     'puestoID' => $item['SOLICITUD_PROYECTO_ID'],
-                    'puesto' => $item['DESCRIPCION_PROYECTO'],
+                    'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
                     'objetivoProyecto' => $item['OBJETIVO_PROYECTO'],
                     'presupuestoProyecto' => $item['PRESUPUESTO_PROYECTO'],
                     'estado' => $item['ESTADO']
@@ -88,5 +88,42 @@ switch ($_GET['op']) {
         } else {
             echo json_encode(['data' => []]);
         }
+        break;
+    case 'obtener_requerimientos_solicitudes_proyectos_por_solicitud_proyecto_ID':
+        $datos = $solicitudesProyectos->obtener_requerimientos_solicitudes_proyectos_por_solicitud_proyecto_ID($_POST['solicitudProyectoID']);
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['REQUERIMIENTO_SOLICITUD_PROYECTO_ID'];
+            $sub_array[] = $row['DESCRIPCION_REQUERIMIENTO'];
+
+            if ($row['ESTADO'] === "ACTIVO") {
+                $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
+            }
+
+            if ($row['ESTADO'] === "PENDIENTE DE APROBACIÓN") {
+                $sub_array[] = '<span class="badge badge-primary">PENDIENTE DE APROBACIÓN</span>';
+            }
+
+            $sub_array[] = '<td class="text-right py-0 align-middle">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" id="' . $row['REQUERIMIENTO_SOLICITUD_PROYECTO_ID'] . '" onclick="verDetallesRequerimientosSolicitudesProyectos(' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['REQUERIMIENTO_SOLICITUD_PROYECTO_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                        <button type="button" id="' . $row['REQUERIMIENTO_SOLICITUD_PROYECTO_ID'] . '" onclick="eliminarRequerimientoSolicitudesProyectos(' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['REQUERIMIENTO_SOLICITUD_PROYECTO_ID'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                                ';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
         break;
 }
