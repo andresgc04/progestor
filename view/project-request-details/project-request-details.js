@@ -32,9 +32,9 @@ let validateSubmissionProjectRequestDetailButton = document.getElementById(
 );
 
 const mantenerHabilitadosInputsEnEstadoActivo = () => {
-  descripcionProyecto.setAttribute("readonly", false);
-  objetivoProyecto.setAttribute("readonly", false);
-  presupuestoProyecto.setAttribute("readonly", false);
+  descripcionProyecto.removeAttribute("readonly", true);
+  objetivoProyecto.removeAttribute("readonly", true);
+  presupuestoProyecto.removeAttribute("readonly", true);
   addNewProjectRequestRequirementButton.classList.remove("disabled");
   validateUpdateRequestDetailsButton.classList.remove("disabled");
   validateCancelProjectRequestDetailsButton.classList.remove("disabled");
