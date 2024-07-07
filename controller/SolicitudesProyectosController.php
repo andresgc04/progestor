@@ -43,8 +43,8 @@ switch ($_GET['op']) {
                                                                 <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="eliminarDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                                             </div>
                                                           </td>'
-                                                        :
-                                                           '<td class="text-right py-0 align-middle">
+                :
+                '<td class="text-right py-0 align-middle">
                                                             <div class="btn-group btn-group-sm">
                                                                 <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
                                                                 <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="eliminarDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')"class="btn btn-danger disabled"><i class="fas fa-trash"></i></button>
@@ -157,6 +157,15 @@ switch ($_GET['op']) {
         break;
     case 'modificar_solicitudes_proyectos_cambiar_estado_activo_cancelado_por_solicitud_proyecto_ID':
         $solicitudesProyectos->modificar_solicitudes_proyectos_cambiar_estado_activo_cancelado_por_solicitud_proyecto_ID(
+            $_POST['descripcionProyecto'],
+            $_POST['objetivoProyecto'],
+            $_POST['presupuestoProyecto'],
+            $modificadoPor,
+            $_POST['solicitudProyectoID']
+        );
+        break;
+    case 'modificar_solicitudes_proyectos_cambiar_estado_activo_aprobado_por_solicitud_proyecto_ID':
+        $solicitudesProyectos->modificar_solicitudes_proyectos_cambiar_estado_activo_aprobado_por_solicitud_proyecto_ID(
             $_POST['descripcionProyecto'],
             $_POST['objetivoProyecto'],
             $_POST['presupuestoProyecto'],
