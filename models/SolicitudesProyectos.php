@@ -201,4 +201,36 @@ class SolicitudesProyectos extends Connection
 
       return $resultado;
    }
+
+   public function modificar_solicitudes_proyectos_cambiar_estado_activo_aprobado_por_solicitud_proyecto_ID($descripcionProyecto, $objetivoProyecto, $presupuestoProyecto, $modificadoPor, $solicitudProyectoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $queryModificarEncabezadoSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET DESCRIPCION_PROYECTO = ?, OBJETIVO_PROYECTO = ?,
+                                                                                     PRESUPUESTO_PROYECTO = ?, ESTADO_ID = 5,
+                                                                                     MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                                                                               WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarEncabezadoSolicitudProyecto = $conectar->prepare($queryModificarEncabezadoSolicitudProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(1, $descripcionProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(2, $objetivoProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(3, $presupuestoProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(4, $modificadoPor);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $solicitudProyectoID);
+      $queryModificarEncabezadoSolicitudProyecto->execute();
+
+      $queryModificarRequerimientosSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 5, MODIFICADO_POR = ?,
+												                                                                    FECHA_MODIFICACION = NOW()
+                                                                                                  WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarRequerimientosSolicitudProyecto = $conectar->prepare($queryModificarRequerimientosSolicitudProyecto);
+      $queryModificarRequerimientosSolicitudProyecto->bindValue(1, $modificadoPor);
+      $queryModificarRequerimientosSolicitudProyecto->bindValue(2, $solicitudProyectoID);
+      $queryModificarRequerimientosSolicitudProyecto->execute();
+
+      $resultado = $queryModificarRequerimientosSolicitudProyecto->fetchAll();
+
+      return $resultado;
+   }
 }
