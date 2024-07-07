@@ -120,7 +120,7 @@ if (isset($usuarioID)) {
 
                                                 <button type="button" onclick="validateUpdateRequestDetails()" class="btn btn-primary"><span class="mr-2">Modificar</span><span><i class="fas fa-save"></i></span></button>
 
-                                                <button type="button" class="btn btn-danger"><span class="mr-2">Cancelar</span><span><i class="fas fa-ban"></i></span></button>
+                                                <button type="button" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Cancelar</span><span><i class="fas fa-ban"></i></span></button>
 
                                                 <button type="button" class="btn btn-success"><span class="mr-2">Someter</span><span><i class="fas fa-check-circle"></i></span></button>
 
@@ -168,7 +168,8 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_employees_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/get-params/get-params.js"></script>
         <script type="text/javascript" src="project-request-details.js"></script>
-        <script type="text/javascript" src="update-request-details.js"></script>
+        <script type="text/javascript" src="update-project-request-details.js"></script>
+        <script type="text/javascript" src="cancel-project-request-details.js"></script>
     </body>
 
     </html>

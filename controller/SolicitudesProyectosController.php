@@ -29,8 +29,12 @@ switch ($_GET['op']) {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
             }
 
-            if ($row['estado'] === "PENDIENTE DE APROBACIÓN") {
-                $sub_array[] = '<span class="badge badge-primary">PENDIENTE DE APROBACIÓN</span>';
+            if ($row['estado'] === "PENDIENTE") {
+                $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
+            }
+
+            if ($row['estado'] === "CANCELADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
             }
 
             $sub_array[] = '<td class="text-right py-0 align-middle">
@@ -103,8 +107,12 @@ switch ($_GET['op']) {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
             }
 
-            if ($row['ESTADO'] === "PENDIENTE DE APROBACIÓN") {
-                $sub_array[] = '<span class="badge badge-primary">PENDIENTE DE APROBACIÓN</span>';
+            if ($row['ESTADO'] === "PENDIENTE") {
+                $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
+            }
+
+            if ($row['ESTADO'] === "CANCELADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
             }
 
             $sub_array[] = '<td class="text-right py-0 align-middle">

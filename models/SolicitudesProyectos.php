@@ -87,7 +87,7 @@ class SolicitudesProyectos extends Connection
                     ON usuarios.cliente_id = clientes.cliente_id
             INNER JOIN ESTADOS estados
                     ON solicitudesProyectos.estado_id = estados.estado_id
-                 WHERE solicitudesProyectos.creado_por = ?
+                 WHERE solicitudesProyectos.estado_id IN(1, 2, 5) AND solicitudesProyectos.creado_por = ?
               ORDER BY solicitudesProyectos.solicitud_proyecto_id DESC, 
                        solicitudesProyectos.fecha_creacion DESC;";
 
@@ -111,7 +111,7 @@ class SolicitudesProyectos extends Connection
                   FROM SOLICITUDES_PROYECTOS solicitudesProyectos 
 	                    INNER JOIN ESTADOS estados
                     ON solicitudesProyectos.estado_id = estados.estado_id
-                 WHERE solicitudesProyectos.ESTADO_ID = 1 
+                 WHERE solicitudesProyectos.ESTADO_ID IN(1, 2, 5)
                    AND solicitudesProyectos.SOLICITUD_PROYECTO_ID = ?;';
 
       $query = $conectar->prepare($query);
@@ -135,7 +135,7 @@ class SolicitudesProyectos extends Connection
                   FROM REQUERIMIENTOS_SOLICITUDES_PROYECTOS requerimientosSolicitudesProyectos
                        INNER JOIN ESTADOS estados
                     ON requerimientosSolicitudesProyectos.ESTADO_ID = estados.ESTADO_ID
-                 WHERE requerimientosSolicitudesProyectos.ESTADO_ID = 1 
+                 WHERE requerimientosSolicitudesProyectos.ESTADO_ID IN(1, 2, 5)
                    AND requerimientosSolicitudesProyectos.SOLICITUD_PROYECTO_ID = ?;';
 
       $query = $conectar->prepare($query);
