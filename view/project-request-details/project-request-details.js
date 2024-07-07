@@ -9,6 +9,48 @@ setBreadCrumbContentHeaderTitle(
 
 setBreadCrumbContentHeaderSubTitle("Detalle De Solicitud De Proyectos");
 
+let descripcionProyecto = document.getElementById("descripcionProyecto");
+
+let objetivoProyecto = document.getElementById("objetivoProyecto");
+
+let presupuestoProyecto = document.getElementById("presupuestoProyecto");
+
+let addNewProjectRequestRequirementButton = document.getElementById(
+  "addNewProjectRequestRequirementButton"
+);
+
+let validateUpdateRequestDetailsButton = document.getElementById(
+  "validateUpdateRequestDetailsButton"
+);
+
+let validateCancelProjectRequestDetailsButton = document.getElementById(
+  "validateCancelProjectRequestDetailsButton"
+);
+
+let validateSubmissionProjectRequestDetailButton = document.getElementById(
+  "validateSubmissionProjectRequestDetailButton"
+);
+
+const mantenerHabilitadosInputsEnEstadoActivo = () => {
+  descripcionProyecto.setAttribute("readonly", false);
+  objetivoProyecto.setAttribute("readonly", false);
+  presupuestoProyecto.setAttribute("readonly", false);
+  addNewProjectRequestRequirementButton.classList.remove("disabled");
+  validateUpdateRequestDetailsButton.classList.remove("disabled");
+  validateCancelProjectRequestDetailsButton.classList.remove("disabled");
+  validateSubmissionProjectRequestDetailButton.classList.remove("disabled");
+};
+
+const deshabilitarInputsEnEstadoPendienteOCancelado = () => {
+  descripcionProyecto.setAttribute("readonly", true);
+  objetivoProyecto.setAttribute("readonly", true);
+  presupuestoProyecto.setAttribute("readonly", true);
+  addNewProjectRequestRequirementButton.classList.add("disabled");
+  validateUpdateRequestDetailsButton.classList.add("disabled");
+  validateCancelProjectRequestDetailsButton.classList.add("disabled");
+  validateSubmissionProjectRequestDetailButton.classList.add("disabled");
+};
+
 const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
   solicitudProyectoID
 ) => {
@@ -75,6 +117,18 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
           presupuestoProyecto != null ? presupuestoProyecto : "";
 
         estadoSolicitudInput.value = estado != null ? estado : "";
+
+        switch (estado) {
+          case "ACTIVO":
+            mantenerHabilitadosInputsEnEstadoActivo();
+            break;
+          case "PENDIENTE":
+            deshabilitarInputsEnEstadoPendienteOCancelado();
+            break;
+          case "CANCELADO":
+            deshabilitarInputsEnEstadoPendienteOCancelado();
+            break;
+        }
       }
     })
     .fail(function (jqXHR, textStatus, errorThrown) {

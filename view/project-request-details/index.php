@@ -95,6 +95,12 @@ if (isset($usuarioID)) {
                                                 </div>
                                             </div>
 
+                                            <div class="row mb-2">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                                                    <button type="button" id="addNewProjectRequestRequirementButton" class="btn btn-primary"><span class="mr-1">Agregar Nuevo Requerimiento</span> <i class="fas fa-plus-circle"></i></button>
+                                                </div>
+                                            </div>
+
                                             <div class="row">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="table-responsive">
@@ -116,13 +122,13 @@ if (isset($usuarioID)) {
                                         <!-- /.card-body -->
                                         <div class="card-footer">
                                             <div class="d-flex justify-content-between">
-                                                <button type="button" onclick="retroceder()" class="btn btn-info"><span class="mr-2">Retroceder</span><span><i class="fas fa-reply"></i></span></button>
+                                                <button type="button" id="backButton" onclick="retroceder()" class="btn btn-info"><span class="mr-2">Retroceder</span><span><i class="fas fa-reply"></i></span></button>
 
-                                                <button type="button" onclick="validateUpdateRequestDetails()" class="btn btn-primary"><span class="mr-2">Modificar</span><span><i class="fas fa-save"></i></span></button>
+                                                <button type="button" id="validateUpdateRequestDetailsButton" onclick="validateUpdateRequestDetails()" class="btn btn-primary"><span class="mr-2">Modificar</span><span><i class="fas fa-save"></i></span></button>
 
-                                                <button type="button" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Cancelar</span><span><i class="fas fa-ban"></i></span></button>
+                                                <button type="button" id="validateCancelProjectRequestDetailsButton" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Cancelar</span><span><i class="fas fa-ban"></i></span></button>
 
-                                                <button type="button" class="btn btn-success"><span class="mr-2">Someter</span><span><i class="fas fa-check-circle"></i></span></button>
+                                                <button type="button" id="validateSubmissionProjectRequestDetailButton" class="btn btn-success"><span class="mr-2">Someter</span><span><i class="fas fa-check-circle"></i></span></button>
 
                                             </div>
                                         </div>
