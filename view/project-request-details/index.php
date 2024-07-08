@@ -128,7 +128,7 @@ if (isset($usuarioID)) {
 
                                                 <button type="button" id="validateCancelProjectRequestDetailsButton" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Cancelar</span><span><i class="fas fa-ban"></i></span></button>
 
-                                                <button type="button" id="validateSubmissionProjectRequestDetailButton" class="btn btn-success"><span class="mr-2">Someter</span><span><i class="fas fa-check-circle"></i></span></button>
+                                                <button type="button" id="validateSubmissionProjectRequestDetailButton" onclick="validateApproveProjectRequestDetails()" class="btn btn-success"><span class="mr-2">Someter</span><span><i class="fas fa-check-circle"></i></span></button>
 
                                             </div>
                                         </div>
@@ -176,6 +176,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="project-request-details.js"></script>
         <script type="text/javascript" src="update-project-request-details.js"></script>
         <script type="text/javascript" src="cancel-project-request-details.js"></script>
+        <script type="text/javascript" src="approve-project-request-details.js"></script>
     </body>
 
     </html>

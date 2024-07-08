@@ -208,7 +208,7 @@ class SolicitudesProyectos extends Connection
       parent::set_names();
 
       $queryModificarEncabezadoSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET DESCRIPCION_PROYECTO = ?, OBJETIVO_PROYECTO = ?,
-                                                                                     PRESUPUESTO_PROYECTO = ?, ESTADO_ID = 5,
+                                                                                     PRESUPUESTO_PROYECTO = ?, ESTADO_ID = 2,
                                                                                      MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
                                                                                WHERE SOLICITUD_PROYECTO_ID = ?;';
 
@@ -220,7 +220,7 @@ class SolicitudesProyectos extends Connection
       $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $solicitudProyectoID);
       $queryModificarEncabezadoSolicitudProyecto->execute();
 
-      $queryModificarRequerimientosSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 5, MODIFICADO_POR = ?,
+      $queryModificarRequerimientosSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 2, MODIFICADO_POR = ?,
 												                                                                    FECHA_MODIFICACION = NOW()
                                                                                                   WHERE SOLICITUD_PROYECTO_ID = ?;';
 
