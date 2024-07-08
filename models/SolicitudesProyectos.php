@@ -233,4 +233,24 @@ class SolicitudesProyectos extends Connection
 
       return $resultado;
    }
+
+   public function agregar_nueva_descripcion_requerimiento_solicitud_proyecto($solicitudProyectoID, $descripcionRequerimiento, $creadoPor)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'INSERT INTO REQUERIMIENTOS_SOLICITUDES_PROYECTOS (SOLICITUD_PROYECTO_ID, DESCRIPCION_REQUERIMIENTO, ESTADO_ID,
+                                                                  CREADO_POR, FECHA_CREACION)
+                                                           VALUES(?, ?, 1, ?, NOW());';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $solicitudProyectoID);
+      $query->bindValue(2, $descripcionRequerimiento);
+      $query->bindValue(3, $creadoPor);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
