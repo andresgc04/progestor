@@ -118,6 +118,8 @@ if (isset($usuarioID)) {
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <?php require_once('components/add-new-project-request-requirement-form-modal.php') ?>
                                         </div>
                                         <!-- /.card-body -->
                                         <div class="card-footer">

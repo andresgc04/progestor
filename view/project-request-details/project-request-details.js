@@ -219,3 +219,14 @@ const obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable =
 const retroceder = () => {
   window.location.href = "../home-project-requests/";
 };
+
+const openAddNewProjectRequestRequirementFormModal = () => {
+  $("#addNewProjectRequestRequirementFormModal").modal("show");
+};
+
+addNewProjectRequestRequirementButton = document.getElementById(
+  "addNewProjectRequestRequirementButton"
+);
+addNewProjectRequestRequirementButton.addEventListener("click", () => {
+  openAddNewProjectRequestRequirementFormModal();
+});
