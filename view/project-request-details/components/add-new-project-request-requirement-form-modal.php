@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="addNewProjectRequestRequirementForm" name="addNewProjectRequestRequirementForm" method="post">
+            <form id="addNewProjectRequestRequirementForm" name="addNewProjectRequestRequirementForm" method="POST">
                 <div class="modal-body">
                     <input type="hidden" id="agregarSolicitudProyectoID" name="agregarSolicitudProyectoID" class="form-control" />
                     <div class="row">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="mr-2">Cancelar</span><span><i class="fas fa-times-circle"></i></span></button>
-                    <button type="submit" class="btn btn-primary"><span class="mr-2">Guardar</span><span><i class="fas fa-save"></i></span></button>
+                    <button type="button" onclick="validateAddNewProjectRequestRequirement()" class="btn btn-primary"><span class="mr-2">Guardar</span><span><i class="fas fa-save"></i></span></button>
                 </div>
             </form>
         </div>

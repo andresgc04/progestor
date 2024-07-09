@@ -221,6 +221,13 @@ const retroceder = () => {
 };
 
 const openAddNewProjectRequestRequirementFormModal = () => {
+  const solicitudProyectoID = getParams("solicitudProyectoID");
+
+  const agregarSolicitudProyectoID = document.getElementById(
+    "agregarSolicitudProyectoID"
+  );
+  agregarSolicitudProyectoID.value = solicitudProyectoID;
+
   $("#addNewProjectRequestRequirementFormModal").modal("show");
 };
 

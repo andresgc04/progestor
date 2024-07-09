@@ -118,8 +118,6 @@ if (isset($usuarioID)) {
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <?php require_once('components/add-new-project-request-requirement-form-modal.php') ?>
                                         </div>
                                         <!-- /.card-body -->
                                         <div class="card-footer">
@@ -136,6 +134,8 @@ if (isset($usuarioID)) {
                                         </div>
                                         <!-- /.card-footer -->
                                     </form>
+
+                                    <?php require_once('components/add-new-project-request-requirement-form-modal.php') ?>
                                 </div>
                                 <!-- /.card -->
                             </section>
@@ -179,6 +179,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="update-project-request-details.js"></script>
         <script type="text/javascript" src="cancel-project-request-details.js"></script>
         <script type="text/javascript" src="approve-project-request-details.js"></script>
+        <script type="text/javascript" src="add-new-project-request-requirement.js"></script>
     </body>
 
     </html>
