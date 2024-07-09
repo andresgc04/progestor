@@ -253,4 +253,25 @@ class SolicitudesProyectos extends Connection
 
       return $resultado;
    }
+
+   public function obtener_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID($solicitudProyectoID, $requerimientoSolicitudProyectoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'SELECT SOLICITUD_PROYECTO_ID, REQUERIMIENTO_SOLICITUD_PROYECTO_ID,
+                       DESCRIPCION_REQUERIMIENTO
+                  FROM REQUERIMIENTOS_SOLICITUDES_PROYECTOS
+                 WHERE SOLICITUD_PROYECTO_ID = ? 
+                   AND REQUERIMIENTO_SOLICITUD_PROYECTO_ID = ?;';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $solicitudProyectoID);
+      $query->bindValue(2, $requerimientoSolicitudProyectoID);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
