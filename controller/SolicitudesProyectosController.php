@@ -173,4 +173,11 @@ switch ($_GET['op']) {
             $_POST['solicitudProyectoID']
         );
         break;
+    case 'agregar_nueva_descripcion_requerimiento_solicitud_proyecto':
+        $solicitudesProyectos->agregar_nueva_descripcion_requerimiento_solicitud_proyecto(
+            $_POST['agregarSolicitudProyectoID'],
+            $_POST['agregarDescripcionRequerimiento'],
+            $creadoPor
+        );
+        break;
 }
