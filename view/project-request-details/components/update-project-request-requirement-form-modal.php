@@ -15,7 +15,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="modificarDescripcionRequerimiento">Descripción De Requerimiento:</label>
-                                <input type="text" id="modificarDescripcionRequerimiento" name="modificarDescripcionRequerimiento" class="form-control" placeholder="Ingrese la descripción del requerimiento.">
+                                <textarea type="text" id="modificarDescripcionRequerimiento" name="modificarDescripcionRequerimiento" class="form-control" placeholder="Ingrese la descripción del requerimiento." rows="3"></textarea>
                             </div>
                         </div>
                     </div>

@@ -238,29 +238,86 @@ addNewProjectRequestRequirementButton.addEventListener("click", () => {
   openAddNewProjectRequestRequirementFormModal();
 });
 
-const openUpdateProjectRequestRequirementFormModal = (
-  solicitudproyectoID,
-  requerimientoSolicitudProyectoID
-) => {
-  const modificarSolicitudProyectoID = document.getElementById(
-    "modificarSolicitudProyectoID"
-  );
-  const modificarRequerimientoSolicitudProyectoID = document.getElementById(
-    "modificarRequerimientoSolicitudProyectoID"
-  );
+const obtenerRequerimientoSolicitudProyectoPorSolicitudProyectoIDYRequerimientoSolicitudProyectoID =
+  (solicitudProyectoID, requerimientoSolicitudProyectoID) => {
+    $.post(
+      "../../controller/SolicitudesProyectosController.php?op=obtener_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID",
+      {
+        solicitudProyectoID: solicitudProyectoID,
+        requerimientoSolicitudProyectoID: requerimientoSolicitudProyectoID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
 
-  modificarSolicitudProyectoID.value = solicitudproyectoID;
-  modificarRequerimientoSolicitudProyectoID.value =
-    requerimientoSolicitudProyectoID;
+          const {
+            solicitudProyectoID,
+            requerimientoSolicitudProyectoID,
+            descripcionRequerimiento,
+          } = responseData;
 
-  $("#updateProjectRequestRequirementFormModal").modal("show");
-};
+          const modificarSolicitudProyectoIDInput = document.getElementById(
+            "modificarSolicitudProyectoID"
+          );
+          const modificarRequerimientoSolicitudProyectoIDInput =
+            document.getElementById(
+              "modificarRequerimientoSolicitudProyectoID"
+            );
+          const modificarDescripcionRequerimientoInput =
+            document.getElementById("modificarDescripcionRequerimiento");
+
+          modificarSolicitudProyectoIDInput.value =
+            solicitudProyectoID != null ? solicitudProyectoID : "";
+
+          modificarRequerimientoSolicitudProyectoIDInput.value =
+            requerimientoSolicitudProyectoID != null
+              ? requerimientoSolicitudProyectoID
+              : "";
+
+          modificarDescripcionRequerimientoInput.value =
+            descripcionRequerimiento != null ? descripcionRequerimiento : "";
+
+          $("#updateProjectRequestRequirementFormModal").modal("show");
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
 
 const verDetallesRequerimientosSolicitudesProyectos = (
   solicitudProyectoID,
   requerimientoSolicitudProyectoID
 ) => {
-  openUpdateProjectRequestRequirementFormModal(
+  obtenerRequerimientoSolicitudProyectoPorSolicitudProyectoIDYRequerimientoSolicitudProyectoID(
     solicitudProyectoID,
     requerimientoSolicitudProyectoID
   );
