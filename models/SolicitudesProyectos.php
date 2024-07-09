@@ -274,4 +274,30 @@ class SolicitudesProyectos extends Connection
 
       return $resultado;
    }
+
+   public function modificar_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID(
+      $descripcionRequerimiento,
+      $modificadoPor,
+      $solicitudProyectoID,
+      $requerimientoSolicitudProyectoID
+   ) {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $queryModificarRequerimientoSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET DESCRIPCION_REQUERIMIENTO = ?, MODIFICADO_POR = ?,
+                                                                                                       FECHA_MODIFICACION = NOW()
+                                                                                                 WHERE SOLICITUD_PROYECTO_ID = ? 
+                                                                                                   AND REQUERIMIENTO_SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarRequerimientoSolicitudProyecto = $conectar->prepare($queryModificarRequerimientoSolicitudProyecto);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(1, $descripcionRequerimiento);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(2, $modificadoPor);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(3, $solicitudProyectoID);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(4, $requerimientoSolicitudProyectoID);
+      $queryModificarRequerimientoSolicitudProyecto->execute();
+
+      $resultado = $queryModificarRequerimientoSolicitudProyecto->fetchAll();
+
+      return $resultado;
+   }
 }
