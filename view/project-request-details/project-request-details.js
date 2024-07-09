@@ -237,3 +237,31 @@ addNewProjectRequestRequirementButton = document.getElementById(
 addNewProjectRequestRequirementButton.addEventListener("click", () => {
   openAddNewProjectRequestRequirementFormModal();
 });
+
+const openUpdateProjectRequestRequirementFormModal = (
+  solicitudproyectoID,
+  requerimientoSolicitudProyectoID
+) => {
+  const modificarSolicitudProyectoID = document.getElementById(
+    "modificarSolicitudProyectoID"
+  );
+  const modificarRequerimientoSolicitudProyectoID = document.getElementById(
+    "modificarRequerimientoSolicitudProyectoID"
+  );
+
+  modificarSolicitudProyectoID.value = solicitudproyectoID;
+  modificarRequerimientoSolicitudProyectoID.value =
+    requerimientoSolicitudProyectoID;
+
+  $("#updateProjectRequestRequirementFormModal").modal("show");
+};
+
+const verDetallesRequerimientosSolicitudesProyectos = (
+  solicitudProyectoID,
+  requerimientoSolicitudProyectoID
+) => {
+  openUpdateProjectRequestRequirementFormModal(
+    solicitudProyectoID,
+    requerimientoSolicitudProyectoID
+  );
+};

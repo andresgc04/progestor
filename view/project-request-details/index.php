@@ -136,6 +136,7 @@ if (isset($usuarioID)) {
                                     </form>
 
                                     <?php require_once('components/add-new-project-request-requirement-form-modal.php') ?>
+                                    <?php require_once('components/update-project-request-requirement-form-modal.php') ?>
                                 </div>
                                 <!-- /.card -->
                             </section>
