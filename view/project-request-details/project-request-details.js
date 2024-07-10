@@ -322,3 +322,58 @@ const verDetallesRequerimientosSolicitudesProyectos = (
     requerimientoSolicitudProyectoID
   );
 };
+
+const eliminarRequerimientoSolicitudesProyectos = (
+  solicitudProyectoID,
+  requerimientoSolicitudProyectoID
+) => {
+  Swal.fire({
+    title:
+      "¿Deseas eliminar este requerimiento de solicitud de proyecto seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/SolicitudesProyectosController.php?op=modificar_requerimiento_solicitud_proyecto_cambiar_estado_activo_eliminado_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID",
+        {
+          solicitudProyectoID: solicitudProyectoID,
+          requerimientoSolicitudProyectoID: requerimientoSolicitudProyectoID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title:
+              "Requerimiento de solicitud de proyecto eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
