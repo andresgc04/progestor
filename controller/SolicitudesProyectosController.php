@@ -239,4 +239,52 @@ switch ($_GET['op']) {
             $_POST['solicitudProyectoID']
         );
         break;
+    case 'ver_listado_solicitudes_proyectos':
+        $datos = $solicitudesProyectos->ver_listado_solicitudes_proyectos();
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['solicitud_proyecto_id'];
+            $sub_array[] = $row['descripcion_proyecto'];
+            $sub_array[] = $row['objetivo_proyecto'];
+            $sub_array[] = $row['solicitado_por'];
+            $sub_array[] = $row['fecha_solicitud'];
+
+            if ($row['estado'] === "PENDIENTE") {
+                $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
+            }
+
+            if ($row['estado'] === "RECHAZADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
+            }
+
+            if ($row['estado'] === "APROBADO") {
+                $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
+            }
+
+            $sub_array[] = $row['estado'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
+                                                                <div class="btn-group btn-group-sm">
+                                                                    <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                                </div>
+                                                              </td>'
+                :
+                '<td class="text-right py-0 align-middle">
+                                                                <div class="btn-group btn-group-sm">
+                                                                    <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                                </div>
+                                                               </td>';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
+        break;
 }
