@@ -63,3 +63,7 @@ const obtenerListadoSolicitudesProyectosDataTable = () => {
 (function () {
   obtenerListadoSolicitudesProyectosDataTable();
 })();
+
+const verDetalleSolicitudProyecto = (solicitudProyectoID) => {
+  window.location.href = `../view-project-request-details/index.php?solicitudProyectoID=${solicitudProyectoID}`;
+};
