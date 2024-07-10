@@ -364,7 +364,7 @@ const eliminarRequerimientoSolicitudesProyectos = (
             position: "center",
             icon: "error",
             title: "Ocurrio Un Error Inesperado.",
-            text: `${dataResult.messageError}`,
+            text: `${dataResult.error}`,
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,

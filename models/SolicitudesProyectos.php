@@ -340,9 +340,9 @@ class SolicitudesProyectos extends Connection
       $queryModificarSolicitudProyecto->bindValue(2, $solicitudProyectoID);
       $queryModificarSolicitudProyecto->execute();
 
-      $queryModificarRequerimientoSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 4, MODIFICADO_POR = ?
-												                                                                   FECHA_MODIFICACION = NOW()
-                                                                                                 WHERE SOLICITUD_PROYECTO_ID = ?;';
+      $queryModificarRequerimientoSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 4, MODIFICADO_POR = ?,
+  												                                                                   FECHA_MODIFICACION = NOW()
+						   				                                                                WHERE SOLICITUD_PROYECTO_ID = ?;';
 
       $queryModificarRequerimientoSolicitudProyecto = $conectar->prepare($queryModificarRequerimientoSolicitudProyecto);
       $queryModificarRequerimientoSolicitudProyecto->bindValue(1, $modificadoPor);
