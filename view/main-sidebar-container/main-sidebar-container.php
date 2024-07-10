@@ -75,7 +75,7 @@ if (!empty($datos)) {
                     </li>
                 <?php } ?>
 
-                <?php if ($_SESSION['rol'] === 'GERENTE DE PROYECTOS') { ?>
+                <?php if ($_SESSION['rol'] === 'GERENTE DE PROYECTOS' || $_SESSION['rol'] === 'ENCARGADO DE PROYECTOS' || $_SESSION['rol'] === 'SUPERVISOR DE PROYECTOS') { ?>
                     <li class="nav-item">
                         <a id="navLinkViewHomeProjectRequests" href="../view-home-project-requests/" class="nav-link">
                             <i class="nav-icon fas fa-clipboard-list"></i>
