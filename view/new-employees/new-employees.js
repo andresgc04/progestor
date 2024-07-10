@@ -187,9 +187,6 @@ $(function () {
       departamentoID: {
         required: true,
       },
-      supervisorID: {
-        required: true,
-      },
       salario: {
         required: true,
       },
@@ -248,9 +245,6 @@ $(function () {
       },
       departamentoID: {
         required: "Por favor seleccione el departamento.",
-      },
-      supervisorID: {
-        required: "Por favor seleccione el supervisor.",
       },
       salario: {
         required: "Por favor ingrese el salario del empleado.",

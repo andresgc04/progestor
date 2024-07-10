@@ -92,7 +92,7 @@ class Empleados extends Connection
                     ON empleados.puesto_id = puestos.puesto_id
                        INNER JOIN DEPARTAMENTOS departamentos
                     ON empleados.departamento_id = departamentos.departamento_id
-                       INNER JOIN EMPLEADOS supervisores 
+                       LEFT JOIN EMPLEADOS supervisores 
                     ON empleados.supervisor_id = supervisores.empleado_id
                        INNER JOIN ESTADOS estados
                     ON empleados.estado_id = estados.estado_id
