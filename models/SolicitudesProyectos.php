@@ -87,7 +87,7 @@ class SolicitudesProyectos extends Connection
                     ON usuarios.cliente_id = clientes.cliente_id
             INNER JOIN ESTADOS estados
                     ON solicitudesProyectos.estado_id = estados.estado_id
-                 WHERE solicitudesProyectos.estado_id IN(1, 2, 5) AND solicitudesProyectos.creado_por = ?
+                 WHERE solicitudesProyectos.estado_id IN(1, 2, 5, 6, 7) AND solicitudesProyectos.creado_por = ?
               ORDER BY solicitudesProyectos.solicitud_proyecto_id DESC, 
                        solicitudesProyectos.fecha_creacion DESC;";
 
@@ -352,5 +352,33 @@ class SolicitudesProyectos extends Connection
       $resultado = $queryModificarRequerimientoSolicitudProyecto->fetchAll();
 
       return $resultado;
+   }
+
+   public function ver_listado_solicitudes_proyectos()
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = "SELECT solicitudesProyectos.solicitud_proyecto_id,
+                       UCASE(solicitudesProyectos.descripcion_proyecto) AS descripcion_proyecto,
+                       UCASE(solicitudesProyectos.objetivo_proyecto) AS objetivo_proyecto,
+                       UCASE(clientes.nombre_cliente) AS solicitado_por,
+                       DATE_FORMAT(solicitudesProyectos.fecha_creacion, '%d/%m/%Y') AS fecha_solicitud,
+                       UCASE(estados.estado) AS estado
+                  FROM SOLICITUDES_PROYECTOS solicitudesProyectos
+            INNER JOIN USUARIOS usuarios
+                    ON solicitudesProyectos.creado_por = usuarios.usuario_id
+            INNER JOIN CLIENTES clientes
+                    ON usuarios.cliente_id = clientes.cliente_id
+            INNER JOIN ESTADOS estados
+                    ON solicitudesProyectos.estado_id = estados.estado_id
+                 WHERE solicitudesProyectos.estado_id IN(2, 6, 7)
+              ORDER BY solicitudesProyectos.solicitud_proyecto_id DESC, 
+                       solicitudesProyectos.fecha_creacion DESC;";
+
+      $query = $conectar->prepare($query);
+      $query->execute();
+
+      return $resultado = $query->fetchAll();
    }
 }
