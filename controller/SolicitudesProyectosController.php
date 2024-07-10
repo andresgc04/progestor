@@ -218,4 +218,12 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case 'modificar_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID':
+        $solicitudesProyectos->modificar_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID(
+            $_POST['modificarDescripcionRequerimiento'],
+            $modificadoPor,
+            $_POST['modificarSolicitudProyectoID'],
+            $_POST['modificarRequerimientoSolicitudProyectoID']
+        );
+        break;
 }

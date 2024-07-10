@@ -181,6 +181,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="cancel-project-request-details.js"></script>
         <script type="text/javascript" src="approve-project-request-details.js"></script>
         <script type="text/javascript" src="add-new-project-request-requirement.js"></script>
+        <script type="text/javascript" src="update-project-request-requirement.js"></script>
     </body>
 
     </html>
