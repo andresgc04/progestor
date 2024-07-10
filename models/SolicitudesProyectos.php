@@ -300,4 +300,27 @@ class SolicitudesProyectos extends Connection
 
       return $resultado;
    }
+
+   public function modificar_requerimiento_solicitud_proyecto_cambiar_estado_activo_eliminado_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID(
+      $modificadoPor,
+      $solicitudProyectoID,
+      $requerimientoSolicitudProyectoID
+   ) {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $queryModificarRequerimientoSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 4, MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                                                                                                 WHERE SOLICITUD_PROYECTO_ID = ? 
+                                                                                                   AND REQUERIMIENTO_SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarRequerimientoSolicitudProyecto = $conectar->prepare($queryModificarRequerimientoSolicitudProyecto);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(1, $modificadoPor);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(2, $solicitudProyectoID);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(3, $requerimientoSolicitudProyectoID);
+      $queryModificarRequerimientoSolicitudProyecto->execute();
+
+      $resultado = $queryModificarRequerimientoSolicitudProyecto->fetchAll();
+
+      return $resultado;
+   }
 }
