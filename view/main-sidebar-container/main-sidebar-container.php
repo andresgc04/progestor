@@ -75,6 +75,21 @@ if (!empty($datos)) {
                     </li>
                 <?php } ?>
 
+                <?php if ($_SESSION['rol'] === 'GERENTE DE PROYECTOS') { ?>
+                    <li class="nav-item">
+                        <a id="navLinkViewHomeProjectRequests" href="../view-home-project-requests/" class="nav-link">
+                            <i class="nav-icon fas fa-clipboard-list"></i>
+                            <p>Ver Solicitudes Proyectos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="navLinkHomeProjects" href="../home-projects/" class="nav-link">
+                            <i class="nav-icon fas fa-clipboard-list"></i>
+                            <p>Gestión Proyectos</p>
+                        </a>
+                    </li>
+                <?php } ?>
+
                 <?php if ($_SESSION['rol'] == 'Administrador') { ?>
                     <li class="nav-item">
                         <a id="navLinkHomeEmployees" href="../home-employees/" class="nav-link">
