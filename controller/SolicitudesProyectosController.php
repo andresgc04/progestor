@@ -37,6 +37,14 @@ switch ($_GET['op']) {
                 $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
             }
 
+            if ($row['estado'] === "RECHAZADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
+            }
+
+            if ($row['estado'] === "APROBADO") {
+                $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
+            }
+
             $sub_array[] = $row['estado'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
                                                             <div class="btn-group btn-group-sm">
                                                                 <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>

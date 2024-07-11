@@ -122,11 +122,11 @@ if (isset($usuarioID)) {
                                         <!-- /.card-body -->
                                         <div class="card-footer">
                                             <div class="d-flex justify-content-between">
-                                                <button type="button" id="rejectProjectRequestButton" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Rechazar</span><span><i class="fas fa-ban"></i></span></button>
+                                                <button type="button" id="rejectProjectRequestButton" onclick="rejectProjectRequest()" class="btn btn-danger"><span class="mr-2">Rechazar</span><span><i class="fas fa-ban"></i></span></button>
 
-                                                <button type="button" id="approveProjectRequestButton" onclick="validateApproveProjectRequestDetails()" class="btn btn-success"><span class="mr-2">Aprobar</span><span><i class="fas fa-check-circle"></i></span></button>
+                                                <button type="button" id="approveProjectRequestButton" onclick="approveProjectRequest()" class="btn btn-success"><span class="mr-2">Aprobar</span><span><i class="fas fa-check-circle"></i></span></button>
 
-                                                <button type="button" id="createNewProjectButton" onclick="validateUpdateRequestDetails()" class="btn btn-primary" style="display:none"><span class="mr-2">Crear Proyecto</span><span><i class="fas fa-plus-circle"></i></span></button>
+                                                <button type="button" id="createNewProjectButton" class="btn btn-primary" style="display:none"><span class="mr-2">Crear Proyecto</span><span><i class="fas fa-plus-circle"></i></span></button>
                                             </div>
                                         </div>
                                         <!-- /.card-footer -->
@@ -161,8 +161,8 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/get-params/get-params.js"></script>
         <script type="text/javascript" src="view-project-request-details.js"></script>
-        <!-- <script type="text/javascript" src="cancel-project-request-details.js"></script>
-        <script type="text/javascript" src="approve-project-request-details.js"></script> -->
+        <script type="text/javascript" src="reject-project-request.js"></script>
+        <script type="text/javascript" src="approve-project-request.js"></script>
     </body>
 
     </html>

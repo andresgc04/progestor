@@ -204,3 +204,9 @@ const obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable =
     solicitudProyectoID
   );
 })();
+
+createNewProjectButton.addEventListener("click", () => {
+  window.location.href = `../new-project/index.php?solicitudProyectoID=${getParams(
+    "solicitudProyectoID"
+  )}`;
+});
