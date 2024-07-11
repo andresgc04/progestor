@@ -55,7 +55,7 @@ if (isset($usuarioID)) {
 
                                             <div class="row">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                                    <p class="text-bold">Datos De La Solicitud Del Proyecto::</p>
+                                                    <p class="text-bold">Datos De La Solicitud Del Proyecto:</p>
                                                 </div>
                                             </div>
 
@@ -63,13 +63,13 @@ if (isset($usuarioID)) {
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="descripcionProyecto">Descripción Del Proyecto:</label>
-                                                        <textarea id="descripcionProyecto" class="form-control" rows="3"></textarea>
+                                                        <textarea id="descripcionProyecto" class="form-control" rows="3" readonly></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
-                                                        <textarea id="objetivoProyecto" class="form-control" rows="3"></textarea>
+                                                        <textarea id="objetivoProyecto" class="form-control" rows="3" readonly></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,19 +78,19 @@ if (isset($usuarioID)) {
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="presupuestoProyecto">Presupuesto Del Proyecto:</label>
-                                                        <input type="text" id="presupuestoProyecto" class="form-control">
+                                                        <input type="text" id="presupuestoProyecto" class="form-control" readonly />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="solicitadoPor">Solicitado Por:</label>
-                                                        <input type="text" id="solicitadoPor" class="form-control">
+                                                        <input type="text" id="solicitadoPor" class="form-control" readonly />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="estadoSolicitud">Estado De La Solicitud:</label>
-                                                        <input type="text" id="estadoSolicitud" class="form-control" readonly>
+                                                        <input type="text" id="estadoSolicitud" class="form-control" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,7 +110,7 @@ if (isset($usuarioID)) {
                                                                     <th>#</th>
                                                                     <th>DESCRIPCI&Oacute;N DEL REQUERIMIENTO</th>
                                                                     <th>ESTADO</th>
-                                                                    <th>ACCIONES</th>
+
                                                                 </tr>
                                                             </thead>
                                                             <tbody></tbody>
@@ -122,13 +122,11 @@ if (isset($usuarioID)) {
                                         <!-- /.card-body -->
                                         <div class="card-footer">
                                             <div class="d-flex justify-content-between">
+                                                <button type="button" id="rejectProjectRequestButton" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Rechazar</span><span><i class="fas fa-ban"></i></span></button>
 
-                                                <button type="button" id="validateCancelProjectRequestDetailsButton" onclick="validateCancelProjectRequestDetails()" class="btn btn-danger"><span class="mr-2">Cancelar</span><span><i class="fas fa-ban"></i></span></button>
+                                                <button type="button" id="approveProjectRequestButton" onclick="validateApproveProjectRequestDetails()" class="btn btn-success"><span class="mr-2">Aprobar</span><span><i class="fas fa-check-circle"></i></span></button>
 
-                                                <button type="button" id="validateSubmissionProjectRequestDetailButton" onclick="validateApproveProjectRequestDetails()" class="btn btn-success"><span class="mr-2">Someter</span><span><i class="fas fa-check-circle"></i></span></button>
-
-                                                <button type="button" id="validateUpdateRequestDetailsButton" onclick="validateUpdateRequestDetails()" class="btn btn-primary"><span class="mr-2">Crear Proyecto</span><span><i class="fas fa-save"></i></span></button>
-
+                                                <button type="button" id="createNewProjectButton" onclick="validateUpdateRequestDetails()" class="btn btn-primary" style="display:none"><span class="mr-2">Crear Proyecto</span><span><i class="fas fa-plus-circle"></i></span></button>
                                             </div>
                                         </div>
                                         <!-- /.card-footer -->
