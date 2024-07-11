@@ -78,6 +78,7 @@ switch ($_GET['op']) {
                     'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
                     'objetivoProyecto' => $item['OBJETIVO_PROYECTO'],
                     'presupuestoProyecto' => $item['PRESUPUESTO_PROYECTO'],
+                    'nombreCliente' => $item['NOMBRE_CLIENTE'],
                     'estado' => $item['ESTADO']
                 ];
 
@@ -119,6 +120,14 @@ switch ($_GET['op']) {
 
             if ($row['ESTADO'] === "CANCELADO") {
                 $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
+            }
+
+            if ($row['ESTADO'] === "RECHAZADO") {
+                $sub_array[] = '<span class="badge badge-danger">RECHAZADO</span>';
+            }
+
+            if ($row['ESTADO'] === "APROBADO") {
+                $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
             }
 
             $sub_array[] = $row['ESTADO'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
