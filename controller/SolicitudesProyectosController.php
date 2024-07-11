@@ -296,4 +296,16 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'modificar_solicitud_proyecto_cambiar_estado_pendiente_rechazado_por_solicitud_proyecto_ID':
+        $solicitudesProyectos->modificar_solicitud_proyecto_cambiar_estado_pendiente_rechazado_por_solicitud_proyecto_ID(
+            $modificadoPor,
+            $_POST['solicitudProyectoID']
+        );
+        break;
+    case 'modificar_solicitud_proyecto_cambiar_estado_pendiente_aprobado_por_solicitud_proyecto_ID':
+        $solicitudesProyectos->modificar_solicitud_proyecto_cambiar_estado_pendiente_aprobado_por_solicitud_proyecto_ID(
+            $modificadoPor,
+            $_POST['solicitudProyectoID']
+        );
+        break;
 }
