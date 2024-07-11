@@ -31,7 +31,7 @@ switch ($_GET['op']) {
             $sub_array[] = $row['NOMBRE_PROYECTO'];
             $sub_array[] = $row['TIPO_PROYECTO_OBRA_CIVIL'];
 
-            if ($row['estado'] === "ACTIVO") {
+            if ($row['ESTADO'] === "ACTIVO") {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
             }
 

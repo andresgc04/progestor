@@ -53,11 +53,14 @@ class ProyectosObrasCiviles extends Connection
                          proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
                          UCASE(proyectosObrasCiviles.NOMBRE_PROYECTO) NOMBRE_PROYECTO,
                          UCASE(tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL) 
-                         TIPO_PROYECTO_OBRA_CIVIL
+                         TIPO_PROYECTO_OBRA_CIVIL,
+                         UCASE(estados.ESTADO) ESTADO
                     FROM PROYECTOS_OBRAS_CIVILES proyectosObrasCiviles
               INNER JOIN TIPOS_PROYECTOS_OBRAS_CIVILES tiposProyectosObrasCiviles
                       ON proyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID = 
                          tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID
+              INNER JOIN ESTADOS estados
+                      ON proyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
                    WHERE proyectosObrasCiviles.ESTADO_ID = 1
                 ORDER BY proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID DESC,
                          proyectosObrasCiviles.FECHA_CREACION DESC;";
