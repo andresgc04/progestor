@@ -386,4 +386,34 @@ class SolicitudesProyectos extends Connection
 
       return $resultado = $query->fetchAll();
    }
+
+   public function modificar_solicitud_proyecto_cambiar_estado_activo_rechazado_por_solicitud_proyecto_ID(
+      $modificadoPor,
+      $solicitudProyectoID,
+   ) {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $queryModificarSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET ESTADO_ID = 6, MODIFICADO_POR = ?,
+  								                                                   FECHA_MODIFICACION = NOW()
+                                                                     WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarSolicitudProyecto = $conectar->prepare($queryModificarSolicitudProyecto);
+      $queryModificarSolicitudProyecto->bindValue(1, $modificadoPor);
+      $queryModificarSolicitudProyecto->bindValue(2, $solicitudProyectoID);
+      $queryModificarSolicitudProyecto->execute();
+
+      $queryModificarRequerimientoSolicitudProyecto = 'UPDATE REQUERIMIENTOS_SOLICITUDES_PROYECTOS SET ESTADO_ID = 6, MODIFICADO_POR = ?,
+  												                                                                   FECHA_MODIFICACION = NOW()
+						   				                                                                WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarRequerimientoSolicitudProyecto = $conectar->prepare($queryModificarRequerimientoSolicitudProyecto);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(1, $modificadoPor);
+      $queryModificarRequerimientoSolicitudProyecto->bindValue(2, $solicitudProyectoID);
+      $queryModificarRequerimientoSolicitudProyecto->execute();
+
+      $resultado = $queryModificarRequerimientoSolicitudProyecto->fetchAll();
+
+      return $resultado;
+   }
 }
