@@ -7,7 +7,7 @@ class CategoriasTiposProyectosObrasCiviles extends Connection
         parent::set_names();
 
         $query = 'SELECT CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID,
-                         CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL
+                         UCASE(CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL) CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL
                     FROM CATEGORIAS_TIPOS_PROYECTOS_OBRAS_CIVILES
                    WHERE TIPO_PROYECTO_OBRA_CIVIL_ID = ? AND ESTADO_ID = 1;';
 
