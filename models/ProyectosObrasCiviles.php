@@ -43,4 +43,30 @@ class ProyectosObrasCiviles extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function listado_proyectos_obras_civiles()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = "SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
+                         proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
+                         UCASE(proyectosObrasCiviles.NOMBRE_PROYECTO) NOMBRE_PROYECTO,
+                         UCASE(tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL) 
+                         TIPO_PROYECTO_OBRA_CIVIL
+                    FROM PROYECTOS_OBRAS_CIVILES proyectosObrasCiviles
+              INNER JOIN TIPOS_PROYECTOS_OBRAS_CIVILES tiposProyectosObrasCiviles
+                      ON proyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID = 
+                         tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID
+                   WHERE proyectosObrasCiviles.ESTADO_ID = 1
+                ORDER BY proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID DESC,
+                         proyectosObrasCiviles.FECHA_CREACION DESC;";
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
