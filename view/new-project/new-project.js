@@ -21,4 +21,22 @@ setBreadCrumbContentHeaderSubTitle("Crear Nuevo Proyecto");
   $("#fechaFinalizacionProyecto").datetimepicker({
     format: "YYYY/MM/DD",
   });
+
+  getSelectListTypesCivilWorksProjectsOptions(
+    "../../controller/TiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_tipos_proyectos_obras_civiles",
+    "#tipoProyectoObraCivilID"
+  );
 })();
+
+const tipoProyectoObraCivilIDInput = document.getElementById(
+  "tipoProyectoObraCivilID"
+);
+tipoProyectoObraCivilIDInput.onchange = (event) => {
+  const tipoProyectoObraCivilID = event.target.value;
+
+  getSelectListCategoriesTypesProjectsCivilWorksOptionsByTipoProyectoObraCivilID(
+    "../../controller/CategoriasTiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_categorias_tipos_proyectos_obras_civiles_por_tipo_proyecto_obra_civil_ID",
+    tipoProyectoObraCivilID,
+    "#categoriaTipoProyectoObraCivilID"
+  );
+};

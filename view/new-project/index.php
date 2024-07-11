@@ -158,6 +158,8 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/get-params/get-params.js"></script>
         <script type="text/javascript" src="../../public/js/functions/select2-elements/set-select2-elements.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_civil_works_projects_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_categories_types_projects_civil_works.js"></script>
         <script type="text/javascript" src="new-project.js"></script>
     </body>
 
