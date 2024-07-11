@@ -98,4 +98,17 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_responsables_proyecto':
+        $datos = $empleados->obtener_listado_opciones_responsables_proyecto();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el responsable del proyecto.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['EMPLEADO_ID'] . '">' . $row['EMPLEADO'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
