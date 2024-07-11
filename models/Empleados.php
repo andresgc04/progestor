@@ -154,4 +154,25 @@ class Empleados extends Connection
 
       return $resultado = $query->fetchAll();
    }
+
+   public function obtener_listado_opciones_responsables_proyecto()
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = "SELECT EMPLEADO_ID,
+                       CONCAT(UCASE(PRIMER_NOMBRE),' ',
+                       UCASE(SEGUNDO_NOMBRE),' ',
+                       UCASE(PRIMER_APELLIDO), ' ',
+                       UCASE(SEGUNDO_APELLIDO)) EMPLEADO 
+                  FROM EMPLEADOS 
+                 WHERE PUESTO_ID IN (2, 3, 4) AND ESTADO_ID = 1;";
+
+      $query = $conectar->prepare($query);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
