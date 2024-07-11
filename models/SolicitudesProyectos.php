@@ -107,11 +107,16 @@ class SolicitudesProyectos extends Connection
                        UCASE(solicitudesProyectos.DESCRIPCION_PROYECTO) DESCRIPCION_PROYECTO,
                        UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) OBJETIVO_PROYECTO,
                        solicitudesProyectos.PRESUPUESTO_PROYECTO,
+                       UCASE(clientes.NOMBRE_CLIENTE) NOMBRE_CLIENTE,
                        UCASE(estados.ESTADO) ESTADO
-                  FROM SOLICITUDES_PROYECTOS solicitudesProyectos 
-	                    INNER JOIN ESTADOS estados
+                  FROM SOLICITUDES_PROYECTOS solicitudesProyectos
+            INNER JOIN USUARIOS usuarios
+                    ON solicitudesProyectos.CREADO_POR = usuarios.USUARIO_ID
+            INNER JOIN CLIENTES clientes
+                    ON usuarios.CLIENTE_ID = clientes.CLIENTE_ID
+            INNER JOIN ESTADOS estados
                     ON solicitudesProyectos.estado_id = estados.estado_id
-                 WHERE solicitudesProyectos.ESTADO_ID IN(1, 2, 5)
+                 WHERE solicitudesProyectos.ESTADO_ID IN(1, 2, 5, 6, 7)
                    AND solicitudesProyectos.SOLICITUD_PROYECTO_ID = ?;';
 
       $query = $conectar->prepare($query);
@@ -135,7 +140,7 @@ class SolicitudesProyectos extends Connection
                   FROM REQUERIMIENTOS_SOLICITUDES_PROYECTOS requerimientosSolicitudesProyectos
                        INNER JOIN ESTADOS estados
                     ON requerimientosSolicitudesProyectos.ESTADO_ID = estados.ESTADO_ID
-                 WHERE requerimientosSolicitudesProyectos.ESTADO_ID IN(1, 2, 5)
+                 WHERE requerimientosSolicitudesProyectos.ESTADO_ID IN(1, 2, 5, 6, 7)
                    AND requerimientosSolicitudesProyectos.SOLICITUD_PROYECTO_ID = ?;';
 
       $query = $conectar->prepare($query);

@@ -84,7 +84,7 @@ if (isset($usuarioID)) {
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="solicitadoPor">Solicitado Por:</label>
-                                                        <input type="text" id="solicitadoPor" class="form-control" readonly>
+                                                        <input type="text" id="solicitadoPor" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
