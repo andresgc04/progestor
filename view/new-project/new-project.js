@@ -26,6 +26,11 @@ setBreadCrumbContentHeaderSubTitle("Crear Nuevo Proyecto");
     "../../controller/TiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_tipos_proyectos_obras_civiles",
     "#tipoProyectoObraCivilID"
   );
+
+  getSelectListProjectManagersOptions(
+    "../../controller/EmpleadosController.php?op=obtener_listado_opciones_responsables_proyecto",
+    "#responsableID"
+  );
 })();
 
 const tipoProyectoObraCivilIDInput = document.getElementById(
