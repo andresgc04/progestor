@@ -10,6 +10,14 @@ setBreadCrumbContentHeaderTitle(
 setBreadCrumbContentHeaderSubTitle("Crear Nuevo Proyecto");
 
 (function () {
+  //GetParams:
+  const solicitudProyectoID = getParams("solicitudProyectoID");
+
+  const solicitudProyectoIDInput = document.getElementById(
+    "solicitudProyectoID"
+  );
+  solicitudProyectoIDInput.value = solicitudProyectoID;
+
   //Initialize Select2 Elements:
   initializeSelect2Elements();
 
