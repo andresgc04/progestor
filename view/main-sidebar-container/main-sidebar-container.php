@@ -83,7 +83,7 @@ if (!empty($datos)) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a id="navLinkHomeProjects" href="../home-projects/" class="nav-link">
+                        <a id="navLinkHomeProjects" href="../home-civil-works-projects/" class="nav-link">
                             <i class="nav-icon fas fa-clipboard-list"></i>
                             <p>Gestión Proyectos</p>
                         </a>
