@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class Connection
 {
     protected $dbh;
@@ -22,7 +20,8 @@ class Connection
         return $this->dbh->query("SET NAMES 'utf8'");
     }
 
-    public function path() {
+    public function path()
+    {
         return "http://localhost/progestor/";
     }
 }

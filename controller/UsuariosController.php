@@ -7,15 +7,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 
 $usuarios = new Usuarios();
 
-//Codificar el password con hash:
-$hashed_password_individual_client = password_hash($_POST['nuevoPasswordClienteIndividual'], PASSWORD_DEFAULT);
-$hashed_user_employee_password = password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT);
-$hashed_password_user_private_business_client = password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT);
-$hashed_password_user_government_client = password_hash($_POST['nuevoPasswordClienteEmpresaGubernamental'], PASSWORD_DEFAULT);
-
 switch ($_GET['op']) {
     case 'registrar_usuarios_empleados':
-        $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], $hashed_user_employee_password, $_POST['rolID'], $creadoPor);
+        $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT), $_POST['rolID'], $creadoPor);
         break;
     case 'registrar_usuarios_clientes_individuales':
         $usuarios->registrar_usuarios_clientes_individuales(
@@ -32,7 +26,7 @@ switch ($_GET['op']) {
             $_POST['fechaNacimientoClienteIndividual'],
             $_POST['nacionalidadIDClienteIndividual'],
             $_POST['nuevoNombreUsuarioClienteIndividual'],
-            $hashed_password_individual_client,
+            password_hash($_POST['nuevoPasswordClienteIndividual'], PASSWORD_DEFAULT),
             $creadoPor
         );
         break;
@@ -52,7 +46,7 @@ switch ($_GET['op']) {
             $_POST['numeroEmpleadosClienteEmpresa'],
             $_POST['sectorClienteEmpresa'],
             $_POST['nuevoNombreUsuarioClienteEmpresa'],
-            $hashed_password_user_private_business_client,
+            password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT),
             $creadoPor
         );
         break;
@@ -72,7 +66,7 @@ switch ($_GET['op']) {
             $_POST['sectorClienteEmpresaGubernamental'],
             $_POST['presupuestoAnualClienteEmpresaGubernamental'],
             $_POST['nuevoNombreUsuarioClienteEmpresaGubernamental'],
-            $hashed_password_user_government_client,
+            password_hash($_POST['nuevoPasswordClienteEmpresaGubernamental'], PASSWORD_DEFAULT),
             $creadoPor
         );
         break;
