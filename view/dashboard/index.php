@@ -10,8 +10,11 @@ if (isset($usuarioID)) {
     <!DOCTYPE html>
     <html lang="en">
     <!-- Head -->
-    <?php require_once('../head/head.php') ?>
-    <!-- <%- include("../../templates/head.ejs", {titleWeb: 'Dashboard'}); %> -->
+
+    <head>
+        <title>Progestor | Dashboard</title>
+        <?php require_once('../links/links.php') ?>
+    </head>
     <!-- /. Head -->
 
     <body class="hold-transition sidebar-mini layout-fixed">

@@ -10,7 +10,11 @@ if (isset($usuarioID)) {
     <!DOCTYPE html>
     <html lang="en">
     <!-- Head -->
-    <?php require_once('../head/head.php') ?>
+
+    <head>
+        <title>Progestor | Listado De Puestos</title>
+        <?php require_once('../links/links.php') ?>
+    </head>
     <!-- /. Head -->
 
     <body class="hold-transition sidebar-mini layout-fixed">

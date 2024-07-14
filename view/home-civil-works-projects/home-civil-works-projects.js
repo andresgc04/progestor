@@ -63,3 +63,7 @@ const obtenerProyectosObrasCivilesDataTable = () => {
 (function () {
   obtenerProyectosObrasCivilesDataTable();
 })();
+
+const verDetalleProyecto = (proyectoObraCivilID, solicitudProyectoID) => {
+  window.location.href = `../details-civil-works-projects/index.php?proyectoObraCivilID=${proyectoObraCivilID}&&solicitudProyectoID=${solicitudProyectoID}`;
+};
