@@ -3,6 +3,8 @@ class Usuarios extends Connection
 {
     public function login()
     {
+        session_start();
+
         $connection = parent::Connection();
 
         parent::set_names();
