@@ -9,7 +9,7 @@ $usuarios = new Usuarios();
 
 switch ($_GET['op']) {
     case 'registrar_usuarios_empleados':
-        $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT), $_POST['rolID'], $creadoPor);
+        $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], isset(password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT)), $_POST['rolID'], $creadoPor);
         break;
     case 'registrar_usuarios_clientes_individuales':
         $usuarios->registrar_usuarios_clientes_individuales(
@@ -46,7 +46,7 @@ switch ($_GET['op']) {
             $_POST['numeroEmpleadosClienteEmpresa'],
             $_POST['sectorClienteEmpresa'],
             $_POST['nuevoNombreUsuarioClienteEmpresa'],
-            password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT),
+            isset(password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT)),
             $creadoPor
         );
         break;
@@ -66,7 +66,7 @@ switch ($_GET['op']) {
             $_POST['sectorClienteEmpresaGubernamental'],
             $_POST['presupuestoAnualClienteEmpresaGubernamental'],
             $_POST['nuevoNombreUsuarioClienteEmpresaGubernamental'],
-            password_hash($_POST['nuevoPasswordClienteEmpresaGubernamental'], PASSWORD_DEFAULT),
+            isset(password_hash($_POST['nuevoPasswordClienteEmpresaGubernamental'], PASSWORD_DEFAULT)),
             $creadoPor
         );
         break;

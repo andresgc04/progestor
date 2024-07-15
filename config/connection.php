@@ -6,7 +6,7 @@ class Connection
     protected function Connection()
     {
         try {
-            $connection = $this->dbh = new PDO("mysql:local=localhost;dbname=progestorDB", "root", "");
+            $connection = $this->dbh = new PDO("mysql:local=localhost;dbname=progestordb", "root", "");
 
             return $connection;
         } catch (Exception $error) {

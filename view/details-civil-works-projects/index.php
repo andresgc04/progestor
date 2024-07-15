@@ -42,7 +42,7 @@ if (isset($usuarioID)) {
                         <div class="col-md-6">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">General</h3>
+                                    <h3 class="card-title">Datos Basicos Del Proyecto</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -51,30 +51,68 @@ if (isset($usuarioID)) {
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <input type="hidden" id="proyectoObraCivilID" name="proyectoObraCivilID" class="form-control" />
+                                    <input type="hidden" id="solicitudProyectoID" name="solicitudProyectoID" class="form-control" />
+
                                     <div class="form-group">
-                                        <label for="inputName">Project Name</label>
+                                        <label for="inputName">Nombre Del Proyecto:</label>
                                         <input type="text" id="inputName" class="form-control" value="AdminLTE">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputDescription">Project Description</label>
-                                        <textarea id="inputDescription" class="form-control" rows="4">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</textarea>
+                                        <label for="inputDescription">Descripción Del Proyecto:</label>
+                                        <textarea id="inputDescription" class="form-control" rows="3"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputStatus">Status</label>
-                                        <select id="inputStatus" class="form-control custom-select">
-                                            <option disabled>Select one</option>
-                                            <option>On Hold</option>
-                                            <option>Canceled</option>
-                                            <option selected>Success</option>
-                                        </select>
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="paisID">Tipo De Proyecto:</label>
+                                                <select id="paisID" name="paisID" class="form-control select2" style="width: 100%;"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="paisID">Categoría De Proyecto:</label>
+                                                <select id="paisID" name="paisID" class="form-control select2" style="width: 100%;"></select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputClientCompany">Client Company</label>
-                                        <input type="text" id="inputClientCompany" class="form-control" value="Deveint Inc">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="fechaInicioProyecto">Fecha De Inicio Del Proyecto:</label>
+                                                <div class="input-group date" data-target-input="nearest">
+                                                    <input id="fechaInicioProyecto" name="fechaInicioProyecto" type="text" class="form-control datetimepicker-input" data-target="#fechaInicioProyecto" />
+                                                    <div class="input-group-append" data-target="#fechaInicioProyecto" data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="fechaFinalizacionProyecto">Fecha De Finalización Del Proyecto:</label>
+                                                <div class="input-group date" data-target-input="nearest">
+                                                    <input id="fechaFinalizacionProyecto" name="fechaFinalizacionProyecto" type="text" class="form-control datetimepicker-input" data-target="#fechaFinalizacionProyecto" />
+                                                    <div class="input-group-append" data-target="#fechaFinalizacionProyecto" data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputProjectLeader">Project Leader</label>
-                                        <input type="text" id="inputProjectLeader" class="form-control" value="Tony Chicken">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="paisID">Responsable Del Proyecto:</label>
+                                                <select id="paisID" name="paisID" class="form-control select2" style="width: 100%;"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-md-12 col-lg-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="inputProjectLeader">Estado Del Proyecto:</label>
+                                                <input type="text" id="inputProjectLeader" class="form-control" value="Tony Chicken">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -84,7 +122,7 @@ if (isset($usuarioID)) {
                         <div class="col-md-6">
                             <div class="card card-secondary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Budget</h3>
+                                    <h3 class="card-title">Actividades Del Proyecto</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -93,17 +131,24 @@ if (isset($usuarioID)) {
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="inputEstimatedBudget">Estimated budget</label>
-                                        <input type="number" id="inputEstimatedBudget" class="form-control" value="2300" step="1">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                                            <button type="button" class="btn btn-primary"><span>Agregar Nueva Actividad</span></button>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputSpentBudget">Total amount spent</label>
-                                        <input type="number" id="inputSpentBudget" class="form-control" value="2000" step="1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEstimatedDuration">Estimated project duration</label>
-                                        <input type="number" id="inputEstimatedDuration" class="form-control" value="20" step="0.1">
+                                    <div class="table-responsive">
+                                        <table id="listadoSolicitudesProyectosDataTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>TIPO DE ACTIVIDAD</th>
+                                                    <th>ACTIVIDAD</th>
+                                                    <th>ESTADO</th>
+                                                    <th>ACCIONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
