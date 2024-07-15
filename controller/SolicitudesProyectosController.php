@@ -3,6 +3,8 @@ require_once('../config/connection.php');
 require_once('../models/SolicitudesProyectos.php');
 require_once('../public/php/constants/sessions-constants.php');
 
+session_start();
+
 $usuarioID = $_SESSION[$USUARIO_ID];
 $creadoPor = $_SESSION[$USUARIO_ID];
 $modificadoPor = $creadoPor;

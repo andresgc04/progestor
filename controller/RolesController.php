@@ -3,6 +3,8 @@ require_once('../config/connection.php');
 require_once('../models/Roles.php');
 require_once('../public/php/constants/sessions-constants.php');
 
+session_start();
+
 $creadoPor = $_SESSION[$USUARIO_ID];
 
 $roles = new Roles();
