@@ -79,4 +79,49 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_datos_proyectos_obras_civiles_por_proyecto_obra_civil_ID_solicitud_proyecto_ID':
+        $data = $proyectosObrasCiviles->obtener_datos_proyectos_obras_civiles_por_proyecto_obra_civil_ID_solicitud_proyecto_ID(
+            $_POST['proyectoObraCivilID'],
+            $_POST['solicitudProyectoID']
+        );
+
+        if (is_array($data) == true and count($data) > 0) {
+            // Normalizar la estructura de los datos si es necesario
+            $normalizedData = array();
+
+            foreach ($data as $item) {
+                // Si los datos son un array asociativo con claves numéricas y asociativas,
+                // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
+                $normalizedItem = [
+                    'proyectoObraCivilID' => $item['PROYECTO_OBRA_CIVIL_ID'],
+                    'solicitudProyectoID' => $item['SOLICITUD_PROYECTO_ID'],
+                    'nombreProyecto' => $item['NOMBRE_PROYECTO'],
+                    'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
+                    'tipoProyectoObraCivilID' => $item['TIPO_PROYECTO_OBRA_CIVIL_ID'],
+                    'categoriaTipoProyectoObraCivilID' => $item['CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID'],
+                    'responsableID' => $item['RESPONSABLE_ID'],
+                    'fechaInicioProyecto' => $item['FECHA_INICIO_PROYECTO'],
+                    'fechaFinalizacionProyecto' => $item['FECHA_FINALIZACION_PROYECTO'],
+                    'estado' => $item['ESTADO']
+                ];
+
+                // Agregar el elemento normalizado al array resultante
+                $normalizedData = $normalizedItem;
+            }
+
+            // Crear un array asociativo con la clave "data"
+            $response = array('data' => $normalizedData);
+
+            // Convertir el array de objetos a formato JSON:
+            $json = json_encode($response, JSON_UNESCAPED_UNICODE);
+
+            // Configurar la cabecera para indicar que la respuesta es JSON
+            header('Content-Type: application/json');
+
+            // Retornar o imprimir el JSON
+            echo $json;
+        } else {
+            echo json_encode(['data' => []]);
+        }
+        break;
 }
