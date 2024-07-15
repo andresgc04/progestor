@@ -249,6 +249,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/select2-elements/set-select2-elements.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/get-params/get-params.js"></script>
         <script type="text/javascript" src="details-civil-works-projects.js"></script>
     </body>
 
