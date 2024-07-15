@@ -55,24 +55,24 @@ if (isset($usuarioID)) {
                                     <input type="hidden" id="solicitudProyectoID" name="solicitudProyectoID" class="form-control" />
 
                                     <div class="form-group">
-                                        <label for="inputName">Nombre Del Proyecto:</label>
-                                        <input type="text" id="inputName" class="form-control" value="AdminLTE">
+                                        <label for="nombreProyecto">Nombre Del Proyecto:</label>
+                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputDescription">Descripción Del Proyecto:</label>
-                                        <textarea id="inputDescription" class="form-control" rows="3"></textarea>
+                                        <label for="descripcionProyecto">Descripción Del Proyecto:</label>
+                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="paisID">Tipo De Proyecto:</label>
-                                                <select id="paisID" name="paisID" class="form-control select2" style="width: 100%;"></select>
+                                                <label for="tipoProyectoObraCivilID">Tipo De Proyecto:</label>
+                                                <select id="tipoProyectoObraCivilID" name="tipoProyectoObraCivilID" class="form-control select2" style="width: 100%;"></select>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="paisID">Categoría De Proyecto:</label>
-                                                <select id="paisID" name="paisID" class="form-control select2" style="width: 100%;"></select>
+                                                <label for="categoriaTipoProyectoObraCivilID">Categoría De Proyecto:</label>
+                                                <select id="categoriaTipoProyectoObraCivilID" name="categoriaTipoProyectoObraCivilID" class="form-control select2" style="width: 100%;"></select>
                                             </div>
                                         </div>
                                     </div>
@@ -103,14 +103,14 @@ if (isset($usuarioID)) {
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="paisID">Responsable Del Proyecto:</label>
-                                                <select id="paisID" name="paisID" class="form-control select2" style="width: 100%;"></select>
+                                                <label for="responsableID">Responsable Del Proyecto:</label>
+                                                <select id="responsableID" name="responsableID" class="form-control select2" style="width: 100%;"></select>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-12 col-lg-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="inputProjectLeader">Estado Del Proyecto:</label>
-                                                <input type="text" id="inputProjectLeader" class="form-control" value="Tony Chicken">
+                                                <label for="EstadoProyecto">Estado Del Proyecto:</label>
+                                                <input type="text" id="EstadoProyecto" class="form-control" />
                                             </div>
                                         </div>
                                     </div>
