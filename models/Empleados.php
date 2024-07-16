@@ -175,4 +175,48 @@ class Empleados extends Connection
 
       return $resultado;
    }
+
+   public function obtener_listado_opciones_responsables_proyecto_por_empleado_ID($empleadoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = "SELECT EMPLEADO_ID,
+                       CONCAT(UCASE(PRIMER_NOMBRE),' ',
+                       UCASE(SEGUNDO_NOMBRE),' ',
+                       UCASE(PRIMER_APELLIDO), ' ',
+                       UCASE(SEGUNDO_APELLIDO)) EMPLEADO 
+                  FROM EMPLEADOS 
+                 WHERE EMPLEADO_ID = ? AND PUESTO_ID IN (2, 3, 4) AND ESTADO_ID = 1;";
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $empleadoID);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
+
+   public function obtener_listado_opciones_responsables_proyecto_diferente_empleado_ID($empleadoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = "SELECT EMPLEADO_ID,
+                       CONCAT(UCASE(PRIMER_NOMBRE),' ',
+                       UCASE(SEGUNDO_NOMBRE),' ',
+                       UCASE(PRIMER_APELLIDO), ' ',
+                       UCASE(SEGUNDO_APELLIDO)) EMPLEADO 
+                  FROM EMPLEADOS 
+                 WHERE EMPLEADO_ID != ? AND PUESTO_ID IN (2, 3, 4) AND ESTADO_ID = 1;";
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $empleadoID);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
