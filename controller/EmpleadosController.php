@@ -113,4 +113,23 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_responsables_proyecto_por_responsable_ID':
+        $datos = $empleados->obtener_listado_opciones_responsables_proyecto_por_responsable_ID($_POST['responsableID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            foreach ($datos as $row) {
+                $html .= '<option selected value="' . $row['EMPLEADO_ID'] . '">' . $row['EMPLEADO'] . '</option>';
+            }
+        }
+
+        $datos2 = $empleados->obtener_listado_opciones_responsables_proyecto_diferente_responsable_ID($_POST['responsableID']);
+
+        if (is_array($datos2) == true and count($datos2) > 0) {
+            foreach ($datos2 as $row) {
+                $html .= '<option value="' . $row['EMPLEADO_ID'] . '">' . $row['EMPLEADO'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }

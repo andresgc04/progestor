@@ -176,7 +176,7 @@ class Empleados extends Connection
       return $resultado;
    }
 
-   public function obtener_listado_opciones_responsables_proyecto_por_empleado_ID($empleadoID)
+   public function obtener_listado_opciones_responsables_proyecto_por_responsable_ID($responsableID)
    {
       $conectar = parent::Connection();
       parent::set_names();
@@ -190,7 +190,7 @@ class Empleados extends Connection
                  WHERE EMPLEADO_ID = ? AND PUESTO_ID IN (2, 3, 4) AND ESTADO_ID = 1;";
 
       $query = $conectar->prepare($query);
-      $query->bindValue(1, $empleadoID);
+      $query->bindValue(1, $responsableID);
       $query->execute();
 
       $resultado = $query->fetchAll();
@@ -198,7 +198,7 @@ class Empleados extends Connection
       return $resultado;
    }
 
-   public function obtener_listado_opciones_responsables_proyecto_diferente_empleado_ID($empleadoID)
+   public function obtener_listado_opciones_responsables_proyecto_diferente_responsable_ID($responsableID)
    {
       $conectar = parent::Connection();
       parent::set_names();
@@ -212,7 +212,7 @@ class Empleados extends Connection
                  WHERE EMPLEADO_ID != ? AND PUESTO_ID IN (2, 3, 4) AND ESTADO_ID = 1;";
 
       $query = $conectar->prepare($query);
-      $query->bindValue(1, $empleadoID);
+      $query->bindValue(1, $responsableID);
       $query->execute();
 
       $resultado = $query->fetchAll();

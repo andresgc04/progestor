@@ -92,6 +92,12 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
           fechaFinalizacionProyectoInput.value =
             fechaFinalizacionProyecto != null ? fechaFinalizacionProyecto : "";
 
+          getSelectListProjectManagerOptionsByResposableID(
+            "../../controller/EmpleadosController.php?op=obtener_listado_opciones_responsables_proyecto_por_responsable_ID",
+            responsableID,
+            "#responsableID"
+          );
+
           EstadoProyectoInput.value = estado != null ? estado : "";
         }
       })
