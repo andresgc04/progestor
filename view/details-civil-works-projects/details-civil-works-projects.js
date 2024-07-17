@@ -92,6 +92,28 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
             "#tipoProyectoObraCivilID"
           );
 
+          getSelectListCategoriesTypesProjectsCivilWorksOptionsByCategoriaTipoProyectoObraCivilIDAndTipoProyectoObraCivilID(
+            "../../controller/CategoriasTiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_categorias_tipos_proyectos_obras_civiles_por_categoria_tipo_proyecto_obra_civil_ID_tipo_proyecto_obra_civil_ID",
+            categoriaTipoProyectoObraCivilID,
+            tipoProyectoObraCivilID,
+            "#categoriaTipoProyectoObraCivilID"
+          );
+
+          const tipoProyectoObraCivilIDInputSelect = document.getElementById(
+            "tipoProyectoObraCivilID"
+          );
+          tipoProyectoObraCivilIDInputSelect.addEventListener(
+            "change",
+            function (event) {
+              getSelectListCategoriesTypesProjectsCivilWorksOptionsByCategoriaTipoProyectoObraCivilIDAndTipoProyectoObraCivilID(
+                "../../controller/CategoriasTiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_categorias_tipos_proyectos_obras_civiles_por_categoria_tipo_proyecto_obra_civil_ID_tipo_proyecto_obra_civil_ID",
+                categoriaTipoProyectoObraCivilID,
+                event.target.value,
+                "#categoriaTipoProyectoObraCivilID"
+              );
+            }
+          );
+
           fechaInicioProyectoInput.value =
             fechaInicioProyecto != null ? fechaInicioProyecto : "";
 
@@ -125,6 +147,18 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
   };
 
 (function () {
+  //Initialize Select2 Elements:
+  initializeSelect2Elements();
+
+  //Initialize Date picker:
+  $("#fechaInicioProyecto").datetimepicker({
+    format: "YYYY/MM/DD",
+  });
+
+  $("#fechaFinalizacionProyecto").datetimepicker({
+    format: "YYYY/MM/DD",
+  });
+
   const proyectoObraCivilID = getParams("proyectoObraCivilID");
   const solicitudProyectoID = getParams("solicitudProyectoID");
 
