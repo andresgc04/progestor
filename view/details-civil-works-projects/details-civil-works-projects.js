@@ -86,6 +86,12 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
           descripcionProyectoInput.value =
             descripcionProyecto != null ? descripcionProyecto : "";
 
+          getSelectListTypesCivilWorksProjectsOptionsByTipoProyectoObraCivilID(
+            "../../controller/TiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_tipos_proyectos_obras_civiles_por_tipo_proyecto_obra_civil_ID",
+            tipoProyectoObraCivilID,
+            "#tipoProyectoObraCivilID"
+          );
+
           fechaInicioProyectoInput.value =
             fechaInicioProyecto != null ? fechaInicioProyecto : "";
 
