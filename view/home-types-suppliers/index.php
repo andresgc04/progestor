@@ -87,6 +87,7 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-types-suppliers.php') ?>
+                                <?php require_once('components/update-types-suppliers.php') ?>
                             </section>
                             <!-- /. col content -->
                         </div>

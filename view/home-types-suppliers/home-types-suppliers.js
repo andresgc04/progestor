@@ -76,3 +76,14 @@ const obtenerListadoTiposProveedoresDataTable = () => {
 (function () {
   obtenerListadoTiposProveedoresDataTable();
 })();
+
+const openUpdateTypesSuppliersFormModal = () => {
+  $("#updateTypesSuppliersFormModal").modal("show");
+};
+
+const verDetalleTipoProveedor = (tipoProveedorID) => {
+  const tipoProveedorIDInput = document.getElementById("tipoProveedorID");
+  tipoProveedorIDInput.value = tipoProveedorID;
+
+  openUpdateTypesSuppliersFormModal();
+};
