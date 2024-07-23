@@ -1,6 +1,4 @@
-navLinkPrimary("navLinkMaintenance");
-
-navLinkSecondary("navLinkHomeRoles");
+navLinkPrimary("navLinkHomeRoles");
 
 setContentHeaderTitle("Listado De Roles");
 
