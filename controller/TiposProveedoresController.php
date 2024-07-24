@@ -96,4 +96,7 @@ switch ($_GET['op']) {
     case "modificar_tipos_proveedores_por_tipo_proveedor_ID":
         $tiposProveedores->modificar_tipos_proveedores_por_tipo_proveedor_ID($_POST['modificarTipoProveedor'], $_POST['tipoProveedorID'], $modificadoPor);
         break;
+    case "eliminar_tipos_proveedores_por_tipo_proveedor_ID":
+        $tiposProveedores->eliminar_tipos_proveedores_por_tipo_proveedor_ID($_POST['tipoProveedorID'], $modificadoPor);
+        break;
 }
