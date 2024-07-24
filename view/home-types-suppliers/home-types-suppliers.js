@@ -82,8 +82,60 @@ const openUpdateTypesSuppliersFormModal = () => {
 };
 
 const verDetalleTipoProveedor = (tipoProveedorID) => {
-  const tipoProveedorIDInput = document.getElementById("tipoProveedorID");
-  tipoProveedorIDInput.value = tipoProveedorID;
+  $.post(
+    "../../controller/TiposProveedoresController.php?op=obtener_detalles_tipos_proveedores_por_tipo_proveedor_ID",
+    {
+      tipoProveedorID: tipoProveedorID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
 
-  openUpdateTypesSuppliersFormModal();
+        const { tipoProveedorID, tipoProveedor } = responseData;
+
+        const tipoProveedorIDInput = document.getElementById("tipoProveedorID");
+        const modificarTipoProveedorInput = document.getElementById(
+          "modificarTipoProveedor"
+        );
+
+        tipoProveedorIDInput.value =
+          tipoProveedorID != null ? tipoProveedorID : "";
+
+        modificarTipoProveedorInput.value =
+          tipoProveedor != null ? tipoProveedor : "";
+
+        openUpdateTypesSuppliersFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };
