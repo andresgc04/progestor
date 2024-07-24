@@ -70,4 +70,25 @@ class TiposProveedores extends Connection
 
         return $resultado;
     }
+
+    public function modificar_tipos_proveedores_por_tipo_proveedor_ID($tipoProveedor, $tipoProveedorID, $modificadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE TIPOS_PROVEEDORES SET TIPO_PROVEEDOR = ?,
+							                   MODIFICADO_POR = ?,
+                                               FECHA_MODIFICACION = NOW()
+                                         WHERE TIPO_PROVEEDOR_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoProveedor);
+        $query->bindValue(2, $modificadoPor);
+        $query->bindValue(3, $tipoProveedorID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
