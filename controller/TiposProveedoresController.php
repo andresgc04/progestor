@@ -6,6 +6,7 @@ require_once('../public/php/constants/sessions-constants.php');
 session_start();
 
 $creadoPor = $_SESSION[$USUARIO_ID];
+$modificadoPor = $creadoPor;
 
 $tiposProveedores = new TiposProveedores();
 
@@ -91,5 +92,8 @@ switch ($_GET['op']) {
         } else {
             echo json_encode(['data' => []]);
         }
+        break;
+    case "modificar_tipos_proveedores_por_tipo_proveedor_ID":
+        $tiposProveedores->modificar_tipos_proveedores_por_tipo_proveedor_ID($_POST['modificarTipoProveedor'], $_POST['tipoProveedorID'], $modificadoPor);
         break;
 }
