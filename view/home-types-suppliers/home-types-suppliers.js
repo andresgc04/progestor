@@ -139,3 +139,52 @@ const verDetalleTipoProveedor = (tipoProveedorID) => {
       );
     });
 };
+
+const eliminarTipoProveedor = (tipoProveedorID) => {
+  Swal.fire({
+    title: "¿Deseas eliminar este tipo de proveedor seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/TiposProveedoresController.php?op=eliminar_tipos_proveedores_por_tipo_proveedor_ID",
+        {
+          tipoProveedorID: tipoProveedorID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Tipo de proveedor eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
