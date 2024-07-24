@@ -115,6 +115,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-types-suppliers.js"></script>
         <script type="text/javascript" src="new-types-suppliers.js"></script>
+        <script type="text/javascript" src="update-types-suppliers.js"></script>
     </body>
 
     </html>
