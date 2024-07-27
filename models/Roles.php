@@ -51,4 +51,23 @@ class Roles extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_detalles_roles_por_rol_ID($rolID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT ROL_ID, 
+	                     UCASE(ROL) AS ROLES
+                    FROM ROLES
+                   WHERE ROL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $rolID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
