@@ -116,6 +116,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-roles.js"></script>
         <script type="text/javascript" src="new-roles.js"></script>
+        <script type="text/javascript" src="update-roles.js"></script>
     </body>
 
     </html>
