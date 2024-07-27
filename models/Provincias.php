@@ -46,9 +46,11 @@ class Provincias extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT PROVINCIA_ID, PROVINCIA 
+        $query = 'SELECT PROVINCIA_ID,
+                         UCASE(PROVINCIA) AS PROVINCIA
                     FROM PROVINCIAS
-                   WHERE ESTADO_ID = 1;';
+                   WHERE ESTADO_ID = 1
+                ORDER BY PROVINCIA;';
 
         $query = $conectar->prepare($query);
         $query->execute();
@@ -61,10 +63,11 @@ class Provincias extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT PROVINCIA_ID, PROVINCIA
+        $query = 'SELECT PROVINCIA_ID,
+                         UCASE(PROVINCIA) AS PROVINCIA
                     FROM PROVINCIAS
-                   WHERE PAIS_ID = ? AND ESTADO_ID = 1;
-                 ';
+                   WHERE PAIS_ID = ? AND ESTADO_ID = 1
+                ORDER BY PROVINCIA;';
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $paisID);
