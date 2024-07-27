@@ -133,5 +133,50 @@ const verDetalleRol = (rolID) => {
 };
 
 const eliminarRol = (rolID) => {
-  console.log(rolID);
+  Swal.fire({
+    title: "¿Deseas eliminar este rol seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/RolesController.php?op=eliminar_roles_por_rol_ID",
+        {
+          rolID: rolID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Rol eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
 };
