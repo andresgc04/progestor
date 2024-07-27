@@ -89,4 +89,24 @@ class Roles extends Connection
 
         return $resultado;
     }
+
+    public function eliminar_roles_por_rol_ID($rolID, $modificadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE ROLES SET ESTADO_ID = 4,
+				                   MODIFICADO_POR = ?,
+                                   FECHA_MODIFICACION = NOW()
+		                     WHERE ROL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $rolID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
