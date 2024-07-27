@@ -75,4 +75,25 @@ class Provincias extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_detalles_provincias_por_paisID_provincia_ID($paisID, $provinciaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT PAIS_ID,
+                         PROVINCIA_ID,
+                         UCASE(PROVINCIA) AS PROVINCIA
+                    FROM PROVINCIAS 
+                   WHERE PAIS_ID = ? AND PROVINCIA_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->bindValue(2, $provinciaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
