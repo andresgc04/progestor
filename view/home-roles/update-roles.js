@@ -50,12 +50,12 @@ $(function () {
 
   $("#updateRolForm").validate({
     rules: {
-      rol: {
+      modificarRol: {
         required: true,
       },
     },
     messages: {
-      rol: {
+      modificarRol: {
         required: "Por favor ingrese el nombre del rol.",
       },
     },
