@@ -41,10 +41,10 @@ class Paises extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT PAIS_ID, PAIS 
+        $query = 'SELECT PAIS_ID, UCASE(PAIS) AS PAIS 
                     FROM PAISES
                    WHERE ESTADO_ID = 1
-                 ';
+                ORDER BY PAIS;';
 
         $query = $conectar->prepare($query);
         $query->execute();
