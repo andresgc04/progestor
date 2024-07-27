@@ -92,4 +92,7 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case "modificar_roles_por_rol_ID":
+        $roles->modificar_roles_por_rol_ID($_POST['modificarRol'], $_POST['rolID'], $modificadoPor);
+        break;
 }
