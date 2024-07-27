@@ -88,6 +88,8 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-province.php') ?>
+                                <?php require_once('components/update-province.php') ?>
+
                             </section>
                             <!-- /. col content -->
                         </div>

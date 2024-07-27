@@ -29,7 +29,7 @@ switch ($_GET["op"]) {
 
             $sub_array[] = '<td class="text-right py-0 align-middle">
                               <div class="btn-group btn-group-sm">
-                                <button type="button" id="' . $row['PROVINCIA_ID'] . '" onClick="verDetalleProvincia(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                <button type="button" id="' . $row['PROVINCIA_ID'] . '" onclick="verDetalleProvincia(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
                                 <button type="button" id="' . $row['PROVINCIA_ID'] . '" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                               </div>
                            </td>

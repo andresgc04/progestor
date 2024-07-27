@@ -82,3 +82,11 @@ const obtenerListadoProvinciasDataTable = () => {
     "#paisID"
   );
 })();
+
+const openUpdateProvinceFormModal = () => {
+  $("#updateProvinceFormModal").modal("show");
+};
+
+const verDetalleProvincia = (paisID, provinciaID) => {
+  openUpdateProvinceFormModal();
+};
