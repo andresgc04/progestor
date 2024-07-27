@@ -95,4 +95,7 @@ switch ($_GET['op']) {
     case "modificar_roles_por_rol_ID":
         $roles->modificar_roles_por_rol_ID($_POST['modificarRol'], $_POST['rolID'], $modificadoPor);
         break;
+    case "eliminar_roles_por_rol_ID":
+        $roles->eliminar_roles_por_rol_ID($_POST['rolID'], $modificadoPor);
+        break;
 }
