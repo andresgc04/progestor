@@ -72,3 +72,66 @@ const obtenerListadoRolesDataTable = () => {
 (function () {
   obtenerListadoRolesDataTable();
 })();
+
+const openUpdateRolFormModal = () => {
+  $("#updateRolFormModal").modal("show");
+};
+
+const verDetalleRol = (rolID) => {
+  $.post(
+    "../../controller/RolesController.php?op=obtener_detalles_roles_por_rol_ID",
+    {
+      rolID: rolID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { rolID, roles } = responseData;
+
+        const rolIDInput = document.getElementById("rolID");
+        const modificarRolInput = document.getElementById("modificarRol");
+
+        rolIDInput.value = rolID != null ? rolID : "";
+
+        modificarRolInput.value = roles != null ? roles : "";
+
+        openUpdateRolFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
+
+const eliminarRol = (rolID) => {
+  console.log(rolID);
+};

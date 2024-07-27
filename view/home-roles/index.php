@@ -87,6 +87,8 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-roles.php') ?>
+                                <?php require_once('components/update-roles.php') ?>
+
                             </section>
                             <!-- /. col content -->
                         </div>
