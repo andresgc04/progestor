@@ -70,4 +70,23 @@ class Roles extends Connection
 
         return $resultado;
     }
+
+    public function modificar_roles_por_rol_ID($rol, $rolID, $modificadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE ROLES SET ROL = ?, MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                             WHERE ROL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $rol);
+        $query->bindValue(2, $modificadoPor);
+        $query->bindValue(3, $rolID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
