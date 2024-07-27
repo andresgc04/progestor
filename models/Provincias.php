@@ -76,7 +76,7 @@ class Provincias extends Connection
         return $resultado = $query->fetchAll();
     }
 
-    public function obtener_detalles_provincias_por_paisID_provincia_ID($paisID, $provinciaID)
+    public function obtener_detalles_provincias_por_pais_ID_provincia_ID($paisID, $provinciaID)
     {
         $conectar = parent::Connection();
         parent::set_names();
