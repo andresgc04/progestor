@@ -6,6 +6,7 @@ require_once("../public/php/constants/sessions-constants.php");
 session_start();
 
 $creadoPor = $_SESSION[$USUARIO_ID];
+$modificadoPor = $creadoPor;
 
 $provincias = new Provincias();
 
@@ -107,5 +108,14 @@ switch ($_GET["op"]) {
         } else {
             echo json_encode(['data' => []]);
         }
+        break;
+    case "modificar_provincias_por_pais_ID_provincia_ID":
+        $provincias->modificar_provincias_por_pais_ID_provincia_ID(
+            $_POST['modificarPaisID'],
+            $_POST['modificarNombreProvincia'],
+            $modificadoPor,
+            $_POST['paisID'],
+            $_POST['provinciaID']
+        );
         break;
 }
