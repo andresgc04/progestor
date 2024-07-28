@@ -75,4 +75,27 @@ class Ciudades extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_detalles_ciudades_por_pais_ID_provincia_ID_ciudad_ID($paisID, $provinciaID, $ciudadID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT PAIS_ID, PROVINCIA_ID, CIUDAD_ID,
+	                     UCASE(CIUDAD) AS CIUDAD
+                    FROM CIUDADES 
+                   WHERE PAIS_ID = ? 
+                     AND PROVINCIA_ID = ?
+                     AND CIUDAD_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->bindValue(2, $provinciaID);
+        $query->bindValue(3, $ciudadID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
