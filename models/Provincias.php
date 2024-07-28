@@ -121,4 +121,25 @@ class Provincias extends Connection
 
         return $resultado;
     }
+
+    public function eliminar_provincias_por_pais_ID_provinciaID($modificadoPor, $paisID, $provinciaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE PROVINCIAS SET ESTADO_ID = 4,
+					                    MODIFICADO_POR = ?,
+                                        FECHA_MODIFICACION = NOW()
+                                  WHERE PAIS_ID = ? AND PROVINCIA_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $paisID);
+        $query->bindValue(3, $provinciaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
