@@ -125,4 +125,24 @@ class Paises extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_paises_diferente_pais_ID($paisID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = "SELECT PAIS_ID,
+                         UCASE(PAIS) AS PAIS
+                    FROM PAISES 
+                   WHERE PAIS_ID != ?
+                ORDER BY PAIS;";
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $paisID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }

@@ -99,4 +99,23 @@ switch ($_GET["op"]) {
     case 'eliminar_paises_por_paisID':
         $paises->eliminar_paises_por_paisID($_POST['paisID'], $modificadoPor);
         break;
+    case 'obtener_listado_opciones_paises_por_pais_ID':
+        $datos = $paises->obtener_listado_opciones_paises_por_pais_ID($_POST['paisID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            foreach ($datos as $row) {
+                $html .= '<option selected value="' . $row['PAIS_ID'] . '">' . $row['PAIS'] . '</option>';
+            }
+        }
+
+        $datos2 = $paises->obtener_listado_opciones_paises_diferente_pais_ID($_POST['paisID']);
+
+        if (is_array($datos2) == true and count($datos2) > 0) {
+            foreach ($datos2 as $row) {
+                $html .= '<option value="' . $row['PAIS_ID'] . '">' . $row['PAIS'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
