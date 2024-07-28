@@ -156,3 +156,53 @@ const verDetalleProvincia = (paisID, provinciaID) => {
       );
     });
 };
+
+const eliminarProvincia = (paisID, provinciaID) => {
+  Swal.fire({
+    title: "¿Deseas eliminar esta provincia seleccionada?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/ProvinciasController.php?op=eliminar_provincias_por_pais_ID_provinciaID",
+        {
+          paisID: paisID,
+          provinciaID: provinciaID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Provincia eliminada satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};

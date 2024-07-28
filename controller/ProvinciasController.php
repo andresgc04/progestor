@@ -31,7 +31,7 @@ switch ($_GET["op"]) {
             $sub_array[] = '<td class="text-right py-0 align-middle">
                               <div class="btn-group btn-group-sm">
                                 <button type="button" id="' . $row['PROVINCIA_ID'] . '" onclick="verDetalleProvincia(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                <button type="button" id="' . $row['PROVINCIA_ID'] . '" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <button type="button" id="' . $row['PROVINCIA_ID'] . '" onclick="eliminarProvincia(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                               </div>
                            </td>
             ';
@@ -121,8 +121,8 @@ switch ($_GET["op"]) {
     case "eliminar_provincias_por_pais_ID_provinciaID":
         $provincias->eliminar_provincias_por_pais_ID_provinciaID(
             $modificadoPor,
-            $_POST['updatePaisID'],
-            $_POST['updateProvinciaID']
+            $_POST['paisID'],
+            $_POST['provinciaID']
         );
         break;
 }
