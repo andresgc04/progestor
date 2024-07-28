@@ -93,3 +93,11 @@ paisSelectInput.onchange = (event) => {
     "#provinciaID"
   );
 };
+
+const updateCitiesFormModal = () => {
+  $("#updateCitiesFormModal").modal("show");
+};
+
+const verDetalleCiudad = (paisID, provinciaID, ciudadID) => {
+  updateCitiesFormModal();
+};

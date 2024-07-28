@@ -30,8 +30,8 @@ switch ($_GET["op"]) {
 
             $sub_array[] = '<td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
-                                    <button type="button" id="' . $row['CIUDAD_ID'] . '" onClick="verDetalleCiudad(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ',' . $row['CIUDAD_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                    <button type="button" id="' . $row['CIUDAD_ID'] . '" onClick="eliminarCiudad(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ',' . $row['CIUDAD_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    <button type="button" id="' . $row['CIUDAD_ID'] . '" onclick="verDetalleCiudad(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ',' . $row['CIUDAD_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" id="' . $row['CIUDAD_ID'] . '" onclick="eliminarCiudad(' . $row['PAIS_ID'] . ', ' . $row['PROVINCIA_ID'] . ',' . $row['CIUDAD_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                             ';

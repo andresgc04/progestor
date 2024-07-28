@@ -89,6 +89,8 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-cities.php') ?>
+                                <?php require_once('components/update-cities.php') ?>
+
                             </section>
                             <!-- /. col content -->
                         </div>
