@@ -114,8 +114,8 @@ switch ($_GET["op"]) {
             $_POST['modificarPaisID'],
             $_POST['modificarNombreProvincia'],
             $modificadoPor,
-            $_POST['paisID'],
-            $_POST['provinciaID']
+            $_POST['updatePaisID'],
+            $_POST['updateProvinciaID']
         );
         break;
 }
