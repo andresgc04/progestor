@@ -118,4 +118,11 @@ switch ($_GET["op"]) {
             $_POST['updateProvinciaID']
         );
         break;
+    case "eliminar_provincias_por_pais_ID_provinciaID":
+        $provincias->eliminar_provincias_por_pais_ID_provinciaID(
+            $modificadoPor,
+            $_POST['updatePaisID'],
+            $_POST['updateProvinciaID']
+        );
+        break;
 }
