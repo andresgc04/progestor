@@ -77,7 +77,7 @@ const obtenerListadoProvinciasDataTable = () => {
 
   obtenerListadoProvinciasDataTable();
 
-  getSelectListProvincesOptions(
+  getSelectListCountriesOptions(
     "../../controller/PaisesController.php?op=obtener_listado_opciones_paises",
     "#paisID"
   );
@@ -88,5 +88,71 @@ const openUpdateProvinceFormModal = () => {
 };
 
 const verDetalleProvincia = (paisID, provinciaID) => {
-  openUpdateProvinceFormModal();
+  $.post(
+    "../../controller/ProvinciasController.php?op=obtener_detalles_provincias_por_pais_ID_provincia_ID",
+    {
+      paisID: paisID,
+      provinciaID: provinciaID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { paisID, provinciaID, provincia } = responseData;
+
+        const paisIDInput = document.getElementById("updatePaisID");
+
+        const provinciaIDInput = document.getElementById("updateProvinciaID");
+
+        getSelectListCountriesOptionsByPaisID(
+          "../../controller/PaisesController.php?op=obtener_listado_opciones_paises_por_pais_ID",
+          paisID,
+          "#modificarPaisID"
+        );
+
+        const modificarNombreProvinciaInput = document.getElementById(
+          "modificarNombreProvincia"
+        );
+
+        paisIDInput.value = paisID != null ? paisID : "";
+
+        provinciaIDInput.value = provinciaID != null ? provinciaID : "";
+
+        modificarNombreProvinciaInput.value =
+          provincia != null ? provincia : "";
+
+        openUpdateProvinceFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };

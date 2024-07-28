@@ -116,6 +116,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public//js/functions/select2-elements/set-select2-elements.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
         <script type="text/javascript" src="home-provinces.js"></script>
         <script type="text/javascript" src="new-provinces.js"></script>

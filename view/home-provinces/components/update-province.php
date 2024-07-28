@@ -11,12 +11,12 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input type="hidden" id="paisID" name="paisID" class="form-control" />
+                            <input type="hidden" id="updatePaisID" name="updatePaisID" class="form-control" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input type="hidden" id="provinciaID" name="provinciaID" class="form-control" />
+                            <input type="hidden" id="updateProvinciaID" name="updateProvinciaID" class="form-control" />
                         </div>
                     </div>
                     <div class="row">
