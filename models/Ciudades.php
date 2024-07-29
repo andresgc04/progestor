@@ -134,4 +134,28 @@ class Ciudades extends Connection
 
         return $resultado;
     }
+
+    public function eliminar_ciudades_por_pais_ID_provincia_ID_ciudad_ID($modificadoPor, $paisID, $provinciaID, $ciudadID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE CIUDADES SET ESTADO_ID = 4,
+					                  MODIFICADO_POR = ?, 
+                                      FECHA_MODIFICACION = NOW()
+                                WHERE PAIS_ID = ? 
+                                  AND PROVINCIA_ID = ?
+                                  AND CIUDAD_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $paisID);
+        $query->bindValue(3, $provinciaID);
+        $query->bindValue(4, $ciudadID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
