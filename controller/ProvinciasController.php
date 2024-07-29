@@ -125,4 +125,23 @@ switch ($_GET["op"]) {
             $_POST['provinciaID']
         );
         break;
+    case 'obtener_listado_opciones_provincias_por_provincia_ID':
+        $datos = $provincias->obtener_listado_opciones_provincias_por_provincia_ID($_POST['provinciaID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            foreach ($datos as $row) {
+                $html .= '<option selected value="' . $row['PROVINCIA_ID'] . '">' . $row['PROVINCIA'] . '</option>';
+            }
+        }
+
+        $datos2 = $provincias->obtener_listado_opciones_provincias_diferente_provincia_ID($_POST['provinciaID']);
+
+        if (is_array($datos2) == true and count($datos2) > 0) {
+            foreach ($datos2 as $row) {
+                $html .= '<option value="' . $row['PROVINCIA_ID'] . '">' . $row['PROVINCIA'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
