@@ -110,4 +110,15 @@ switch ($_GET["op"]) {
             echo json_encode(['data' => []]);
         }
         break;
+    case "modificar_ciudades_por_pais_ID_provincia_ID_ciudad_ID":
+        $ciudades->modificar_ciudades_por_pais_ID_provincia_ID_ciudad_ID(
+            $_POST['modificarPaisID'],
+            $_POST['modificarProvinciaID'],
+            $_POST['modificarNombreCiudad'],
+            $modificadoPor,
+            $_POST['updatePaisID'],
+            $_POST['updateProvinciaID'],
+            $_POST['updateCiudadID']
+        );
+        break;
 }
