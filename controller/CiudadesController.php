@@ -121,4 +121,12 @@ switch ($_GET["op"]) {
             $_POST['updateCiudadID']
         );
         break;
+    case "eliminar_ciudades_por_pais_ID_provincia_ID_ciudad_ID":
+        $ciudades->eliminar_ciudades_por_pais_ID_provincia_ID_ciudad_ID(
+            $modificadoPor,
+            $_POST['paisID'],
+            $_POST['provinciaID'],
+            $_POST['ciudadID']
+        );
+        break;
 }
