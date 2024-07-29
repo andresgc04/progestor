@@ -142,4 +142,44 @@ class Provincias extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_provincias_por_provincia_ID($provinciaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = "SELECT PROVINCIA_ID,
+                         UCASE(PROVINCIA) AS PROVINCIA
+                    FROM PROVINCIAS 
+                   WHERE PROVINCIA_ID = ?
+                     AND ESTADO_ID = 1;";
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $provinciaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
+    public function obtener_listado_opciones_provincias_diferente_provincia_ID($provinciaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = "SELECT PROVINCIA_ID,
+                         UCASE(PROVINCIA) AS PROVINCIA
+                    FROM PROVINCIAS 
+                   WHERE PROVINCIA_ID != ?
+                     AND ESTADO_ID = 1;";
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $provinciaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
