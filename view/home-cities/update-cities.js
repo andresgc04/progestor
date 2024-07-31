@@ -53,7 +53,7 @@ $(function () {
       modificarProvinciaID: {
         required: true,
       },
-      nombreCiudad: {
+      modificarNombreCiudad: {
         required: true,
       },
     },
