@@ -144,9 +144,9 @@ $usuarioID = $_SESSION[$USUARIO_ID];
 
                 <li class="nav-header">SEGURIDAD</li>
                 <li class="nav-item">
-                    <a id="navLinkHomeSuppliers" href="../home-suppliers/" class="nav-link">
+                    <a id="navLinkHomeSystemModules" href="../home-system-modules/" class="nav-link">
                         <i class="nav-icon fas fa-th-large"></i>
-                        <p>Modulos Del Sistema</p>
+                        <p>Módulos Del Sistema</p>
                     </a>
                 </li>
 
