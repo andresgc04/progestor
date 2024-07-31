@@ -121,6 +121,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
         <script type="text/javascript" src="home-cities.js"></script>
         <script type="text/javascript" src="new-cities.js"></script>
+        <script type="text/javascript" src="update-cities.js"></script>
     </body>
 
     </html>
