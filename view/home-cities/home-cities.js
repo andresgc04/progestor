@@ -94,10 +94,97 @@ paisSelectInput.onchange = (event) => {
   );
 };
 
-const updateCitiesFormModal = () => {
+const openUpdateCitiesFormModal = () => {
   $("#updateCitiesFormModal").modal("show");
 };
 
 const verDetalleCiudad = (paisID, provinciaID, ciudadID) => {
-  updateCitiesFormModal();
+  $.post(
+    "../../controller/CiudadesController.php?op=obtener_detalles_ciudades_por_pais_ID_provincia_ID_ciudad_ID",
+    {
+      paisID: paisID,
+      provinciaID: provinciaID,
+      ciudadID: ciudadID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { paisID, provinciaID, ciudadID, ciudad } = responseData;
+
+        const paisIDInput = document.getElementById("updatePaisID");
+
+        const provinciaIDInput = document.getElementById("updateProvinciaID");
+
+        const ciudadIDInput = document.getElementById("updateCiudadID");
+
+        paisIDInput.value = paisID != null ? paisID : "";
+
+        provinciaIDInput.value = provinciaID != null ? provinciaID : "";
+
+        ciudadIDInput.value = ciudadID != null ? ciudadID : "";
+
+        getSelectListCountriesOptionsByPaisID(
+          "../../controller/PaisesController.php?op=obtener_listado_opciones_paises_por_pais_ID",
+          paisID,
+          "#modificarPaisID"
+        );
+
+        getSelectListProvincesOptionsByProvinciaID(
+          "../../controller/ProvinciasController.php?op=obtener_listado_opciones_provincias_por_provincia_ID",
+          provinciaID,
+          "#modificarProvinciaID"
+        );
+
+        const modificarNombreCiudadInput = document.getElementById(
+          "modificarNombreCiudad"
+        );
+
+        modificarNombreCiudadInput.value = ciudad != null ? ciudad : "";
+
+        const paisSelectInput = document.getElementById("modificarPaisID");
+        paisSelectInput.onchange = (event) => {
+          const paisID = event.target.value;
+
+          getSelectListProvincesOptionsByPaisID(
+            "../../controller/ProvinciasController.php?op=obtener_listado_opciones_provincias_por_paisID",
+            paisID,
+            "#modificarProvinciaID"
+          );
+        };
+
+        openUpdateCitiesFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };

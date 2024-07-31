@@ -152,7 +152,8 @@ class Provincias extends Connection
                          UCASE(PROVINCIA) AS PROVINCIA
                     FROM PROVINCIAS 
                    WHERE PROVINCIA_ID = ?
-                     AND ESTADO_ID = 1;";
+                     AND ESTADO_ID = 1
+                ORDER BY PROVINCIA;";
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $provinciaID);
@@ -172,7 +173,8 @@ class Provincias extends Connection
                          UCASE(PROVINCIA) AS PROVINCIA
                     FROM PROVINCIAS 
                    WHERE PROVINCIA_ID != ?
-                     AND ESTADO_ID = 1;";
+                     AND ESTADO_ID = 1
+                ORDER BY PROVINCIA;";
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $provinciaID);
