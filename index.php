@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Llamenos Al:</h3>
-                                        <p>+012 345 6789</p>
+                                        <p>+1 (809) 392-9967</p>
                                     </div>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                                         <i class="flaticon-send-mail"></i>
                                     </div>
                                     <div class="top-bar-text">
-                                        <h3>Envie Un Email Al:</h3>
-                                        <p>info@example.com</p>
+                                        <h3>Envienos Un Email Al:</h3>
+                                        <p>multidomsrl@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -95,8 +95,8 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                            <a href="about.html" class="nav-item nav-link">Sobre Nosotros</a>
+                            <a href="index.php" class="nav-item nav-link active">Inicio</a>
+                            <a href="view/about/" class="nav-item nav-link">Sobre Nosotros</a>
                             <a href="service.html" class="nav-item nav-link">Servicios</a>
                             <a href="team.html" class="nav-item nav-link">Equipo</a>
                             <a href="portfolio.html" class="nav-item nav-link">Proyectos</a>
@@ -167,7 +167,7 @@
                                 <i class="flaticon-worker"></i>
                             </div>
                             <div class="feature-text">
-                                <h3>Trabajadores Experto</h3>
+                                <h3>Trabajadores Expertos</h3>
                                 <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
                             </div>
                         </div>
@@ -794,9 +794,9 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="footer-contact">
                             <h2>Contacto De La Oficina</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>Your Location, City, Country</p>
-                            <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                            <p><i class="fa fa-envelope"></i>info@example.com</p>
+                            <p><i class="fa fa-map-marker-alt"></i>C/2da.San Pedro de Macorís, Rep.Dominicana</p>
+                            <p><i class="fa fa-phone-alt"></i>+1 (809) 392-9967</p>
+                            <p><i class="fa fa-envelope"></i>multidomsrl@gmail.com</p>
                             <div class="footer-social">
                                 <a href="https://freewebsitecode.com/"><i class="fab fa-twitter"></i></a>
                                 <a href="https://facebook.com/freewebsitecode"><i class="fab fa-facebook-f"></i></a>
