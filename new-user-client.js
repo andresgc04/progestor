@@ -1,19 +1,17 @@
-function saveNewUserIndividualClient() {
-  let newUserIndividualClientFormData = new FormData(
-    $("#newUserIndividualClientForm")[0]
-  );
+function saveNewUserClient() {
+  let newUserClientFormData = new FormData($("#newUserClientForm")[0]);
 
   $.ajax({
-    url: "controller/UsuariosController.php?op=registrar_usuarios_clientes_individuales",
+    url: "controller/UsuariosController.php?op=registrar_usuarios_clientes",
     type: "POST",
-    data: newUserIndividualClientFormData,
+    data: newUserClientFormData,
     contentType: false,
     processData: false,
     success: function (data) {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Usuario Cliente Individual Registrado Correctamente",
+        title: "Usuario Cliente Registrado Correctamente",
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
@@ -43,103 +41,79 @@ function saveNewUserIndividualClient() {
 $(function () {
   $.validator.setDefaults({
     submitHandler: function () {
-      saveNewUserIndividualClient();
+      saveNewUserClient();
     },
   });
 
-  $("#newUserIndividualClientForm").validate({
+  $("#newUserClientForm").validate({
     rules: {
-      nombreClienteClienteIndividual: {
+      tipoClienteID: {
         required: true,
       },
-      apellidoClienteClienteIndividual: {
+      nombreCliente: {
         required: true,
       },
-      sexoIDClienteIndividual: {
+      tipoDocumentoID: {
         required: true,
       },
-      cedulaClienteIndividual: {
+      documentoIdentidad: {
         required: true,
       },
-      fechaNacimientoClienteIndividual: {
+      paisID: {
         required: true,
       },
-      nacionalidadIDClienteIndividual: {
+      provinciaID: {
         required: true,
       },
-      telefonoClienteIndividual: {
+      ciudadID: {
         required: true,
       },
-      correoElectronicoClienteIndividual: {
+      direccion: {
         required: true,
       },
-      paisIDClienteIndividual: {
+      nuevoNombreUsuario: {
         required: true,
       },
-      provinciaIDClienteIndividual: {
+      nuevoPassword: {
         required: true,
       },
-      ciudadIDClienteIndividual: {
-        required: true,
-      },
-      direccionClienteIndividual: {
-        required: true,
-      },
-      nuevoNombreUsuarioClienteIndividual: {
-        required: true,
-      },
-      nuevoPasswordClienteIndividual: {
-        required: true,
-      },
-      confirmarNuevoPasswordClienteIndividual: {
+      confirmarNuevoPassword: {
         required: true,
       },
     },
     messages: {
-      nombreClienteClienteIndividual: {
+      tipoClienteID: {
+        required: "Por favor seleccione el tipo de cliente.",
+      },
+      nombreCliente: {
         required: "Por favor ingrese el nombre.",
       },
-      apellidoClienteClienteIndividual: {
-        required: "Por favor ingrese el apellido.",
+      tipoDocumentoID: {
+        required: "Por favor seleccione el tipo de documento.",
       },
-      sexoIDClienteIndividual: {
-        required: "Por favor seleccione el sexo.",
+      documentoIdentidad: {
+        required: "Por favor ingrese el documento de identidad.",
       },
-      cedulaClienteIndividual: {
-        required: "Por favor ingrese la cedula.",
+      paisID: {
+        required: "Por favor seleccione el pais.",
       },
-      fechaNacimientoClienteIndividual: {
-        required: "Por favor seleccione la fecha de nacimiento.",
-      },
-      nacionalidadIDClienteIndividual: {
-        required: "Por favor seleccione la nacionalidad.",
-      },
-      telefonoClienteIndividual: {
-        required: "Por favor ingrese el télefono.",
-      },
-      correoElectronicoClienteIndividual: {
-        required: "Por favor ingrese el correo electronico.",
-      },
-      paisIDClienteIndividual: {
-        required: "Por favor seleccione el país.",
-      },
-      provinciaIDClienteIndividual: {
+      provinciaID: {
         required: "Por favor seleccione la provincia.",
       },
-      ciudadIDClienteIndividual: {
+      ciudadID: {
         required: "Por favor seleccione la ciudad.",
       },
-      direccionClienteIndividual: {
+      direccion: {
         required: "Por favor ingrese la dirección.",
       },
-      nuevoNombreUsuarioClienteIndividual: {
+      nuevoNombreUsuario: {
         required: "Por favor ingrese el nombre de usuario.",
       },
-      nuevoPasswordClienteIndividual: {
+      nuevoPassword: {
         required: "Por favor ingrese el password.",
       },
-      confirmarNuevoPasswordClienteIndividual: {
-        required: "Por favor confirme el password.",
+      confirmarNuevoPassword: {
+        required: "Por favor ingrese la confirmación del password.",
       },
     },
     errorElement: "span",
