@@ -13,62 +13,22 @@ switch ($_GET['op']) {
     case 'registrar_usuarios_empleados':
         $usuarios->registrar_usuarios_empleados($_POST['empleadoID'], $_POST['nombreUsuarioEmpleado'], password_hash($_POST['passwordUsuarioEmpleado'], PASSWORD_DEFAULT), $_POST['rolID'], $creadoPor);
         break;
-    case 'registrar_usuarios_clientes_individuales':
-        $usuarios->registrar_usuarios_clientes_individuales(
-            $_POST['nombreClienteClienteIndividual'],
-            $_POST['telefonoClienteIndividual'],
-            $_POST['correoElectronicoClienteIndividual'],
-            $_POST['paisIDClienteIndividual'],
-            $_POST['provinciaIDClienteIndividual'],
-            $_POST['ciudadIDClienteIndividual'],
-            $_POST['direccionClienteIndividual'],
-            $_POST['apellidoClienteClienteIndividual'],
-            $_POST['sexoIDClienteIndividual'],
-            $_POST['cedulaClienteIndividual'],
-            $_POST['fechaNacimientoClienteIndividual'],
-            $_POST['nacionalidadIDClienteIndividual'],
-            $_POST['nuevoNombreUsuarioClienteIndividual'],
-            password_hash($_POST['nuevoPasswordClienteIndividual'], PASSWORD_DEFAULT),
-            $creadoPor
-        );
-        break;
-    case 'registrar_usuarios_clientes_empresas_privadas':
-        $usuarios->registrar_usuarios_clientes_empresas_privadas(
-            $_POST['nombreEmpresaClienteEmpresa'],
-            $_POST['tipoClienteIDClienteEmpresa'],
-            $_POST['telefonoClienteEmpresa'],
-            $_POST['correoElectronicoClienteEmpresa'],
-            $_POST['paisIDClienteEmpresa'],
-            $_POST['provinciaIDClienteEmpresa'],
-            $_POST['ciudadIDClienteEmpresa'],
-            $_POST['direccionClienteEmpresa'],
-            $_POST['rncClienteEmpresa'],
-            $_POST['nombreContactoClienteEmpresa'],
-            $_POST['cargoContactoClienteEmpresa'],
-            $_POST['numeroEmpleadosClienteEmpresa'],
-            $_POST['sectorClienteEmpresa'],
-            $_POST['nuevoNombreUsuarioClienteEmpresa'],
-            password_hash($_POST['nuevoPasswordClienteEmpresa'], PASSWORD_DEFAULT),
-            $creadoPor
-        );
-        break;
-    case 'registrar_usuarios_clientes_empresas_gubernamentales':
-        $usuarios->registrar_usuarios_clientes_empresas_gubernamentales(
-            $_POST['nombreEmpresaClienteEmpresaGubernamental'],
-            $_POST['tipoClienteIDClienteEmpresaGubernamental'],
-            $_POST['telefonoClienteEmpresaGubernamental'],
-            $_POST['correoElectronicoClienteEmpresaGubernamental'],
-            $_POST['paisIDClienteEmpresaGubernamental'],
-            $_POST['provinciaIDClienteEmpresaGubernamental'],
-            $_POST['ciudadIDClienteEmpresaGubernamental'],
-            $_POST['direccionClienteEmpresaGubernamental'],
-            $_POST['rncClienteEmpresaGubernamental'],
-            $_POST['nombreContactoClienteEmpresaGubernamental'],
-            $_POST['cargoContactoClienteEmpresaGubernamental'],
-            $_POST['sectorClienteEmpresaGubernamental'],
-            $_POST['presupuestoAnualClienteEmpresaGubernamental'],
-            $_POST['nuevoNombreUsuarioClienteEmpresaGubernamental'],
-            password_hash($_POST['nuevoPasswordClienteEmpresaGubernamental'], PASSWORD_DEFAULT),
+    case 'registrar_usuarios_clientes':
+        $usuarios->registrar_usuarios_clientes(
+            $_POST['tipoClienteID'],
+            $_POST['nombreCliente'],
+            $_POST['sexoID'],
+            $_POST['tipoDocumentoID'],
+            $_POST['documentoIdentidad'],
+            $_POST['nacionalidadID'],
+            $_POST['telefono'],
+            $_POST['correoElectronico'],
+            $_POST['paisID'],
+            $_POST['provinciaID'],
+            $_POST['ciudadID'],
+            $_POST['direccion'],
+            $_POST['nuevoNombreUsuario'],
+            password_hash($_POST['nuevoPassword'], PASSWORD_DEFAULT),
             $creadoPor
         );
         break;
