@@ -1,7 +1,7 @@
 <?php
 class TiposDocumentos extends Connection
 {
-    public function obtener_listado_tipos_documentos()
+    public function obtener_listado_opciones_tipos_documentos()
     {
         $conectar = parent::Connection();
         parent::set_names();
