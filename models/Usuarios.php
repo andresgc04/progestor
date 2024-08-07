@@ -141,8 +141,8 @@ class Usuarios extends Connection
         $queryInsertCliente->bindValue(9, $paisID);
         $queryInsertCliente->bindValue(10, $provinciaID);
         $queryInsertCliente->bindValue(11, $ciudadID);
-        $queryInsertCliente->bindValue(10, $direccion);
-        $queryInsertCliente->bindValue(11, $creadoPor);
+        $queryInsertCliente->bindValue(12, $direccion);
+        $queryInsertCliente->bindValue(13, $creadoPor);
         $queryInsertCliente->execute();
 
         //Obtener el cliente_id del registro insertado de un nuevo cliente:

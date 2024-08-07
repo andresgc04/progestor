@@ -166,6 +166,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script type="text/javascript" src="public/js/functions/select2-elements/set-select2-elements.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_types_clients_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_sex_options.js"></script>
+    <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_document_types_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_nationalities_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
     <script type="text/javascript" src="public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>

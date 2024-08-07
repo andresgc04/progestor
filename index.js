@@ -24,6 +24,11 @@ newUserClientButton.addEventListener("click", () => {
     "#sexoID"
   );
 
+  getSelectListDocumentTypesOptions(
+    "controller/TiposDocumentosController.php?op=obtener_listado_opciones_tipos_documentos",
+    "#tipoDocumentoID"
+  );
+
   getSelectListNationalitiesOptions(
     "controller/NacionalidadesController.php?op=obtener_listado_opciones_nacionalidades",
     "#nacionalidadID"
