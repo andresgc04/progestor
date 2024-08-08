@@ -106,11 +106,12 @@ class SolicitudesProyectos extends Connection
       parent::set_names();
 
       $query = 'SELECT solicitudesProyectos.SOLICITUD_PROYECTO_ID,
-                       UCASE(solicitudesProyectos.DESCRIPCION_PROYECTO) DESCRIPCION_PROYECTO,
-                       UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) OBJETIVO_PROYECTO,
-                       solicitudesProyectos.PRESUPUESTO_PROYECTO,
-                       UCASE(clientes.NOMBRE_CLIENTE) NOMBRE_CLIENTE,
-                       UCASE(estados.ESTADO) ESTADO
+					        UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
+                       UCASE(solicitudesProyectos.DESCRIPCION_PROYECTO) AS DESCRIPCION_PROYECTO,
+                       UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) AS OBJETIVO_PROYECTO,
+                       DATE_FORMAT(solicitudesProyectos.FECHA_ESTIMADA_DESEADA, "%d/%m/%Y") AS FECHA_ESTIMADA_DESEADA,
+                       UCASE(clientes.NOMBRE_CLIENTE) AS NOMBRE_CLIENTE,
+                       UCASE(estados.ESTADO) AS ESTADO
                   FROM SOLICITUDES_PROYECTOS solicitudesProyectos
             INNER JOIN USUARIOS usuarios
                     ON solicitudesProyectos.CREADO_POR = usuarios.USUARIO_ID

@@ -73,7 +73,7 @@ if (isset($usuarioID)) {
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
-                                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control" placeholder="Ingrese el objetivo del proyecto.">
+                                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,7 +82,7 @@ if (isset($usuarioID)) {
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="descripcionProyecto">Descripci&oacute;n Del Proyecto:</label>
-                                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3" placeholder="Ingrese la descripción del proyecto."></textarea>
+                                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
