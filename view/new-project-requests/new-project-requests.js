@@ -91,25 +91,32 @@ $(function () {
 
   $("#newProjectRequestsForm").validate({
     rules: {
-      descripcionProyecto: {
+      nombreProyecto: {
         required: true,
       },
       objetivoProyecto: {
         required: true,
       },
-      presupuesto: {
+      descripcionProyecto: {
+        required: true,
+      },
+      fechaEstimadaDeseada: {
         required: true,
       },
     },
     messages: {
-      descripcionProyecto: {
-        required: "Por favor ingrese la descripcion del proyecto.",
+      nombreProyecto: {
+        required: "Por favor ingrese el nombre del proyecto.",
       },
       objetivoProyecto: {
         required: "Por favor ingrese el objetivo del proyecto.",
       },
-      presupuesto: {
-        required: "Por favor ingrese el presupuesto destinado al proyecto.",
+      descripcionProyecto: {
+        required: "Por favor ingrese la descripcion del proyecto.",
+      },
+      fechaEstimadaDeseada: {
+        required:
+          "Por favor seleccione la fecha estimada deseada del proyecto.",
       },
     },
     errorElement: "span",

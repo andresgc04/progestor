@@ -5,6 +5,7 @@ class SolicitudesProyectos extends Connection
       $nombreProyecto,
       $descripcionProyecto,
       $objetivoProyecto,
+      $fechaEstimadaDeseada,
       $descripcionRequerimiento,
       $creadoPor
    ) {
@@ -17,12 +18,12 @@ class SolicitudesProyectos extends Connection
 
          // Insertar la solicitud del proyecto
          $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (NOMBRE_PROYECTO, DESCRIPCION_PROYECTO,
-                                                                                  OBJETIVO_PROYECTO, ESTADO_ID,
-                                                                                  CREADO_POR, FECHA_CREACION
+                                                                                  OBJETIVO_PROYECTO, FECHA_ESTIMADA_DESEADA,
+                                                                                  ESTADO_ID, CREADO_POR, FECHA_CREACION
                                                                                  )
-                                                                           VALUES(?,?,
-                                                                                  ?,1,
-                                                                                  ?,NOW()
+                                                                           VALUES(?, ?,
+                                                                                  ?, ?,
+                                                                                  1, ?, NOW()
                                                                                  );';
 
          $stmtSolicitud = $conectar->prepare($queryInsertarSolicitudesProyectos);
@@ -30,6 +31,7 @@ class SolicitudesProyectos extends Connection
             $nombreProyecto,
             $descripcionProyecto,
             $objetivoProyecto,
+            $fechaEstimadaDeseada,
             $creadoPor
          ]);
 
