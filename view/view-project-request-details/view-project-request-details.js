@@ -65,9 +65,10 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
 
         const {
           solicitudProyectoID,
+          nombreProyecto,
           descripcionProyecto,
           objetivoProyecto,
-          presupuestoProyecto,
+          fechaEstimadaDeseada,
           nombreCliente,
           estado,
         } = responseData;
@@ -76,6 +77,8 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
           "solicitudProyectoID"
         );
 
+        const nombreProyectoInput = document.getElementById("nombreProyecto");
+
         const descripcionProyectoInput = document.getElementById(
           "descripcionProyecto"
         );
@@ -83,8 +86,8 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         const objetivoProyectoInput =
           document.getElementById("objetivoProyecto");
 
-        const presupuestoProyectoInput = document.getElementById(
-          "presupuestoProyecto"
+        const fechaEstimadaDeseadaInput = document.getElementById(
+          "fechaEstimadaDeseada"
         );
 
         const solicitadoPorInput = document.getElementById("solicitadoPor");
@@ -94,14 +97,17 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         solicitudProyectoIDInput.value =
           solicitudProyectoID != null ? solicitudProyectoID : "";
 
+        nombreProyectoInput.value =
+          nombreProyecto != null ? nombreProyecto : "";
+
         descripcionProyectoInput.value =
           descripcionProyecto != null ? descripcionProyecto : "";
 
         objetivoProyectoInput.value =
           objetivoProyecto != null ? objetivoProyecto : "";
 
-        presupuestoProyectoInput.value =
-          presupuestoProyecto != null ? presupuestoProyecto : "";
+        fechaEstimadaDeseadaInput.value =
+          fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
 
         solicitadoPorInput.value = nombreCliente != null ? nombreCliente : "";
 

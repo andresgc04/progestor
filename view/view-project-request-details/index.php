@@ -66,14 +66,23 @@ if (isset($usuarioID)) {
                                             <div class="row">
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="descripcionProyecto">Descripción Del Proyecto:</label>
-                                                        <textarea id="descripcionProyecto" class="form-control" rows="3" readonly></textarea>
+                                                        <label for="nombreProyecto">Nombre Del Proyecto:</label>
+                                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
-                                                        <textarea id="objetivoProyecto" class="form-control" rows="3" readonly></textarea>
+                                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="descripcionProyecto">Descripción Del Proyecto:</label>
+                                                        <textarea id="descripcionProyecto" class="form-control" rows="3" readonly></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,8 +90,8 @@ if (isset($usuarioID)) {
                                             <div class="row">
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="presupuestoProyecto">Presupuesto Del Proyecto:</label>
-                                                        <input type="text" id="presupuestoProyecto" class="form-control" readonly />
+                                                        <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
+                                                        <input type="text" id="fechaEstimadaDeseada" class="form-control" readonly />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
