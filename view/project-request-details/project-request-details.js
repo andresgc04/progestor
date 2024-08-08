@@ -226,6 +226,11 @@ const obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable =
   };
 
 (function () {
+  //Initialize Date picker:
+  $("#fechaEstimadaDeseada").datetimepicker({
+    format: "YYYY/MM/DD",
+  });
+
   const solicitudProyectoID = getParams("solicitudProyectoID");
 
   obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID(
