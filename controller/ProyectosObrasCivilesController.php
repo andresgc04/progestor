@@ -13,13 +13,10 @@ switch ($_GET['op']) {
     case "registrar_proyectos_obras_civiles":
         $proyectosObrasCiviles->registrar_proyectos_obras_civiles(
             $_POST['solicitudProyectoID'],
-            $_POST['nombreProyecto'],
-            $_POST['descripcionProyecto'],
             $_POST['tipoProyectoObraCivilID'],
             $_POST['categoriaTipoProyectoObraCivilID'],
             $_POST['responsableID'],
             $_POST['fechaInicioProyecto'],
-            $_POST['fechaFinalizacionProyecto'],
             $creadoPor
         );
         break;
