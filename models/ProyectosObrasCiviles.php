@@ -42,11 +42,12 @@ class ProyectosObrasCiviles extends Connection
 
         $query = "SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
                          proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
-                         UCASE(proyectosObrasCiviles.NOMBRE_PROYECTO) NOMBRE_PROYECTO,
-                         UCASE(tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL) 
-                         TIPO_PROYECTO_OBRA_CIVIL,
-                         UCASE(estados.ESTADO) ESTADO
+                         UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
+                         UCASE(tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL) AS TIPO_PROYECTO_OBRA_CIVIL,
+                         UCASE(estados.ESTADO) AS ESTADO
                     FROM PROYECTOS_OBRAS_CIVILES proyectosObrasCiviles
+              INNER JOIN SOLICITUDES_PROYECTOS solicitudesProyectos
+                      ON proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = solicitudesProyectos.SOLICITUD_PROYECTO_ID
               INNER JOIN TIPOS_PROYECTOS_OBRAS_CIVILES tiposProyectosObrasCiviles
                       ON proyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID = 
                          tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID
