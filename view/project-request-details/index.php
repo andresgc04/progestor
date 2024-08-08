@@ -88,7 +88,7 @@ if (isset($usuarioID)) {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
                                                         <div class="input-group date" data-target-input="nearest">
@@ -99,7 +99,13 @@ if (isset($usuarioID)) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="nombreCliente">Nombre Del Cliente:</label>
+                                                        <input type="text" id="nombreCliente" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="estadoSolicitud">Estado De La Solicitud:</label>
                                                         <input type="text" id="estadoSolicitud" class="form-control" readonly>

@@ -9,11 +9,13 @@ setBreadCrumbContentHeaderTitle(
 
 setBreadCrumbContentHeaderSubTitle("Detalle De Solicitud De Proyectos");
 
-let descripcionProyecto = document.getElementById("descripcionProyecto");
+let nombreProyecto = document.getElementById("nombreProyecto");
 
 let objetivoProyecto = document.getElementById("objetivoProyecto");
 
-let presupuestoProyecto = document.getElementById("presupuestoProyecto");
+let descripcionProyecto = document.getElementById("descripcionProyecto");
+
+let fechaEstimadaDeseada = document.getElementById("fechaEstimadaDeseada");
 
 let addNewProjectRequestRequirementButton = document.getElementById(
   "addNewProjectRequestRequirementButton"
@@ -32,19 +34,21 @@ let validateSubmissionProjectRequestDetailButton = document.getElementById(
 );
 
 const mantenerHabilitadosInputsEnEstadoActivo = () => {
-  descripcionProyecto.removeAttribute("readonly", true);
+  nombreProyecto.removeAttribute("readonly", true);
   objetivoProyecto.removeAttribute("readonly", true);
-  presupuestoProyecto.removeAttribute("readonly", true);
+  descripcionProyecto.removeAttribute("readonly", true);
+  fechaEstimadaDeseada.removeAttribute("readonly", true);
   addNewProjectRequestRequirementButton.classList.remove("disabled");
   validateUpdateRequestDetailsButton.classList.remove("disabled");
   validateCancelProjectRequestDetailsButton.classList.remove("disabled");
   validateSubmissionProjectRequestDetailButton.classList.remove("disabled");
 };
 
-const deshabilitarInputsEnEstadoPendienteOCancelado = () => {
-  descripcionProyecto.setAttribute("readonly", true);
+const deshabilitarInputsEnEstadosDiferentesEstadoActivo = () => {
+  nombreProyecto.setAttribute("readonly", true);
   objetivoProyecto.setAttribute("readonly", true);
-  presupuestoProyecto.setAttribute("readonly", true);
+  descripcionProyecto.setAttribute("readonly", true);
+  fechaEstimadaDeseada.setAttribute("readonly", true);
   addNewProjectRequestRequirementButton.classList.add("disabled");
   validateUpdateRequestDetailsButton.classList.add("disabled");
   validateCancelProjectRequestDetailsButton.classList.add("disabled");
@@ -81,15 +85,19 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
 
         const {
           solicitudProyectoID,
+          nombreProyecto,
           descripcionProyecto,
           objetivoProyecto,
-          presupuestoProyecto,
+          fechaEstimadaDeseada,
+          nombreCliente,
           estado,
         } = responseData;
 
         const solicitudProyectoIDInput = document.getElementById(
           "solicitudProyectoID"
         );
+
+        const nombreProyectoInput = document.getElementById("nombreProyecto");
 
         const descripcionProyectoInput = document.getElementById(
           "descripcionProyecto"
@@ -98,14 +106,19 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         const objetivoProyectoInput =
           document.getElementById("objetivoProyecto");
 
-        const presupuestoProyectoInput = document.getElementById(
-          "presupuestoProyecto"
+        const fechaEstimadaDeseadaInput = document.getElementById(
+          "fechaEstimadaDeseada"
         );
+
+        const nombreClienteInput = document.getElementById("nombreCliente");
 
         const estadoSolicitudInput = document.getElementById("estadoSolicitud");
 
         solicitudProyectoIDInput.value =
           solicitudProyectoID != null ? solicitudProyectoID : "";
+
+        nombreProyectoInput.value =
+          nombreProyecto != null ? nombreProyecto : "";
 
         descripcionProyectoInput.value =
           descripcionProyecto != null ? descripcionProyecto : "";
@@ -113,8 +126,10 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         objetivoProyectoInput.value =
           objetivoProyecto != null ? objetivoProyecto : "";
 
-        presupuestoProyectoInput.value =
-          presupuestoProyecto != null ? presupuestoProyecto : "";
+        fechaEstimadaDeseadaInput.value =
+          fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
+
+        nombreClienteInput.value = nombreCliente != null ? nombreCliente : "";
 
         estadoSolicitudInput.value = estado != null ? estado : "";
 
@@ -123,10 +138,16 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
             mantenerHabilitadosInputsEnEstadoActivo();
             break;
           case "PENDIENTE":
-            deshabilitarInputsEnEstadoPendienteOCancelado();
+            deshabilitarInputsEnEstadosDiferentesEstadoActivo();
+            break;
+          case "APROBADO":
+            deshabilitarInputsEnEstadosDiferentesEstadoActivo();
             break;
           case "CANCELADO":
-            deshabilitarInputsEnEstadoPendienteOCancelado();
+            deshabilitarInputsEnEstadosDiferentesEstadoActivo();
+            break;
+          case "RECHAZADO":
+            deshabilitarInputsEnEstadosDiferentesEstadoActivo();
             break;
         }
       }
