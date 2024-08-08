@@ -47,12 +47,6 @@ $(function () {
 
   $("#newProjectForm").validate({
     rules: {
-      nombreProyecto: {
-        required: true,
-      },
-      descripcionProyecto: {
-        required: true,
-      },
       tipoProyectoObraCivilID: {
         required: true,
       },
@@ -65,17 +59,8 @@ $(function () {
       fechaInicioProyecto: {
         required: true,
       },
-      fechaFinalizacionProyecto: {
-        required: true,
-      },
     },
     messages: {
-      nombreProyecto: {
-        required: "Por favor ingrese el nombre del proyecto.",
-      },
-      descripcionProyecto: {
-        required: "Por favor ingrese la descripcion del proyecto.",
-      },
       tipoProyectoObraCivilID: {
         required: "Por favor seleccione el tipo de proyecto.",
       },
@@ -87,9 +72,6 @@ $(function () {
       },
       fechaInicioProyecto: {
         required: "Por favor seleccione la fecha de inicio del proyecto",
-      },
-      fechaFinalizacionProyecto: {
-        required: "Por favor seleccione la fecha de finalización del proyecto.",
       },
     },
     errorElement: "span",
