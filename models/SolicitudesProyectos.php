@@ -2,9 +2,9 @@
 class SolicitudesProyectos extends Connection
 {
    public function registrar_solicitudes_proyectos(
+      $nombreProyecto,
       $descripcionProyecto,
       $objetivoProyecto,
-      $presupuestoProyecto,
       $descripcionRequerimiento,
       $creadoPor
    ) {
@@ -16,20 +16,20 @@ class SolicitudesProyectos extends Connection
          $conectar->beginTransaction();
 
          // Insertar la solicitud del proyecto
-         $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (
-              descripcion_proyecto,
-              objetivo_proyecto,
-              presupuesto_proyecto,
-              estado_id,
-              creado_por,
-              fecha_creacion
-          ) VALUES (?, ?, ?, 1, ?, NOW())';
+         $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (NOMBRE_PROYECTO, DESCRIPCION_PROYECTO,
+                                                                                  OBJETIVO_PROYECTO, ESTADO_ID,
+                                                                                  CREADO_POR, FECHA_CREACION
+                                                                                 )
+                                                                           VALUES(?,?,
+                                                                                  ?,1,
+                                                                                  ?,NOW()
+                                                                                 );';
 
          $stmtSolicitud = $conectar->prepare($queryInsertarSolicitudesProyectos);
          $stmtSolicitud->execute([
+            $nombreProyecto,
             $descripcionProyecto,
             $objetivoProyecto,
-            $presupuestoProyecto,
             $creadoPor
          ]);
 
