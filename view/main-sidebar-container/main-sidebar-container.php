@@ -1,9 +1,11 @@
 <?php
 require_once('../../config/connection.php');
 require_once('../../models/Usuarios.php');
+require_once('../../models/AccesosModulosSistemas.php');
 require_once('../../public/php/constants/sessions-constants.php');
 
 //session_start();
+$accesosModulosSistemas = new AccesosModulosSistemas();
 
 $nombreUsario = $_SESSION[$NOMBRE_USUARIO];
 $usuarioID = $_SESSION[$USUARIO_ID];
@@ -46,163 +48,174 @@ $usuarioID = $_SESSION[$USUARIO_ID];
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                <?php
+                $datos = $accesosModulosSistemas->obtener_accesos_modulos_sistemas_usuarios_por_usuario_ID($usuarioID);
 
-               
-                <li class="nav-header">GESTIONES</li>
-                <li class="nav-item">
-                    <a id="navLinkDashboard" href="../dashboard/" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
+                foreach ($datos as $row) {
+                    $sub_array = array();
 
+                    $sub_array[] = $row['MODULO'];
 
-                <li class="nav-item">
-                    <a id="navLinkHomeProjectRequests" href="../home-project-requests/" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>Solicitudes Proyectos</p>
-                    </a>
-                </li>
-
-
-
-                <li class="nav-item">
-                    <a id="navLinkViewHomeProjectRequests" href="../view-home-project-requests/" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>Ver Solicitudes Proyectos</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a id="navLinkHomeProjects" href="../home-civil-works-projects/" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>Gestión Proyectos</p>
-                    </a>
-                </li>
-
-
-
-                <li class="nav-item">
-                    <a id="navLinkHomeEmployees" href="../home-employees/" class="nav-link">
-                        <i class="nav-icon fas fa-user-tie"></i>
-                        <p>Empleados</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a id="navLinkHomeSuppliers" href="../home-suppliers/" class="nav-link">
-                        <i class="nav-icon fas fa-user-friends"></i>
-                        <p>Proveedores</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a id="navLinkUsers" href="#" class="nav-link">
-                        <i class="fas fa-user-shield nav-icon"></i>
-                        <p>
-                            Usuarios
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a id="navLinkHomeAssignUserEmployee" href="../home-assign-user-employee/" class="nav-link">
-                                <i class="fas fa-user nav-icon"></i>
-                                <p>Asignar Usuario A Empleado</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a id="navLinkMaterialResources" href="#" class="nav-link">
-                        <i class="fas fa-warehouse nav-icon"></i>
-                        <p>
-                            Recursos Materiales
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a id="navLinkHomeTypesMaterialResources" href="../home-types-material-resources/" class="nav-link">
-                                <i class="fas fa-warehouse nav-icon"></i>
-                                <p>Tipos De Recursos Materiales</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="navLinkHomeMaterialResources" href="../home-material-resources/" class="nav-link">
-                                <i class="fas fa-warehouse nav-icon"></i>
-                                <p>Recursos Materiales</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="navLinkHomeMaterialResourcesSuppliers" href="../home-countries/" class="nav-link">
-                                <i class="fas fa-warehouse nav-icon"></i>
-                                <p>Recursos Materiales Por Proveedores</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-header">SEGURIDAD</li>
-                <li class="nav-item">
-                    <a id="navLinkHomeSystemModules" href="../home-system-modules/" class="nav-link">
-                        <i class="nav-icon fas fa-th-large"></i>
-                        <p>Módulos Del Sistema</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a id="navLinkHomeRoles" href="../home-roles/" class="nav-link">
-                        <i class="fas fa-user-tag nav-icon"></i>
-                        <p>Roles</p>
-                    </a>
-                </li>
-
-                <li class="nav-header">MANTENIMIENTOS</li>
-                <li class="nav-item">
-                    <a id="navLinkMaintenance" href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tools"></i>
-                        <p>
-                            Mantenimientos
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a id="navLinkHomeCities" href="../home-cities/" class="nav-link">
-                                <i class="fas fa-city nav-icon"></i>
-                                <p>Ciudades</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="navLinkHomeCountries" href="../home-countries/" class="nav-link">
-                                <i class="fas fa-city nav-icon"></i>
-                                <p>Pa&iacute;ses</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="navLinkHomeProvinces" href="../home-provinces/" class="nav-link">
-                                <i class="fas fa-city nav-icon"></i>
-                                <p>Provincias</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="navLinkHomePositions" href="../home-positions/" class="nav-link">
-                                <i class="far fa-id-badge nav-icon"></i>
-                                <p>Puestos</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a id="navLinkHomeTypesSuppliers" href="../home-types-suppliers/" class="nav-link">
-                                <i class="fas fa-people-arrows nav-icon"></i>
-                                <p>Tipos Proveedores</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
+                    foreach ($sub_array as $modulo) {
+                        if ($modulo == 'Dashboard') {
+                            echo '<li class="nav-header">GESTIONES</li>
+                                    <li class="nav-item">
+                                        <a id="navLinkDashboard" href="../dashboard/" class="nav-link">
+                                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                                            <p>Dashboard</p>
+                                        </a>
+                                    </li>';
+                        } elseif ($modulo == 'Solicitudes Proyectos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeProjectRequests" href="../home-project-requests/" class="nav-link">
+                                        <i class="nav-icon fas fa-clipboard-list"></i>
+                                        <p>Solicitudes Proyectos</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Ver Solicitudes Proyectos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkViewHomeProjectRequests" href="../view-home-project-requests/" class="nav-link">
+                                        <i class="nav-icon fas fa-clipboard-list"></i>
+                                        <p>Ver Solicitudes Proyectos</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Gestión Proyectos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeProjects" href="../home-civil-works-projects/" class="nav-link">
+                                        <i class="nav-icon fas fa-clipboard-list"></i>
+                                        <p>Gestión Proyectos</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Empleados') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeEmployees" href="../home-employees/" class="nav-link">
+                                        <i class="nav-icon fas fa-user-tie"></i>
+                                        <p>Empleados</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Proveedores') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeSuppliers" href="../home-suppliers/" class="nav-link">
+                                        <i class="nav-icon fas fa-user-friends"></i>
+                                        <p>Proveedores</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Asignar Usuario A Empleado') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkUsers" href="#" class="nav-link">
+                                        <i class="fas fa-user-shield nav-icon"></i>
+                                        <p>
+                                            Usuarios
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a id="navLinkHomeAssignUserEmployee" href="../home-assign-user-employee/" class="nav-link">
+                                                <i class="fas fa-user nav-icon"></i>
+                                                <p>Asignar Usuario A Empleado</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>';
+                        } elseif ($modulo == 'Tipos De Recursos Materiales') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkMaterialResources" href="#" class="nav-link">
+                                        <i class="fas fa-warehouse nav-icon"></i>
+                                        <p>
+                                            Recursos Materiales
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a id="navLinkHomeTypesMaterialResources" href="../home-types-material-resources/" class="nav-link">
+                                                <i class="fas fa-warehouse nav-icon"></i>
+                                                <p>Tipos De Recursos Materiales</p>
+                                            </a>
+                                        </li>';
+                        } elseif ($modulo == 'Recursos Materiales') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeMaterialResources" href="../home-material-resources/" class="nav-link">
+                                        <i class="fas fa-warehouse nav-icon"></i>
+                                             <p>Recursos Materiales</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Recursos Materiales Por Proveedores') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeMaterialResourcesSuppliers" href="../home-countries/" class="nav-link">
+                                        <i class="fas fa-warehouse nav-icon"></i>
+                                        <p>Recursos Materiales Por Proveedores</p>
+                                    </a>
+                                  </li>
+                                </ul>
+                            </li>';
+                        } elseif ($modulo == 'Módulos Del Sistema') {
+                            echo '<li class="nav-header">SEGURIDAD</li>
+                                    <li class="nav-item">
+                                        <a id="navLinkHomeSystemModules" href="../home-system-modules/" class="nav-link">
+                                            <i class="nav-icon fas fa-th-large"></i>
+                                            <p>Módulos Del Sistema</p>
+                                        </a>
+                                    </li>';
+                        } elseif ($modulo == 'Roles') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeRoles" href="../home-roles/" class="nav-link">
+                                        <i class="fas fa-user-tag nav-icon"></i>
+                                        <p>Roles</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Ciudades') {
+                            echo '<li class="nav-header">MANTENIMIENTOS</li>
+                                    <li class="nav-item">
+                                        <a id="navLinkMaintenance" href="#" class="nav-link">
+                                            <i class="nav-icon fas fa-tools"></i>
+                                            <p>
+                                                Mantenimientos
+                                                <i class="fas fa-angle-left right"></i>
+                                            </p>
+                                        </a>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a id="navLinkHomeCities" href="../home-cities/" class="nav-link">
+                                                    <i class="fas fa-city nav-icon"></i>
+                                                    <p>Ciudades</p>
+                                                </a>
+                                            </li>';
+                        } elseif ($modulo == 'Paises') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeCountries" href="../home-countries/" class="nav-link">
+                                        <i class="fas fa-city nav-icon"></i>
+                                        <p>Pa&iacute;ses</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Provincias') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeProvinces" href="../home-provinces/" class="nav-link">
+                                        <i class="fas fa-city nav-icon"></i>
+                                        <p>Provincias</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Puestos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomePositions" href="../home-positions/" class="nav-link">
+                                        <i class="far fa-id-badge nav-icon"></i>
+                                        <p>Puestos</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Tipos Proveedores') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeTypesSuppliers" href="../home-types-suppliers/" class="nav-link">
+                                        <i class="fas fa-people-arrows nav-icon"></i>
+                                        <p>Tipos Proveedores</p>
+                                    </a>
+                                  </li>
+                                </ul>
+                            </li>';
+                        }
+                    };
+                }
+                ?>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
