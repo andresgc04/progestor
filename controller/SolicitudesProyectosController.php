@@ -188,9 +188,10 @@ switch ($_GET['op']) {
         break;
     case 'modificar_solicitudes_proyectos_cambiar_estado_activo_aprobado_por_solicitud_proyecto_ID':
         $solicitudesProyectos->modificar_solicitudes_proyectos_cambiar_estado_activo_aprobado_por_solicitud_proyecto_ID(
+            $_POST['nombreProyecto'],
             $_POST['descripcionProyecto'],
             $_POST['objetivoProyecto'],
-            $_POST['presupuestoProyecto'],
+            $_POST['fechaEstimadaDeseada'],
             $modificadoPor,
             $_POST['solicitudProyectoID']
         );
