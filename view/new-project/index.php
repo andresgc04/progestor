@@ -67,13 +67,37 @@ if (isset($usuarioID)) {
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="nombreProyecto">Nombre Del Proyecto:</label>
-                                                        <textarea id="nombreProyecto" name="nombreProyecto" class="form-control" rows="3"></textarea>
+                                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
+                                                        <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
+                                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
                                                         <label for="descripcionProyecto">Descripción Del Proyecto:</label>
-                                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3"></textarea>
+                                                        <textarea id="descripcionProyecto" class="form-control" rows="3" readonly></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
+                                                        <input type="text" id="fechaEstimadaDeseada" class="form-control" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="solicitadoPor">Solicitado Por:</label>
+                                                        <input type="text" id="solicitadoPor" class="form-control" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,29 +118,18 @@ if (isset($usuarioID)) {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="responsableID">Responsable Del Proyecto:</label>
                                                         <select id="responsableID" name="responsableID" class="form-control select2" style="width: 100%;"></select>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="fechaInicioProyecto">Fecha De Inicio Del Proyecto:</label>
                                                         <div class="input-group date" data-target-input="nearest">
                                                             <input id="fechaInicioProyecto" name="fechaInicioProyecto" type="text" class="form-control datetimepicker-input" data-target="#fechaInicioProyecto" />
                                                             <div class="input-group-append" data-target="#fechaInicioProyecto" data-toggle="datetimepicker">
-                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
-                                                    <div class="form-group">
-                                                        <label for="fechaFinalizacionProyecto">Fecha De Finalización Del Proyecto:</label>
-                                                        <div class="input-group date" data-target-input="nearest">
-                                                            <input id="fechaFinalizacionProyecto" name="fechaFinalizacionProyecto" type="text" class="form-control datetimepicker-input" data-target="#fechaFinalizacionProyecto" />
-                                                            <div class="input-group-append" data-target="#fechaFinalizacionProyecto" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>
