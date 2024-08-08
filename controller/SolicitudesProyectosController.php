@@ -85,9 +85,10 @@ switch ($_GET['op']) {
                 // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
                 $normalizedItem = [
                     'solicitudProyectoID' => $item['SOLICITUD_PROYECTO_ID'],
+                    'nombreProyecto' => $item['NOMBRE_PROYECTO'],
                     'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
                     'objetivoProyecto' => $item['OBJETIVO_PROYECTO'],
-                    'presupuestoProyecto' => $item['PRESUPUESTO_PROYECTO'],
+                    'fechaEstimadaDeseada' => $item['FECHA_ESTIMADA_DESEADA'],
                     'nombreCliente' => $item['NOMBRE_CLIENTE'],
                     'estado' => $item['ESTADO']
                 ];
