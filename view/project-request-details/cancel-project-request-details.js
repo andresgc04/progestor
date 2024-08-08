@@ -43,25 +43,32 @@ function cancelProjectRequestDetails() {
 function validateCancelProjectRequestDetails() {
   $("#projectRequestDetailsForm").validate({
     rules: {
-      descripcionProyecto: {
+      nombreProyecto: {
         required: true,
       },
       objetivoProyecto: {
         required: true,
       },
-      presupuestoProyecto: {
+      descripcionProyecto: {
+        required: true,
+      },
+      fechaEstimadaDeseada: {
         required: true,
       },
     },
     messages: {
-      descripcionProyecto: {
-        required: "Por favor ingrese la descripción del proyecto.",
+      nombreProyecto: {
+        required: "Por favor ingrese el nombre del proyecto.",
       },
       objetivoProyecto: {
         required: "Por favor ingrese el objetivo del proyecto.",
       },
-      presupuestoProyecto: {
-        required: "Por favor ingrese el presupuesto del proyecto.",
+      descripcionProyecto: {
+        required: "Por favor ingrese la descripción del proyecto.",
+      },
+      fechaEstimadaDeseada: {
+        required:
+          "Por favor seleccione la fecha estimada deseada del proyecto.",
       },
     },
     errorElement: "span",
