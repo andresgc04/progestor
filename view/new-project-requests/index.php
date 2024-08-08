@@ -64,8 +64,8 @@ if (isset($usuarioID)) {
                                             <div class="row">
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="descripcionProyecto">Descripci&oacute;n Del Proyecto:</label>
-                                                        <input type="text" id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Ingrese la descripción del proyecto.">
+                                                        <label for="nombreProyecto">Nombre Del Proyecto:</label>
+                                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control" placeholder="Ingrese el nombre del proyecto.">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
@@ -77,10 +77,24 @@ if (isset($usuarioID)) {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="presupuesto">Presupuesto Destinado:</label>
-                                                        <input type="text" id="presupuesto" name="presupuesto" class="form-control" placeholder="Ingrese el monto del presupuesto  destinado.">
+                                                        <label for="descripcionProyecto">Descripci&oacute;n Del Proyecto:</label>
+                                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3" placeholder="Ingrese la descripción del proyecto."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
+                                                        <div class="input-group date" data-target-input="nearest">
+                                                            <input id="fechaEstimadaDeseada" name="fechaEstimadaDeseada" type="text" class="form-control datetimepicker-input" data-target="#fechaEstimadaDeseada" />
+                                                            <div class="input-group-append" data-target="#fechaEstimadaDeseada" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

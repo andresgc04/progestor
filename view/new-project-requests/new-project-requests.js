@@ -9,6 +9,13 @@ setBreadCrumbContentHeaderTitle(
 
 setBreadCrumbContentHeaderSubTitle("Registrar Nueva Solicitud De Proyecto");
 
+(function () {
+  //Initialize Date picker:
+  $("#fechaEstimadaDeseada").datetimepicker({
+    format: "YYYY/MM/DD",
+  });
+})();
+
 const eliminarRequerimientoProyecto = (projectRequirementIndex) => {
   $(projectRequirementIndex).parent().parent().fadeOut(400).remove();
 };
