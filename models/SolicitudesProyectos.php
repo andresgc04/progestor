@@ -155,22 +155,30 @@ class SolicitudesProyectos extends Connection
       return $resultado;
    }
 
-   public function modificar_solicitudes_proyectos_por_solicitud_proyecto_ID($descripcionProyecto, $objetivoProyecto, $presupuestoProyecto, $modificadoPor, $solicitudProyectoID)
-   {
+   public function modificar_solicitudes_proyectos_por_solicitud_proyecto_ID(
+      $nombreProyecto,
+      $descripcionProyecto,
+      $objetivoProyecto,
+      $fechaEstimadaDeseada,
+      $modificadoPor,
+      $solicitudProyectoID
+   ) {
       $conectar = parent::Connection();
       parent::set_names();
 
-      $queryModificarEncabezadoSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET DESCRIPCION_PROYECTO = ?, OBJETIVO_PROYECTO = ?,
-                                                                                     PRESUPUESTO_PROYECTO = ?, ESTADO_ID = 1,
-                                                                                     MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+      $queryModificarEncabezadoSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET NOMBRE_PROYECTO = ?, DESCRIPCION_PROYECTO = ?,
+								                                                             OBJETIVO_PROYECTO = ?, FECHA_ESTIMADA_DESEADA = ?,
+                                                                                     ESTADO_ID = 1, MODIFICADO_POR = ?,
+                                                                                     FECHA_MODIFICACION = NOW()
                                                                                WHERE SOLICITUD_PROYECTO_ID = ?;';
 
       $queryModificarEncabezadoSolicitudProyecto = $conectar->prepare($queryModificarEncabezadoSolicitudProyecto);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(1, $descripcionProyecto);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(2, $objetivoProyecto);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(3, $presupuestoProyecto);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(4, $modificadoPor);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $solicitudProyectoID);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(1, $nombreProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(2, $descripcionProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(3, $objetivoProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(4, $fechaEstimadaDeseada);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $modificadoPor);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(6, $solicitudProyectoID);
       $queryModificarEncabezadoSolicitudProyecto->execute();
 
       $resultado = $queryModificarEncabezadoSolicitudProyecto->fetchAll();
