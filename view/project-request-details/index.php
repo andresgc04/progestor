@@ -66,14 +66,23 @@ if (isset($usuarioID)) {
                                             <div class="row">
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="descripcionProyecto">Descripción Del Proyecto:</label>
-                                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3"></textarea>
+                                                        <label for="nombreProyecto">Nombre Del Proyecto:</label>
+                                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
-                                                        <textarea id="objetivoProyecto" name="objetivoProyecto" class="form-control" rows="3"></textarea>
+                                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control" placeholder="Ingrese el objetivo del proyecto.">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="descripcionProyecto">Descripci&oacute;n Del Proyecto:</label>
+                                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3" placeholder="Ingrese la descripción del proyecto."></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,8 +90,13 @@ if (isset($usuarioID)) {
                                             <div class="row">
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="presupuestoProyecto">Presupuesto Del Proyecto:</label>
-                                                        <input type="text" id="presupuestoProyecto" name="presupuestoProyecto" class="form-control">
+                                                        <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
+                                                        <div class="input-group date" data-target-input="nearest">
+                                                            <input id="fechaEstimadaDeseada" name="fechaEstimadaDeseada" type="text" class="form-control datetimepicker-input" data-target="#fechaEstimadaDeseada" />
+                                                            <div class="input-group-append" data-target="#fechaEstimadaDeseada" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
@@ -170,15 +184,6 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="../../public/js/functions/select2-elements/set-select2-elements.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_sex_options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_marital_statuses.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_nationalities_options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_countries_options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_provinces_options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_cities_options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_positions.options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_department_options.js"></script>
-        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_employees_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/get-params/get-params.js"></script>
         <script type="text/javascript" src="project-request-details.js"></script>
         <script type="text/javascript" src="update-project-request-details.js"></script>
