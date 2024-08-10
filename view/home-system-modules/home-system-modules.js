@@ -6,6 +6,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Módulos Del Sistema");
 
+const openNewSystemModulesFormModal = () => {
+  $("#newSystemModulesFormModal").modal("show");
+};
+
+const newSystemModulesButton = document.getElementById(
+  "newSystemModulesButton"
+);
+newSystemModulesButton.addEventListener("click", () => {
+  openNewSystemModulesFormModal();
+});
+
 const obtenerListadoModulosSistemasDataTable = () => {
   $("#listadoModulosDelSistemaDataTable")
     .dataTable({
