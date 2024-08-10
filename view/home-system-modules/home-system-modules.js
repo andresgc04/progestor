@@ -74,3 +74,11 @@ const obtenerListadoModulosSistemasDataTable = () => {
 (function () {
   obtenerListadoModulosSistemasDataTable();
 })();
+
+const openUpdateSystemModulesFormModal = () => {
+  $("#updateSystemModulesFormModal").modal("show");
+};
+
+const verDetalleModuloSistema = (moduloSistemaID) => {
+  openUpdateSystemModulesFormModal();
+};

@@ -87,6 +87,7 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-system-modules.php') ?>
+                                <?php require_once('components/update-system-modules.php') ?>
 
                             </section>
                             <!-- /. col content -->
