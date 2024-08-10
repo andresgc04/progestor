@@ -10,6 +10,9 @@ $creadoPor = $_SESSION[$USUARIO_ID];
 $modulosSistemas = new ModulosSistemas();
 
 switch ($_GET['op']) {
+    case "registrar_modulos_sistemas":
+        $modulosSistemas->registrar_modulos_sistemas($_POST["nombreModuloSistema"], $creadoPor);
+        break;
     case "listado_modulos_sistemas":
         $datos = $modulosSistemas->listado_modulos_sistemas();
         $data = array();
