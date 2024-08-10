@@ -203,7 +203,7 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <p>Puestos</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Tipos Proveedores') {
+                        } elseif ($modulo == 'Tipos Proveedores' || $modulo == 'TIPOS PROVEEDORES' || $modulo == 'tipos proveedores') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeTypesSuppliers" href="../home-types-suppliers/" class="nav-link">
                                         <i class="fas fa-people-arrows nav-icon"></i>
