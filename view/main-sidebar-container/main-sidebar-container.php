@@ -165,6 +165,13 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <p>Roles</p>
                                     </a>
                                   </li>';
+                        } elseif ($modulo == 'Asignar Módulo Del Sistema A Un Rol' || $modulo == 'ASIGNAR MÓDULO DEL SISTEMA A UN ROL' || $modulo == 'asignar módulo del sistema a un rol') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeAssignSystemModuleRole" href="../home-assign-system-module-role/" class="nav-link">
+                                        <i class="fas fa-sitemap nav-icon"></i>
+                                        <p>Asignar Módulo Del Sistema A Un Rol</p>
+                                    </a>
+                                  </li>';
                         } elseif ($modulo == 'Ciudades' || $modulo == 'CIUDADES' || $modulo == 'ciudades') {
                             echo '<li class="nav-header">MANTENIMIENTOS</li>
                                     <li class="nav-item">
