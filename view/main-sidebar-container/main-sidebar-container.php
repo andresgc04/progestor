@@ -65,42 +65,42 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                             <p>Dashboard</p>
                                         </a>
                                     </li>';
-                        } elseif ($modulo == 'Solicitudes Proyectos') {
+                        } elseif ($modulo == 'Solicitudes Proyectos' || $modulo == 'SOLICITUDES PROYECTOS' || $modulo == 'solicitudes proyectos') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeProjectRequests" href="../home-project-requests/" class="nav-link">
                                         <i class="nav-icon fas fa-clipboard-list"></i>
                                         <p>Solicitudes Proyectos</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Ver Solicitudes Proyectos') {
+                        } elseif ($modulo == 'Ver Solicitudes Proyectos' || $modulo == 'VER SOLICITUDES PROYECTOS' || $modulo == 'ver solicitudes proyectos') {
                             echo '<li class="nav-item">
                                     <a id="navLinkViewHomeProjectRequests" href="../view-home-project-requests/" class="nav-link">
                                         <i class="nav-icon fas fa-clipboard-list"></i>
                                         <p>Ver Solicitudes Proyectos</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Gestión Proyectos') {
+                        } elseif ($modulo == 'Gestión Proyectos' || $modulo == 'GESTIÓN PROYECTOS' || $modulo == 'gestión proyectos') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeProjects" href="../home-civil-works-projects/" class="nav-link">
                                         <i class="nav-icon fas fa-clipboard-list"></i>
                                         <p>Gestión Proyectos</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Empleados') {
+                        } elseif ($modulo == 'Empleados' || $modulo == 'EMPLEADOS' || $modulo == 'empleados') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeEmployees" href="../home-employees/" class="nav-link">
                                         <i class="nav-icon fas fa-user-tie"></i>
                                         <p>Empleados</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Proveedores') {
+                        } elseif ($modulo == 'Proveedores' || $modulo == 'PROVEEDORES' || $modulo == 'proveedores') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeSuppliers" href="../home-suppliers/" class="nav-link">
                                         <i class="nav-icon fas fa-user-friends"></i>
                                         <p>Proveedores</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Asignar Usuario A Empleado') {
+                        } elseif ($modulo == 'Asignar Usuario A Empleado' || $modulo == 'ASIGNAR USUARIO A EMPLEADO' || $modulo == 'asignar usuario a empleado') {
                             echo '<li class="nav-item">
                                     <a id="navLinkUsers" href="#" class="nav-link">
                                         <i class="fas fa-user-shield nav-icon"></i>
@@ -118,7 +118,7 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         </li>
                                     </ul>
                                 </li>';
-                        } elseif ($modulo == 'Tipos De Recursos Materiales') {
+                        } elseif ($modulo == 'Tipos De Recursos Materiales' || $modulo == 'TIPOS DE RECURSOS MATERIALES' || $modulo == 'tipos de recursos materiales') {
                             echo '<li class="nav-item">
                                     <a id="navLinkMaterialResources" href="#" class="nav-link">
                                         <i class="fas fa-warehouse nav-icon"></i>
@@ -134,14 +134,14 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                                 <p>Tipos De Recursos Materiales</p>
                                             </a>
                                         </li>';
-                        } elseif ($modulo == 'Recursos Materiales') {
+                        } elseif ($modulo == 'Recursos Materiales' || $modulo == 'RECURSOS MATERIALES' || $modulo == 'recursos materiales') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeMaterialResources" href="../home-material-resources/" class="nav-link">
                                         <i class="fas fa-warehouse nav-icon"></i>
                                              <p>Recursos Materiales</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Recursos Materiales Por Proveedores') {
+                        } elseif ($modulo == 'Recursos Materiales Por Proveedores' || $modulo == 'RECURSOS MATERIALES POR PROVEEDORES' || $modulo == 'recursos materiales por proveedores') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeMaterialResourcesSuppliers" href="../home-countries/" class="nav-link">
                                         <i class="fas fa-warehouse nav-icon"></i>
@@ -150,22 +150,22 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                   </li>
                                 </ul>
                             </li>';
-                        } elseif ($modulo == 'Módulos Del Sistema') {
-                            echo '<li class="nav-header">SEGURIDAD</li>
+                        } elseif ($modulo == 'Módulos Del Sistema' || $modulo == 'MÓDULOS DEL SISTEMA' || $modulo == 'módulo del sistema') {
+                            echo '<li class="nav-header">MANTENIMIENTOS DE SEGURIDAD</li>
                                     <li class="nav-item">
                                         <a id="navLinkHomeSystemModules" href="../home-system-modules/" class="nav-link">
                                             <i class="nav-icon fas fa-th-large"></i>
                                             <p>Módulos Del Sistema</p>
                                         </a>
                                     </li>';
-                        } elseif ($modulo == 'Roles') {
+                        } elseif ($modulo == 'Roles' || $modulo == 'ROLES' || $modulo == 'roles') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeRoles" href="../home-roles/" class="nav-link">
                                         <i class="fas fa-user-tag nav-icon"></i>
                                         <p>Roles</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Ciudades') {
+                        } elseif ($modulo == 'Ciudades' || $modulo == 'CIUDADES' || $modulo == 'ciudades') {
                             echo '<li class="nav-header">MANTENIMIENTOS</li>
                                     <li class="nav-item">
                                         <a id="navLinkMaintenance" href="#" class="nav-link">
@@ -182,21 +182,21 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                                     <p>Ciudades</p>
                                                 </a>
                                             </li>';
-                        } elseif ($modulo == 'Paises') {
+                        } elseif ($modulo == 'Paises' || $modulo == 'PAISES' || $modulo == 'paises') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeCountries" href="../home-countries/" class="nav-link">
                                         <i class="fas fa-city nav-icon"></i>
                                         <p>Pa&iacute;ses</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Provincias') {
+                        } elseif ($modulo == 'Provincias' || $modulo == 'PROVINCIAS' || $modulo == 'provincias') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeProvinces" href="../home-provinces/" class="nav-link">
                                         <i class="fas fa-city nav-icon"></i>
                                         <p>Provincias</p>
                                     </a>
                                   </li>';
-                        } elseif ($modulo == 'Puestos') {
+                        } elseif ($modulo == 'Puestos' || $modulo == 'PUESTOS' || $modulo == 'puestos') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomePositions" href="../home-positions/" class="nav-link">
                                         <i class="far fa-id-badge nav-icon"></i>
