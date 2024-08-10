@@ -11,6 +11,11 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <input type="hidden" id="moduloSistemaID" name="moduloSistemaID" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="modificarNombreModuloSistema">M&oacute;dulo Del Sistema:</label>
                                 <input type="text" id="modificarNombreModuloSistema" name="modificarNombreModuloSistema" class="form-control" placeholder="Ingrese el nombre del módulo del sistema.">

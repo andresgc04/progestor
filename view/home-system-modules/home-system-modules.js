@@ -80,5 +80,59 @@ const openUpdateSystemModulesFormModal = () => {
 };
 
 const verDetalleModuloSistema = (moduloSistemaID) => {
-  openUpdateSystemModulesFormModal();
+  $.post(
+    "../../controller/ModulosSistemasController.php?op=obtener_detalle_modulo_sistema_por_modulo_sistema_ID",
+    {
+      moduloSistemaID: moduloSistemaID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { moduloSistemaID, modulo } = responseData;
+
+        const moduloSistemaIDInput = document.getElementById("moduloSistemaID");
+        const modificarNombreModuloSistemaInput = document.getElementById(
+          "modificarNombreModuloSistema"
+        );
+
+        moduloSistemaIDInput.value =
+          moduloSistemaID != null ? moduloSistemaID : "";
+
+        modificarNombreModuloSistemaInput.value = modulo != null ? modulo : "";
+
+        openUpdateSystemModulesFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };
