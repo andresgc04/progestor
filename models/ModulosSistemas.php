@@ -63,4 +63,23 @@ class ModulosSistemas extends Connection
 
         return $resultado;
     }
+
+    public function modificar_modulos_sistemas_por_modulo_sistema_ID($modificarModuloSistema, $modificadoPor, $moduloSistemaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE MODULOS_SISTEMAS SET MODULO = ?, MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+					                    WHERE MODULO_SISTEMA_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificarModuloSistema);
+        $query->bindValue(2, $modificadoPor);
+        $query->bindValue(3, $moduloSistemaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
