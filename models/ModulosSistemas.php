@@ -44,4 +44,23 @@ class ModulosSistemas extends Connection
 
         return $resultado;
     }
+
+    public function obtener_detalle_modulo_sistema_por_modulo_sistema_ID($moduloSistemaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT MODULO_SISTEMA_ID,
+                         UCASE(MODULO) AS MODULO
+                    FROM MODULOS_SISTEMAS
+                   WHERE MODULO_SISTEMA_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $moduloSistemaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
