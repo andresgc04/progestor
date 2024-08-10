@@ -67,7 +67,7 @@ if (isset($usuarioID)) {
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="table-responsive">
-                                                    <table id="listadoMódulosDelSistemaDataTable" class="table table-bordered table-striped">
+                                                    <table id="listadoModulosDelSistemaDataTable" class="table table-bordered table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
