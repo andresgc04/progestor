@@ -80,4 +80,7 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case 'modificar_modulos_sistemas_por_modulo_sistema_ID':
+        $modulosSistemas->modificar_modulos_sistemas_por_modulo_sistema_ID($_POST['modificarNombreModuloSistema'], $_POST['moduloSistemaID'], $modificadoPor);
+        break;
 }
