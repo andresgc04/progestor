@@ -136,3 +136,52 @@ const verDetalleModuloSistema = (moduloSistemaID) => {
       );
     });
 };
+
+const eliminarModuloSistema = (moduloSistemaID) => {
+  Swal.fire({
+    title: "¿Deseas eliminar este modulo del sistema seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/ModulosSistemasController.php?op=eliminar_modulos_sistemas_por_modulo_sistema_ID",
+        {
+          moduloSistemaID: moduloSistemaID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Modulo del sistema eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
