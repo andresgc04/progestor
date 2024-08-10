@@ -83,4 +83,7 @@ switch ($_GET['op']) {
     case 'modificar_modulos_sistemas_por_modulo_sistema_ID':
         $modulosSistemas->modificar_modulos_sistemas_por_modulo_sistema_ID($_POST['modificarNombreModuloSistema'], $modificadoPor, $_POST['moduloSistemaID']);
         break;
+    case 'eliminar_modulos_sistemas_por_modulo_sistema_ID':
+        $modulosSistemas->eliminar_modulos_sistemas_por_modulo_sistema_ID($modificadoPor, $_POST['moduloSistemaID']);
+        break;
 }
