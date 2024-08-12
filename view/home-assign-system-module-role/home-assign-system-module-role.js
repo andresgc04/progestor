@@ -72,5 +72,18 @@ const obtenerListadoAccesosModulosSistemaDataTable = () => {
 };
 
 (function () {
+  //Initialize Select2 Elements:
+  initializeSelect2Elements();
+
+  getSelectListRolesOptions(
+    "../../controller/RolesController.php?op=obtener_listado_opciones_roles",
+    "#rolID"
+  );
+
+  getSelectListSystemModulesOptions(
+    "../../controller/ModulosSistemasController.php?op=obtener_listado_opciones_modulos_sistemas",
+    "#moduloSistemaID"
+  );
+
   obtenerListadoAccesosModulosSistemaDataTable();
 })();
