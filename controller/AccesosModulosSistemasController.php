@@ -11,6 +11,9 @@ $modificadoPor = $creadoPor;
 $accesosModulosSistemas = new AccesosModulosSistemas();
 
 switch ($_GET['op']) {
+    case "registrar_accesos_modulos_sistemas":
+        $accesosModulosSistemas->registrar_accesos_modulos_sistemas($_POST["moduloSistemaID"], $_POST['rolID'], $creadoPor);
+        break;
     case "obtener_listado_accesos_modulos_sistemas":
         $datos = $accesosModulosSistemas->obtener_listado_accesos_modulos_sistemas();
         $data = array();
