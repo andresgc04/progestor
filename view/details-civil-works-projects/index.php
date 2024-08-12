@@ -59,60 +59,36 @@ if (isset($usuarioID)) {
                                         <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control">
                                     </div>
                                     <div class="form-group">
+                                        <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
+                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="descripcionProyecto">Descripción Del Proyecto:</label>
                                         <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3"></textarea>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="tipoProyectoObraCivilID">Tipo De Proyecto:</label>
-                                                <select id="tipoProyectoObraCivilID" name="tipoProyectoObraCivilID" class="form-control select2" style="width: 100%;"></select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="categoriaTipoProyectoObraCivilID">Categoría De Proyecto:</label>
-                                                <select id="categoriaTipoProyectoObraCivilID" name="categoriaTipoProyectoObraCivilID" class="form-control select2" style="width: 100%;"></select>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="tipoProyectoObraCivil">Tipo De Proyecto Obra Civil:</label>
+                                        <input type="text" id="tipoProyectoObraCivil" name="tipoProyectoObraCivil" class="form-control">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="fechaInicioProyecto">Fecha De Inicio Del Proyecto:</label>
-                                                <div class="input-group date" data-target-input="nearest">
-                                                    <input id="fechaInicioProyecto" name="fechaInicioProyecto" type="text" class="form-control datetimepicker-input" data-target="#fechaInicioProyecto" />
-                                                    <div class="input-group-append" data-target="#fechaInicioProyecto" data-toggle="datetimepicker">
-                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="fechaFinalizacionProyecto">Fecha De Finalización Del Proyecto:</label>
-                                                <div class="input-group date" data-target-input="nearest">
-                                                    <input id="fechaFinalizacionProyecto" name="fechaFinalizacionProyecto" type="text" class="form-control datetimepicker-input" data-target="#fechaFinalizacionProyecto" />
-                                                    <div class="input-group-append" data-target="#fechaFinalizacionProyecto" data-toggle="datetimepicker">
-                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="categoriaTipoProyectoObraCivil">Categoria De Tipo De Proyecto Obra Civil:</label>
+                                        <input type="text" id="categoriaTipoProyectoObraCivil" name="categoriaTipoProyectoObraCivil" class="form-control">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="responsableID">Responsable Del Proyecto:</label>
-                                                <select id="responsableID" name="responsableID" class="form-control select2" style="width: 100%;"></select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-md-12 col-lg-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="EstadoProyecto">Estado Del Proyecto:</label>
-                                                <input type="text" id="EstadoProyecto" class="form-control" />
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="solicitadoPor">Solicitado Por:</label>
+                                        <input type="text" id="solicitadoPor" name="solicitadoPor" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
+                                        <input type="text" id="fechaEstimadaDeseada" name="fechaEstimadaDeseada" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="responsableProyecto">Responsable Del Proyecto:</label>
+                                        <input type="text" id="responsableProyecto" name="responsableProyecto" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fechaInicioProyecto">Fecha De Inicio Del Proyecto:</label>
+                                        <input type="text" id="fechaInicioProyecto" name="fechaInicioProyecto" class="form-control">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
