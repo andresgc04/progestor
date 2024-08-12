@@ -93,12 +93,14 @@ switch ($_GET['op']) {
                     'proyectoObraCivilID' => $item['PROYECTO_OBRA_CIVIL_ID'],
                     'solicitudProyectoID' => $item['SOLICITUD_PROYECTO_ID'],
                     'nombreProyecto' => $item['NOMBRE_PROYECTO'],
+                    'objetivoProyecto' => $item['OBJETIVO_PROYECTO'],
                     'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
-                    'tipoProyectoObraCivilID' => $item['TIPO_PROYECTO_OBRA_CIVIL_ID'],
-                    'categoriaTipoProyectoObraCivilID' => $item['CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID'],
-                    'responsableID' => $item['RESPONSABLE_ID'],
-                    'fechaInicioProyecto' => $item['FECHA_INICIO_PROYECTO'],
-                    'fechaFinalizacionProyecto' => $item['FECHA_FINALIZACION_PROYECTO'],
+                    'fechaEstimadaDeseada' => $item['FECHA_ESTIMADA_DESEADA'],
+                    'nombreCliente' => $item['NOMBRE_CLIENTE'],
+                    'tipoProyectoObraCivil' => $item['TIPO_PROYECTO_OBRA_CIVIL'],
+                    'categoriaTipoProyectoObraCivil' => $item['CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL'],
+                    'responsable' => $item['RESPONSABLES'],
+                    'FECHA_INICIO_PROYECTO' => $item['FECHA_INICIO_PROYECTO'],
                     'estado' => $item['ESTADO']
                 ];
 

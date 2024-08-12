@@ -83,7 +83,8 @@ class ProyectosObrasCiviles extends Connection
                          CONCAT(empleados.PRIMER_NOMBRE, " ", empleados.SEGUNDO_NOMBRE, " ",
                                 empleados.PRIMER_APELLIDO, " ", empleados.SEGUNDO_APELLIDO
                                ) AS RESPONSABLES,
-                         proyectosObrasCiviles.FECHA_INICIO_PROYECTO
+                         proyectosObrasCiviles.FECHA_INICIO_PROYECTO,
+                         UCASE(estados.ESTADO) AS ESTADO
   	                FROM PROYECTOS_OBRAS_CIVILES proyectosObrasCiviles
               INNER JOIN SOLICITUDES_PROYECTOS solicitudesProyectos
 		              ON proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = solicitudesProyectos.SOLICITUD_PROYECTO_ID
