@@ -118,6 +118,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_roles_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_system_modules_options.js"></script>
         <script type="text/javascript" src="home-assign-system-module-role.js"></script>
+        <script type="text/javascript" src="new-assign-system-module-role.js"></script>
     </body>
 
     </html>
