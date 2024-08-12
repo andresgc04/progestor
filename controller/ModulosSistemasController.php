@@ -86,4 +86,17 @@ switch ($_GET['op']) {
     case 'eliminar_modulos_sistemas_por_modulo_sistema_ID':
         $modulosSistemas->eliminar_modulos_sistemas_por_modulo_sistema_ID($modificadoPor, $_POST['moduloSistemaID']);
         break;
+    case 'obtener_listado_opciones_modulos_sistemas':
+        $datos = $modulosSistemas->obtener_listado_opciones_modulos_sistemas();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el módulo del sistema.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['MODULO_SISTEMA_ID'] . '">' . $row['MODULO'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
