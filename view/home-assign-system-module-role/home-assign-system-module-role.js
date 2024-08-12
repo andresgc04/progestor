@@ -6,6 +6,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Accesos A Módulos Del Sistema");
 
+const openNewAssignSystemModuleRoleFormModal = () => {
+  $("#newAssignSystemModuleRoleFormModal").modal("show");
+};
+
+const newAssingSystemModuleRoleButton = document.getElementById(
+  "newAssingSystemModuleRoleButton"
+);
+newAssingSystemModuleRoleButton.addEventListener("click", () => {
+  openNewAssignSystemModuleRoleFormModal();
+});
+
 const obtenerListadoAccesosModulosSistemaDataTable = () => {
   $("#listadoAccesosModulosSistemasDataTable")
     .dataTable({

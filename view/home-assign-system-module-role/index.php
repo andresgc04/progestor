@@ -86,6 +86,9 @@ if (isset($usuarioID)) {
                                     <!-- /.card-body -->
                                 </div>
                                 <!-- /.card -->
+
+                                <?php require_once('components/new-assign-system-module-role.php') ?>
+                                
                             </section>
                             <!-- /. col content -->
                         </div>
