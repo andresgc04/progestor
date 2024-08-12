@@ -70,14 +70,39 @@ class ProyectosObrasCiviles extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID, proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
-                         UCASE(proyectosObrasCiviles.NOMBRE_PROYECTO) NOMBRE_PROYECTO, UCASE(proyectosObrasCiviles.DESCRIPCION_PROYECTO) DESCRIPCION_PROYECTO,
-                         proyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID, proyectosObrasCiviles.CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID,
-                         proyectosObrasCiviles.RESPONSABLE_ID, proyectosObrasCiviles.FECHA_INICIO_PROYECTO,
-                         proyectosObrasCiviles.FECHA_FINALIZACION_PROYECTO, UCASE(estados.ESTADO) ESTADO
-                    FROM PROYECTOS_OBRAS_CIVILES proyectosObrasCiviles
-                         INNER JOIN ESTADOS estados
-                      ON proyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
+        $query = 'SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
+    	                 proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
+                         UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
+                         UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) AS OBJETIVO_PROYECTO,
+                         UCASE(solicitudesProyectos.DESCRIPCION_PROYECTO) AS DESCRIPCION_PROYECTO,
+                         solicitudesProyectos.FECHA_ESTIMADA_DESEADA,
+                         UCASE(clientes.NOMBRE_CLIENTE) AS NOMBRE_CLIENTE,
+                         UCASE(tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL) AS TIPO_PROYECTO_OBRA_CIVIL,
+                         UCASE(categoriasTiposProyectosObrasCiviles.CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL) AS 
+                         CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL,
+                         CONCAT(empleados.PRIMER_NOMBRE, " ", empleados.SEGUNDO_NOMBRE, " ",
+                                empleados.PRIMER_APELLIDO, " ", empleados.SEGUNDO_APELLIDO
+                               ) AS RESPONSABLES,
+                         proyectosObrasCiviles.FECHA_INICIO_PROYECTO
+  	                FROM PROYECTOS_OBRAS_CIVILES proyectosObrasCiviles
+              INNER JOIN SOLICITUDES_PROYECTOS solicitudesProyectos
+		              ON proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = solicitudesProyectos.SOLICITUD_PROYECTO_ID
+              INNER JOIN TIPOS_PROYECTOS_OBRAS_CIVILES tiposProyectosObrasCiviles
+		              ON proyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID = 
+                         tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL_ID
+              INNER JOIN CATEGORIAS_TIPOS_PROYECTOS_OBRAS_CIVILES categoriasTiposProyectosObrasCiviles
+                      ON proyectosObrasCiviles.CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID =
+                         categoriasTiposProyectosObrasCiviles.CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID
+              INNER JOIN USUARIOS usuariosSolicitantes
+                      ON solicitudesProyectos.CREADO_POR = usuariosSolicitantes.USUARIO_ID
+              INNER JOIN CLIENTES clientes 
+	                  ON usuariosSolicitantes.CLIENTE_ID = clientes.CLIENTE_ID
+              INNER JOIN USUARIOS responsables
+                      ON proyectosObrasCiviles.RESPONSABLE_ID = responsables.USUARIO_ID
+              INNER JOIN EMPLEADOS empleados 
+                      ON responsables.EMPLEADO_ID = empleados.EMPLEADO_ID
+              INNER JOIN ESTADOS estados
+		              ON proyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
                    WHERE proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ? 
                      AND proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = ?;';
 
