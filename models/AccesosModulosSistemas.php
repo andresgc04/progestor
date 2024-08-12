@@ -1,6 +1,29 @@
 <?php
 class AccesosModulosSistemas extends Connection
 {
+        public function registrar_accesos_modulos_sistemas($moduloSistemaID, $rolID, $creadoPor)
+        {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'INSERT INTO ACCESOS_MODULOS_SISTEMAS (MODULO_SISTEMA_ID, ROL_ID, ESTADO_ID,
+                                                                CREADO_POR, FECHA_CREACION
+                                                               )
+                                                         VALUES(?,?,1,
+                                   	                        ?, NOW()
+                               		 );';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $moduloSistemaID);
+                $query->bindValue(2, $rolID);
+                $query->bindValue(3, $creadoPor);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
+
         public function obtener_listado_accesos_modulos_sistemas()
         {
                 $conectar = parent::Connection();
