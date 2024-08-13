@@ -13,7 +13,7 @@ $actividadesProyectosObrasCiviles = new ActividadesProyectosObrasCiviles();
 switch ($_GET['op']) {
     case "registrar_accesos_modulos_sistemas":
         $actividadesProyectosObrasCiviles->registrar_actividades_proyectos_obras_civiles(
-            $_POST["proyectoObraCivilID"],
+            $_POST["addActivityProyectoObraCivilID"],
             $_POST['tipoActividadID'],
             $_POST['nombreActividad'],
             $_POST['descripcionActividad'],

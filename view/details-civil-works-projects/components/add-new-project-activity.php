@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input type="hidden" id="proyectoObraCivilID" name="proyectoObraCivilID" class="form-control">
+                            <input type="hidden" id="addActivityProyectoObraCivilID" name="addActivityProyectoObraCivilID" class="form-control">
                         </div>
                     </div>
                     <div class="row">

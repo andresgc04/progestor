@@ -166,6 +166,11 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
 })();
 
 const openAddNewProjectActivityFormModal = () => {
+  const proyectoObraCivilIDInput = document.getElementById(
+    "addActivityProyectoObraCivilID"
+  );
+  proyectoObraCivilIDInput.value = getParams("proyectoObraCivilID");
+
   $("#newProjectActivityFormModal").modal("show");
 };
 
