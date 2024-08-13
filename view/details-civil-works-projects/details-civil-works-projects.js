@@ -158,6 +158,11 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
     proyectoObraCivilID,
     solicitudProyectoID
   );
+
+  getSelectListTypesActivitiesOptions(
+    "../../controller/TiposActividadesController.php?op=obtener_listado_opciones_tipos_actividades",
+    "#tipoActividadID"
+  );
 })();
 
 const openAddNewProjectActivityFormModal = () => {
