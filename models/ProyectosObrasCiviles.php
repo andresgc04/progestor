@@ -1,18 +1,18 @@
 <?php
 class ProyectosObrasCiviles extends Connection
 {
-    public function registrar_proyectos_obras_civiles(
-        $solicitudProyectoID,
-        $tipoProyectoObraCivilID,
-        $categoriaTipoProyectoObraCivilID,
-        $responsableID,
-        $fechaInicioProyecto,
-        $creadoPor
-    ) {
-        $conectar = parent::Connection();
-        parent::set_names();
+        public function registrar_proyectos_obras_civiles(
+                $solicitudProyectoID,
+                $tipoProyectoObraCivilID,
+                $categoriaTipoProyectoObraCivilID,
+                $responsableID,
+                $fechaInicioProyecto,
+                $creadoPor
+        ) {
+                $conectar = parent::Connection();
+                parent::set_names();
 
-        $query = 'INSERT INTO PROYECTOS_OBRAS_CIVILES (SOLICITUD_PROYECTO_ID, TIPO_PROYECTO_OBRA_CIVIL_ID, CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID,
+                $query = 'INSERT INTO PROYECTOS_OBRAS_CIVILES (SOLICITUD_PROYECTO_ID, TIPO_PROYECTO_OBRA_CIVIL_ID, CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL_ID,
                                                        RESPONSABLE_ID, FECHA_INICIO_PROYECTO, ESTADO_ID,
                                                        CREADO_POR, FECHA_CREACION
                                                       )
@@ -21,26 +21,26 @@ class ProyectosObrasCiviles extends Connection
                                                        ?,NOW()
                                                       );';
 
-        $query = $conectar->prepare($query);
-        $query->bindValue(1, $solicitudProyectoID);
-        $query->bindValue(2, $tipoProyectoObraCivilID);
-        $query->bindValue(3, $categoriaTipoProyectoObraCivilID);
-        $query->bindValue(4, $responsableID);
-        $query->bindValue(5, $fechaInicioProyecto);
-        $query->bindValue(6, $creadoPor);
-        $query->execute();
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $solicitudProyectoID);
+                $query->bindValue(2, $tipoProyectoObraCivilID);
+                $query->bindValue(3, $categoriaTipoProyectoObraCivilID);
+                $query->bindValue(4, $responsableID);
+                $query->bindValue(5, $fechaInicioProyecto);
+                $query->bindValue(6, $creadoPor);
+                $query->execute();
 
-        $resultado = $query->fetchAll();
+                $resultado = $query->fetchAll();
 
-        return $resultado;
-    }
+                return $resultado;
+        }
 
-    public function listado_proyectos_obras_civiles()
-    {
-        $conectar = parent::Connection();
-        parent::set_names();
+        public function listado_proyectos_obras_civiles()
+        {
+                $conectar = parent::Connection();
+                parent::set_names();
 
-        $query = "SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
+                $query = "SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
                          proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
                          UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
                          UCASE(tiposProyectosObrasCiviles.TIPO_PROYECTO_OBRA_CIVIL) AS TIPO_PROYECTO_OBRA_CIVIL,
@@ -57,20 +57,20 @@ class ProyectosObrasCiviles extends Connection
                 ORDER BY proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID DESC,
                          proyectosObrasCiviles.FECHA_CREACION DESC;";
 
-        $query = $conectar->prepare($query);
-        $query->execute();
+                $query = $conectar->prepare($query);
+                $query->execute();
 
-        $resultado = $query->fetchAll();
+                $resultado = $query->fetchAll();
 
-        return $resultado;
-    }
+                return $resultado;
+        }
 
-    public function obtener_datos_proyectos_obras_civiles_por_proyecto_obra_civil_ID_solicitud_proyecto_ID($proyectoObraCivilID, $solicitudProyectoID)
-    {
-        $conectar = parent::Connection();
-        parent::set_names();
+        public function obtener_datos_proyectos_obras_civiles_por_proyecto_obra_civil_ID_solicitud_proyecto_ID($proyectoObraCivilID, $solicitudProyectoID)
+        {
+                $conectar = parent::Connection();
+                parent::set_names();
 
-        $query = 'SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
+                $query = 'SELECT proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
     	                 proyectosObrasCiviles.SOLICITUD_PROYECTO_ID,
                          UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
                          UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) AS OBJETIVO_PROYECTO,
@@ -107,13 +107,49 @@ class ProyectosObrasCiviles extends Connection
                    WHERE proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ? 
                      AND proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = ?;';
 
-        $query = $conectar->prepare($query);
-        $query->bindValue(1, $proyectoObraCivilID);
-        $query->bindValue(2, $solicitudProyectoID);
-        $query->execute();
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $proyectoObraCivilID);
+                $query->bindValue(2, $solicitudProyectoID);
+                $query->execute();
 
-        $resultado = $query->fetchAll();
+                $resultado = $query->fetchAll();
 
-        return $resultado;
-    }
+                return $resultado;
+        }
+
+        public function registrar_actividades_proyectos_obras_civiles(
+                $proyectoObraCivilID,
+                $tipoActividadID,
+                $nombreActividad,
+                $descripcionActividad,
+                $costoActividad,
+                $creadoPor
+        ) {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'INSERT INTO ACTIVIDADES_PROYECTOS_OBRAS_CIVILES (PROYECTO_OBRA_CIVIL_ID, TIPO_ACTIVIDAD_ID,
+                                                                           NOMBRE_ACTIVIDAD, DESCRIPCION_ACTIVIDAD,
+                                                                           COSTO_ACTIVIDAD, ESTADO_ID,
+                                                                           CREADO_POR, FECHA_CREACION
+                                                                          )
+                                                                    VALUES(?, ?,
+                                                                           ?, ?,
+                                                                           ?, 1,
+                                                                           ?, NOW()
+                                                                          );';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $proyectoObraCivilID);
+                $query->bindValue(2, $tipoActividadID);
+                $query->bindValue(3, $nombreActividad);
+                $query->bindValue(4, $descripcionActividad);
+                $query->bindValue(5, $costoActividad);
+                $query->bindValue(6, $creadoPor);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
 }
