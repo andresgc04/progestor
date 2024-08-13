@@ -11,7 +11,7 @@ $modificadoPor = $creadoPor;
 $actividadesProyectosObrasCiviles = new ActividadesProyectosObrasCiviles();
 
 switch ($_GET['op']) {
-    case "registrar_accesos_modulos_sistemas":
+    case "registrar_actividades_proyectos_obras_civiles":
         $actividadesProyectosObrasCiviles->registrar_actividades_proyectos_obras_civiles(
             $_POST["addActivityProyectoObraCivilID"],
             $_POST['tipoActividadID'],
