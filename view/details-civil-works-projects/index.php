@@ -113,7 +113,7 @@ if (isset($usuarioID)) {
                                 <div class="card-body">
                                     <div class="row mb-2">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
-                                            <button type="button" class="btn btn-primary"><span>Agregar Nueva Actividad</span></button>
+                                            <button id="addNewProjectActivityButton" type="button" class="btn btn-primary"><span>Agregar Nueva Actividad</span></button>
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -123,6 +123,7 @@ if (isset($usuarioID)) {
                                                     <th>#</th>
                                                     <th>TIPO DE ACTIVIDAD</th>
                                                     <th>ACTIVIDAD</th>
+                                                    <th>COSTO</th>
                                                     <th>ESTADO</th>
                                                     <th>ACCIONES</th>
                                                 </tr>
@@ -209,6 +210,9 @@ if (isset($usuarioID)) {
                             <!-- /.card -->
                         </div>
                     </div>
+
+                    <?php require_once('components/add-new-project-activity.php') ?>
+
                 </section>
                 <!-- /.content -->
             </div>

@@ -159,3 +159,14 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
     solicitudProyectoID
   );
 })();
+
+const openAddNewProjectActivityFormModal = () => {
+  $("#newProjectActivityFormModal").modal("show");
+};
+
+const addNewProjectActivityButton = document.getElementById(
+  "addNewProjectActivityButton"
+);
+addNewProjectActivityButton.addEventListener("click", () => {
+  openAddNewProjectActivityFormModal();
+});
