@@ -100,7 +100,7 @@ switch ($_GET['op']) {
                     'tipoProyectoObraCivil' => $item['TIPO_PROYECTO_OBRA_CIVIL'],
                     'categoriaTipoProyectoObraCivil' => $item['CATEGORIA_TIPO_PROYECTO_OBRA_CIVIL'],
                     'responsable' => $item['RESPONSABLES'],
-                    'FECHA_INICIO_PROYECTO' => $item['FECHA_INICIO_PROYECTO'],
+                    'fechaInicioProyecto' => $item['FECHA_INICIO_PROYECTO'],
                     'estado' => $item['ESTADO']
                 ];
 

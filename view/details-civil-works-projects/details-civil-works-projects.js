@@ -41,12 +41,14 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
             proyectoObraCivilID,
             solicitudProyectoID,
             nombreProyecto,
+            objetivoProyecto,
             descripcionProyecto,
-            tipoProyectoObraCivilID,
-            categoriaTipoProyectoObraCivilID,
-            responsableID,
+            fechaEstimadaDeseada,
+            nombreCliente,
+            tipoProyectoObraCivil,
+            categoriaTipoProyectoObraCivil,
+            responsable,
             fechaInicioProyecto,
-            fechaFinalizacionProyecto,
             estado,
           } = responseData;
 
@@ -60,19 +62,36 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
 
           const nombreProyectoInput = document.getElementById("nombreProyecto");
 
+          const objetivoProyectoInput =
+            document.getElementById("objetivoProyecto");
+
           const descripcionProyectoInput = document.getElementById(
             "descripcionProyecto"
+          );
+
+          const tipoProyectoObraCivilInput = document.getElementById(
+            "tipoProyectoObraCivil"
+          );
+
+          const categoriaTipoProyectoObraCivilInput = document.getElementById(
+            "categoriaTipoProyectoObraCivil"
+          );
+
+          const solicitadoPorInput = document.getElementById("solicitadoPor");
+
+          const fechaEstimadaDeseadaInput = document.getElementById(
+            "fechaEstimadaDeseada"
+          );
+
+          const responsableProyectoInput = document.getElementById(
+            "responsableProyecto"
           );
 
           const fechaInicioProyectoInput = document.getElementById(
             "fechaInicioProyecto"
           );
 
-          const fechaFinalizacionProyectoInput = document.getElementById(
-            "fechaFinalizacionProyecto"
-          );
-
-          const EstadoProyectoInput = document.getElementById("EstadoProyecto");
+          const EstadoProyectoInput = document.getElementById("estadoProyecto");
 
           proyectoObraCivilIDInput.value =
             proyectoObraCivilID != null ? proyectoObraCivilID : "";
@@ -83,48 +102,30 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
           nombreProyectoInput.value =
             nombreProyecto != null ? nombreProyecto : "";
 
+          objetivoProyectoInput.value =
+            objetivoProyecto != null ? objetivoProyecto : "";
+
           descripcionProyectoInput.value =
             descripcionProyecto != null ? descripcionProyecto : "";
 
-          getSelectListTypesCivilWorksProjectsOptionsByTipoProyectoObraCivilID(
-            "../../controller/TiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_tipos_proyectos_obras_civiles_por_tipo_proyecto_obra_civil_ID",
-            tipoProyectoObraCivilID,
-            "#tipoProyectoObraCivilID"
-          );
+          tipoProyectoObraCivilInput.value =
+            tipoProyectoObraCivil != null ? tipoProyectoObraCivil : "";
 
-          getSelectListCategoriesTypesProjectsCivilWorksOptionsByCategoriaTipoProyectoObraCivilIDAndTipoProyectoObraCivilID(
-            "../../controller/CategoriasTiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_categorias_tipos_proyectos_obras_civiles_por_categoria_tipo_proyecto_obra_civil_ID_tipo_proyecto_obra_civil_ID",
-            categoriaTipoProyectoObraCivilID,
-            tipoProyectoObraCivilID,
-            "#categoriaTipoProyectoObraCivilID"
-          );
+          categoriaTipoProyectoObraCivilInput.value =
+            categoriaTipoProyectoObraCivil != null
+              ? categoriaTipoProyectoObraCivil
+              : "";
 
-          const tipoProyectoObraCivilIDInputSelect = document.getElementById(
-            "tipoProyectoObraCivilID"
-          );
-          tipoProyectoObraCivilIDInputSelect.addEventListener(
-            "change",
-            function (event) {
-              getSelectListCategoriesTypesProjectsCivilWorksOptionsByCategoriaTipoProyectoObraCivilIDAndTipoProyectoObraCivilID(
-                "../../controller/CategoriasTiposProyectosObrasCivilesController.php?op=obtener_listado_opciones_categorias_tipos_proyectos_obras_civiles_por_categoria_tipo_proyecto_obra_civil_ID_tipo_proyecto_obra_civil_ID",
-                categoriaTipoProyectoObraCivilID,
-                event.target.value,
-                "#categoriaTipoProyectoObraCivilID"
-              );
-            }
-          );
+          solicitadoPorInput.value = nombreCliente != null ? nombreCliente : "";
+
+          fechaEstimadaDeseadaInput.value =
+            fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
+
+          responsableProyectoInput.value =
+            responsable != null ? responsable : "";
 
           fechaInicioProyectoInput.value =
             fechaInicioProyecto != null ? fechaInicioProyecto : "";
-
-          fechaFinalizacionProyectoInput.value =
-            fechaFinalizacionProyecto != null ? fechaFinalizacionProyecto : "";
-
-          getSelectListProjectManagerOptionsByResposableID(
-            "../../controller/EmpleadosController.php?op=obtener_listado_opciones_responsables_proyecto_por_responsable_ID",
-            responsableID,
-            "#responsableID"
-          );
 
           EstadoProyectoInput.value = estado != null ? estado : "";
         }
@@ -149,15 +150,6 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
 (function () {
   //Initialize Select2 Elements:
   initializeSelect2Elements();
-
-  //Initialize Date picker:
-  $("#fechaInicioProyecto").datetimepicker({
-    format: "YYYY/MM/DD",
-  });
-
-  $("#fechaFinalizacionProyecto").datetimepicker({
-    format: "YYYY/MM/DD",
-  });
 
   const proyectoObraCivilID = getParams("proyectoObraCivilID");
   const solicitudProyectoID = getParams("solicitudProyectoID");

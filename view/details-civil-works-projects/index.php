@@ -56,39 +56,43 @@ if (isset($usuarioID)) {
 
                                     <div class="form-group">
                                         <label for="nombreProyecto">Nombre Del Proyecto:</label>
-                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control">
+                                        <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="objetivoProyecto">Objetivo Del Proyecto:</label>
-                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control">
+                                        <input type="text" id="objetivoProyecto" name="objetivoProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="descripcionProyecto">Descripción Del Proyecto:</label>
-                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3"></textarea>
+                                        <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3" readonly></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="tipoProyectoObraCivil">Tipo De Proyecto Obra Civil:</label>
-                                        <input type="text" id="tipoProyectoObraCivil" name="tipoProyectoObraCivil" class="form-control">
+                                        <input type="text" id="tipoProyectoObraCivil" name="tipoProyectoObraCivil" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="categoriaTipoProyectoObraCivil">Categoria De Tipo De Proyecto Obra Civil:</label>
-                                        <input type="text" id="categoriaTipoProyectoObraCivil" name="categoriaTipoProyectoObraCivil" class="form-control">
+                                        <input type="text" id="categoriaTipoProyectoObraCivil" name="categoriaTipoProyectoObraCivil" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="solicitadoPor">Solicitado Por:</label>
-                                        <input type="text" id="solicitadoPor" name="solicitadoPor" class="form-control">
+                                        <input type="text" id="solicitadoPor" name="solicitadoPor" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
-                                        <input type="text" id="fechaEstimadaDeseada" name="fechaEstimadaDeseada" class="form-control">
+                                        <input type="text" id="fechaEstimadaDeseada" name="fechaEstimadaDeseada" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="responsableProyecto">Responsable Del Proyecto:</label>
-                                        <input type="text" id="responsableProyecto" name="responsableProyecto" class="form-control">
+                                        <input type="text" id="responsableProyecto" name="responsableProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaInicioProyecto">Fecha De Inicio Del Proyecto:</label>
-                                        <input type="text" id="fechaInicioProyecto" name="fechaInicioProyecto" class="form-control">
+                                        <input type="text" id="fechaInicioProyecto" name="fechaInicioProyecto" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="estadoProyecto">Estado:</label>
+                                        <input type="text" id="estadoProyecto" name="estadoProyecto" class="form-control" readonly>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
