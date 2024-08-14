@@ -96,4 +96,15 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case "modificar_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID":
+        $actividadesProyectosObrasCiviles->modificar_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID(
+            $_POST["modifyTipoActividadID"],
+            $_POST['modifyNombreActividad'],
+            $_POST['modifyDescripcionActividad'],
+            $_POST['modifyCostoActividad'],
+            $modificadoPor,
+            $_POST['modifyActividadProyectoObraCivilID'],
+            $_POST['modifyProyectoObraCivilID'],
+        );
+        break;
 }
