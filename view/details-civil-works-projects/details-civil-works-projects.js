@@ -310,6 +310,12 @@ const obtenerDetallesActividadesProyectosObrasCivilesPorActividadProyectoObraCiv
           modifyProyectoObraCivilIDInput.value =
             proyectoObraCivilID != null ? proyectoObraCivilID : "";
 
+          getSelectListTypesActivitiesOptionsByTipoActividadID(
+            "../../controller/TiposActividadesController.php?op=obtener_listado_opciones_tipos_actividades_por_tipo_actividad_ID",
+            tipoActividadID,
+            "#modifyTipoActividadID"
+          );
+
           modifyNombreActividadInput.value =
             nombreActividad != null ? nombreActividad : "";
 
