@@ -36,4 +36,32 @@ class ActividadesProyectosObrasCiviles extends Connection
 
         return $resultado;
     }
+
+    public function listado_actividades_proyectos_obras_civiles()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT actividadesProyectosObrasCiviles.ACTIVIDAD_ID, 
+	                     actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
+                         UCASE(tiposActividades.TIPO_ACTIVIDAD) AS TIPO_ACTIVIDAD,
+                         UCASE(actividadesProyectosObrasCiviles.NOMBRE_ACTIVIDAD) as NOMBRE_ACTIVIDAD,
+                         UCASE(actividadesProyectosObrasCiviles.DESCRIPCION_ACTIVIDAD) AS DESCRIPCION_ACTIVIDAD,
+                         actividadesProyectosObrasCiviles.COSTO_ACTIVIDAD,
+                         UCASE(estados.ESTADO) AS ESTADO
+                    FROM ACTIVIDADES_PROYECTOS_OBRAS_CIVILES actividadesProyectosObrasCiviles
+              INNER JOIN TIPOS_ACTIVIDADES tiposActividades
+		              ON actividadesProyectosObrasCiviles.TIPO_ACTIVIDAD_ID = tiposActividades.TIPO_ACTIVIDAD_ID
+              INNER JOIN ESTADOS estados
+                      ON actividadesProyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
+                   WHERE actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = 1 AND
+     	                 actividadesProyectosObrasCiviles.ESTADO_ID = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
