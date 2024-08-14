@@ -91,4 +91,36 @@ class ActividadesProyectosObrasCiviles extends Connection
 
         return $resultado;
     }
+
+    public function modificar_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID(
+        $tipoActividadID,
+        $nombreActividad,
+        $descripcionActividad,
+        $costoActividad,
+        $modificadoPor,
+        $actividadID,
+        $proyectoObraCivilID
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE ACTIVIDADES_PROYECTOS_OBRAS_CIVILES SET TIPO_ACTIVIDAD_ID = ?, NOMBRE_ACTIVIDAD = ?,
+											                     DESCRIPCION_ACTIVIDAD = ?, COSTO_ACTIVIDAD = ?,
+                                                                 MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                                                           WHERE ACTIVIDAD_ID = ? AND PROYECTO_OBRA_CIVIL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoActividadID);
+        $query->bindValue(2, $nombreActividad);
+        $query->bindValue(3, $descripcionActividad);
+        $query->bindValue(4, $costoActividad);
+        $query->bindValue(5, $modificadoPor);
+        $query->bindValue(6, $actividadID);
+        $query->bindValue(7, $proyectoObraCivilID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
