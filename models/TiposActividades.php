@@ -38,4 +38,24 @@ class TiposActividades extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_tipos_actividades_diferente_tipo_actividad_ID($tipoActividadID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT TIPO_ACTIVIDAD_ID,
+	                     UCASE(TIPO_ACTIVIDAD) AS TIPO_ACTIVIDAD
+                    FROM TIPOS_ACTIVIDADES
+                   WHERE TIPO_ACTIVIDAD_ID != ?
+                ORDER BY TIPO_ACTIVIDAD;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoActividadID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
