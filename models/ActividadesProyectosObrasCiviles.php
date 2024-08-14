@@ -65,4 +65,30 @@ class ActividadesProyectosObrasCiviles extends Connection
 
         return $resultado;
     }
+
+    public function obtener_detalles_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID(
+        $actividadProyectoObraCivilID,
+        $proyectoObraCivilID
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT ACTIVIDAD_ID,
+	                     PROYECTO_OBRA_CIVIL_ID,
+                         TIPO_ACTIVIDAD_ID,
+                         UCASE(NOMBRE_ACTIVIDAD) AS NOMBRE_ACTIVIDAD,
+                         UCASE(DESCRIPCION_ACTIVIDAD) AS DESCRIPCION_ACTIVIDAD,
+                         COSTO_ACTIVIDAD
+                    FROM ACTIVIDADES_PROYECTOS_OBRAS_CIVILES
+                   WHERE ACTIVIDAD_ID = ? AND PROYECTO_OBRA_CIVIL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $actividadProyectoObraCivilID);
+        $query->bindValue(2, $proyectoObraCivilID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
