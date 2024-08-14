@@ -238,6 +238,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_activities_options.js"></script>
         <script type="text/javascript" src="details-civil-works-projects.js"></script>
         <script type="text/javascript" src="new-project-activity.js"></script>
+        <script type="text/javascript" src="update-project-activity.js"></script>
     </body>
 
     </html>
