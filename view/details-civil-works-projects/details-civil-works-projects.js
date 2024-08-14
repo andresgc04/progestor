@@ -239,3 +239,112 @@ const addNewProjectActivityButton = document.getElementById(
 addNewProjectActivityButton.addEventListener("click", () => {
   openAddNewProjectActivityFormModal();
 });
+
+const openUpdateProjectActivityFormModal = () => {
+  $("#updateProjectActivityFormModal").modal("show");
+};
+
+const obtenerDetallesActividadesProyectosObrasCivilesPorActividadProyectoObraCivilIDYProyectoObraCivilID =
+  (actividadProyectoObraCivilID, proyectoObraCivilID) => {
+    $.post(
+      "../../controller/ActividadesProyectosObrasCivilesController.php?op=obtener_detalles_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID",
+      {
+        actividadProyectoObraCivilID: actividadProyectoObraCivilID,
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const {
+            actividadID,
+            proyectoObraCivilID,
+            tipoActividadID,
+            nombreActividad,
+            descripcionActividad,
+            costoActividad,
+          } = responseData;
+
+          const modifyActividadProyectoObraCivilIDInput =
+            document.getElementById("modifyActividadProyectoObraCivilID");
+
+          const modifyProyectoObraCivilIDInput = document.getElementById(
+            "modifyProyectoObraCivilID"
+          );
+
+          const modifyTipoActividadIDInput = document.getElementById(
+            "modifyTipoActividadID"
+          );
+
+          const modifyNombreActividadInput = document.getElementById(
+            "modifyNombreActividad"
+          );
+
+          const modifyDescripcionActividadInput = document.getElementById(
+            "modifyDescripcionActividad"
+          );
+
+          const modifyCostoActividadInput = document.getElementById(
+            "modifyCostoActividad"
+          );
+
+          modifyActividadProyectoObraCivilIDInput.value =
+            actividadID != null ? actividadID : "";
+
+          modifyProyectoObraCivilIDInput.value =
+            proyectoObraCivilID != null ? proyectoObraCivilID : "";
+
+          modifyNombreActividadInput.value =
+            nombreActividad != null ? nombreActividad : "";
+
+          modifyDescripcionActividadInput.value =
+            descripcionActividad != null ? descripcionActividad : "";
+
+          modifyCostoActividadInput.value =
+            costoActividad != null ? costoActividad : "";
+
+          openUpdateProjectActivityFormModal();
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const verDetalleActividadProyectoObraCivil = (
+  actividadProyectoObraCivilID,
+  proyectoObraCivilID
+) => {
+  obtenerDetallesActividadesProyectosObrasCivilesPorActividadProyectoObraCivilIDYProyectoObraCivilID(
+    actividadProyectoObraCivilID,
+    proyectoObraCivilID
+  );
+};

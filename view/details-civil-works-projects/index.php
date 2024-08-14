@@ -212,6 +212,7 @@ if (isset($usuarioID)) {
                     </div>
 
                     <?php require_once('components/add-new-project-activity.php') ?>
+                    <?php require_once('components/update-project-activity.php') ?>
 
                 </section>
                 <!-- /.content -->
