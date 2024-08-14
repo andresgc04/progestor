@@ -21,8 +21,8 @@ switch ($_GET['op']) {
             $creadoPor
         );
         break;
-    case "listado_actividades_proyectos_obras_civiles":
-        $datos = $actividadesProyectosObrasCiviles->listado_actividades_proyectos_obras_civiles();
+    case "listado_actividades_proyectos_obras_civiles_por_proyecto_obra_civil_ID":
+        $datos = $actividadesProyectosObrasCiviles->listado_actividades_proyectos_obras_civiles_por_proyecto_obra_civil_ID($_POST['proyectoObraCivilID']);
         $data = array();
 
         foreach ($datos as $row) {
@@ -30,7 +30,6 @@ switch ($_GET['op']) {
             $sub_array[] = $row['ACTIVIDAD_ID'];
             $sub_array[] = $row['TIPO_ACTIVIDAD'];
             $sub_array[] = $row['NOMBRE_ACTIVIDAD'];
-            $sub_array[] = $row['DESCRIPCION_ACTIVIDAD'];
             $sub_array[] = $row['COSTO_ACTIVIDAD'];
 
             if ($row["ESTADO"] === "ACTIVO") {

@@ -37,7 +37,7 @@ class ActividadesProyectosObrasCiviles extends Connection
         return $resultado;
     }
 
-    public function listado_actividades_proyectos_obras_civiles()
+    public function listado_actividades_proyectos_obras_civiles_por_proyecto_obra_civil_ID($proyectoObraCivilID)
     {
         $conectar = parent::Connection();
         parent::set_names();
@@ -55,9 +55,10 @@ class ActividadesProyectosObrasCiviles extends Connection
               INNER JOIN ESTADOS estados
                       ON actividadesProyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
                    WHERE actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = 1 AND
-     	                 actividadesProyectosObrasCiviles.ESTADO_ID = 1;';
+     	                 actividadesProyectosObrasCiviles.ESTADO_ID = ?;';
 
         $query = $conectar->prepare($query);
+        $query->bindValue(1, $proyectoObraCivilID);
         $query->execute();
 
         $resultado = $query->fetchAll();
