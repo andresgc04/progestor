@@ -99,7 +99,7 @@
                             <a href="view/about/" class="nav-item nav-link">Sobre Nosotros</a>
                             <a href="service.html" class="nav-item nav-link">Servicios</a>
                             <a href="team.html" class="nav-item nav-link">Equipo</a>
-                            <a href="portfolio.html" class="nav-item nav-link">Proyectos</a>
+                            <a href="view/projects/" class="nav-item nav-link">Proyectos</a>
                             <a href="contact.html" class="nav-item nav-link">Contacto</a>
                         </div>
                         <div class="ml-auto">
