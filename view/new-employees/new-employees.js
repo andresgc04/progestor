@@ -90,8 +90,80 @@ departamentoSelectInput.onchange = (event) => {
   );
 };
 
+const cedulaInput = document.getElementById("cedula");
+cedulaInput.onchange = function (event) {
+  const cedula = event.target.value;
+
+  $.post(
+    "../../controller/EmpleadosController.php?op=obtener_cedulas_empleados_por_cedula",
+    {
+      cedula: cedula,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const responseDataValue =
+          responseData != undefined ? responseData : " ";
+
+        const { cedula } = responseDataValue;
+
+        const newEmployeeButton = document.getElementById("newEmployeeButton");
+
+        if (cedula == undefined) {
+          newEmployeeButton.style.display = "block";
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title:
+              "Se encontro un empleado registrado con la cedula ingresada!!",
+            text: "Por favor intentelo de nuevo, con un empleado que tenga un cedula diferente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              newEmployeeButton.style.display = "none";
+            })
+          );
+        }
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
+
 function calculateAge(fechaNacimientoValue) {
-  console.log(fechaNacimientoValue);
   const ageDifference = Date.now() - fechaNacimientoValue;
 
   const ageDate = new Date(ageDifference);

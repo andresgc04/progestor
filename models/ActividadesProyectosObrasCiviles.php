@@ -54,8 +54,8 @@ class ActividadesProyectosObrasCiviles extends Connection
 		              ON actividadesProyectosObrasCiviles.TIPO_ACTIVIDAD_ID = tiposActividades.TIPO_ACTIVIDAD_ID
               INNER JOIN ESTADOS estados
                       ON actividadesProyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
-                   WHERE actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = 1 AND
-     	                 actividadesProyectosObrasCiviles.ESTADO_ID = ?;';
+                   WHERE actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ? AND
+     	                 actividadesProyectosObrasCiviles.ESTADO_ID = 1;';
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $proyectoObraCivilID);
