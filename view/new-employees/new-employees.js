@@ -90,6 +90,44 @@ departamentoSelectInput.onchange = (event) => {
   );
 };
 
+function calculateAge(fechaNacimientoValue) {
+  console.log(fechaNacimientoValue);
+  const ageDifference = Date.now() - fechaNacimientoValue;
+
+  const ageDate = new Date(ageDifference);
+
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+const fechaNacimientoInput = document.getElementById("fechaNacimiento");
+fechaNacimientoInput.onchange = function () {
+  const fechaNacimientoInput = document.getElementById("fechaNacimiento");
+
+  const fechaNacimientoValue = new Date(fechaNacimientoInput.value);
+
+  const age = calculateAge(fechaNacimientoValue);
+
+  const newEmployeeButton = document.getElementById("newEmployeeButton");
+
+  if (age < 18) {
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "El empleado es menor de edad!!",
+      text: "Por favor intentelo de nuevo, con un empleado que no sea menor de edad.",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+    }).then(
+      (willClose = () => {
+        newEmployeeButton.style.display = "none";
+      })
+    );
+  } else {
+    newEmployeeButton.style.display = "block";
+  }
+};
+
 function saveNewEmployee() {
   let newEmployeesFormData = new FormData($("#newEmployeesForm")[0]);
 
