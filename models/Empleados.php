@@ -219,4 +219,22 @@ class Empleados extends Connection
 
       return $resultado;
    }
+
+   public function obtener_cedulas_empleados_por_cedula($cedula)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'SELECT CEDULA 
+                  FROM EMPLEADOS
+                 WHERE CEDULA = ?;';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $cedula);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
