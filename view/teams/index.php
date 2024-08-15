@@ -9,7 +9,7 @@
     <meta content="Construction Company Website Template" name="description">
 
     <!-- Favicon -->
-    <link href="../../public/img/favicon.ico" rel="icon">
+    <link href="../../public/favicon.ico" rel="icon">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -98,8 +98,8 @@
                             <a href="../../index.php" class="nav-item nav-link">Inicio</a>
                             <a href="../about/" class="nav-item nav-link">Sobre Nosotros</a>
                             <a href="service.html" class="nav-item nav-link">Servicios</a>
-                            <a href="../teams/" class="nav-item nav-link">Equipo</a>
-                            <a href="../projects/" class="nav-item nav-link active">Proyectos</a>
+                            <a href="../teams/" class="nav-item nav-link active">Equipo</a>
+                            <a href="../projects/" class="nav-item nav-link">Proyectos</a>
                             <a href="contact.html" class="nav-item nav-link">Contacto</a>
                         </div>
                         <div class="ml-auto">
@@ -117,11 +117,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Nuestros Proyectos</h2>
+                        <h2>Nuestro equipo</h2>
                     </div>
                     <div class="col-12">
                         <a href="../../index.php">Inicio</a>
-                        <a href="../projects/">Nuestros Proyectos</a>
+                        <a href="../teams/">Nuestro equipo</a>
                     </div>
                 </div>
             </div>
@@ -129,129 +129,154 @@
         <!-- Page Header End -->
 
 
-        <!-- Portfolio Start -->
-        <div class="portfolio">
+        <!-- Team Start -->
+        <div class="team">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Nuestros Proyectos</p>
-                    <h2>Visita Nuestros Proyectos</h2>
+                    <p>Nuestro equipo</p>
+                    <h2>Conoce a nuestros ingenieros</h2>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">Todos</li>
-                            <li data-filter=".first">Completados</li>
-                            <li data-filter=".second">En Procesos</li>
-                            <li data-filter=".third">Próximos Proyectos</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row portfolio-container">
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="portfolio-warp">
-                            <div class="portfolio-img">
-                                <img src="../../public/img/portfolio-1.jpg" alt="Image">
-                                <div class="portfolio-overlay">
-                                    <p>
-                                        Construcción de un imponente edificio de múltiples pisos en una zona urbana. Se aprecián grúas elevando materiales a gran altura, lo que sugiere un proyecto de gran envergadura.
-                                    </p>
-                                </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-1.jpg" alt="Team Image">
                             </div>
-                            <div class="portfolio-text">
-                                <h3>Rascacielos Urbanos</h3>
-                                <a class="btn" href="../../public/img/portfolio-1.jpg" data-lightbox="portfolio">+</a>
+                            <div class="team-text">
+                                <h2>Adam Phillips</h2>
+                                <p>CEO & Fundador</p>
+                            </div>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="portfolio-warp">
-                            <div class="portfolio-img">
-                                <img src="../../public/img/portfolio-2.jpg" alt="Image">
-                                <div class="portfolio-overlay">
-                                    <p>
-                                        Equipo de topografía realizando mediciones precisas en un terreno para la construcción de una nueva infraestructura. Esta fase es crucial para garantizar la nivelación y alineación de la obra.
-                                    </p>
-                                </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-2.jpg" alt="Team Image">
                             </div>
-                            <div class="portfolio-text">
-                                <h3>Preparación Del Terreno</h3>
-                                <a class="btn" href="../../public/img/portfolio-2.jpg" data-lightbox="portfolio">+</a>
+                            <div class="team-text">
+                                <h2>Dylan Adams</h2>
+                                <p>Ingeniero Civil</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="portfolio-warp">
-                            <div class="portfolio-img">
-                                <img src="../../public/img/portfolio-3.jpg" alt="Image">
-                                <div class="portfolio-overlay">
-                                    <p>
-                                        Construcción de un conjunto de viviendas unifamiliares o multifamiliares. Se observan múltiples edificios en diferentes etapas de construcción, lo que indica un proyecto de gran escala.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Urbanización Familiar</h3>
-                                <a class="btn" href="../../public/img/portfolio-3.jpg" data-lightbox="portfolio">+</a>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="portfolio-warp">
-                            <div class="portfolio-img">
-                                <img src="../../public/img/portfolio-4.jpg" alt="Image">
-                                <div class="portfolio-overlay">
-                                    <p>
-                                        Construcción de una casa individual de diseño contemporáneo. Se aprecia una estructura ya avanzada, con detalles arquitectónicos modernos.
-                                    </p>
-                                </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-3.jpg" alt="Team Image">
                             </div>
-                            <div class="portfolio-text">
-                                <h3>Hogar Moderno</h3>
-                                <a class="btn" href="../../public/img/portfolio-4.jpg" data-lightbox="portfolio">+</a>
+                            <div class="team-text">
+                                <h2>Jhon Doe</h2>
+                                <p>Diseñador De Interiores</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="portfolio-warp">
-                            <div class="portfolio-img">
-                                <img src="../../public/img/portfolio-5.jpg" alt="Image">
-                                <div class="portfolio-overlay">
-                                    <p>
-                                        Construcción de una vivienda unifamiliar con un amplio jardín. Se observa una estructura con grandes ventanales que permiten la entrada de luz natural y conectan el interior con el exterior.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Oasis Urbano</h3>
-                                <a class="btn" href="../../public/img/portfolio-5.jpg" data-lightbox="portfolio">+</a>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="portfolio-warp">
-                            <div class="portfolio-img">
-                                <img src="../../public/img/portfolio-6.jpg" alt="Image">
-                                <div class="portfolio-overlay">
-                                    <p>
-                                        Trabajos de excavación para la construcción de los cimientos de una nueva estructura. Se aprecia una excavadora realizando la remoción de tierra, lo que indica el inicio de una nueva obra.
-                                    </p>
-                                </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-4.jpg" alt="Team Image">
                             </div>
-                            <div class="portfolio-text">
-                                <h3>Cimientos Sólidos</h3>
-                                <a class="btn" href="../../public/img/portfolio-6.jpg" data-lightbox="portfolio">+</a>
+                            <div class="team-text">
+                                <h2>Josh Dunn</h2>
+                                <p>Pintor</p>
+                            </div>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 load-more">
-                        <a class="btn" href="#">Mostrar Más</a>
+                    <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-1.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Adam Phillips</h2>
+                                <p>CEO & Founder</p>
+                            </div>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-2.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Dylan Adams</h2>
+                                <p>Civil Engineer</p>
+                            </div>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-3.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Jhon Doe</h2>
+                                <p>Interior Designer</p>
+                            </div>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="../../public/img/team-4.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Josh Dunn</h2>
+                                <p>Painter</p>
+                            </div>
+                            <div class="team-social">
+                                <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <!-- Portfolio End -->
+        <!-- Team End -->
 
 
         <!-- Footer Start -->

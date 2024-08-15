@@ -98,7 +98,7 @@
                             <a href="../../index.php" class="nav-item nav-link">Inicio</a>
                             <a href="../about/" class="nav-item nav-link active">Sobre Nosotros</a>
                             <a href="service.html" class="nav-item nav-link">Servicios</a>
-                            <a href="team.html" class="nav-item nav-link">Equipo</a>
+                            <a href="../teams/" class="nav-item nav-link">Equipo</a>
                             <a href="../projects/" class="nav-item nav-link">Proyectos</a>
                             <a href="contact.html" class="nav-item nav-link">Contacto</a>
                         </div>
