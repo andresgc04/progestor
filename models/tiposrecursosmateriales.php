@@ -81,6 +81,26 @@ class TiposRecursosMateriales extends Connection
         return $resultado;
     }
 
+    public function eliminar_tipos_recursos_materiales($modificadoPor, $tipoRecursoMaterialID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE TIPOS_RECURSOS_MATERIALES SET ESTADO_ID = 4, 
+									                   MODIFICADO_POR = ?,
+                                                       FECHA_MODIFICACION = NOW()
+                                                 WHERE TIPO_RECURSO_MATERIAL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $tipoRecursoMaterialID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
     public function obtener_listado_opciones_tipos_recursos_materiales()
     {
         $conectar = parent::Connection();
