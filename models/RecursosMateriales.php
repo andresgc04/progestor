@@ -45,4 +45,26 @@ class RecursosMateriales extends Connection
 
         return $resultado = $query->fetchAll();
     }
+
+    public function obtener_detalles_recursos_materiales_por_tipo_recurso_material_ID_recurso_material_ID($tipoRecursoMaterialID, $recursoMaterialID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT RECURSO_MATERIAL_ID,
+	                     TIPO_RECURSO_MATERIAL_ID,
+                         UCASE(RECURSO_MATERIAL) AS RECURSO_MATERIAL
+                    FROM RECURSOS_MATERIALES 
+                   WHERE TIPO_RECURSO_MATERIAL_ID = ? 
+                     AND RECURSO_MATERIAL_ID = ?';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoRecursoMaterialID);
+        $query->bindValue(2, $recursoMaterialID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
