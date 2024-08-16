@@ -141,3 +141,52 @@ const verDetalleTipoRecursoMaterial = (tipoRecursoMaterialID) => {
       );
     });
 };
+
+const eliminarTipoRecursoMaterial = (tipoRecursoMaterialID) => {
+  Swal.fire({
+    title: "¿Deseas eliminar este tipo de recurso material seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/TiposRecursosMaterialesController.php?op=eliminar_tipos_recursos_materiales",
+        {
+          tipoRecursoMaterialID: tipoRecursoMaterialID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Tipo de recurso material eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
