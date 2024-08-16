@@ -85,6 +85,9 @@ switch ($_GET["op"]) {
     case 'modificar_tipos_recursos_materiales':
         $tiposRecursosMateriales->modificar_tipos_recursos_materiales($_POST['modificarNombreTipoRecursoMaterial'], $modificadoPor, $_POST['tipoRecursoMaterialID']);
         break;
+    case 'eliminar_tipos_recursos_materiales':
+        $tiposRecursosMateriales->eliminar_tipos_recursos_materiales($modificadoPor, $_POST['tipoRecursoMaterialID']);
+        break;
     case 'obtener_listado_opciones_tipos_recursos_materiales':
         $datos = $tiposRecursosMateriales->obtener_listado_opciones_tipos_recursos_materiales();
 
