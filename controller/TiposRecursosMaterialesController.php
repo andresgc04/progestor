@@ -7,6 +7,8 @@ session_start();
 
 $creadoPor = $_SESSION[$USUARIO_ID];
 
+$modificadoPor = $creadoPor;
+
 $tiposRecursosMateriales = new TiposRecursosMateriales();
 
 switch ($_GET["op"]) {
@@ -79,6 +81,9 @@ switch ($_GET["op"]) {
         } else {
             echo json_encode(['data' => []]);
         }
+        break;
+    case 'modificar_tipos_recursos_materiales':
+        $tiposRecursosMateriales->modificar_tipos_recursos_materiales($_POST['modificarNombreTipoRecursoMaterial'], $modificadoPor, $_POST['tipoRecursoMaterialID']);
         break;
     case 'obtener_listado_opciones_tipos_recursos_materiales':
         $datos = $tiposRecursosMateriales->obtener_listado_opciones_tipos_recursos_materiales();
