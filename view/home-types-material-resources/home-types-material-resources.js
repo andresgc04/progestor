@@ -82,5 +82,62 @@ const openUpdateTypesMaterialResourcesFormModal = () => {
 };
 
 const verDetalleTipoRecursoMaterial = (tipoRecursoMaterialID) => {
-  openUpdateTypesMaterialResourcesFormModal();
+  $.post(
+    "../../controller/TiposRecursosMaterialesController.php?op=obtener_detalles_tipos_recursos_materiales_por_tipo_recurso_material_ID",
+    {
+      tipoRecursoMaterialID: tipoRecursoMaterialID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { tipoRecursoMaterialID, tipoRecursoMaterial } = responseData;
+
+        const tipoRecursoMaterialIDInput = document.getElementById(
+          "tipoRecursoMaterialID"
+        );
+        const modificarNombreTipoRecursoMaterialInput = document.getElementById(
+          "modificarNombreTipoRecursoMaterial"
+        );
+
+        tipoRecursoMaterialIDInput.value =
+          tipoRecursoMaterialID != null ? tipoRecursoMaterialID : "";
+
+        modificarNombreTipoRecursoMaterialInput.value =
+          tipoRecursoMaterial != null ? tipoRecursoMaterial : "";
+
+        openUpdateTypesMaterialResourcesFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };
