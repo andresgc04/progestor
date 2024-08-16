@@ -68,7 +68,8 @@ class TiposRecursosMateriales extends Connection
 
         $query = 'SELECT TIPO_RECURSO_MATERIAL_ID, TIPO_RECURSO_MATERIAL 
                     FROM TIPOS_RECURSOS_MATERIALES
-                   WHERE ESTADO_ID = 1;';
+                   WHERE ESTADO_ID = 1
+                ORDER BY TIPO_RECURSO_MATERIAL ASC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
