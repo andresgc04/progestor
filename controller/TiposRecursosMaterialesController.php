@@ -101,4 +101,23 @@ switch ($_GET["op"]) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_tipos_recursos_materiales_por_tipo_recurso_material_ID':
+        $datos = $tiposRecursosMateriales->obtener_listado_opciones_tipos_recursos_materiales_por_tipo_recurso_material_ID($_POST['tipoRecursoMaterialID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            foreach ($datos as $row) {
+                $html .= '<option selected value="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '">' . $row['TIPO_RECURSO_MATERIAL'] . '</option>';
+            }
+        }
+
+        $datos2 = $tiposRecursosMateriales->obtener_listado_opciones_tipos_recursos_materiales_diferente_tipo_recurso_material_ID($_POST['tipoRecursoMaterialID']);
+
+        if (is_array($datos2) == true and count($datos2) > 0) {
+            foreach ($datos2 as $row) {
+                $html .= '<option value="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '">' . $row['TIPO_RECURSO_MATERIAL'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
