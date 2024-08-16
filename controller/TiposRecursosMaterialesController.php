@@ -28,8 +28,8 @@ switch ($_GET["op"]) {
 
             $sub_array[] = '<td class="text-right py-0 align-middle">
                               <div class="btn-group btn-group-sm">
-                                <button type="button" id="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '" onClick="verDetalleTipoRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                <button type="button" id="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '" onClick="eliminarTipoRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <button type="button" id="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '" onclick="verDetalleTipoRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                <button type="button" id="' . $row['TIPO_RECURSO_MATERIAL_ID'] . '" onclick="eliminarTipoRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                               </div>
                             </td>
             ';

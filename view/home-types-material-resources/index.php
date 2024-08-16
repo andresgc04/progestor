@@ -87,6 +87,8 @@ if (isset($usuarioID)) {
                                 <!-- /.card -->
 
                                 <?php require_once('components/new-types-material-resources.php') ?>
+                                <?php require_once('components/update-types-material-resources.php') ?>
+
                             </section>
                             <!-- /. col content -->
                         </div>
