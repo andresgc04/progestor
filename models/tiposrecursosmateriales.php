@@ -15,7 +15,9 @@ class TiposRecursosMateriales extends Connection
         $query->bindValue(2, $creadoPor);
         $query->execute();
 
-        return $resultado = $query->fetchAll();
+        $resultado = $query->fetchAll();
+
+        return $resultado;
     }
 
     public function listado_tipos_recursos_materiales()
@@ -35,7 +37,28 @@ class TiposRecursosMateriales extends Connection
         $query = $conectar->prepare($query);
         $query->execute();
 
-        return $resultado = $query->fetchAll();
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
+    public function obtener_detalles_tipos_recursos_materiales_por_tipo_recurso_material_ID($tipoRecursoMaterialID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT TIPO_RECURSO_MATERIAL_ID,
+                         UCASE(TIPO_RECURSO_MATERIAL) AS TIPO_RECURSO_MATERIAL
+                    FROM TIPOS_RECURSOS_MATERIALES
+                   WHERE TIPO_RECURSO_MATERIAL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoRecursoMaterialID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
     }
 
     public function obtener_listado_opciones_tipos_recursos_materiales()
@@ -50,6 +73,8 @@ class TiposRecursosMateriales extends Connection
         $query = $conectar->prepare($query);
         $query->execute();
 
-        return $resultado = $query->fetchAll();
+        $resultado = $query->fetchAll();
+
+        return $resultado;
     }
 }
