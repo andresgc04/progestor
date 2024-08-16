@@ -29,8 +29,8 @@ switch ($_GET['op']) {
 
             $sub_array[] = '<td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
-                                    <button type="button" id="' . $row['RECURSO_MATERIAL_ID'] . '" onClick="verDetalleRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ', ' . $row['RECURSO_MATERIAL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                    <button type="button" id="' . $row['RECURSO_MATERIAL_ID'] . '" onClick="eliminarRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ', ' . $row['RECURSO_MATERIAL_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    <button type="button" id="' . $row['RECURSO_MATERIAL_ID'] . '" onclick="verDetalleRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ', ' . $row['RECURSO_MATERIAL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" id="' . $row['RECURSO_MATERIAL_ID'] . '" onclick="eliminarRecursoMaterial(' . $row['TIPO_RECURSO_MATERIAL_ID'] . ', ' . $row['RECURSO_MATERIAL_ID'] . ')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                             ';

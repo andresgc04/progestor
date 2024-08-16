@@ -84,3 +84,14 @@ const obtenerListadoRecursosMaterialesDataTable = () => {
 
   obtenerListadoRecursosMaterialesDataTable();
 })();
+
+const openUpdateMaterialResourcesFormModal = () => {
+  $("#updateMaterialResourcesFormModal").modal("show");
+};
+
+const verDetalleRecursoMaterial = (
+  tipoRecursoMaterialID,
+  recursoMaterialID
+) => {
+  openUpdateMaterialResourcesFormModal();
+};
