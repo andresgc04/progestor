@@ -60,4 +60,17 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_proveedores':
+        $datos = $proveedores->obtener_listado_opciones_proveedores();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el proveedor.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['PROVEEDOR_ID'] . '">' . $row['NOMBRE_PROVEEDOR'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
