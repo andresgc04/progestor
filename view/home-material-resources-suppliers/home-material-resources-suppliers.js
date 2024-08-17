@@ -84,6 +84,11 @@ const obtenerListadoRecursosMaterialesProveedoresDataTable = () => {
     "#tipoRecursoMaterialID"
   );
 
+  getSelectListSuppliersOptions(
+    "../../controller/ProveedoresController.php?op=obtener_listado_opciones_proveedores",
+    "#proveedorID"
+  );
+
   obtenerListadoRecursosMaterialesProveedoresDataTable();
 })();
 
