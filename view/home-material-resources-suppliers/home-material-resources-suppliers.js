@@ -2,12 +2,12 @@ navLinkPrimary("navLinkMaterialResources");
 
 navLinkSecondary("navLinkHomeMaterialResourcesSuppliers");
 
-setContentHeaderTitle("Listado De Recursos Materiales Por Suplidores");
+setContentHeaderTitle("Listado De Recursos Materiales Por Proveedores");
 
 setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle(
-  "Listado De Recursos Materiales Por Suplidores"
+  "Listado De Recursos Materiales Por Proveedores"
 );
 
 const obtenerListadoRecursosMaterialesProveedoresDataTable = () => {

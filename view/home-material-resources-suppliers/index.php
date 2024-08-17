@@ -12,7 +12,7 @@ if (isset($usuarioID)) {
     <!-- Head -->
 
     <head>
-        <title>Progestor | Listado De Recursos Materiales Por Suplidores</title>
+        <title>Progestor | Listado De Recursos Materiales Por Proveedores</title>
         <?php require_once('../links/links.php') ?>
     </head>
     <!-- /. Head -->
@@ -49,7 +49,7 @@ if (isset($usuarioID)) {
                                     <div class="card-header">
                                         <h3 class="card-title">
                                             <i class="fas fa-warehouse mr-1"></i>
-                                            <span>Listado De Recursos Materiales Por Suplidores</span>
+                                            <span>Listado De Recursos Materiales Por Proveedores</span>
                                         </h3>
                                     </div>
                                     <!-- /.card-header -->
