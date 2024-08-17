@@ -11,12 +11,12 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input type="hidden" id="tipoRecursoMaterialID" name="tipoRecursoMaterialID" class="form-control">
+                            <input type="hidden" id="updateTipoRecursoMaterialID" name="updateTipoRecursoMaterialID" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <input type="hidden" id="recursoMaterialID" name="recursoMaterialID" class="form-control">
+                            <input type="hidden" id="updateRecursoMaterialID" name="updateRecursoMaterialID" class="form-control">
                         </div>
                     </div>
                     <div class="row">

@@ -93,5 +93,78 @@ const verDetalleRecursoMaterial = (
   tipoRecursoMaterialID,
   recursoMaterialID
 ) => {
-  openUpdateMaterialResourcesFormModal();
+  $.post(
+    "../../controller/RecursosMaterialesController.php?op=obtener_detalles_recursos_materiales_por_tipo_recurso_material_ID_recurso_material_ID",
+    {
+      tipoRecursoMaterialID: tipoRecursoMaterialID,
+      recursoMaterialID: recursoMaterialID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { recursoMaterialID, tipoRecursoMaterialID, recursoMaterial } =
+          responseData;
+
+        const tipoRecursoMaterialIDInput = document.getElementById(
+          "updateTipoRecursoMaterialID"
+        );
+
+        const recursoMaterialIDInput = document.getElementById(
+          "updateRecursoMaterialID"
+        );
+
+        getSelectListTypesMaterialResourcesOptionsByTipoRecursoMaterialID(
+          "../../controller/TiposRecursosMaterialesController.php?op=obtener_listado_opciones_tipos_recursos_materiales_por_tipo_recurso_material_ID",
+          tipoRecursoMaterialID,
+          "#modificarTipoRecursoMaterialID"
+        );
+
+        const modificarNombreRecursoMaterialInput = document.getElementById(
+          "modificarNombreRecursoMaterial"
+        );
+
+        tipoRecursoMaterialIDInput.value =
+          tipoRecursoMaterialID != null ? tipoRecursoMaterialID : "";
+
+        recursoMaterialIDInput.value =
+          recursoMaterialID != null ? recursoMaterialID : "";
+
+        modificarNombreRecursoMaterialInput.value =
+          recursoMaterial != null ? recursoMaterial : "";
+
+        openUpdateMaterialResourcesFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };
