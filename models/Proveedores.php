@@ -68,4 +68,23 @@ class Proveedores extends Connection
 
       return $resultado = $query->fetchAll();
    }
+
+   public function obtener_listado_opciones_proveedores()
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'SELECT PROVEEDOR_ID,
+  		                 UCASE(NOMBRE_PROVEEDOR) AS NOMBRE_PROVEEDOR
+                  FROM PROVEEDORES 
+                 WHERE ESTADO_ID = 1
+              ORDER BY NOMBRE_PROVEEDOR ASC;';
+
+      $query = $conectar->prepare($query);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
 }
