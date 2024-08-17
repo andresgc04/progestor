@@ -6,10 +6,12 @@ class RecursosMaterialesProveedores extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) AS TIPO_RECURSO_MATERIAL,
+        $query = 'SELECT recursosMaterialesProveedores.RECURSO_MATERIAL_ID,
+    	                 recursosMaterialesProveedores.PROVEEDOR_ID,
+    	                 UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) AS TIPO_RECURSO_MATERIAL,
     	                 UCASE(recursosMateriales.RECURSO_MATERIAL) AS RECURSO_MATERIAL,
                          UCASE(proveedores.NOMBRE_PROVEEDOR) AS NOMBRE_PROVEEDOR,
-                         UCASE(estados.ESTADO) AS ESTADO
+                         UCASE(estados.ESTADO) AS ESTADOS
                     FROM RECURSOS_MATERIALES_PROVEEDORES recursosMaterialesProveedores
               INNER JOIN RECURSOS_MATERIALES recursosMateriales
                       ON recursosMaterialesProveedores.RECURSO_MATERIAL_ID = recursosMateriales.RECURSO_MATERIAL_ID
