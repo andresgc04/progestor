@@ -10,6 +10,17 @@ setBreadCrumbContentHeaderSubTitle(
   "Listado De Recursos Materiales Por Proveedores"
 );
 
+const openNewMaterialResourcesSuppliersFormModal = () => {
+  $("#newMaterialResourcesSuppliersFormModal").modal("show");
+};
+
+const newMaterialResourcesSuppliersButton = document.getElementById(
+  "newMaterialResourcesSuppliersButton"
+);
+newMaterialResourcesSuppliersButton.addEventListener("click", () => {
+  openNewMaterialResourcesSuppliersFormModal();
+});
+
 const obtenerListadoRecursosMaterialesProveedoresDataTable = () => {
   $("#listadoRecursosMaterialesProveedoresDataTable")
     .dataTable({
