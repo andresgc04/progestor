@@ -86,3 +86,16 @@ const obtenerListadoRecursosMaterialesProveedoresDataTable = () => {
 
   obtenerListadoRecursosMaterialesProveedoresDataTable();
 })();
+
+const tipoRecursoMaterialIDInput = document.getElementById(
+  "tipoRecursoMaterialID"
+);
+tipoRecursoMaterialIDInput.onchange = function (event) {
+  const tipoRecursoMaterialID = event.target.value;
+
+  getSelectListMaterialResourcesOptionsByTipoRecursoMaterialID(
+    "../../controller/RecursosMaterialesController.php?op=obtener_listado_opciones_recursos_materiales_por_tipo_recurso_material_ID",
+    tipoRecursoMaterialID,
+    "#recursoMaterialID"
+  );
+};
