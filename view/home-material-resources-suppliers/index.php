@@ -70,7 +70,6 @@ if (isset($usuarioID)) {
                                                     <table id="listadoRecursosMaterialesProveedoresDataTable" class="table table-bordered table-striped">
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
                                                                 <th>TIPO RECURSO MATERIAL</th>
                                                                 <th>RECURSO MATERIAL</th>
                                                                 <th>PROVEEDOR</th>
