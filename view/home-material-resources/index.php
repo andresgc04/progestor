@@ -119,6 +119,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_material_resources_options.js"></script>
         <script type="text/javascript" src="home-material-resources.js"></script>
         <script type="text/javascript" src="new-material-resources.js"></script>
+        <script type="text/javascript" src="update-material-resources.js"></script>
     </body>
 
     </html>
