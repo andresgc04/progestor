@@ -97,4 +97,29 @@ class RecursosMateriales extends Connection
 
         return $resultado;
     }
+
+    public function eliminar_recursos_materiales(
+        $modificadoPor,
+        $tipoRecursoMaterialID,
+        $recursoMaterialID
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE RECURSOS_MATERIALES SET ESTADO_ID = 4,
+							                     MODIFICADO_POR = ?,
+                                                 FECHA_MODIFICACION = NOW()
+                                           WHERE TIPO_RECURSO_MATERIAL_ID = ?
+                                             AND RECURSO_MATERIAL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $modificadoPor);
+        $query->bindValue(2, $tipoRecursoMaterialID);
+        $query->bindValue(3, $recursoMaterialID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
