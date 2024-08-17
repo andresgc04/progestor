@@ -122,4 +122,24 @@ class RecursosMateriales extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_recursos_materiales_por_tipo_recurso_material_ID($tipoRecursoMaterialID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT RECURSO_MATERIAL_ID,
+   		                 UCASE(RECURSO_MATERIAL) AS RECURSO_MATERIAL
+                    FROM RECURSOS_MATERIALES 
+                   WHERE TIPO_RECURSO_MATERIAL_ID = ? AND ESTADO_ID = 1
+                ORDER BY RECURSO_MATERIAL ASC;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoRecursoMaterialID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
