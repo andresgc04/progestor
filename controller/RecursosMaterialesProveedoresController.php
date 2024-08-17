@@ -11,6 +11,9 @@ $modificadoPor = $creadoPor;
 $recursosMaterialesProveedores = new RecursosMaterialesProveedores();
 
 switch ($_GET['op']) {
+    case 'registrar_recursos_materiales_proveedores':
+        $recursosMaterialesProveedores->registrar_recursos_materiales_proveedores($_POST['recursoMaterialID'], $_POST['proveedorID'], $_POST['costoRecursoMaterial'], $creadoPor);
+        break;
     case 'listado_recursos_materiales_proveedores':
         $datos = $recursosMaterialesProveedores->listado_recursos_materiales_proveedores();
         $data = array();
