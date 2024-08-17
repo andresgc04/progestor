@@ -143,7 +143,7 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                   </li>';
                         } elseif ($modulo == 'Recursos Materiales Por Proveedores' || $modulo == 'RECURSOS MATERIALES POR PROVEEDORES' || $modulo == 'recursos materiales por proveedores') {
                             echo '<li class="nav-item">
-                                    <a id="navLinkHomeMaterialResourcesSuppliers" href="../home-countries/" class="nav-link">
+                                    <a id="navLinkHomeMaterialResourcesSuppliers" href="../home-material-resources-suppliers/" class="nav-link">
                                         <i class="fas fa-warehouse nav-icon"></i>
                                         <p>Recursos Materiales Por Proveedores</p>
                                     </a>
