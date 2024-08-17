@@ -73,6 +73,7 @@ if (isset($usuarioID)) {
                                                                 <th>TIPO RECURSO MATERIAL</th>
                                                                 <th>RECURSO MATERIAL</th>
                                                                 <th>PROVEEDOR</th>
+                                                                <th>COSTO RECURSO MATERIAL</th>
                                                                 <th>ESTADO</th>
                                                                 <th>ACCIONES</th>
                                                             </tr>

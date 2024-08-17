@@ -23,6 +23,7 @@ switch ($_GET['op']) {
             $sub_array[] = $row['TIPO_RECURSO_MATERIAL'];
             $sub_array[] = $row['RECURSO_MATERIAL'];
             $sub_array[] = $row['NOMBRE_PROVEEDOR'];
+            $sub_array[] = $row['COSTO_RECURSO_MATERIAL'];
 
             if ($row['ESTADOS'] === 'ACTIVO') {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';

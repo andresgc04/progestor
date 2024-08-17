@@ -31,21 +31,22 @@ class RecursosMaterialesProveedores extends Connection
         parent::set_names();
 
         $query = 'SELECT recursosMaterialesProveedores.RECURSO_MATERIAL_ID,
-    	                 recursosMaterialesProveedores.PROVEEDOR_ID,
-    	                 UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) AS TIPO_RECURSO_MATERIAL,
-    	                 UCASE(recursosMateriales.RECURSO_MATERIAL) AS RECURSO_MATERIAL,
+                         recursosMaterialesProveedores.PROVEEDOR_ID,
+                         UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) AS TIPO_RECURSO_MATERIAL,
+                         UCASE(recursosMateriales.RECURSO_MATERIAL) AS RECURSO_MATERIAL,
                          UCASE(proveedores.NOMBRE_PROVEEDOR) AS NOMBRE_PROVEEDOR,
+                         recursosMaterialesProveedores.COSTO_RECURSO_MATERIAL,
                          UCASE(estados.ESTADO) AS ESTADOS
                     FROM RECURSOS_MATERIALES_PROVEEDORES recursosMaterialesProveedores
               INNER JOIN RECURSOS_MATERIALES recursosMateriales
                       ON recursosMaterialesProveedores.RECURSO_MATERIAL_ID = recursosMateriales.RECURSO_MATERIAL_ID
               INNER JOIN TIPOS_RECURSOS_MATERIALES tiposRecursosMateriales
-		              ON recursosMateriales.TIPO_RECURSO_MATERIAL_ID = tiposRecursosMateriales.TIPO_RECURSO_MATERIAL_ID
+                      ON recursosMateriales.TIPO_RECURSO_MATERIAL_ID = tiposRecursosMateriales.TIPO_RECURSO_MATERIAL_ID
               INNER JOIN PROVEEDORES proveedores
-		              ON recursosMaterialesProveedores.PROVEEDOR_ID = proveedores.PROVEEDOR_ID
+                      ON recursosMaterialesProveedores.PROVEEDOR_ID = proveedores.PROVEEDOR_ID
               INNER JOIN ESTADOS estados
-		              ON recursosMaterialesProveedores.ESTADO_ID = estados.ESTADO_ID
-	               WHERE recursosMaterialesProveedores.ESTADO_ID = 1
+                      ON recursosMaterialesProveedores.ESTADO_ID = estados.ESTADO_ID
+                   WHERE recursosMaterialesProveedores.ESTADO_ID = 1
                 ORDER BY recursosMaterialesProveedores.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
