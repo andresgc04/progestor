@@ -218,14 +218,14 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                     </a>
                                   </li>';
                         } elseif ($modulo == 'Unidades Medidas' || $modulo == 'UNIDADES MEDIDAS' || $modulo == 'unidades medidas') {
-                            echo '      <li class="nav-item">
-                                            <a id="navLinkHomeUnitMeasurement" href="../home-unit-measurement/" class="nav-link">
-                                                <i class="fas fa-weight nav-icon"></i>
-                                                <p>Unidades Medidas</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>';
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeUnitMeasurement" href="../home-unit-measurement/" class="nav-link">
+                                        <i class="fas fa-weight nav-icon"></i>
+                                        <p>Unidades Medidas</p>
+                                    </a>
+                                  </li>
+                                </ul>
+                            </li>';
                         }
                     };
                 }
