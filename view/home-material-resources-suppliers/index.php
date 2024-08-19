@@ -122,6 +122,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_suppliers_options.js"></script>
         <script type="text/javascript" src="home-material-resources-suppliers.js"></script>
         <script type="text/javascript" src="new-material-resources-suppliers.js"></script>
+        <script type="text/javascript" src="update-material-resources-suppliers.js"></script>
     </body>
 
     </html>
