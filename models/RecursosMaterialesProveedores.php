@@ -80,4 +80,35 @@ class RecursosMaterialesProveedores extends Connection
 
                 return $resultado;
         }
+
+        public function modificar_recursos_materiales_proveedores(
+                $modificarRecursoMaterialID,
+                $modificarProveedorID,
+                $modificarCostoRecursoMaterial,
+                $modificadoPor,
+                $recursoMaterialID,
+                $proveedorID
+        ) {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'UPDATE RECURSOS_MATERIALES_PROVEEDORES SET RECURSO_MATERIAL_ID = ?, PROVEEDOR_ID = ?,
+								     COSTO_RECURSO_MATERIAL = ?, MODIFICADO_POR = ?,
+                                                                     FECHA_MODIFICACION = NOW()
+                                                               WHERE RECURSO_MATERIAL_ID = ? 
+                                                                 AND PROVEEDOR_ID = ?;';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $modificarRecursoMaterialID);
+                $query->bindValue(2, $modificarProveedorID);
+                $query->bindValue(3, $modificarCostoRecursoMaterial);
+                $query->bindValue(4, $modificadoPor);
+                $query->bindValue(5, $recursoMaterialID);
+                $query->bindValue(6, $proveedorID);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
 }
