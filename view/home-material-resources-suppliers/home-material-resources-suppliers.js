@@ -110,6 +110,102 @@ const openUpdateMaterialResourcesSuppliersFormModal = () => {
 };
 
 const verDetalleRecursoMaterialProveedor = (recursoMaterialID, proveedorID) => {
-  console.log(recursoMaterialID, proveedorID);
-  openUpdateMaterialResourcesSuppliersFormModal();
+  $.post(
+    "../../controller/RecursosMaterialesProveedoresController.php?op=obtener_detalles_recursos_materiales_proveedores_por_recurso_material_ID_proveedor_ID",
+    {
+      recursoMaterialID: recursoMaterialID,
+      proveedorID: proveedorID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const {
+          tipoRecursoMaterialID,
+          recursoMaterialID,
+          proveedorID,
+          costoRecursoMaterial,
+        } = responseData;
+
+        const updateRecursoMaterialIDInput = document.getElementById(
+          "updateRecursoMaterialID"
+        );
+        updateRecursoMaterialIDInput.value =
+          recursoMaterialID != null ? recursoMaterialID : "";
+
+        const updateProveedorIDInput =
+          document.getElementById("updateProveedorID");
+        updateProveedorIDInput.value = proveedorID != null ? proveedorID : "";
+
+        getSelectListTypesMaterialResourcesOptionsByTipoRecursoMaterialID(
+          "../../controller/TiposRecursosMaterialesController.php?op=obtener_listado_opciones_tipos_recursos_materiales_por_tipo_recurso_material_ID",
+          tipoRecursoMaterialID,
+          "#modificarTipoRecursoMaterialID"
+        );
+
+        getSelectListMaterialResourcesOptionsByRecursoMaterialID(
+          "../../controller/RecursosMaterialesController.php?op=obtener_listado_opciones_recursos_materiales_por_recurso_material_ID",
+          recursoMaterialID,
+          "#modificarRecursoMaterialID"
+        );
+
+        getSelectListSuppliersOptionsByProveedorID(
+          "../../controller/ProveedoresController.php?op=obtener_listado_opciones_proveedores_por_proveedor_ID",
+          proveedorID,
+          "#modificarProveedorID"
+        );
+
+        const modificarCostoRecursoMaterialInput = document.getElementById(
+          "modificarCostoRecursoMaterial"
+        );
+        modificarCostoRecursoMaterialInput.value =
+          costoRecursoMaterial != null ? costoRecursoMaterial : "";
+
+        const modificarTipoRecursoMaterialIDInput = document.getElementById(
+          "modificarTipoRecursoMaterialID"
+        );
+        modificarTipoRecursoMaterialIDInput.onchange = function (event) {
+          const modificarTipoRecursoMaterialID = event.target.value;
+
+          getSelectListMaterialResourcesOptionsByTipoRecursoMaterialID(
+            "../../controller/RecursosMaterialesController.php?op=obtener_listado_opciones_recursos_materiales_por_tipo_recurso_material_ID",
+            modificarTipoRecursoMaterialID,
+            "#modificarRecursoMaterialID"
+          );
+        };
+
+        openUpdateMaterialResourcesSuppliersFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
 };
