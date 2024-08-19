@@ -95,4 +95,11 @@ switch ($_GET['op']) {
             $_POST['updateProveedorID']
         );
         break;
+    case 'modificar_recursos_materiales_proveedores':
+        $recursosMaterialesProveedores->eliminar_recursos_materiales_proveedores(
+            $modificadoPor,
+            $_POST['recursoMaterialID'],
+            $_POST['proveedorID']
+        );
+        break;
 }
