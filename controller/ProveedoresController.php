@@ -73,4 +73,23 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_proveedores_por_proveedor_ID':
+        $datos = $proveedores->obtener_listado_opciones_proveedores_por_proveedor_ID($_POST['proveedorID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            foreach ($datos as $row) {
+                $html .= '<option selected value="' . $row['PROVEEDOR_ID'] . '">' . $row['NOMBRE_PROVEEDOR'] . '</option>';
+            }
+        }
+
+        $datos2 = $proveedores->obtener_listado_opciones_proveedores_diferente_proveedor_ID($_POST['proveedorID']);
+
+        if (is_array($datos2) == true and count($datos2) > 0) {
+            foreach ($datos2 as $row) {
+                $html .= '<option value="' . $row['PROVEEDOR_ID'] . '">' . $row['NOMBRE_PROVEEDOR'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
