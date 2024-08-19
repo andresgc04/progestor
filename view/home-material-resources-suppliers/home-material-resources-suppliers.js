@@ -209,3 +209,55 @@ const verDetalleRecursoMaterialProveedor = (recursoMaterialID, proveedorID) => {
       );
     });
 };
+
+const eliminarRecursoMaterialProveedor = (recursoMaterialID, proveedorID) => {
+  Swal.fire({
+    title:
+      "¿Deseas eliminar este recurso material abastecido por este proveedor seleccionado?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/RecursosMaterialesProveedoresController.php?op=eliminar_recursos_materiales_proveedores",
+        {
+          recursoMaterialID: recursoMaterialID,
+          proveedorID: proveedorID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title:
+              "Recurso material abastecido por este proveedor eliminado satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
