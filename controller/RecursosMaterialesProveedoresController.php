@@ -85,4 +85,14 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case 'modificar_recursos_materiales_proveedores':
+        $recursosMaterialesProveedores->modificar_recursos_materiales_proveedores(
+            $_POST['modificarRecursoMaterialID'],
+            $_POST['modificarProveedorID'],
+            $_POST['modificarCostoRecursoMaterial'],
+            $modificadoPor,
+            $_POST['updateRecursoMaterialID'],
+            $_POST['updateProveedorID']
+        );
+        break;
 }
