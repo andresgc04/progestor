@@ -216,9 +216,16 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <i class="fas fa-people-arrows nav-icon"></i>
                                         <p>Tipos Proveedores</p>
                                     </a>
-                                  </li>
-                                </ul>
-                            </li>';
+                                  </li>';
+                        } elseif ($modulo == 'Unidades Medidas' || $modulo == 'UNIDADES MEDIDAS' || $modulo == 'unidades medidas') {
+                            echo '      <li class="nav-item">
+                                            <a id="navLinkHomeUnitMeasurement" href="../home-unit-measurement/" class="nav-link">
+                                                <i class="fas fa-weight nav-icon"></i>
+                                                <p>Unidades Medidas</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>';
                         }
                     };
                 }
