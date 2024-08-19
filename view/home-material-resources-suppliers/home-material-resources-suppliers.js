@@ -104,3 +104,12 @@ tipoRecursoMaterialIDInput.onchange = function (event) {
     "#recursoMaterialID"
   );
 };
+
+const openUpdateMaterialResourcesSuppliersFormModal = () => {
+  $("#updateMaterialResourcesSuppliersFormModal").modal("show");
+};
+
+const verDetalleRecursoMaterialProveedor = (recursoMaterialID, proveedorID) => {
+  console.log(recursoMaterialID, proveedorID);
+  openUpdateMaterialResourcesSuppliersFormModal();
+};
