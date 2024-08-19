@@ -111,4 +111,28 @@ class RecursosMaterialesProveedores extends Connection
 
                 return $resultado;
         }
+
+        public function eliminar_recursos_materiales_proveedores(
+                $modificadoPor,
+                $recursoMaterialID,
+                $proveedorID
+        ) {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'UPDATE RECURSOS_MATERIALES_PROVEEDORES SET ESTADO_ID = 4,
+ 							             MODIFICADO_POR = ?,
+                                                                     FECHA_MODIFICACION = NOW()
+                                                               WHERE RECURSO_MATERIAL_ID = ? AND PROVEEDOR_ID = ?;';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $modificadoPor);
+                $query->bindValue(2, $recursoMaterialID);
+                $query->bindValue(3, $proveedorID);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
 }
