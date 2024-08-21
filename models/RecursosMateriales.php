@@ -28,7 +28,7 @@ class RecursosMateriales extends Connection
                          recursosMateriales.RECURSO_MATERIAL_ID,
                          UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) TIPOS_RECURSOS_MATERIALES,
                          UCASE(recursosMateriales.RECURSO_MATERIAL) RECURSOS_MATERIALES,
-                         UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDAD_MEDIDA,
+                         UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDADES_MEDIDAS,
                          UCASE(estados.ESTADO) ESTADOS
                     FROM RECURSOS_MATERIALES recursosMateriales
               INNER JOIN TIPOS_RECURSOS_MATERIALES tiposRecursosMateriales

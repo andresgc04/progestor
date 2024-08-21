@@ -24,6 +24,7 @@ switch ($_GET['op']) {
             $sub_array[] = $row['RECURSO_MATERIAL_ID'];
             $sub_array[] = $row['TIPOS_RECURSOS_MATERIALES'];
             $sub_array[] = $row['RECURSOS_MATERIALES'];
+            $sub_array[] = $row['UNIDADES_MEDIDAS'];
 
             if ($row['ESTADOS'] === 'ACTIVO') {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
