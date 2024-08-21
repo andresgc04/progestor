@@ -139,3 +139,52 @@ const verDetalleUnidadMedida = (unidadMedidaID) => {
       );
     });
 };
+
+const eliminarUnidadMedida = (unidadMedidaID) => {
+  Swal.fire({
+    title: "¿Deseas eliminar esta unidad de medida seleccionada?",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      $.post(
+        "../../controller/UnidadesMedidasController.php?op=eliminar_unidades_medidas",
+        {
+          unidadMedidaID: unidadMedidaID,
+        }
+      )
+        .done(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Unidad de medida eliminada satisfactoriamente.",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        })
+        .fail(function (data, status) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocurrio Un Error Inesperado.",
+            text: `${dataResult.messageError}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        });
+    },
+  });
+};
