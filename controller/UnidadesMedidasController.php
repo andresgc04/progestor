@@ -81,4 +81,7 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case 'modificar_unidades_medidas':
+        $unidadesMedidas->modificar_unidades_medidas($_POST['modificarUnidadMedida'], $modificadoPor, $_POST['unidadMedidaID']);
+        break;
 }
