@@ -87,4 +87,17 @@ switch ($_GET['op']) {
     case 'eliminar_unidades_medidas':
         $unidadesMedidas->eliminar_unidades_medidas($modificadoPor, $_POST['unidadMedidaID']);
         break;
+    case 'obtener_listado_opciones_unidades_medidas':
+        $datos = $unidadesMedidas->obtener_listado_opciones_unidades_medidas();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione la unidad de medida.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['UNIDAD_MEDIDA_ID'] . '">' . $row['UNIDAD_MEDIDA'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
