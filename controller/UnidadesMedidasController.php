@@ -84,4 +84,7 @@ switch ($_GET['op']) {
     case 'modificar_unidades_medidas':
         $unidadesMedidas->modificar_unidades_medidas($_POST['modificarUnidadMedida'], $modificadoPor, $_POST['unidadMedidaID']);
         break;
+    case 'eliminar_unidades_medidas':
+        $unidadesMedidas->eliminar_unidades_medidas($modificadoPor, $_POST['unidadMedidaID']);
+        break;
 }
