@@ -82,6 +82,7 @@ class RecursosMateriales extends Connection
     public function modificar_recursos_materiales(
         $modificarTipoRecursoMaterialID,
         $recursoMaterial,
+        $modificarUnidadMedidaID,
         $modificadoPor,
         $tipoRecursoMaterialID,
         $recursoMaterialID
@@ -90,7 +91,8 @@ class RecursosMateriales extends Connection
         parent::set_names();
 
         $query = 'UPDATE RECURSOS_MATERIALES SET TIPO_RECURSO_MATERIAL_ID = ?,
-							                     RECURSO_MATERIAL = ?,
+ 							                     RECURSO_MATERIAL = ?,
+                                                 UNIDAD_MEDIDA_ID = ?,
                                                  MODIFICADO_POR = ?,
                                                  FECHA_MODIFICACION = NOW()
                                            WHERE TIPO_RECURSO_MATERIAL_ID = ?
@@ -99,9 +101,10 @@ class RecursosMateriales extends Connection
         $query = $conectar->prepare($query);
         $query->bindValue(1, $modificarTipoRecursoMaterialID);
         $query->bindValue(2, $recursoMaterial);
-        $query->bindValue(3, $modificadoPor);
-        $query->bindValue(4, $tipoRecursoMaterialID);
-        $query->bindValue(5, $recursoMaterialID);
+        $query->bindValue(3, $modificarUnidadMedidaID);
+        $query->bindValue(4, $modificadoPor);
+        $query->bindValue(5, $tipoRecursoMaterialID);
+        $query->bindValue(6, $recursoMaterialID);
         $query->execute();
 
         $resultado = $query->fetchAll();
