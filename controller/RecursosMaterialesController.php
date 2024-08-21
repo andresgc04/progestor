@@ -13,7 +13,7 @@ $recursosMateriales = new RecursosMateriales();
 
 switch ($_GET['op']) {
     case 'registrar_recursos_materiales':
-        $recursosMateriales->registrar_recursos_materiales($_POST['tipoRecursoMaterialID'], $_POST['nombreRecursoMaterial'], $creadoPor);
+        $recursosMateriales->registrar_recursos_materiales($_POST['tipoRecursoMaterialID'], $_POST['nombreRecursoMaterial'], $_POST['unidadMedidaID'], $creadoPor);
         break;
     case 'listado_recursos_materiales':
         $datos = $recursosMateriales->listado_recursos_materiales();
