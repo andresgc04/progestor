@@ -62,4 +62,28 @@ class UnidadesMedidas extends Connection
 
         return $resultado;
     }
+
+    public function modificar_unidades_medidas(
+        $unidadMedida,
+        $modificadoPor,
+        $unidadMedidaID,
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'UPDATE UNIDADES_MEDIDAS SET UNIDAD_MEDIDA = UCASE(?), 
+						                      MODIFICADO_POR = ?,
+                                              FECHA_MODIFICACION = NOW()
+                                        WHERE UNIDAD_MEDIDA_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $unidadMedida);
+        $query->bindValue(2, $modificadoPor);
+        $query->bindValue(3, $unidadMedidaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
