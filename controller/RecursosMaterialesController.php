@@ -64,6 +64,7 @@ switch ($_GET['op']) {
                     'recursoMaterialID' => $item['RECURSO_MATERIAL_ID'],
                     'tipoRecursoMaterialID' => $item['TIPO_RECURSO_MATERIAL_ID'],
                     'recursoMaterial' => $item['RECURSO_MATERIAL'],
+                    'unidadMedidaID' => $item['UNIDAD_MEDIDA_ID'],
                 ];
 
                 // Agregar el elemento normalizado al array resultante
