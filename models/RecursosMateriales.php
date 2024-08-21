@@ -62,10 +62,11 @@ class RecursosMateriales extends Connection
         parent::set_names();
 
         $query = 'SELECT RECURSO_MATERIAL_ID,
-	                     TIPO_RECURSO_MATERIAL_ID,
-                         UCASE(RECURSO_MATERIAL) AS RECURSO_MATERIAL
-                    FROM RECURSOS_MATERIALES 
-                   WHERE TIPO_RECURSO_MATERIAL_ID = ? 
+                         TIPO_RECURSO_MATERIAL_ID,
+                         UCASE(RECURSO_MATERIAL) AS RECURSO_MATERIAL,
+                         UNIDAD_MEDIDA_ID
+                    FROM RECURSOS_MATERIALES
+                   WHERE TIPO_RECURSO_MATERIAL_ID = ?
                      AND RECURSO_MATERIAL_ID = ?';
 
         $query = $conectar->prepare($query);
