@@ -25,6 +25,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="unidadMedidaID">Unidad De Medida:</label>
+                                <select id="unidadMedidaID" name="unidadMedidaID" class="form-control select2" style="width: 100%;"></select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="mr-2">Cancelar</span><span><i class="fas fa-times-circle"></i></span></button>
