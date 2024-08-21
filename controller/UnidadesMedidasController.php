@@ -100,4 +100,23 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_unidades_medidas_por_unidad_medida_ID':
+        $datos = $unidadesMedidas->obtener_listado_opciones_unidades_medidas_por_unidad_medida_ID($_POST['unidadMedidaID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            foreach ($datos as $row) {
+                $html .= '<option selected value="' . $row['UNIDAD_MEDIDA_ID'] . '">' . $row['UNIDAD_MEDIDA'] . '</option>';
+            }
+        }
+
+        $datos2 = $unidadesMedidas->obtener_listado_opciones_unidades_medidas_diferente_unidad_medida_ID($_POST['unidadMedidaID']);
+
+        if (is_array($datos2) == true and count($datos2) > 0) {
+            foreach ($datos2 as $row) {
+                $html .= '<option value="' . $row['UNIDAD_MEDIDA_ID'] . '">' . $row['UNIDAD_MEDIDA'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
