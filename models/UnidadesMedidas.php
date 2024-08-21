@@ -44,7 +44,7 @@ class UnidadesMedidas extends Connection
         return $resultado;
     }
 
-    public function obtener_detalles_unidades_medidas_por_unidad_medida($unidadMedidaID)
+    public function obtener_detalles_unidades_medidas_por_unidad_medida_ID($unidadMedidaID)
     {
         $conectar = parent::Connection();
         parent::set_names();
