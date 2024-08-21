@@ -11,6 +11,9 @@ $modificadoPor = $creadoPor;
 $unidadesMedidas = new UnidadesMedidas();
 
 switch ($_GET['op']) {
+    case 'registrar_unidades_medidas':
+        $unidadesMedidas->registrar_unidades_medidas($_POST['unidadMedida'], $creadoPor);
+        break;
     case 'listado_unidades_medidas':
         $datos = $unidadesMedidas->listado_unidades_medidas();
         $data = array();
