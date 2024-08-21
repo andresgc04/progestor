@@ -76,3 +76,66 @@ const obtenerListadoUnidadesMedidasDataTable = () => {
 (function () {
   obtenerListadoUnidadesMedidasDataTable();
 })();
+
+const openUpdateUnitMeasurementFormModal = () => {
+  $("#updateUnitMeasurementFormModal").modal("show");
+};
+
+const verDetalleUnidadMedida = (unidadMedidaID) => {
+  $.post(
+    "../../controller/UnidadesMedidasController.php?op=obtener_detalles_unidades_medidas_por_unidad_medida_ID",
+    {
+      unidadMedidaID: unidadMedidaID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { unidadMedidaID, unidadMedida } = responseData;
+
+        const unidadMedidaIDInput = document.getElementById("unidadMedidaID");
+        const modificarUnidadMedidaInput = document.getElementById(
+          "modificarUnidadMedida"
+        );
+
+        unidadMedidaIDInput.value =
+          unidadMedidaID != null ? unidadMedidaID : "";
+
+        modificarUnidadMedidaInput.value =
+          unidadMedida != null ? unidadMedida : "";
+
+        openUpdateUnitMeasurementFormModal();
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
