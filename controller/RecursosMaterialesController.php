@@ -90,6 +90,7 @@ switch ($_GET['op']) {
         $recursosMateriales->modificar_recursos_materiales(
             $_POST['modificarTipoRecursoMaterialID'],
             $_POST['modificarNombreRecursoMaterial'],
+            $_POST['modificarUnidadMedidaID'],
             $modificadoPor,
             $_POST['updateTipoRecursoMaterialID'],
             $_POST['updateRecursoMaterialID']

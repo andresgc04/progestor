@@ -55,6 +55,9 @@ $(function () {
       modificarNombreRecursoMaterial: {
         required: true,
       },
+      modificarUnidadMedidaID: {
+        required: true,
+      },
     },
     messages: {
       modificarTipoRecursoMaterialID: {
@@ -62,6 +65,9 @@ $(function () {
       },
       modificarNombreRecursoMaterial: {
         required: "Por favor ingrese el nombre del recurso material.",
+      },
+      modificarUnidadMedidaID: {
+        required: "Por favor seleccione la unidad de medida.",
       },
     },
     errorElement: "span",
