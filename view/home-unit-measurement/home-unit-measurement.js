@@ -8,6 +8,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Unidades De Medidas");
 
+const openNewUnitMeasurementFormModal = () => {
+  $("#newUnitMeasurementFormModal").modal("show");
+};
+
+const newUnitMeasurementButton = document.getElementById(
+  "newUnitMeasurementButton"
+);
+newUnitMeasurementButton.addEventListener("click", () => {
+  openNewUnitMeasurementFormModal();
+});
+
 const obtenerListadoUnidadesMedidasDataTable = () => {
   $("#listadoUnidadesMedidasDataTable")
     .dataTable({
