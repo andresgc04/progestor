@@ -9,7 +9,7 @@ class UnidadesMedidas extends Connection
         $query = 'INSERT INTO UNIDADES_MEDIDAS (UNIDAD_MEDIDA, ESTADO_ID,
                                                 CREADO_POR, FECHA_CREACION
                                                )
-                                         VALUES(?, 1,
+                                         VALUES(UCASE(?), 1,
                                                 ?, NOW());';
 
         $query = $conectar->prepare($query);
