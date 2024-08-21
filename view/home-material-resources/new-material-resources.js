@@ -26,7 +26,13 @@ function saveNewMaterialResources() {
 
           $("#nombreRecursoMaterial").val("");
 
+          getSelectListUnitsMeasurementsOptions(
+            "../../controller/UnidadesMedidasController.php?op=obtener_listado_opciones_unidades_medidas",
+            "#unidadMedidaID"
+          );
+
           $("#newMaterialResourcesFormModal").modal("hide");
+
           $("#listadoRecursosMaterialesDataTable").DataTable().ajax.reload();
         })
       );
@@ -41,9 +47,6 @@ function saveNewMaterialResources() {
         timerProgressBar: true,
       }).then(
         (willClose = () => {
-          $("#tipoRecursoMaterialID").html("");
-          $("#nombreRecursoMaterial").val("");
-
           window.location.reload();
         })
       );
@@ -66,6 +69,9 @@ $(function () {
       nombreRecursoMaterial: {
         required: true,
       },
+      unidadMedidaID: {
+        required: true,
+      },
     },
     messages: {
       tipoRecursoMaterialID: {
@@ -73,6 +79,9 @@ $(function () {
       },
       nombreRecursoMaterial: {
         required: "Por favor ingrese el nombre del recurso material.",
+      },
+      unidadMedidaID: {
+        required: "Por favor seleccione la unidad de medida.",
       },
     },
     errorElement: "span",
