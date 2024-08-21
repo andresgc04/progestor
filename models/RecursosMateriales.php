@@ -28,22 +28,26 @@ class RecursosMateriales extends Connection
                          recursosMateriales.RECURSO_MATERIAL_ID,
                          UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) TIPOS_RECURSOS_MATERIALES,
                          UCASE(recursosMateriales.RECURSO_MATERIAL) RECURSOS_MATERIALES,
+                         UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDAD_MEDIDA,
                          UCASE(estados.ESTADO) ESTADOS
                     FROM RECURSOS_MATERIALES recursosMateriales
               INNER JOIN TIPOS_RECURSOS_MATERIALES tiposRecursosMateriales
                       ON recursosMateriales.TIPO_RECURSO_MATERIAL_ID = 
                          tiposRecursosMateriales.TIPO_RECURSO_MATERIAL_ID
+              INNER JOIN UNIDADES_MEDIDAS unidadesMedidas
+		              ON recursosMateriales.UNIDAD_MEDIDA_ID = unidadesMedidas.UNIDAD_MEDIDA_ID
               INNER JOIN ESTADOS estados 
                       ON recursosMateriales.ESTADO_ID = estados.ESTADO_ID
                    WHERE recursosMateriales.ESTADO_ID = 1
                 ORDER BY recursosMateriales.RECURSO_MATERIAL_ID DESC,
-                         recursosMateriales.FECHA_CREACION DESC;
-                 ';
+                         recursosMateriales.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
 
-        return $resultado = $query->fetchAll();
+        $resultado = $query->fetchAll();
+
+        return $resultado;
     }
 
     public function obtener_detalles_recursos_materiales_por_tipo_recurso_material_ID_recurso_material_ID($tipoRecursoMaterialID, $recursoMaterialID)
