@@ -127,4 +127,23 @@ class UnidadesMedidas extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_unidades_medidas_por_unidad_medida_ID($unidadMedidaID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT UNIDAD_MEDIDA_ID,
+                         UCASE(UNIDAD_MEDIDA) AS UNIDAD_MEDIDA
+                    FROM UNIDADES_MEDIDAS
+                   WHERE UNIDAD_MEDIDA_ID = ? AND ESTADO_ID = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $unidadMedidaID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
