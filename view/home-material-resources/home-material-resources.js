@@ -82,6 +82,11 @@ const obtenerListadoRecursosMaterialesDataTable = () => {
     "#tipoRecursoMaterialID"
   );
 
+  getSelectListUnitsMeasurementsOptions(
+    "../../controller/UnidadesMedidasController.php?op=obtener_listado_opciones_unidades_medidas",
+    "#unidadMedidaID"
+  );
+
   obtenerListadoRecursosMaterialesDataTable();
 })();
 
