@@ -124,8 +124,12 @@ const verDetalleRecursoMaterial = (
       } else {
         const responseData = data.data;
 
-        const { recursoMaterialID, tipoRecursoMaterialID, recursoMaterial } =
-          responseData;
+        const {
+          recursoMaterialID,
+          tipoRecursoMaterialID,
+          recursoMaterial,
+          unidadMedidaID,
+        } = responseData;
 
         const tipoRecursoMaterialIDInput = document.getElementById(
           "updateTipoRecursoMaterialID"
@@ -153,6 +157,12 @@ const verDetalleRecursoMaterial = (
 
         modificarNombreRecursoMaterialInput.value =
           recursoMaterial != null ? recursoMaterial : "";
+
+        getSelectListUnitsMeasurementsOptionsByUnidadMedidaID(
+          "../../controller/UnidadesMedidasController.php?op=obtener_listado_opciones_unidades_medidas_por_unidad_medida_ID",
+          unidadMedidaID,
+          "#modificarUnidadMedidaID"
+        );
 
         openUpdateMaterialResourcesFormModal();
       }
