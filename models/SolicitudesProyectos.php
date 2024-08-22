@@ -5,6 +5,11 @@ class SolicitudesProyectos extends Connection
       $nombreProyecto,
       $descripcionProyecto,
       $objetivoProyecto,
+      $areaTotalTerreno,
+      $dimensionMetroLargoTerreno,
+      $dimensionMetroAnchoTerreno,
+      $ubicacion,
+      $presupuestoEstimadoProyecto,
       $fechaEstimadaDeseada,
       $descripcionRequerimiento,
       $creadoPor
@@ -17,13 +22,17 @@ class SolicitudesProyectos extends Connection
          $conectar->beginTransaction();
 
          // Insertar la solicitud del proyecto
-         $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (NOMBRE_PROYECTO, DESCRIPCION_PROYECTO,
-                                                                                  OBJETIVO_PROYECTO, FECHA_ESTIMADA_DESEADA,
+         $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (NOMBRE_PROYECTO, DESCRIPCION_PROYECTO, OBJETIVO_PROYECTO,
+                                                                                  AREA_TOTAL_TERRENO, DIMENSION_METRO_LARGO_TERRENO,
+                                                                                  DIMENSION_METRO_ANCHO_TERRENO, UBICACION, 
+                                                                                  PRESUPUESTO_ESTIMADO_PROYECTO, FECHA_ESTIMADA_DESEADA,
                                                                                   ESTADO_ID, CREADO_POR, FECHA_CREACION
                                                                                  )
-                                                                           VALUES(?, ?,
+                                                                           VALUES(?, ?, ?,
                                                                                   ?, ?,
-                                                                                  1, ?, NOW()
+                                                                                  ?, ?,
+                                                                                  ?, ?,
+                                                                                  1, ?, NOW() 
                                                                                  );';
 
          $stmtSolicitud = $conectar->prepare($queryInsertarSolicitudesProyectos);
@@ -31,6 +40,11 @@ class SolicitudesProyectos extends Connection
             $nombreProyecto,
             $descripcionProyecto,
             $objetivoProyecto,
+            $areaTotalTerreno,
+            $dimensionMetroLargoTerreno,
+            $dimensionMetroAnchoTerreno,
+            $ubicacion,
+            $presupuestoEstimadoProyecto,
             $fechaEstimadaDeseada,
             $creadoPor
          ]);
