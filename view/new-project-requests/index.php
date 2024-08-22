@@ -86,6 +86,42 @@ if (isset($usuarioID)) {
                                             </div>
 
                                             <div class="row">
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="areaTotalTerreno">Area Del Terreno (M2):</label>
+                                                        <input type="text" id="areaTotalTerreno" name="areaTotalTerreno" class="form-control" placeholder="Ingrese el area total del terreno (m2).">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="dimensionMetroLargoTerreno">Dimension De Largo Del Terreno (M):</label>
+                                                        <input type="text" id="dimensionMetroLargoTerreno" name="dimensionMetroLargoTerreno" class="form-control" placeholder="Ingrese la dimension del metro de largo del terreno (m).">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="dimensionMetroAnchoTerreno">Dimension De Ancho Del Terreno (M):</label>
+                                                        <input type="text" id="dimensionMetroAnchoTerreno" name="dimensionMetroAnchoTerreno" class="form-control" placeholder="Ingrese la dimension del metro de ancho del terreno (m).">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="ubicacion">Ubicacion:</label>
+                                                        <textarea id="ubicacion" name="ubicacion" class="form-control" rows="3" placeholder="Ingrese la ubicacion del terreno."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="presupuestoEstimadoProyecto">Presupuesto Estimado:</label>
+                                                        <input type="text" id="presupuestoEstimadoProyecto" name="presupuestoEstimadoProyecto" class="form-control" placeholder="Ingrese el presupuesto estimado para el proyecto.">
+                                                    </div>
+                                                </div>
                                                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
