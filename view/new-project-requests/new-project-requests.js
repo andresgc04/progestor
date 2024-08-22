@@ -100,6 +100,21 @@ $(function () {
       descripcionProyecto: {
         required: true,
       },
+      areaTotalTerreno: {
+        required: true,
+      },
+      dimensionMetroLargoTerreno: {
+        required: true,
+      },
+      dimensionMetroAnchoTerreno: {
+        required: true,
+      },
+      ubicacion: {
+        required: true,
+      },
+      presupuestoEstimadoProyecto: {
+        required: true,
+      },
       fechaEstimadaDeseada: {
         required: true,
       },
@@ -113,6 +128,22 @@ $(function () {
       },
       descripcionProyecto: {
         required: "Por favor ingrese la descripcion del proyecto.",
+      },
+      areaTotalTerreno: {
+        required: "Por favor ingrese el area total del terreno (m2).",
+      },
+      dimensionMetroLargoTerreno: {
+        required: "Por favor ingrese la dimension del largo del terreno (m).",
+      },
+      dimensionMetroAnchoTerreno: {
+        required: "Por favor ingrese la dimension del largo del terreno (m).",
+      },
+      ubicacion: {
+        required: "Por favor ingrese la ubicacion.",
+      },
+      presupuestoEstimadoProyecto: {
+        required:
+          "Por favor ingrese el presupuesto estimado para este proyecto.",
       },
       fechaEstimadaDeseada: {
         required:
