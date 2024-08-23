@@ -11,6 +11,8 @@ class SolicitudesProyectos extends Connection
       $ubicacion,
       $presupuestoEstimadoProyecto,
       $fechaEstimadaDeseada,
+      $verificacionTituloPropiedad,
+      $documento,
       $descripcionRequerimiento,
       $creadoPor
    ) {
@@ -25,13 +27,13 @@ class SolicitudesProyectos extends Connection
          $queryInsertarSolicitudesProyectos = 'INSERT INTO SOLICITUDES_PROYECTOS (NOMBRE_PROYECTO, DESCRIPCION_PROYECTO, OBJETIVO_PROYECTO,
                                                                                   AREA_TOTAL_TERRENO, DIMENSION_METRO_LARGO_TERRENO,
                                                                                   DIMENSION_METRO_ANCHO_TERRENO, UBICACION, 
-                                                                                  PRESUPUESTO_ESTIMADO_PROYECTO, FECHA_ESTIMADA_DESEADA,
+                                                                                  PRESUPUESTO_ESTIMADO_PROYECTO, FECHA_ESTIMADA_DESEADA, VERIFICACION_TITULO_PROPIEDAD,
                                                                                   ESTADO_ID, CREADO_POR, FECHA_CREACION
                                                                                  )
                                                                            VALUES(?, ?, ?,
                                                                                   ?, ?,
                                                                                   ?, ?,
-                                                                                  ?, ?,
+                                                                                  ?, ?, ?,
                                                                                   1, ?, NOW() 
                                                                                  );';
 
@@ -46,11 +48,51 @@ class SolicitudesProyectos extends Connection
             $ubicacion,
             $presupuestoEstimadoProyecto,
             $fechaEstimadaDeseada,
+            $verificacionTituloPropiedad,
             $creadoPor
          ]);
 
          // Obtener el ID de la última inserción
          $solicitudProyectoID = $conectar->lastInsertId();
+
+         //Insertar Documento:
+         if (isset($_FILES[$documento]) && $_FILES[$documento]['error'] == 0) {
+            $fileTmpPath = $_FILES['file']['tmp_name'];
+            $fileName = $_FILES['file']['name'];
+            $fileSize = $_FILES['file']['size'];
+            $fileType = $_FILES['file']['type'];
+            $uploadDirectory = '../documents/';
+
+            // Definir la ruta completa del archivo
+            $dest_path = $uploadDirectory . $fileName;
+
+            // Mover el archivo al directorio de destino
+            if (move_uploaded_file($fileTmpPath, $dest_path)) {
+               // Guardar la información del archivo en la base de datos
+               $queryInsertarDocumentoSolicitudProyecto = 'INSERT INTO DOCUMENTOS (SOLICITUD_PROYECTO_ID, NOMBRE_DOCUMENTO, TIPO_DOCUMENTO, SIZE_DOCUMENTO,
+                                                                                   RUTA_DOCUMENTO, ESTADO_ID, CREADO_POR, FECHA_CREACION
+                                                                                  )
+                                                                            VALUES(?, ?, ?, ?,
+                                                                                   ?, 1, ?, NOW()
+                                                                                  );';
+
+               $stmtDocumentoSolicitudProyecto = $conectar->prepare($queryInsertarDocumentoSolicitudProyecto);
+               $stmtDocumentoSolicitudProyecto->execute([
+                  $solicitudProyectoID,
+                  $fileName,
+                  $fileType,
+                  $fileSize,
+                  $dest_path,
+                  $creadoPor
+               ]);
+
+               echo "El archivo se ha subido y guardado exitosamente.";
+            } else {
+               echo "Hubo un error al mover el archivo.";
+            }
+         } else {
+            echo "No se seleccionó ningún archivo o hubo un error en la subida.";
+         }
 
          // Preparar la consulta para los requerimientos
          $queryInsertarRequerimientosSolicitudesProyectos = 'INSERT INTO REQUERIMIENTOS_SOLICITUDES_PROYECTOS (

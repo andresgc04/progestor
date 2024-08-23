@@ -23,6 +23,8 @@ switch ($_GET['op']) {
             $_POST['ubicacion'],
             $_POST['presupuestoEstimadoProyecto'],
             $_POST['fechaEstimadaDeseada'],
+            $_POST['verificacionTitulo'],
+            $_FILES['documento'],
             $_POST['requerimientoSolicitudProyecto'],
             $creadoPor
         );
