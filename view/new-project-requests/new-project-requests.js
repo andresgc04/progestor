@@ -14,6 +14,10 @@ setBreadCrumbContentHeaderSubTitle("Registrar Nueva Solicitud De Proyecto");
   $("#fechaEstimadaDeseada").datetimepicker({
     format: "YYYY/MM/DD",
   });
+
+  initializeSelect2Elements();
+
+  bsCustomFileInput.init();
 })();
 
 const eliminarRequerimientoProyecto = (projectRequirementIndex) => {
@@ -81,6 +85,47 @@ function saveNewProjectRequests() {
     },
   });
 }
+
+const verificarClienteTieneTitulo = (event) => {
+  const verificacionTituloValue = event.target.value;
+
+  const sectionDocumento = document.getElementById("sectionDocumento");
+
+  const saveNewProjectRequestsButton = document.getElementById(
+    "saveNewProjectRequestsButton"
+  );
+
+  if (verificacionTituloValue == "SI") {
+    sectionDocumento.style.display = "block";
+
+    saveNewProjectRequestsButton.style.display = "block";
+  } else {
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title:
+        "Debe de tener el titulo de la propiedad para continuar con el proceso.",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+    }).then(
+      (willClose = () => {
+        sectionDocumento.style.display = "none";
+
+        saveNewProjectRequestsButton.style.display = "none";
+      })
+    );
+  }
+};
+
+const verificacionTituloInput = document.getElementById("verificacionTitulo");
+verificacionTituloInput.onchange = verificarClienteTieneTitulo;
+
+const cancelSaveNewProjectRequestsButton = document.getElementById(
+  "cancelSaveNewProjectRequestsButton"
+);
+cancelSaveNewProjectRequestsButton.onclick = () =>
+  (window.location.href = "../home-project-requests/");
 
 $(function () {
   $.validator.setDefaults({

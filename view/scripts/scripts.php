@@ -47,6 +47,8 @@
 <script src="../../public/lib/adminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../public/lib/adminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../public/lib/adminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- bs-custom-file-input -->
+<script  src="../../public/lib/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../public/lib/adminLTE/dist/js/adminlte.js"></script>
 <!-- SweetAlert2 -->

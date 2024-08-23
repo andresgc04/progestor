@@ -136,6 +136,33 @@ if (isset($usuarioID)) {
                                             </div>
 
                                             <div class="row">
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="verificacionTitulo">Tiene El Título De Propiedad?</label>
+                                                        <select id="verificacionTitulo" name="verificacionTitulo" class="form-control select2" style="width: 100%;">
+                                                            <option selected disabled>Por favor indique si tiene el titulo.</option>
+                                                            <option value="SI">SI</option>
+                                                            <option value="NO">NO</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12" id="sectionDocumento" style="display: none;">
+                                                    <div class="form-group">
+                                                        <label for="documento">Documento:</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="documento" name="documento">
+                                                                <label class="custom-file-label" for="documento">Choose file</label>
+                                                            </div>
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">Upload</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                     <p class="text-bold">Requerimientos Del Proyecto:</p>
                                                 </div>
@@ -172,8 +199,8 @@ if (isset($usuarioID)) {
                                         <!-- /.card-body -->
                                         <div class="card-footer">
                                             <div class="d-flex justify-content-between">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="mr-2">Cancelar</span><span><i class="fas fa-times-circle"></i></span></button>
-                                                <button type="submit" class="btn btn-primary"><span class="mr-2">Guardar</span><span><i class="fas fa-save"></i></span></button>
+                                                <button id="cancelSaveNewProjectRequestsButton" type="button" class="btn btn-danger" data-dismiss="modal"><span class="mr-2">Cancelar</span><span><i class="fas fa-times-circle"></i></span></button>
+                                                <button id="saveNewProjectRequestsButton" type="submit" class="btn btn-primary"><span class="mr-2">Guardar</span><span><i class="fas fa-save"></i></span></button>
                                             </div>
                                         </div>
                                         <!-- /.card-footer -->
@@ -205,6 +232,7 @@ if (isset($usuarioID)) {
         <?php require_once('../scripts/scripts.php') ?>
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/select2-elements/set-select2-elements.js"></script>
         <script type="text/javascript" src="new-project-requests.js"></script>
     </body>
 
