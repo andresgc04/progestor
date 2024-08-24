@@ -191,6 +191,11 @@ switch ($_GET['op']) {
             $_POST['nombreProyecto'],
             $_POST['descripcionProyecto'],
             $_POST['objetivoProyecto'],
+            $_POST['areaTotalTerreno'],
+            $_POST['dimensionMetroLargoTerreno'],
+            $_POST['dimensionMetroAnchoTerreno'],
+            $_POST['ubicacion'],
+            $_POST['presupuestoEstimadoProyecto'],
             $_POST['fechaEstimadaDeseada'],
             $modificadoPor,
             $_POST['solicitudProyectoID']
