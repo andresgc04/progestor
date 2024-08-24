@@ -224,6 +224,11 @@ class SolicitudesProyectos extends Connection
       $nombreProyecto,
       $descripcionProyecto,
       $objetivoProyecto,
+      $areaTotalTerreno,
+      $dimensionMetroLargoTerreno,
+      $dimensionMetroAnchoTerreno,
+      $ubicacion,
+      $presupuestoEstimadoProyecto,
       $fechaEstimadaDeseada,
       $modificadoPor,
       $solicitudProyectoID
@@ -232,18 +237,25 @@ class SolicitudesProyectos extends Connection
       parent::set_names();
 
       $queryModificarEncabezadoSolicitudProyecto = 'UPDATE SOLICITUDES_PROYECTOS SET NOMBRE_PROYECTO = ?, DESCRIPCION_PROYECTO = ?,
-								                                                             OBJETIVO_PROYECTO = ?, FECHA_ESTIMADA_DESEADA = ?,
-                                                                                     ESTADO_ID = 1, MODIFICADO_POR = ?,
-                                                                                     FECHA_MODIFICACION = NOW()
-                                                                               WHERE SOLICITUD_PROYECTO_ID = ?;';
+								                                                             OBJETIVO_PROYECTO = ?, AREA_TOTAL_TERRENO = ?,
+                                                                                     DIMENSION_METRO_LARGO_TERRENO = ?, DIMENSION_METRO_ANCHO_TERRENO = ?,
+                                                                                     UBICACION = ?, PRESUPUESTO_ESTIMADO_PROYECTO = ?,
+                                                                                     FECHA_ESTIMADA_DESEADA = ?, ESTADO_ID = 1,
+                                                                                     MODIFICADO_POR = ?, FECHA_MODIFICACION = NOW()
+                                                                                     WHERE SOLICITUD_PROYECTO_ID = ?;';
 
       $queryModificarEncabezadoSolicitudProyecto = $conectar->prepare($queryModificarEncabezadoSolicitudProyecto);
       $queryModificarEncabezadoSolicitudProyecto->bindValue(1, $nombreProyecto);
       $queryModificarEncabezadoSolicitudProyecto->bindValue(2, $descripcionProyecto);
       $queryModificarEncabezadoSolicitudProyecto->bindValue(3, $objetivoProyecto);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(4, $fechaEstimadaDeseada);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $modificadoPor);
-      $queryModificarEncabezadoSolicitudProyecto->bindValue(6, $solicitudProyectoID);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(4, $areaTotalTerreno);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(5, $dimensionMetroLargoTerreno);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(6, $dimensionMetroAnchoTerreno);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(7, $ubicacion);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(8, $presupuestoEstimadoProyecto);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(9, $fechaEstimadaDeseada);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(10, $modificadoPor);
+      $queryModificarEncabezadoSolicitudProyecto->bindValue(11, $solicitudProyectoID);
       $queryModificarEncabezadoSolicitudProyecto->execute();
 
       $resultado = $queryModificarEncabezadoSolicitudProyecto->fetchAll();
