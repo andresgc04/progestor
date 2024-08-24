@@ -226,13 +226,14 @@ class SolicitudesProyectos extends Connection
       parent::set_names();
 
       $query = 'SELECT documentos.DOCUMENTO_ID,
+                       documentos.SOLICITUD_PROYECTO_ID,
                        documentos.NOMBRE_DOCUMENTO,
                        documentos.TIPO_DOCUMENTO,
                        UCASE(estados.ESTADO) AS ESTADOS
                   FROM DOCUMENTOS documentos
             INNER JOIN ESTADOS estados
                     ON documentos.ESTADO_ID = estados.ESTADO_ID
-                 WHERE documentos.SOLICITUD_PROYECTO_ID = 29 
+                 WHERE documentos.SOLICITUD_PROYECTO_ID = ? 
                    AND documentos.ESTADO_ID IN(1, 2, 5, 6, 7)';
 
       $query = $conectar->prepare($query);
