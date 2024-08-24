@@ -321,6 +321,42 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case 'obtener_ruta_documento_solicitud_proyecto_por_documento_ID_solicitud_proyecto_ID':
+        $data = $solicitudesProyectos->obtener_ruta_documento_solicitud_proyecto_por_documento_ID_solicitud_proyecto_ID(
+            $_POST['documentoID'],
+            $_POST['solicitudProyectoID']
+        );
+
+        if (is_array($data) == true and count($data) > 0) {
+            // Normalizar la estructura de los datos si es necesario
+            $normalizedData = array();
+
+            foreach ($data as $item) {
+                // Si los datos son un array asociativo con claves numéricas y asociativas,
+                // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
+                $normalizedItem = [
+                    'rutaDocumento' => $item['RUTA_DOCUMENTO'],
+                ];
+
+                // Agregar el elemento normalizado al array resultante
+                $normalizedData = $normalizedItem;
+            }
+
+            // Crear un array asociativo con la clave "data"
+            $response = array('data' => $normalizedData);
+
+            // Convertir el array de objetos a formato JSON:
+            $json = json_encode($response, JSON_UNESCAPED_UNICODE);
+
+            // Configurar la cabecera para indicar que la respuesta es JSON
+            header('Content-Type: application/json');
+
+            // Retornar o imprimir el JSON
+            echo $json;
+        } else {
+            echo json_encode(['data' => []]);
+        }
+        break;
     case 'modificar_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID':
         $solicitudesProyectos->modificar_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID(
             $_POST['modificarDescripcionRequerimiento'],
