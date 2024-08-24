@@ -43,7 +43,13 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
             nombreProyecto,
             objetivoProyecto,
             descripcionProyecto,
+            dimensionMetroLargoTerreno,
+            dimensionMetroAnchoTerreno,
+            areaTotalTerreno,
+            ubicacion,
+            presupuestoEstimadoProyecto,
             fechaEstimadaDeseada,
+            verificacionTituloPropiedad,
             nombreCliente,
             tipoProyectoObraCivil,
             categoriaTipoProyectoObraCivil,
@@ -69,18 +75,38 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
             "descripcionProyecto"
           );
 
+          const dimensionMetroLargoTerrenoInput = document.getElementById(
+            "dimensionMetroLargoTerreno"
+          );
+
+          const dimensionMetroAnchoTerrenoInput = document.getElementById(
+            "dimensionMetroAnchoTerreno"
+          );
+
+          const areaTotalTerrenoInput =
+            document.getElementById("areaTotalTerreno");
+
+          const ubicacionInput = document.getElementById("ubicacion");
+
+          const presupuestoEstimadoProyectoInput = document.getElementById(
+            "presupuestoEstimadoProyecto"
+          );
+
+          const fechaEstimadaDeseadaInput = document.getElementById(
+            "fechaEstimadaDeseada"
+          );
+
+          const verificacionTituloInput =
+            document.getElementById("verificacionTitulo");
+
+          const solicitadoPorInput = document.getElementById("solicitadoPor");
+
           const tipoProyectoObraCivilInput = document.getElementById(
             "tipoProyectoObraCivil"
           );
 
           const categoriaTipoProyectoObraCivilInput = document.getElementById(
             "categoriaTipoProyectoObraCivil"
-          );
-
-          const solicitadoPorInput = document.getElementById("solicitadoPor");
-
-          const fechaEstimadaDeseadaInput = document.getElementById(
-            "fechaEstimadaDeseada"
           );
 
           const responsableProyectoInput = document.getElementById(
@@ -108,6 +134,36 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
           descripcionProyectoInput.value =
             descripcionProyecto != null ? descripcionProyecto : "";
 
+          dimensionMetroLargoTerrenoInput.value =
+            dimensionMetroLargoTerreno != null
+              ? dimensionMetroLargoTerreno
+              : "";
+
+          dimensionMetroAnchoTerrenoInput.value =
+            dimensionMetroAnchoTerreno != null
+              ? dimensionMetroAnchoTerreno
+              : "";
+
+          areaTotalTerrenoInput.value =
+            areaTotalTerreno != null ? areaTotalTerreno : "";
+
+          ubicacionInput.value = ubicacion != null ? ubicacion : "";
+
+          presupuestoEstimadoProyectoInput.value =
+            presupuestoEstimadoProyecto != null
+              ? presupuestoEstimadoProyecto
+              : "";
+
+          fechaEstimadaDeseadaInput.value =
+            fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
+
+          verificacionTituloInput.value =
+            verificacionTituloPropiedad != null
+              ? verificacionTituloPropiedad
+              : "";
+
+          solicitadoPorInput.value = nombreCliente != null ? nombreCliente : "";
+
           tipoProyectoObraCivilInput.value =
             tipoProyectoObraCivil != null ? tipoProyectoObraCivil : "";
 
@@ -115,11 +171,6 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
             categoriaTipoProyectoObraCivil != null
               ? categoriaTipoProyectoObraCivil
               : "";
-
-          solicitadoPorInput.value = nombreCliente != null ? nombreCliente : "";
-
-          fechaEstimadaDeseadaInput.value =
-            fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
 
           responsableProyectoInput.value =
             responsable != null ? responsable : "";
