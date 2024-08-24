@@ -102,7 +102,13 @@ switch ($_GET['op']) {
                     'nombreProyecto' => $item['NOMBRE_PROYECTO'],
                     'descripcionProyecto' => $item['DESCRIPCION_PROYECTO'],
                     'objetivoProyecto' => $item['OBJETIVO_PROYECTO'],
+                    'areaTotalTerreno' => $item['AREA_TOTAL_TERRENO'],
+                    'dimensionMetroLargoTerreno' => $item['DIMENSION_METRO_LARGO_TERRENO'],
+                    'dimensionMetroAnchoTerreno' => $item['DIMENSION_METRO_ANCHO_TERRENO'],
+                    'ubicacion' => $item['UBICACION'],
+                    'presupuestoEstimadoProyecto' => $item['PRESUPUESTO_ESTIMADO_PROYECTO'],
                     'fechaEstimadaDeseada' => $item['FECHA_ESTIMADA_DESEADA'],
+                    'verificacionTituloPropiedad' => $item['VERIFICACION_TITULO_PROPIEDAD'],
                     'nombreCliente' => $item['NOMBRE_CLIENTE'],
                     'estado' => $item['ESTADO']
                 ];
