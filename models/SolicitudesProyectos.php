@@ -323,7 +323,16 @@ class SolicitudesProyectos extends Connection
       $queryModificarRequerimientosSolicitudProyecto->bindValue(2, $solicitudProyectoID);
       $queryModificarRequerimientosSolicitudProyecto->execute();
 
-      $resultado = $queryModificarRequerimientosSolicitudProyecto->fetchAll();
+      $queryModificarDocumentoSolicitudProyecto = 'UPDATE DOCUMENTOS SET ESTADO_ID = 5, MODIFICADO_POR = ?,
+                                                                         FECHA_MODIFICACION = NOW()
+                                                                   WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarDocumentoSolicitudProyecto = $conectar->prepare($queryModificarDocumentoSolicitudProyecto);
+      $queryModificarDocumentoSolicitudProyecto->bindValue(1, $modificadoPor);
+      $queryModificarDocumentoSolicitudProyecto->bindValue(2, $solicitudProyectoID);
+      $queryModificarDocumentoSolicitudProyecto->execute();
+
+      $resultado = $queryModificarDocumentoSolicitudProyecto->fetchAll();
 
       return $resultado;
    }
@@ -363,7 +372,16 @@ class SolicitudesProyectos extends Connection
       $queryModificarRequerimientosSolicitudProyecto->bindValue(2, $solicitudProyectoID);
       $queryModificarRequerimientosSolicitudProyecto->execute();
 
-      $resultado = $queryModificarRequerimientosSolicitudProyecto->fetchAll();
+      $queryModificarDocumentoSolicitudProyecto = 'UPDATE DOCUMENTOS SET ESTADO_ID = 2, MODIFICADO_POR = ?,
+                                                                         FECHA_MODIFICACION = NOW()
+                                                                   WHERE SOLICITUD_PROYECTO_ID = ?;';
+
+      $queryModificarDocumentoSolicitudProyecto = $conectar->prepare($queryModificarDocumentoSolicitudProyecto);
+      $queryModificarDocumentoSolicitudProyecto->bindValue(1, $modificadoPor);
+      $queryModificarDocumentoSolicitudProyecto->bindValue(2, $solicitudProyectoID);
+      $queryModificarDocumentoSolicitudProyecto->execute();
+
+      $resultado = $queryModificarDocumentoSolicitudProyecto->fetchAll();
 
       return $resultado;
    }
@@ -608,7 +626,7 @@ class SolicitudesProyectos extends Connection
       $queryModificarRequerimientoSolicitudProyecto->bindValue(2, $solicitudProyectoID);
       $queryModificarRequerimientoSolicitudProyecto->execute();
 
-      $queryModificarDocumentoSolicitudProyecto = 'UPDATE DOCUMENTOS SET ESTADO_ID = 4, MODIFICADO_POR = ?,
+      $queryModificarDocumentoSolicitudProyecto = 'UPDATE DOCUMENTOS SET ESTADO_ID = 7, MODIFICADO_POR = ?,
                                                                          FECHA_MODIFICACION = NOW()
                                                                    WHERE SOLICITUD_PROYECTO_ID = ?;';
 
