@@ -108,8 +108,8 @@ class ProyectosObrasCiviles extends Connection
                               ON responsables.EMPLEADO_ID = empleados.EMPLEADO_ID
                       INNER JOIN ESTADOS estados
                               ON proyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
-                           WHERE proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = 5 
-                             AND proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = 30;';
+                           WHERE proyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ? 
+                             AND proyectosObrasCiviles.SOLICITUD_PROYECTO_ID = ?;';
 
                 $query = $conectar->prepare($query);
                 $query->bindValue(1, $proyectoObraCivilID);
