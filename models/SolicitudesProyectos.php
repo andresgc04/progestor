@@ -133,6 +133,7 @@ class SolicitudesProyectos extends Connection
       parent::set_names();
 
       $query = "SELECT solicitudesProyectos.solicitud_proyecto_id,
+                       UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
                        UCASE(solicitudesProyectos.descripcion_proyecto) AS descripcion_proyecto,
                        UCASE(solicitudesProyectos.objetivo_proyecto) AS objetivo_proyecto,
                        UCASE(clientes.nombre_cliente) AS solicitado_por,
@@ -153,7 +154,9 @@ class SolicitudesProyectos extends Connection
       $query->bindValue(1, $usuarioID);
       $query->execute();
 
-      return $resultado = $query->fetchAll();
+      $resultado = $query->fetchAll();
+
+      return $resultado;
    }
 
    public function obtener_encabezado_solicitudes_proyectos_por_solicitud_proyecto_ID($solicitudProyectoID)
