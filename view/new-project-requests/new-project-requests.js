@@ -44,47 +44,32 @@ addProjectRequirementsButton.onclick = function () {
   newProjectRequirements();
 };
 
-function saveNewProjectRequests() {
-  let newProjectRequestsFormData = new FormData(
-    $("#newProjectRequestsForm")[0]
-  );
+// Función para multiplicar los valores de los inputs:
+const calcularAreaTotaTerreno = () => {
+  // Obtener los valores de los inputs:
+  const dimensionMetroLargoTerrenoValue =
+    parseFloat(document.getElementById("dimensionMetroLargoTerreno").value) ||
+    0;
 
-  $.ajax({
-    url: "../../controller/SolicitudesProyectosController.php?op=registrar_solicitudes_proyectos",
-    type: "POST",
-    data: newProjectRequestsFormData,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Solicitud Proyecto Registrado Correctamente",
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-      }).then(
-        (willClose = () => {
-          window.location.href = "../home-project-requests/";
-        })
-      );
-    },
-    error: function (data) {
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Ocurrio un error inesperado",
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-      }).then(
-        (willClose = () => {
-          window.location.reload();
-        })
-      );
-    },
-  });
-}
+  const dimensionMetroAnchoTerrenoValue =
+    parseFloat(document.getElementById("dimensionMetroAnchoTerreno").value) ||
+    0;
+
+  // Multiplicar los valores:
+  const resultadoAreaTotalTerreno =
+    dimensionMetroLargoTerrenoValue * dimensionMetroAnchoTerrenoValue;
+
+  document.getElementById("areaTotalTerreno").value = resultadoAreaTotalTerreno;
+};
+
+// Agregar eventos de 'input' a los campos de entrada:
+document
+  .getElementById("dimensionMetroLargoTerreno")
+  .addEventListener("input", calcularAreaTotaTerreno);
+
+document
+  .getElementById("dimensionMetroAnchoTerreno")
+  .addEventListener("input", calcularAreaTotaTerreno);
 
 const verificarClienteTieneTitulo = (event) => {
   const verificacionTituloValue = event.target.value;
@@ -126,6 +111,48 @@ const cancelSaveNewProjectRequestsButton = document.getElementById(
 );
 cancelSaveNewProjectRequestsButton.onclick = () =>
   (window.location.href = "../home-project-requests/");
+
+function saveNewProjectRequests() {
+  let newProjectRequestsFormData = new FormData(
+    $("#newProjectRequestsForm")[0]
+  );
+
+  $.ajax({
+    url: "../../controller/SolicitudesProyectosController.php?op=registrar_solicitudes_proyectos",
+    type: "POST",
+    data: newProjectRequestsFormData,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Solicitud Proyecto Registrado Correctamente",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.href = "../home-project-requests/";
+        })
+      );
+    },
+    error: function (data) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Ocurrio un error inesperado",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    },
+  });
+}
 
 $(function () {
   $.validator.setDefaults({
