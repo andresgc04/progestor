@@ -120,4 +120,31 @@ class ProyectosObrasCiviles extends Connection
 
                 return $resultado;
         }
+
+        public function obtener_documentos_proyectos_obras_civiles_por_solicitud_proyecto_ID_proyecto_obra_civil_ID($solicitudProyectoID, $proyectoObraCivilID)
+        {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'SELECT documentos.DOCUMENTO_ID,
+                                 documentos.SOLICITUD_PROYECTO_ID,
+                                 documentos.PROYECTO_OBRA_CIVIL_ID,
+                                 documentos.NOMBRE_DOCUMENTO,
+                                 documentos.TIPO_DOCUMENTO,
+                                 UCASE(estados.ESTADO) AS ESTADOS
+                            FROM DOCUMENTOS documentos
+                      INNER JOIN ESTADOS estados
+                              ON documentos.ESTADO_ID = estados.ESTADO_ID
+                           WHERE documentos.SOLICITUD_PROYECTO_ID = ? OR PROYECTO_OBRA_CIVIL_ID = ?
+                             AND documentos.ESTADO_ID IN(1, 2, 5, 6, 7)';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $solicitudProyectoID);
+                $query->bindValue(2, $proyectoObraCivilID);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
 }
