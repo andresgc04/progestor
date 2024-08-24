@@ -246,6 +246,127 @@ const obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable =
       .DataTable();
   };
 
+const obtenerDocumentosSolicitudesProyectosPorSolicitudProyectoIDDataTable = (
+  solicitudProyectoID
+) => {
+  $("#listadoDocumentosSolicitudesProyectosDataTable")
+    .dataTable({
+      aProcessing: true,
+      aServerSide: true,
+      dom: "Bfrtip",
+      searching: true,
+      lengthChange: false,
+      colReorder: true,
+      buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+      ajax: {
+        url: "../../controller/SolicitudesProyectosController.php?op=obtener_documentos_solicitudes_proyectos_por_solicitud_proyecto_ID_2",
+        type: "post",
+        dataType: "json",
+        data: { solicitudProyectoID: solicitudProyectoID },
+        error: function (e) {
+          console.log(e.responseText);
+        },
+      },
+      ordering: false,
+      bDestroy: true,
+      responsive: true,
+      bInfo: true,
+      iDisplayLength: 5,
+      autoWidth: false,
+      language: {
+        sProcessing: "Procesando...",
+        sLengthMenu: "Mostrar _MENU_ registros",
+        sZeroRecords: "No se encontraron resultados",
+        sEmptyTable: "Ningun dato disponible en esta tabla",
+        sInfo: "Mostrando un total de _TOTAL_ registros",
+        sInfoEmpty: "Mostrando un total de 0 registros",
+        sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
+        sInfoPostFix: "",
+        sSearch: "Buscar:",
+        sUrl: "",
+        sInfoThousands: ",",
+        sLoadingRecords: "Cargando....",
+        oPaginate: {
+          sFirst: "Primero",
+          sLast: "Ultimo",
+          sNext: "Siguiente",
+          sPrevious: "Anterior",
+        },
+        oAria: {
+          sSortAscending:
+            ": Activar para ordenar la columna de manera ascendente",
+          sSortDescending:
+            ": Activar para ordenar la columna de manera descendente",
+        },
+      },
+    })
+    .DataTable();
+};
+
+const obtenerRutaDocumentoSolicitudProyectoPorDocumentoIDYSolicitudProyectoID =
+  (documentoID, solicitudProyectoID) => {
+    $.post(
+      "../../controller/SolicitudesProyectosController.php?op=obtener_ruta_documento_solicitud_proyecto_por_documento_ID_solicitud_proyecto_ID",
+      {
+        documentoID: documentoID,
+        solicitudProyectoID: solicitudProyectoID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const { nombreDocumento } = responseData;
+
+          const rutaDocumento = `../../documents/${nombreDocumento}`;
+
+          console.log(rutaDocumento);
+
+          window.open(rutaDocumento, "_blank");
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const verDetallesDocumentosSolicitudesProyectos = (
+  documentoID,
+  solicitudProyectoID
+) => {
+  obtenerRutaDocumentoSolicitudProyectoPorDocumentoIDYSolicitudProyectoID(
+    documentoID,
+    solicitudProyectoID
+  );
+};
+
 (function () {
   const solicitudProyectoID = getParams("solicitudProyectoID");
 
@@ -254,6 +375,10 @@ const obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable =
   );
 
   obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable(
+    solicitudProyectoID
+  );
+
+  obtenerDocumentosSolicitudesProyectosPorSolicitudProyectoIDDataTable(
     solicitudProyectoID
   );
 })();
