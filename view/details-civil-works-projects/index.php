@@ -67,6 +67,22 @@ if (isset($usuarioID)) {
                                         <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="3" readonly></textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label for="dimensionMetroLargoTerreno">Dimension De Largo Del Terreno (M):</label>
+                                        <input type="text" id="dimensionMetroLargoTerreno" name="dimensionMetroLargoTerreno" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dimensionMetroAnchoTerreno">Dimension De Ancho Del Terreno (M):</label>
+                                        <input type="text" id="dimensionMetroAnchoTerreno" name="dimensionMetroAnchoTerreno" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="areaTotalTerreno">Area Del Terreno (M2):</label>
+                                        <input type="text" id="areaTotalTerreno" name="areaTotalTerreno" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ubicacion">Ubicacion:</label>
+                                        <textarea id="ubicacion" name="ubicacion" class="form-control" rows="3" readonly></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="tipoProyectoObraCivil">Tipo De Proyecto Obra Civil:</label>
                                         <input type="text" id="tipoProyectoObraCivil" name="tipoProyectoObraCivil" class="form-control" readonly>
                                     </div>
@@ -75,12 +91,20 @@ if (isset($usuarioID)) {
                                         <input type="text" id="categoriaTipoProyectoObraCivil" name="categoriaTipoProyectoObraCivil" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label for="solicitadoPor">Solicitado Por:</label>
-                                        <input type="text" id="solicitadoPor" name="solicitadoPor" class="form-control" readonly>
+                                        <label for="presupuestoEstimadoProyecto">Presupuesto Estimado:</label>
+                                        <input type="text" id="presupuestoEstimadoProyecto" name="presupuestoEstimadoProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
                                         <input type="text" id="fechaEstimadaDeseada" name="fechaEstimadaDeseada" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="verificacionTitulo">Tiene El Título De La Propiedad:</label>
+                                        <input type="text" id="verificacionTitulo" name="verificacionTitulo" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="solicitadoPor">Solicitado Por:</label>
+                                        <input type="text" id="solicitadoPor" name="solicitadoPor" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="responsableProyecto">Responsable Del Proyecto:</label>
@@ -89,6 +113,10 @@ if (isset($usuarioID)) {
                                     <div class="form-group">
                                         <label for="fechaInicioProyecto">Fecha De Inicio Del Proyecto:</label>
                                         <input type="text" id="fechaInicioProyecto" name="fechaInicioProyecto" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="costoTotalProyecto">Costo Total Del Proyecto:</label>
+                                        <input type="text" id="costoTotalProyecto" name="costoTotalProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="estadoProyecto">Estado:</label>
