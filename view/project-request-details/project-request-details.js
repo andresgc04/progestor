@@ -575,3 +575,30 @@ const eliminarRequerimientoSolicitudesProyectos = (
     },
   });
 };
+
+// Función para multiplicar los valores de los inputs:
+const calcularAreaTotaTerreno = () => {
+  // Obtener los valores de los inputs:
+  const dimensionMetroLargoTerrenoValue =
+    parseFloat(document.getElementById("dimensionMetroLargoTerreno").value) ||
+    0;
+
+  const dimensionMetroAnchoTerrenoValue =
+    parseFloat(document.getElementById("dimensionMetroAnchoTerreno").value) ||
+    0;
+
+  // Multiplicar los valores:
+  const resultadoAreaTotalTerreno =
+    dimensionMetroLargoTerrenoValue * dimensionMetroAnchoTerrenoValue;
+
+  document.getElementById("areaTotalTerreno").value = resultadoAreaTotalTerreno;
+};
+
+// Agregar eventos de 'input' a los campos de entrada:
+document
+  .getElementById("dimensionMetroLargoTerreno")
+  .addEventListener("input", calcularAreaTotaTerreno);
+
+document
+  .getElementById("dimensionMetroAnchoTerreno")
+  .addEventListener("input", calcularAreaTotaTerreno);
