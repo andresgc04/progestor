@@ -409,6 +409,25 @@ class SolicitudesProyectos extends Connection
       return $resultado;
    }
 
+   public function obtener_ruta_documento_solicitud_proyecto_por_documento_ID_solicitud_proyecto_ID($documentoID, $solicitudProyectoID)
+   {
+      $conectar = parent::Connection();
+      parent::set_names();
+
+      $query = 'SELECT RUTA_DOCUMENTO 
+                  FROM DOCUMENTOS 
+                 WHERE DOCUMENTO_ID = ? AND SOLICITUD_PROYECTO_ID = ?';
+
+      $query = $conectar->prepare($query);
+      $query->bindValue(1, $documentoID);
+      $query->bindValue(2, $solicitudProyectoID);
+      $query->execute();
+
+      $resultado = $query->fetchAll();
+
+      return $resultado;
+   }
+
    public function modificar_requerimiento_solicitud_proyecto_por_solicitud_proyecto_ID_requerimiento_solicitud_proyecto_ID(
       $descripcionRequerimiento,
       $modificadoPor,
