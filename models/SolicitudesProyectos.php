@@ -165,10 +165,16 @@ class SolicitudesProyectos extends Connection
       parent::set_names();
 
       $query = 'SELECT solicitudesProyectos.SOLICITUD_PROYECTO_ID,
-					        UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
+		                 UCASE(solicitudesProyectos.NOMBRE_PROYECTO) AS NOMBRE_PROYECTO,
                        UCASE(solicitudesProyectos.DESCRIPCION_PROYECTO) AS DESCRIPCION_PROYECTO,
                        UCASE(solicitudesProyectos.OBJETIVO_PROYECTO) AS OBJETIVO_PROYECTO,
+                       solicitudesProyectos.AREA_TOTAL_TERRENO,
+                       solicitudesProyectos.DIMENSION_METRO_LARGO_TERRENO,
+                       solicitudesProyectos.DIMENSION_METRO_ANCHO_TERRENO,
+                       solicitudesProyectos.UBICACION,
+                       solicitudesProyectos.PRESUPUESTO_ESTIMADO_PROYECTO,
                        solicitudesProyectos.FECHA_ESTIMADA_DESEADA,
+                       solicitudesProyectos.VERIFICACION_TITULO_PROPIEDAD,
                        UCASE(clientes.NOMBRE_CLIENTE) AS NOMBRE_CLIENTE,
                        UCASE(estados.ESTADO) AS ESTADO
                   FROM SOLICITUDES_PROYECTOS solicitudesProyectos
