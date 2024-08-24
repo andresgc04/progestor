@@ -35,43 +35,43 @@ switch ($_GET['op']) {
 
         foreach ($datos as $row) {
             $sub_array = array();
-            $sub_array[] = $row['solicitud_proyecto_id'];
-            $sub_array[] = $row['descripcion_proyecto'];
-            $sub_array[] = $row['objetivo_proyecto'];
-            $sub_array[] = $row['solicitado_por'];
-            $sub_array[] = $row['fecha_solicitud'];
+            $sub_array[] = $row['SOLICITUD_PROYECTO_ID'];
+            $sub_array[] = $row['NOMBRE_PROYECTO'];
+            $sub_array[] = $row['OBJETIVO_PROYECTO'];
+            $sub_array[] = $row['SOLICITADO_POR'];
+            $sub_array[] = $row['FECHA_SOLICITUD'];
 
-            if ($row['estado'] === "ACTIVO") {
+            if ($row['ESTADOS'] === "ACTIVO") {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
             }
 
-            if ($row['estado'] === "PENDIENTE") {
+            if ($row['ESTADOS'] === "PENDIENTE") {
                 $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
             }
 
-            if ($row['estado'] === "CANCELADO") {
+            if ($row['ESTADOS'] === "CANCELADO") {
                 $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
             }
 
-            if ($row['estado'] === "RECHAZADO") {
+            if ($row['ESTADOS'] === "RECHAZADO") {
                 $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
             }
 
-            if ($row['estado'] === "APROBADO") {
+            if ($row['ESTADOS'] === "APROBADO") {
                 $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
             }
 
-            $sub_array[] = $row['estado'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
+            $sub_array[] = $row['ESTADOS'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
                                                             <div class="btn-group btn-group-sm">
-                                                                <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                                                <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="eliminarSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                                <button type="button" id="' . $row['SOLICITUD_PROYECTO_ID'] . '" onclick="verDetalleSolicitudProyecto(' . $row['SOLICITUD_PROYECTO_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                                <button type="button" id="' . $row['SOLICITUD_PROYECTO_ID'] . '" onclick="eliminarSolicitudProyecto(' . $row['SOLICITUD_PROYECTO_ID'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                                             </div>
                                                           </td>'
                 :
                 '<td class="text-right py-0 align-middle">
                                                             <div class="btn-group btn-group-sm">
-                                                                <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="verDetalleSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                                                <button type="button" id="' . $row['solicitud_proyecto_id'] . '" onclick="eliminarSolicitudProyecto(' . $row['solicitud_proyecto_id'] . ')"class="btn btn-danger disabled"><i class="fas fa-trash"></i></button>
+                                                                <button type="button" id="' . $row['SOLICITUD_PROYECTO_ID'] . '" onclick="verDetalleSolicitudProyecto(' . $row['SOLICITUD_PROYECTO_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                                <button type="button" id="' . $row['SOLICITUD_PROYECTO_ID'] . '" onclick="eliminarSolicitudProyecto(' . $row['SOLICITUD_PROYECTO_ID'] . ')"class="btn btn-danger disabled"><i class="fas fa-trash"></i></button>
                                                             </div>
                                                            </td>';
 
