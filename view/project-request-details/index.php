@@ -170,7 +170,7 @@ if (isset($usuarioID)) {
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row mb-5">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="table-responsive">
                                                         <table id="listadoRequerimientosSolicitudesProyectosDataTable" class="table table-bordered table-striped">
@@ -178,6 +178,31 @@ if (isset($usuarioID)) {
                                                                 <tr>
                                                                     <th>#</th>
                                                                     <th>DESCRIPCI&Oacute;N DEL REQUERIMIENTO</th>
+                                                                    <th>ESTADO</th>
+                                                                    <th>ACCIONES</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <p class="text-bold">Documentos De La Solicitud Del Proyecto:</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="table-responsive">
+                                                        <table id="listadoDocumentosSolicitudesProyectosDataTable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>NOMBRE DOCUMENTO</th>
+                                                                    <th>TIPO DOCUMENTO</th>
                                                                     <th>ESTADO</th>
                                                                     <th>ACCIONES</th>
                                                                 </tr>
