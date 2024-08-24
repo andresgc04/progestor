@@ -38,10 +38,10 @@ const mantenerHabilitadosInputsEnEstadoActivo = () => {
   objetivoProyecto.removeAttribute("readonly", true);
   descripcionProyecto.removeAttribute("readonly", true);
   fechaEstimadaDeseada.removeAttribute("readonly", true);
-  addNewProjectRequestRequirementButton.classList.remove("disabled");
-  validateUpdateRequestDetailsButton.classList.remove("disabled");
-  validateCancelProjectRequestDetailsButton.classList.remove("disabled");
-  validateSubmissionProjectRequestDetailButton.classList.remove("disabled");
+  addNewProjectRequestRequirementButton.style.display = "block";
+  validateUpdateRequestDetailsButton.style.display = "block";
+  validateCancelProjectRequestDetailsButton.style.display = "block";
+  validateSubmissionProjectRequestDetailButton.style.display = "block";
 };
 
 const deshabilitarInputsEnEstadosDiferentesEstadoActivo = () => {
@@ -49,10 +49,10 @@ const deshabilitarInputsEnEstadosDiferentesEstadoActivo = () => {
   objetivoProyecto.setAttribute("readonly", true);
   descripcionProyecto.setAttribute("readonly", true);
   fechaEstimadaDeseada.setAttribute("readonly", true);
-  addNewProjectRequestRequirementButton.classList.add("disabled");
-  validateUpdateRequestDetailsButton.classList.add("disabled");
-  validateCancelProjectRequestDetailsButton.classList.add("disabled");
-  validateSubmissionProjectRequestDetailButton.classList.add("disabled");
+  addNewProjectRequestRequirementButton.style.display = "none";
+  validateUpdateRequestDetailsButton.style.display = "none";
+  validateCancelProjectRequestDetailsButton.style.display = "none";
+  validateSubmissionProjectRequestDetailButton.style.display = "none";
 };
 
 const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
@@ -88,7 +88,13 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
           nombreProyecto,
           descripcionProyecto,
           objetivoProyecto,
+          areaTotalTerreno,
+          dimensionMetroLargoTerreno,
+          dimensionMetroAnchoTerreno,
+          ubicacion,
+          presupuestoEstimadoProyecto,
           fechaEstimadaDeseada,
+          verificacionTituloPropiedad,
           nombreCliente,
           estado,
         } = responseData;
@@ -106,9 +112,29 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         const objetivoProyectoInput =
           document.getElementById("objetivoProyecto");
 
+        const areaTotalTerrenoInput =
+          document.getElementById("areaTotalTerreno");
+
+        const dimensionMetroLargoTerrenoInput = document.getElementById(
+          "dimensionMetroLargoTerreno"
+        );
+
+        const dimensionMetroAnchoTerrenoInput = document.getElementById(
+          "dimensionMetroAnchoTerreno"
+        );
+
+        const ubicacionInput = document.getElementById("ubicacion");
+
+        const presupuestoEstimadoProyectoInput = document.getElementById(
+          "presupuestoEstimadoProyecto"
+        );
+
         const fechaEstimadaDeseadaInput = document.getElementById(
           "fechaEstimadaDeseada"
         );
+
+        const verificacionTituloInput =
+          document.getElementById("verificacionTitulo");
 
         const nombreClienteInput = document.getElementById("nombreCliente");
 
@@ -126,8 +152,29 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         objetivoProyectoInput.value =
           objetivoProyecto != null ? objetivoProyecto : "";
 
+        areaTotalTerrenoInput.value =
+          areaTotalTerreno != null ? areaTotalTerreno : "";
+
+        dimensionMetroLargoTerrenoInput.value =
+          dimensionMetroLargoTerreno != null ? dimensionMetroLargoTerreno : "";
+
+        dimensionMetroAnchoTerrenoInput.value =
+          dimensionMetroAnchoTerreno != null ? dimensionMetroAnchoTerreno : "";
+
+        ubicacionInput.value = ubicacion != null ? ubicacion : "";
+
+        presupuestoEstimadoProyectoInput.value =
+          presupuestoEstimadoProyecto != null
+            ? presupuestoEstimadoProyecto
+            : "";
+
         fechaEstimadaDeseadaInput.value =
           fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
+
+        verificacionTituloInput.value =
+          verificacionTituloPropiedad != null
+            ? verificacionTituloPropiedad
+            : "";
 
         nombreClienteInput.value = nombreCliente != null ? nombreCliente : "";
 
