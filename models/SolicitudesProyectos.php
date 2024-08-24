@@ -414,7 +414,7 @@ class SolicitudesProyectos extends Connection
       $conectar = parent::Connection();
       parent::set_names();
 
-      $query = 'SELECT RUTA_DOCUMENTO 
+      $query = 'SELECT NOMBRE_DOCUMENTO 
                   FROM DOCUMENTOS 
                  WHERE DOCUMENTO_ID = ? AND SOLICITUD_PROYECTO_ID = ?';
 

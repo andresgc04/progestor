@@ -335,7 +335,7 @@ switch ($_GET['op']) {
                 // Si los datos son un array asociativo con claves numéricas y asociativas,
                 // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
                 $normalizedItem = [
-                    'rutaDocumento' => $item['RUTA_DOCUMENTO'],
+                    'nombreDocumento' => $item['NOMBRE_DOCUMENTO'],
                 ];
 
                 // Agregar el elemento normalizado al array resultante
