@@ -56,12 +56,12 @@ class SolicitudesProyectos extends Connection
          $solicitudProyectoID = $conectar->lastInsertId();
 
          //Insertar Documento:
-         if (isset($_FILES[$documento]) && $_FILES[$documento]['error'] == 0) {
-            $fileTmpPath = $_FILES['file']['tmp_name'];
-            $fileName = $_FILES['file']['name'];
-            $fileSize = $_FILES['file']['size'];
-            $fileType = $_FILES['file']['type'];
-            $uploadDirectory = '../documents/';
+         if (isset($documento) && $documento['error'] == 0) {
+            $fileTmpPath = $documento['tmp_name'];
+            $fileName = $documento['name'];
+            $fileSize = $documento['size'];
+            $fileType = $documento['type'];
+            $uploadDirectory = '../../progestor/documents/';
 
             // Definir la ruta completa del archivo
             $dest_path = $uploadDirectory . $fileName;
@@ -86,7 +86,7 @@ class SolicitudesProyectos extends Connection
                   $creadoPor
                ]);
 
-               echo "El archivo se ha subido y guardado exitosamente.";
+               echo 'El archivo se ha subido y guardado exitosamente.';
             } else {
                echo "Hubo un error al mover el archivo.";
             }

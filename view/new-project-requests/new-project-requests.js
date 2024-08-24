@@ -163,6 +163,9 @@ $(function () {
       fechaEstimadaDeseada: {
         required: true,
       },
+      verificacionTitulo: {
+        required: true,
+      },
     },
     messages: {
       nombreProyecto: {
@@ -193,6 +196,9 @@ $(function () {
       fechaEstimadaDeseada: {
         required:
           "Por favor seleccione la fecha estimada deseada del proyecto.",
+      },
+      verificacionTitulo: {
+        required: "Por favor confirme si tiene el titulo de la propiedad.",
       },
     },
     errorElement: "span",
