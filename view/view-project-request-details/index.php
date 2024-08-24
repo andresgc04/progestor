@@ -90,20 +90,65 @@ if (isset($usuarioID)) {
                                             <div class="row">
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
+                                                        <label for="dimensionMetroLargoTerreno">Dimension De Largo Del Terreno (M):</label>
+                                                        <input type="text" id="dimensionMetroLargoTerreno" name="dimensionMetroLargoTerreno" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="dimensionMetroAnchoTerreno">Dimension De Ancho Del Terreno (M):</label>
+                                                        <input type="text" id="dimensionMetroAnchoTerreno" name="dimensionMetroAnchoTerreno" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="areaTotalTerreno">Area Del Terreno (M2):</label>
+                                                        <input type="text" id="areaTotalTerreno" name="areaTotalTerreno" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="ubicacion">Ubicacion:</label>
+                                                        <textarea id="ubicacion" name="ubicacion" class="form-control" rows="3" readonly></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="presupuestoEstimadoProyecto">Presupuesto Estimado:</label>
+                                                        <input type="text" id="presupuestoEstimadoProyecto" name="presupuestoEstimadoProyecto" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
                                                         <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
                                                         <input type="text" id="fechaEstimadaDeseada" class="form-control" readonly />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
+                                                        <label for="verificacionTitulo">Tiene El Título De La Propiedad?</label>
+                                                        <input type="text" id="verificacionTitulo" name="verificacionTitulo" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="form-group">
                                                         <label for="solicitadoPor">Solicitado Por:</label>
-                                                        <input type="text" id="solicitadoPor" class="form-control" readonly />
+                                                        <input type="text" id="solicitadoPor" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                                     <div class="form-group">
                                                         <label for="estadoSolicitud">Estado De La Solicitud:</label>
-                                                        <input type="text" id="estadoSolicitud" class="form-control" readonly />
+                                                        <input type="text" id="estadoSolicitud" class="form-control" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,6 +169,31 @@ if (isset($usuarioID)) {
                                                                     <th>DESCRIPCI&Oacute;N DEL REQUERIMIENTO</th>
                                                                     <th>ESTADO</th>
 
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <p class="text-bold">Documentos De La Solicitud Del Proyecto:</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="table-responsive">
+                                                        <table id="listadoDocumentosSolicitudesProyectosDataTable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>NOMBRE DOCUMENTO</th>
+                                                                    <th>TIPO DOCUMENTO</th>
+                                                                    <th>ESTADO</th>
+                                                                    <th>ACCIONES</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody></tbody>

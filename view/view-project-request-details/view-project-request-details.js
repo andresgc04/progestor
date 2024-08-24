@@ -68,7 +68,13 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
           nombreProyecto,
           descripcionProyecto,
           objetivoProyecto,
+          areaTotalTerreno,
+          dimensionMetroLargoTerreno,
+          dimensionMetroAnchoTerreno,
+          ubicacion,
+          presupuestoEstimadoProyecto,
           fechaEstimadaDeseada,
+          verificacionTituloPropiedad,
           nombreCliente,
           estado,
         } = responseData;
@@ -86,9 +92,29 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         const objetivoProyectoInput =
           document.getElementById("objetivoProyecto");
 
+        const areaTotalTerrenoInput =
+          document.getElementById("areaTotalTerreno");
+
+        const dimensionMetroLargoTerrenoInput = document.getElementById(
+          "dimensionMetroLargoTerreno"
+        );
+
+        const dimensionMetroAnchoTerrenoInput = document.getElementById(
+          "dimensionMetroAnchoTerreno"
+        );
+
+        const ubicacionInput = document.getElementById("ubicacion");
+
+        const presupuestoEstimadoProyectoInput = document.getElementById(
+          "presupuestoEstimadoProyecto"
+        );
+
         const fechaEstimadaDeseadaInput = document.getElementById(
           "fechaEstimadaDeseada"
         );
+
+        const verificacionTituloInput =
+          document.getElementById("verificacionTitulo");
 
         const solicitadoPorInput = document.getElementById("solicitadoPor");
 
@@ -106,8 +132,29 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
         objetivoProyectoInput.value =
           objetivoProyecto != null ? objetivoProyecto : "";
 
+        areaTotalTerrenoInput.value =
+          areaTotalTerreno != null ? areaTotalTerreno : "";
+
+        dimensionMetroLargoTerrenoInput.value =
+          dimensionMetroLargoTerreno != null ? dimensionMetroLargoTerreno : "";
+
+        dimensionMetroAnchoTerrenoInput.value =
+          dimensionMetroAnchoTerreno != null ? dimensionMetroAnchoTerreno : "";
+
+        ubicacionInput.value = ubicacion != null ? ubicacion : "";
+
+        presupuestoEstimadoProyectoInput.value =
+          presupuestoEstimadoProyecto != null
+            ? presupuestoEstimadoProyecto
+            : "";
+
         fechaEstimadaDeseadaInput.value =
           fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
+
+        verificacionTituloInput.value =
+          verificacionTituloPropiedad != null
+            ? verificacionTituloPropiedad
+            : "";
 
         solicitadoPorInput.value = nombreCliente != null ? nombreCliente : "";
 
@@ -167,7 +214,7 @@ const obtenerRequerimientosSolicitudesProyectosPorSolicitudProyectoIDDataTable =
         bDestroy: true,
         responsive: true,
         bInfo: true,
-        iDisplayLength: 10,
+        iDisplayLength: 5,
         autoWidth: false,
         language: {
           sProcessing: "Procesando...",
