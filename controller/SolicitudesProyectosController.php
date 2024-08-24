@@ -241,6 +241,55 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_documentos_solicitudes_proyectos_por_solicitud_proyecto_ID_2':
+        $datos = $solicitudesProyectos->obtener_documentos_solicitudes_proyectos_por_solicitud_proyecto_ID($_POST['solicitudProyectoID']);
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['DOCUMENTO_ID'];
+            $sub_array[] = $row['NOMBRE_DOCUMENTO'];
+            $sub_array[] = $row['TIPO_DOCUMENTO'];
+
+            if ($row['ESTADOS'] === "ACTIVO") {
+                $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
+            }
+
+            if ($row['ESTADOS'] === "PENDIENTE") {
+                $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
+            }
+
+            if ($row['ESTADOS'] === "CANCELADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
+            }
+
+            if ($row['ESTADOS'] === "RECHAZADO") {
+                $sub_array[] = '<span class="badge badge-danger">RECHAZADO</span>';
+            }
+
+            if ($row['ESTADOS'] === "APROBADO") {
+                $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
+            }
+
+            $sub_array[] = $row['ESTADOS'] === 'ACTIVO' ? '<td class="text-center">
+                                                            <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosSolicitudesProyectos(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                           </td>' :
+                                                          '<td class="text-center">
+                                                            <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosSolicitudesProyectos(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                           </td>';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
+        break;
     case 'modificar_solicitudes_proyectos_por_solicitud_proyecto_ID':
         $solicitudesProyectos->modificar_solicitudes_proyectos_por_solicitud_proyecto_ID(
             $_POST['nombreProyecto'],
