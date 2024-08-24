@@ -71,7 +71,7 @@ if (isset($usuarioID)) {
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
-                                                                <th>DESCRIPCI&Oacute;N DEL PROYECTO</th>
+                                                                <th>NOMBRE DEL PROYECTO</th>
                                                                 <th>OBJETIVO DEL PROYECTO</th>
                                                                 <th>SOLICITADO POR</th>
                                                                 <th>FECHA DE SOLICITUD</th>
