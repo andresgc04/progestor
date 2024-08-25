@@ -129,4 +129,61 @@ switch ($_GET['op']) {
             echo json_encode(['data' => []]);
         }
         break;
+    case 'obtener_documentos_proyectos_obras_civiles_por_solicitud_proyecto_ID_proyecto_obra_civil_ID':
+        $datos = $proyectosObrasCiviles->obtener_documentos_proyectos_obras_civiles_por_solicitud_proyecto_ID_proyecto_obra_civil_ID($_POST['solicitudProyectoID'], $_POST['proyectoObraCivilID']);
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['DOCUMENTO_ID'];
+            $sub_array[] = $row['SOLICITUD_PROYECTO_ID'];
+            $sub_array[] = $row['PROYECTO_OBRA_CIVIL_ID'];
+            $sub_array[] = $row['NOMBRE_DOCUMENTO'];
+            $sub_array[] = $row['TIPO_DOCUMENTO'];
+
+            if ($row['ESTADOS'] === "ACTIVO") {
+                $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
+            }
+
+            if ($row['ESTADOS'] === "PENDIENTE") {
+                $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
+            }
+
+            if ($row['ESTADOS'] === "CANCELADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
+            }
+
+            if ($row['ESTADOS'] === "RECHAZADO") {
+                $sub_array[] = '<span class="badge badge-danger">RECHAZADO</span>';
+            }
+
+            if ($row['ESTADOS'] === "APROBADO") {
+                $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
+            }
+
+            $sub_array[] = $row['ESTADOS'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
+                                                                    <div class="btn-group btn-group-sm">
+                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="eliminarDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                                    </div>
+                                                                  </td>' :
+                '<td class="text-right py-0 align-middle">
+                                                                    <div class="btn-group btn-group-sm">
+                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosSolicitudesProyectos(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')" class="btn btn-info disabled"><i class="fas fa-eye"></i></button>
+                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="eliminarDocumentosSolicitudesProyectos(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')"class="btn btn-danger disabled"><i class="fas fa-trash"></i></button>
+                                                                    </div>
+                                                                  </td>';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
+        break;
 }
