@@ -223,6 +223,13 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <i class="fas fa-weight nav-icon"></i>
                                         <p>Unidades Medidas</p>
                                     </a>
+                                  </li>';
+                        } elseif ($modulo == 'Fases Proyectos' || $modulo == 'FASES PROYECTOS' || $modulo == 'fases proyectos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeProjectPhases" href="../home-project-phases/" class="nav-link">
+                                        <i class="fas fa-project-diagram nav-icon"></i>
+                                        <p>Fases Del Proyecto</p>
+                                    </a>
                                   </li>
                                 </ul>
                             </li>';
