@@ -115,6 +115,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/content-header/set-content-header-titles.js"></script>
         <script type="text/javascript" src="../../public/js/functions/nav-link/set-nav-link-active.js"></script>
         <script type="text/javascript" src="home-project-phases.js"></script>
+        <script type="text/javascript" src="new-project-phases.js"></script>
     </body>
 
     </html>
