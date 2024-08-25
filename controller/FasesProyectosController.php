@@ -11,6 +11,9 @@ $modificadoPor = $creadoPor;
 $fasesProyectos = new FasesProyectos();
 
 switch ($_GET['op']) {
+    case "registrar_fases_proyectos":
+        $fasesProyectos->registrar_fases_proyectos($_POST["faseProyecto"], $creadoPor);
+        break;
     case "listado_fases_proyectos":
         $datos = $fasesProyectos->listado_fases_proyectos();
         $data = array();
