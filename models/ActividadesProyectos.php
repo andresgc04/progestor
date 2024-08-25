@@ -1,6 +1,40 @@
 <?php
 class ActividadesProyectos extends Connection
 {
+    public function registrar_actividades_proyectos(
+        $tipoActividadID,
+        $actividadProyecto,
+        $unidadMedidaID,
+        $costoActividadProyecto,
+        $creadoPor
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO ACTIVIDADES_PROYECTOS (TIPO_ACTIVIDAD_ID, ACTIVIDAD_PROYECTO,
+                                                     UNIDAD_MEDIDA_ID, COSTO_ACTIVIDAD_PROYECTO,
+                                                     ESTADO_ID, CREADO_POR,
+                                                     FECHA_CREACION
+                                                    )
+                                              VALUES(?, UCASE(?),
+                                                     ?, ?,
+                                                     1, ?,
+                                                     NOW()
+                                                    );';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoActividadID);
+        $query->bindValue(2, $actividadProyecto);
+        $query->bindValue(3, $unidadMedidaID);
+        $query->bindValue(4, $costoActividadProyecto);
+        $query->bindValue(5, $creadoPor);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
     public function listado_actividades_proyectos()
     {
         $conectar = parent::Connection();
