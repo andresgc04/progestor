@@ -158,8 +158,8 @@ class ProyectosObrasCiviles extends Connection
 
                 $query = 'SELECT NOMBRE_DOCUMENTO 
                             FROM DOCUMENTOS 
-                           WHERE DOCUMENTO_ID = ? AND SOLICITUD_PROYECTO_ID = ? 
-                              OR DOCUMENTO_ID = ? AND PROYECTO_OBRA_CIVIL_ID = ?;';
+                           WHERE DOCUMENTO_ID = ?
+                             AND (IFNULL(SOLICITUD_PROYECTO_ID, PROYECTO_OBRA_CIVIL_ID) = IFNULL(?, ?));';
 
                 $query = $conectar->prepare($query);
                 $query->bindValue(1, $documentoID);
