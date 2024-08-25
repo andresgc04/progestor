@@ -1,6 +1,28 @@
 <?php
 class FasesProyectos extends Connection
 {
+    public function registrar_fases_proyectos($faseProyecto, $creadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO FASES_PROYECTOS (FASE_PROYECTO, ESTADO_ID,
+                                               CREADO_POR, FECHA_CREACION
+                                              )
+                                        VALUES(?, 1,
+                                               ?, NOW()
+                                               );';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $faseProyecto);
+        $query->bindValue(2, $creadoPor);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
     public function listado_fases_proyectos()
     {
         $conectar = parent::Connection();
