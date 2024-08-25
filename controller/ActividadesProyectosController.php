@@ -11,6 +11,15 @@ $modificadoPor = $creadoPor;
 $actividadesProyectos = new ActividadesProyectos();
 
 switch ($_GET['op']) {
+    case "registrar_actividades_proyectos":
+        $actividadesProyectos->registrar_actividades_proyectos(
+            $_POST["tipoActividadID"],
+            $_POST['actividadProyecto'],
+            $_POST['unidadMedidaID'],
+            $_POST['costoActividadProyecto'],
+            $creadoPor
+        );
+        break;
     case "listado_actividades_proyectos":
         $datos = $actividadesProyectos->listado_actividades_proyectos();
         $data = array();
