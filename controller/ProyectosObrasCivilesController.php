@@ -136,8 +136,6 @@ switch ($_GET['op']) {
         foreach ($datos as $row) {
             $sub_array = array();
             $sub_array[] = $row['DOCUMENTO_ID'];
-            $sub_array[] = $row['SOLICITUD_PROYECTO_ID'];
-            $sub_array[] = $row['PROYECTO_OBRA_CIVIL_ID'];
             $sub_array[] = $row['NOMBRE_DOCUMENTO'];
             $sub_array[] = $row['TIPO_DOCUMENTO'];
 
@@ -161,18 +159,12 @@ switch ($_GET['op']) {
                 $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
             }
 
-            $sub_array[] = $row['ESTADOS'] === 'ACTIVO' ? '<td class="text-right py-0 align-middle">
-                                                                    <div class="btn-group btn-group-sm">
-                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
-                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="eliminarDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                                    </div>
-                                                                  </td>' :
-                '<td class="text-right py-0 align-middle">
-                                                                    <div class="btn-group btn-group-sm">
-                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosSolicitudesProyectos(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')" class="btn btn-info disabled"><i class="fas fa-eye"></i></button>
-                                                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="eliminarDocumentosSolicitudesProyectos(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')"class="btn btn-danger disabled"><i class="fas fa-trash"></i></button>
-                                                                    </div>
-                                                                  </td>';
+            $sub_array[] =  '<td class="text-right py-0 align-middle">
+                                <div class="btn-group btn-group-sm">
+                                    <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="eliminarDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ', ' . $row['SOLICITUD_PROYECTO_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')"class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>';
 
             $data[] = $sub_array;
         }
