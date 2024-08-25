@@ -8,6 +8,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Fases Del Proyecto");
 
+const openNewProjectPhasesFormModal = () => {
+  $("#newProjectPhasesFormModal").modal("show");
+};
+
+const newProjectPhasesButton = document.getElementById(
+  "newProjectPhasesButton"
+);
+newProjectPhasesButton.addEventListener("click", () => {
+  openNewProjectPhasesFormModal();
+});
+
 const obtenerListadoFasesProyectosDataTable = () => {
   $("#listadoFasesProyectosDataTable")
     .dataTable({
