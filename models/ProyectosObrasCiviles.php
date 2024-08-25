@@ -147,4 +147,28 @@ class ProyectosObrasCiviles extends Connection
 
                 return $resultado;
         }
+
+        public function obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID_proyecto_obra_civil_ID(
+                $documentoID,
+                $solicitudProyectoID,
+                $proyectoObraCivilID
+        ) {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'SELECT NOMBRE_DOCUMENTO 
+                            FROM DOCUMENTOS 
+                           WHERE DOCUMENTO_ID = ? AND SOLICITUD_PROYECTO_ID = ? 
+                              OR DOCUMENTO_ID = ? AND PROYECTO_OBRA_CIVIL_ID = ?;';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $documentoID);
+                $query->bindValue(2, $solicitudProyectoID);
+                $query->bindValue(3, $proyectoObraCivilID);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
 }
