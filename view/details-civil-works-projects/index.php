@@ -164,9 +164,45 @@ if (isset($usuarioID)) {
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Recursos Materiales Del Proyecto</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                                            <button id="addNewResourceMaterialButton" type="button" class="btn btn-primary"><span>Agregar Nuevo Recurso Material</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="listadoRecursosMaterialesProyectosObrasCivilesDataTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>FASE DEL PROYECTO</th>
+                                                    <th>TIPO DE RECURSO MATERIAL</th>
+                                                    <th>RECURSO MATERIAL</th>
+                                                    <th>COSTO TOTAL</th>
+                                                    <th>ESTADO</th>
+                                                    <th>ACCIONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h3 class="card-title">Files</h3>
+                                    <h3 class="card-title">Documentos Del Proyecto</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
