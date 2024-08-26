@@ -17,6 +17,14 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
+                                <label for="faseProyectoID">Fase Del Proyecto:</label>
+                                <select id="faseProyectoID" name="faseProyectoID" class="form-control select2" style="width: 100%;"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
                                 <label for="tipoActividadID">Tipo De Actividad:</label>
                                 <select id="tipoActividadID" name="tipoActividadID" class="form-control select2" style="width: 100%;"></select>
                             </div>
@@ -25,24 +33,56 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label for="nombreActividad">Nombre De Actividad:</label>
-                                <input type="text" id="nombreActividad" name="nombreActividad" class="form-control" placeholder="Ingrese el nombre de la actividad.">
+                                <label for="actividadProyectoID">Actividad Del Proyecto:</label>
+                                <select id="actividadProyectoID" name="actividadProyectoID" class="form-control select2" style="width: 100%;"></select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label for="descripcionActividad">Descripción De La Actividad:</label>
-                                <textarea id="descripcionActividad" name="descripcionActividad" class="form-control" rows="3" placeholder="Ingrese la descripcion de la actividad."></textarea>
+                                <label for="unidadMedida">Unidad De Medida:</label>
+                                <input type="text" id="unidadMedida" name="unidadMedida" class="form-control" readonly>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label for="costoActividad">Costo De La Actividad:</label>
-                                <input type="text" id="costoActividad" name="costoActividad" class="form-control" placeholder="Ingrese el costo de la actividad.">
+                                <label for="cantidadActividades">Cantidad A Necesitar:</label>
+                                <input type="text" id="cantidadActividades" name="cantidadActividades" class="form-control" placeholder="Ingrese la cantidad a necesitar de esta actividad.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="costoActividadProyecto">Costo Unitario De La Actividad:</label>
+                                <input type="text" id="costoActividadProyecto" name="costoActividadProyecto" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="subTotal">Sub-Total:</label>
+                                <input type="text" id="subTotal" name="subTotal" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="itbis">ITBIS:</label>
+                                <input type="text" id="itbis" name="itbis" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="costoTotalActividad">Costo Total:</label>
+                                <input type="text" id="costoTotalActividad" name="costoTotalActividad" class="form-control" readonly>
                             </div>
                         </div>
                     </div>
