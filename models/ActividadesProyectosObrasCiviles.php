@@ -3,33 +3,49 @@ class ActividadesProyectosObrasCiviles extends Connection
 {
     public function registrar_actividades_proyectos_obras_civiles(
         $proyectoObraCivilID,
+        $faseProyectoID,
         $tipoActividadID,
-        $nombreActividad,
-        $descripcionActividad,
-        $costoActividad,
+        $actividadProyectoID,
+        $unidadMedida,
+        $cantidadActividad,
+        $costoActividadProyecto,
+        $subTotal,
+        $itbis,
+        $costoTotal,
         $creadoPor
     ) {
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'INSERT INTO ACTIVIDADES_PROYECTOS_OBRAS_CIVILES (PROYECTO_OBRA_CIVIL_ID, TIPO_ACTIVIDAD_ID,
-                                                                   NOMBRE_ACTIVIDAD, DESCRIPCION_ACTIVIDAD,
-                                                                   COSTO_ACTIVIDAD, ESTADO_ID,
-                                                                   CREADO_POR, FECHA_CREACION
+        $query = 'INSERT INTO ACTIVIDADES_PROYECTOS_OBRAS_CIVILES (PROYECTO_OBRA_CIVIL_ID, FASE_PROYECTO_ID,
+                                                                   TIPO_ACTIVIDAD_ID, ACTIVIDAD_PROYECTO_ID,
+                                                                   UNIDAD_MEDIDA, CANTIDAD_ACTIVIDAD,
+                                                                   COSTO_ACTIVIDAD_PROYECTO, SUB_TOTAL,
+                                                                   ITBIS, COSTO_TOTAL,
+                                                                   ESTADO_ID, CREADO_POR,
+                                                                   FECHA_CREACION
                                                                   )
                                                             VALUES(?, ?,
                                                                    ?, ?,
-                                                                   ?, 1,
-                                                                   ?, NOW()
+                                                                   ?, ?,
+                                                                   ?, ?,
+                                                                   ?, ?,
+                                                                   1, ?,
+                                                                   NOW()
                                                                   );';
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $proyectoObraCivilID);
-        $query->bindValue(2, $tipoActividadID);
-        $query->bindValue(3, $nombreActividad);
-        $query->bindValue(4, $descripcionActividad);
-        $query->bindValue(5, $costoActividad);
-        $query->bindValue(6, $creadoPor);
+        $query->bindValue(2, $faseProyectoID);
+        $query->bindValue(3, $tipoActividadID);
+        $query->bindValue(4, $actividadProyectoID);
+        $query->bindValue(5, $unidadMedida);
+        $query->bindValue(6, $cantidadActividad);
+        $query->bindValue(7, $costoActividadProyecto);
+        $query->bindValue(8, $subTotal);
+        $query->bindValue(9, $itbis);
+        $query->bindValue(10, $costoTotal);
+        $query->bindValue(11, $creadoPor);
         $query->execute();
 
         $resultado = $query->fetchAll();
