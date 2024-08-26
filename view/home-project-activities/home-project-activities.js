@@ -8,6 +8,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Actividades De Los Proyectos");
 
+const openNewProjectActivitiesFormModal = () => {
+  $("#newProjectActivitiesFormModal").modal("show");
+};
+
+const newProjectActivitiesButton = document.getElementById(
+  "newProjectActivitiesButton"
+);
+newProjectActivitiesButton.addEventListener("click", () => {
+  openNewProjectActivitiesFormModal();
+});
+
 const obtenerListadoActividadesProyectosDataTable = () => {
   $("#listadoActividadesProyectosDataTable")
     .dataTable({
@@ -63,5 +74,18 @@ const obtenerListadoActividadesProyectosDataTable = () => {
 };
 
 (function () {
+  //Initialize Select2 Elements:
+  initializeSelect2Elements();
+
   obtenerListadoActividadesProyectosDataTable();
+
+  getSelectListTypesActivitiesOptions(
+    "../../controller/TiposActividadesController.php?op=obtener_listado_opciones_tipos_actividades",
+    "#tipoActividadID"
+  );
+
+  getSelectListUnitsMeasurementsOptions(
+    "../../controller/UnidadesMedidasController.php?op=obtener_listado_opciones_unidades_medidas",
+    "#unidadMedidaID"
+  );
 })();
