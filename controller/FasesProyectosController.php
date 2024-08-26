@@ -46,4 +46,17 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_fases_proyectos':
+        $datos = $fasesProyectos->obtener_listado_opciones_fases_proyectos();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione la fase del proyecto.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['FASE_PROYECTO_ID'] . '">' . $row['FASE_PROYECTO'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
