@@ -43,6 +43,7 @@ class ActividadesProyectosObrasCiviles extends Connection
         parent::set_names();
 
         $query = 'SELECT actividadesProyectosObrasCiviles.ACTIVIDAD_PROYECTO_OBRA_CIVIL_ID,
+                         actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
     	                 UCASE(fasesProyectos.FASE_PROYECTO) AS FASE_PROYECTO,
                          UCASE(tiposActividades.TIPO_ACTIVIDAD) AS TIPO_ACTIVIDAD,
                          UCASE(actividadesProyectos.ACTIVIDAD_PROYECTO) AS ACTIVIDAD_PROYECTO,
