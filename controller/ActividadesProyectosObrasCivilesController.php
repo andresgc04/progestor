@@ -14,10 +14,15 @@ switch ($_GET['op']) {
     case "registrar_actividades_proyectos_obras_civiles":
         $actividadesProyectosObrasCiviles->registrar_actividades_proyectos_obras_civiles(
             $_POST["addActivityProyectoObraCivilID"],
+            $_POST['faseProyectoID'],
             $_POST['tipoActividadID'],
-            $_POST['nombreActividad'],
-            $_POST['descripcionActividad'],
-            $_POST['costoActividad'],
+            $_POST['actividadProyectoID'],
+            $_POST['unidadMedida'],
+            $_POST['cantidadActividades'],
+            $_POST['costoActividadProyecto'],
+            $_POST['subTotal'],
+            $_POST['itbis'],
+            $_POST['costoTotalActividad'],
             $creadoPor
         );
         break;
