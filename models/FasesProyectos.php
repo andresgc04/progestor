@@ -44,4 +44,23 @@ class FasesProyectos extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_fases_proyectos()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT FASE_PROYECTO_ID,
+                         UCASE(FASE_PROYECTO) AS FASE_PROYECTO
+                    FROM FASES_PROYECTOS
+                   WHERE ESTADO_ID = 1
+                ORDER BY FASE_PROYECTO ASC;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
