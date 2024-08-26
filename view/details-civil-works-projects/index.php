@@ -149,9 +149,10 @@ if (isset($usuarioID)) {
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>FASE DEL PROYECTO</th>
                                                     <th>TIPO DE ACTIVIDAD</th>
                                                     <th>ACTIVIDAD</th>
-                                                    <th>COSTO</th>
+                                                    <th>COSTO TOTAL</th>
                                                     <th>ESTADO</th>
                                                     <th>ACCIONES</th>
                                                 </tr>

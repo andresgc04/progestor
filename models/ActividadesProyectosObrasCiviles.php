@@ -42,20 +42,23 @@ class ActividadesProyectosObrasCiviles extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT actividadesProyectosObrasCiviles.ACTIVIDAD_ID, 
-	                     actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID,
+        $query = 'SELECT actividadesProyectosObrasCiviles.ACTIVIDAD_PROYECTO_OBRA_CIVIL_ID,
+    	                 UCASE(fasesProyectos.FASE_PROYECTO) AS FASE_PROYECTO,
                          UCASE(tiposActividades.TIPO_ACTIVIDAD) AS TIPO_ACTIVIDAD,
-                         UCASE(actividadesProyectosObrasCiviles.NOMBRE_ACTIVIDAD) as NOMBRE_ACTIVIDAD,
-                         UCASE(actividadesProyectosObrasCiviles.DESCRIPCION_ACTIVIDAD) AS DESCRIPCION_ACTIVIDAD,
-                         actividadesProyectosObrasCiviles.COSTO_ACTIVIDAD,
-                         UCASE(estados.ESTADO) AS ESTADO
+                         UCASE(actividadesProyectos.ACTIVIDAD_PROYECTO) AS ACTIVIDAD_PROYECTO,
+                         actividadesProyectosObrasCiviles.COSTO_ACTIVIDAD_PROYECTO,
+                         UCASE(estados.ESTADO) AS ESTADOS
                     FROM ACTIVIDADES_PROYECTOS_OBRAS_CIVILES actividadesProyectosObrasCiviles
+              INNER JOIN FASES_PROYECTOS fasesProyectos
+                      ON actividadesProyectosObrasCiviles.FASE_PROYECTO_ID = fasesProyectos.FASE_PROYECTO_ID
               INNER JOIN TIPOS_ACTIVIDADES tiposActividades
-		              ON actividadesProyectosObrasCiviles.TIPO_ACTIVIDAD_ID = tiposActividades.TIPO_ACTIVIDAD_ID
+                      ON actividadesProyectosObrasCiviles.TIPO_ACTIVIDAD_ID = tiposActividades.TIPO_ACTIVIDAD_ID 
+              INNER JOIN ACTIVIDADES_PROYECTOS actividadesProyectos
+                      ON actividadesProyectosObrasCiviles.ACTIVIDAD_PROYECTO_ID = actividadesProyectos.ACTIVIDAD_PROYECTO_ID
               INNER JOIN ESTADOS estados
                       ON actividadesProyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
-                   WHERE actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ? AND
-     	                 actividadesProyectosObrasCiviles.ESTADO_ID = 1;';
+                   WHERE actividadesProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ?
+                     AND actividadesProyectosObrasCiviles.ESTADO_ID = 1;';
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $proyectoObraCivilID);
