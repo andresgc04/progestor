@@ -55,4 +55,17 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_actividades_proyectos_por_tipo_actividad_ID':
+        $datos = $actividadesProyectos->obtener_listado_opciones_actividades_proyectos_por_tipo_actividad_ID($_POST['tipoActividadID']);
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione la actividad del proyecto.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['ACTIVIDAD_PROYECTO_ID'] . '">' . $row['ACTIVIDAD_PROYECTO'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
