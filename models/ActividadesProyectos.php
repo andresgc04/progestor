@@ -63,4 +63,24 @@ class ActividadesProyectos extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_actividades_proyectos_por_tipo_actividad_ID($tipoActividadID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT ACTIVIDAD_PROYECTO_ID,
+                         UCASE(ACTIVIDAD_PROYECTO) AS ACTIVIDAD_PROYECTO
+                    FROM ACTIVIDADES_PROYECTOS
+                   WHERE TIPO_ACTIVIDAD_ID = ? AND ESTADO_ID = 1
+                ORDER BY ACTIVIDAD_PROYECTO ASC;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoActividadID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }

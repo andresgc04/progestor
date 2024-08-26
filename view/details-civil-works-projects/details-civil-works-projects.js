@@ -333,6 +333,11 @@ const obtenerListadoDocumentosProyectosObrasCivilesDataTable = (
     "#tipoActividadID"
   );
 
+  getSelectListProjectPhasesOptions(
+    "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
+    "#faseProyectoID"
+  );
+
   obtenerListadoActividadesProyectosObrasCivilesDataTable(proyectoObraCivilID);
 
   obtenerListadoDocumentosProyectosObrasCivilesDataTable(
