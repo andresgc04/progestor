@@ -64,6 +64,27 @@ class ActividadesProyectos extends Connection
         return $resultado;
     }
 
+    public function obtener_unidades_medidas_costos_actividades_proyectos_por_actividad_proyecto_ID($actividadProyectoID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDAD_MEDIDA,
+                         actividadesProyectos.COSTO_ACTIVIDAD_PROYECTO
+                    FROM ACTIVIDADES_PROYECTOS actividadesProyectos
+              INNER JOIN UNIDADES_MEDIDAS unidadesMedidas
+                      ON actividadesProyectos.UNIDAD_MEDIDA_ID = unidadesMedidas.UNIDAD_MEDIDA_ID
+                   WHERE actividadesProyectos.ACTIVIDAD_PROYECTO_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $actividadProyectoID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
     public function obtener_listado_opciones_actividades_proyectos_por_tipo_actividad_ID($tipoActividadID)
     {
         $conectar = parent::Connection();
