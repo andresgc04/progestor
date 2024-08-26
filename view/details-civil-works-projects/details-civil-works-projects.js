@@ -373,6 +373,106 @@ tipoActividadIDInput.onchange = function (event) {
   );
 };
 
+const obtenerUnidadMedidaYCostoActividadProyectoPorActividadProyectoID = (
+  actividadProyectoID
+) => {
+  $.post(
+    "../../controller/ActividadesProyectosController.php?op=obtener_unidades_medidas_costos_actividades_proyectos_por_actividad_proyecto_ID",
+    {
+      actividadProyectoID: actividadProyectoID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { unidadMedida, costoActividadProyecto } = responseData;
+
+        const unidadMedidaInput = document.getElementById("unidadMedida");
+
+        const costoActividadProyectoInput = document.getElementById(
+          "costoActividadProyecto"
+        );
+
+        unidadMedidaInput.value = unidadMedida != null ? unidadMedida : "";
+
+        costoActividadProyectoInput.value =
+          costoActividadProyecto != null ? costoActividadProyecto : "";
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
+
+const actividadProyectoIDInput = document.getElementById("actividadProyectoID");
+actividadProyectoIDInput.onchange = function (event) {
+  const actividadProyectoID = event.target.value;
+
+  obtenerUnidadMedidaYCostoActividadProyectoPorActividadProyectoID(
+    actividadProyectoID
+  );
+};
+
+// Función para multiplicar los valores de los inputs:
+const calcularSubTotalITBISCostoTotal = () => {
+  // Obtener los valores de los inputs:
+  const cantidadActividadesValue =
+    parseFloat(document.getElementById("cantidadActividades").value) || 0;
+
+  const costoActividadProyectoValue =
+    parseFloat(document.getElementById("costoActividadProyecto").value) || 0;
+
+  // Multiplicar los valores:
+  const resultadoSubTotal =
+    cantidadActividadesValue * costoActividadProyectoValue;
+
+  document.getElementById("subTotal").value = resultadoSubTotal;
+
+  const porcentajeITBIS = 0.18;
+
+  const resultadoITBIS = resultadoSubTotal * porcentajeITBIS;
+
+  document.getElementById("itbis").value = resultadoITBIS;
+
+  const resultadoCostoTotalActividad = resultadoSubTotal + resultadoITBIS;
+
+  document.getElementById("costoTotalActividad").value =
+    resultadoCostoTotalActividad;
+};
+
+// Agregar eventos de 'input' a los campos de entrada:
+document
+  .getElementById("cantidadActividades")
+  .addEventListener("input", calcularSubTotalITBISCostoTotal);
+
 const openUpdateProjectActivityFormModal = () => {
   $("#updateProjectActivityFormModal").modal("show");
 };
