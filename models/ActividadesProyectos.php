@@ -44,6 +44,7 @@ class ActividadesProyectos extends Connection
                          UCASE(tiposActividades.TIPO_ACTIVIDAD) AS TIPO_ACTIVIDAD,
                          UCASE(actividadesProyectos.ACTIVIDAD_PROYECTO) AS ACTIVIDAD_PROYECTO,
                          UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDAD_MEDIDA,
+                         actividadesProyectos.COSTO_ACTIVIDAD_PROYECTO,
                          UCASE(estados.ESTADO) AS ESTADOS
                     FROM ACTIVIDADES_PROYECTOS actividadesProyectos
               INNER JOIN TIPOS_ACTIVIDADES tiposActividades

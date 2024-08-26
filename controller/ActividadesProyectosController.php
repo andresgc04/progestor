@@ -30,6 +30,7 @@ switch ($_GET['op']) {
             $sub_array[] = $row['TIPO_ACTIVIDAD'];
             $sub_array[] = $row['ACTIVIDAD_PROYECTO'];
             $sub_array[] = $row['UNIDAD_MEDIDA'];
+            $sub_array[] = $row['COSTO_ACTIVIDAD_PROYECTO'];
 
             if ($row["ESTADOS"] === "ACTIVO") {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';

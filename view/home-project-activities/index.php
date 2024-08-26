@@ -121,6 +121,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_activities_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_units_measurements_options.js"></script>
         <script type="text/javascript" src="home-project-activities.js"></script>
+        <script type="text/javascript" src="new-project-activities.js"></script>
     </body>
 
     </html>
