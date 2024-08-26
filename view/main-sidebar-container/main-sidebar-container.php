@@ -230,6 +230,13 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <i class="fas fa-project-diagram nav-icon"></i>
                                         <p>Fases Del Proyecto</p>
                                     </a>
+                                  </li>';
+                        } elseif ($modulo == 'Actividades Proyectos' || $modulo == 'ACTIVIDADES PROYECTOS' || $modulo == 'actividades proyectos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeProjectActivities" href="../home-project-activities/" class="nav-link">
+                                        <i class="fas fa-tasks nav-icon"></i>
+                                        <p>Actividades De Los Proyectos</p>
+                                    </a>
                                   </li>
                                 </ul>
                             </li>';
