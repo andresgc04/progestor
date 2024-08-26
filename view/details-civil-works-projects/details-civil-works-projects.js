@@ -362,6 +362,17 @@ addNewProjectActivityButton.addEventListener("click", () => {
   openAddNewProjectActivityFormModal();
 });
 
+const tipoActividadIDInput = document.getElementById("tipoActividadID");
+tipoActividadIDInput.onchange = function (event) {
+  const tipoActividadID = event.target.value;
+
+  getSelectListProjectActivitiesOptionsByTipoActividadID(
+    "../../controller/ActividadesProyectosController.php?op=obtener_listado_opciones_actividades_proyectos_por_tipo_actividad_ID",
+    tipoActividadID,
+    "#actividadProyectoID"
+  );
+};
+
 const openUpdateProjectActivityFormModal = () => {
   $("#updateProjectActivityFormModal").modal("show");
 };
