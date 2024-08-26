@@ -63,7 +63,7 @@ class ActividadesProyectosObrasCiviles extends Connection
     	                 UCASE(fasesProyectos.FASE_PROYECTO) AS FASE_PROYECTO,
                          UCASE(tiposActividades.TIPO_ACTIVIDAD) AS TIPO_ACTIVIDAD,
                          UCASE(actividadesProyectos.ACTIVIDAD_PROYECTO) AS ACTIVIDAD_PROYECTO,
-                         actividadesProyectosObrasCiviles.COSTO_ACTIVIDAD_PROYECTO,
+                         actividadesProyectosObrasCiviles.COSTO_TOTAL,
                          UCASE(estados.ESTADO) AS ESTADOS
                     FROM ACTIVIDADES_PROYECTOS_OBRAS_CIVILES actividadesProyectosObrasCiviles
               INNER JOIN FASES_PROYECTOS fasesProyectos

@@ -328,14 +328,14 @@ const obtenerListadoDocumentosProyectosObrasCivilesDataTable = (
     solicitudProyectoID
   );
 
-  getSelectListTypesActivitiesOptions(
-    "../../controller/TiposActividadesController.php?op=obtener_listado_opciones_tipos_actividades",
-    "#tipoActividadID"
-  );
-
   getSelectListProjectPhasesOptions(
     "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
     "#faseProyectoID"
+  );
+
+  getSelectListTypesActivitiesOptions(
+    "../../controller/TiposActividadesController.php?op=obtener_listado_opciones_tipos_actividades",
+    "#tipoActividadID"
   );
 
   obtenerListadoActividadesProyectosObrasCivilesDataTable(proyectoObraCivilID);

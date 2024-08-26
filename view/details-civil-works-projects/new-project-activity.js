@@ -20,10 +20,35 @@ function saveNewProjectActivity() {
       }).then(
         (willClose = () => {
           $("#addActivityProyectoObraCivilID").val("");
-          $("#tipoActividadID").val("");
-          $("#nombreActividad").val("");
-          $("#descripcionActividad").val("");
-          $("#costoActividad").val("");
+
+          getSelectListProjectPhasesOptions(
+            "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
+            "#faseProyectoID"
+          );
+
+          getSelectListTypesActivitiesOptions(
+            "../../controller/TiposActividadesController.php?op=obtener_listado_opciones_tipos_actividades",
+            "#tipoActividadID"
+          );
+
+          const tipoActividadIDInput =
+            document.getElementById("tipoActividadID");
+          tipoActividadIDInput.onchange = function (event) {
+            const tipoActividadID = event.target.value;
+
+            getSelectListProjectActivitiesOptionsByTipoActividadID(
+              "../../controller/ActividadesProyectosController.php?op=obtener_listado_opciones_actividades_proyectos_por_tipo_actividad_ID",
+              tipoActividadID,
+              "#actividadProyectoID"
+            );
+          };
+
+          $("#unidadMedida").val("");
+          $("#cantidadActividades").val("");
+          $("#costoActividadProyecto").val("");
+          $("#subTotal").val("");
+          $("#itbis").val("");
+          $("#costoTotalActividad").val("");
 
           $("#newProjectActivityFormModal").modal("hide");
           $("#listadoActividadesProyectosObrasCivilesDataTable")
@@ -58,31 +83,31 @@ $(function () {
 
   $("#newProjectActivityForm").validate({
     rules: {
+      faseProyectoID: {
+        required: true,
+      },
       tipoActividadID: {
         required: true,
       },
-      nombreActividad: {
+      actividadProyectoID: {
         required: true,
       },
-      descripcionActividad: {
-        required: true,
-      },
-      costoActividad: {
+      cantidadActividades: {
         required: true,
       },
     },
     messages: {
+      faseProyectoID: {
+        required: "Por favor seleccione la fase del proyecto.",
+      },
       tipoActividadID: {
-        required: "Por favor seleccione el tipo de actividad.",
+        required: "Por favor seleccione el tipo de actividad del proyecto.",
       },
-      nombreActividad: {
-        required: "Por favor ingrese el nombre de la actividad.",
+      actividadProyectoID: {
+        required: "Por favor seleccione la actividad del proyecto.",
       },
-      descripcionActividad: {
-        required: "Por favor ingrese la descripcion de la actividad.",
-      },
-      costoActividad: {
-        required: "Por favor ingrese el costo de la actividad.",
+      cantidadActividades: {
+        required: "Por favor ingrese la cantidad de esta actvidad a necesitar.",
       },
     },
     errorElement: "span",
