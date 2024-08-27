@@ -344,6 +344,21 @@ const obtenerListadoDocumentosProyectosObrasCivilesDataTable = (
     solicitudProyectoID,
     proyectoObraCivilID
   );
+
+  getSelectListProjectPhasesOptions(
+    "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
+    "#faseProyectoIDRecursoMaterial"
+  );
+
+  getSelectListSuppliersOptions(
+    "../../controller/ProveedoresController.php?op=obtener_listado_opciones_proveedores",
+    "#proveedorID"
+  );
+
+  getSelectListTypesMaterialResourcesOptions(
+    "../../controller/TiposRecursosMaterialesController.php?op=obtener_listado_opciones_tipos_recursos_materiales",
+    "#tipoRecursoMaterialID"
+  );
 })();
 
 const openAddNewProjectActivityFormModal = () => {
@@ -587,6 +602,22 @@ const verDetalleActividadProyectoObraCivil = (
     proyectoObraCivilID
   );
 };
+
+const openAddNewResourcesMaterialFormModal = () => {
+  const proyectoObraCivilIDInput = document.getElementById(
+    "addResourceMaterialProyectoObraCivilID"
+  );
+  proyectoObraCivilIDInput.value = getParams("proyectoObraCivilID");
+
+  $("#newResourcesMaterialFormModal").modal("show");
+};
+
+const addNewResourceMaterialButton = document.getElementById(
+  "addNewResourceMaterialButton"
+);
+addNewResourceMaterialButton.addEventListener("click", () => {
+  openAddNewResourcesMaterialFormModal();
+});
 
 const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
   (documentoID, solicitudProyectoID, proyectoObraCivilID) => {

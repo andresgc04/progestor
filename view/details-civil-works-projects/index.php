@@ -233,6 +233,7 @@ if (isset($usuarioID)) {
                     </div>
 
                     <?php require_once('components/add-new-project-activity.php') ?>
+                    <?php require_once('components/add-new-resources-material.php') ?>
                     <?php require_once('components/update-project-activity.php') ?>
 
                 </section>
@@ -259,6 +260,8 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_activities_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_project_phases_options.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_project_activities_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_material_resources_options.js"></script>
+        <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_suppliers_options.js"></script>
         <script type="text/javascript" src="details-civil-works-projects.js"></script>
         <script type="text/javascript" src="new-project-activity.js"></script>
         <script type="text/javascript" src="update-project-activity.js"></script>
