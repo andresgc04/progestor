@@ -865,3 +865,21 @@ const verDetallesDocumentosProyectosObrasCiviles = (
     proyectoObraCivilID
   );
 };
+
+const openAddNewProjectDocument = () => {
+  const addProjectDocumentsProyectoObraCivilIDInput = document.getElementById(
+    "addProjectDocumentsProyectoObraCivilID"
+  );
+  addProjectDocumentsProyectoObraCivilIDInput.value = getParams(
+    "proyectoObraCivilID"
+  );
+
+  $("#newProjectDocumentsFormModal").modal("show");
+};
+
+const addNewProjectDocumentButton = document.getElementById(
+  "addNewProjectDocumentButton"
+);
+addNewProjectDocumentButton.addEventListener("click", () => {
+  openAddNewProjectDocument();
+});

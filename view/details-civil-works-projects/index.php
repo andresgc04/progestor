@@ -211,6 +211,12 @@ if (isset($usuarioID)) {
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                                            <button id="addNewProjectDocumentButton" type="button" class="btn btn-primary"><span>Agregar Nuevo Documento</span></button>
+                                        </div>
+                                    </div>
+
                                     <div class="table-responsive">
                                         <table id="listadoDocumentosProyectosObrasCivilesDataTable" class="table table-bordered table-striped">
                                             <thead>
@@ -234,6 +240,7 @@ if (isset($usuarioID)) {
 
                     <?php require_once('components/add-new-project-activity.php') ?>
                     <?php require_once('components/add-new-resources-material.php') ?>
+                    <?php require_once('components/add-project-documents.php') ?>
                     <?php require_once('components/update-project-activity.php') ?>
 
                 </section>
