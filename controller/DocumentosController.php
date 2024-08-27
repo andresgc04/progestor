@@ -13,7 +13,7 @@ $documentos = new Documentos();
 switch ($_GET['op']) {
     case 'registrar_documentos':
         $documentos->registrar_documentos(
-            $_POST['nombreProyecto'],
+            $_POST['addProjectDocumentsProyectoObraCivilID'],
             $_FILES['documento'],
             $creadoPor
         );

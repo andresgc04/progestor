@@ -377,6 +377,8 @@ const obtenerListadoDocumentosProyectosObrasCivilesDataTable = (
   //Initialize Select2 Elements:
   initializeSelect2Elements();
 
+  bsCustomFileInput.init();
+
   const proyectoObraCivilID = getParams("proyectoObraCivilID");
   const solicitudProyectoID = getParams("solicitudProyectoID");
 
@@ -800,7 +802,7 @@ document
   .addEventListener("input", calcularSubTotalITBISCostoTotalRecursosMateriales);
 
 const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
-  (documentoID, solicitudProyectoID, proyectoObraCivilID) => {
+  (documentoID, solicitudProyectoID = 0, proyectoObraCivilID) => {
     $.post(
       "../../controller/ProyectosObrasCivilesController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID_proyecto_obra_civil_ID",
       {
