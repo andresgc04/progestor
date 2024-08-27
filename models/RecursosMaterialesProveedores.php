@@ -95,7 +95,7 @@ class RecursosMaterialesProveedores extends Connection
                               ON recursosMateriales.TIPO_RECURSO_MATERIAL_ID = tiposRecusosMateriales.TIPO_RECURSO_MATERIAL_ID
                            WHERE recursosMaterialesProveedores.PROVEEDOR_ID = ? 
                              AND recursosMateriales.TIPO_RECURSO_MATERIAL_ID = ?
-                             AND ESTADO_ID = 1
+                             AND recursosMaterialesProveedores.ESTADO_ID = 1
                         ORDER BY recursosMateriales.RECURSO_MATERIAL ASC;';
 
                 $query = $conectar->prepare($query);

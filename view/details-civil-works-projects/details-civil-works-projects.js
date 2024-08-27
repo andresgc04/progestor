@@ -619,6 +619,21 @@ addNewResourceMaterialButton.addEventListener("click", () => {
   openAddNewResourcesMaterialFormModal();
 });
 
+const tipoRecursoMaterialIDInput = document.getElementById(
+  "tipoRecursoMaterialID"
+);
+tipoRecursoMaterialIDInput.onchange = function (event) {
+  const proveedorID = document.getElementById("proveedorID").value;
+  const tipoRecursoMaterialID = event.target.value;
+
+  getSelectListMaterialResourcesSuppliersOptionsByProveedorIDAndTipoRecursoMaterialID(
+    "../../controller/RecursosMaterialesProveedoresController.php?op=obtener_listado_opciones_recursos_materiales_proveedores_por_proveedor_ID_tipo_recurso_material_ID",
+    proveedorID,
+    tipoRecursoMaterialID,
+    "#recursoMaterialID"
+  );
+};
+
 const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
   (documentoID, solicitudProyectoID, proyectoObraCivilID) => {
     $.post(
