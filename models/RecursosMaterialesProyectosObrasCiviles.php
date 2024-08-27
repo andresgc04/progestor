@@ -66,7 +66,7 @@ class RecursosMaterialesProyectosObrasCiviles extends Connection
                          UCASE(tiposRecursosMateriales.TIPO_RECURSO_MATERIAL) AS TIPO_RECURSO_MATERIAL,
                          UCASE(recursosMateriales.RECURSO_MATERIAL) AS RECURSO_MATERIAL,
                          recursosMaterialesProyectosObrasCiviles.COSTO_TOTAL,
-                         UCASE(estados.ESTADO) AS ESTADO
+                         UCASE(estados.ESTADO) AS ESTADOS
                     FROM RECURSOS_MATERIALES_PROYECTOS_OBRAS_CIVILES recursosMaterialesProyectosObrasCiviles
               INNER JOIN FASES_PROYECTOS fasesProyectos
                       ON recursosMaterialesProyectosObrasCiviles.FASE_PROYECTO_ID = fasesProyectos.FASE_PROYECTO_ID
