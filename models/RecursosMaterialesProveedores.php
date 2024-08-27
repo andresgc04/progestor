@@ -81,6 +81,33 @@ class RecursosMaterialesProveedores extends Connection
                 return $resultado;
         }
 
+        public function obtener_listado_opciones_recursos_materiales_proveedores($proveedorID, $tipoRecursoMaterialID)
+        {
+                $conectar = parent::Connection();
+                parent::set_names();
+
+                $query = 'SELECT recursosMaterialesProveedores.recurso_material_id,
+    	                         UCASE(recursosMateriales.RECURSO_MATERIAL) AS RECURSO_MATERIAl
+                            FROM RECURSOS_MATERIALES_PROVEEDORES recursosMaterialesProveedores
+                      INNER JOIN RECURSOS_MATERIALES recursosMateriales
+                              ON recursosMaterialesProveedores.RECURSO_MATERIAL_ID = recursosMateriales.RECURSO_MATERIAL_ID
+                      INNER JOIN TIPOS_RECURSOS_MATERIALES tiposRecusosMateriales
+                              ON recursosMateriales.TIPO_RECURSO_MATERIAL_ID = tiposRecusosMateriales.TIPO_RECURSO_MATERIAL_ID
+                           WHERE recursosMaterialesProveedores.PROVEEDOR_ID = ? 
+                             AND recursosMateriales.TIPO_RECURSO_MATERIAL_ID = ?
+                             AND ESTADO_ID = 1
+                        ORDER BY recursosMateriales.RECURSO_MATERIAL ASC;';
+
+                $query = $conectar->prepare($query);
+                $query->bindValue(1, $proveedorID);
+                $query->bindValue(2, $tipoRecursoMaterialID);
+                $query->execute();
+
+                $resultado = $query->fetchAll();
+
+                return $resultado;
+        }
+
         public function modificar_recursos_materiales_proveedores(
                 $modificarRecursoMaterialID,
                 $modificarProveedorID,
