@@ -11,10 +11,10 @@ $modificadoPor = $creadoPor;
 $recursosMaterialesProyectosObrasCiviles = new RecursosMaterialesProyectosObrasCiviles();
 
 switch ($_GET['op']) {
-    case "registrar_actividades_proyectos_obras_civiles":
+    case "registrar_recursos_materiales_proyectos_obras_civiles":
         $recursosMaterialesProyectosObrasCiviles->registrar_recursos_materiales_proyectos_obras_civiles(
             $_POST["addResourceMaterialProyectoObraCivilID"],
-            $_POST['faseProyectoID'],
+            $_POST['faseProyectoIDRecursoMaterial'],
             $_POST['proveedorID'],
             $_POST['tipoRecursoMaterialID'],
             $_POST['recursoMaterialID'],
