@@ -634,6 +634,77 @@ tipoRecursoMaterialIDInput.onchange = function (event) {
   );
 };
 
+const obtenerUnidadMedidaYCostoRecursoMaterialPorRecursoMaterialID = (
+  recursoMaterialID
+) => {
+  $.post(
+    "../../controller/RecursosMaterialesController.php?op=obtener_unidades_medidas_costos_recursos_materiales_por_recurso_material_ID",
+    {
+      recursoMaterialID: recursoMaterialID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { unidadMedida, costoRecursoMaterial } = responseData;
+
+        const unidadMedidaRecursoMaterialInput = document.getElementById(
+          "unidadMedidaRecursoMaterial"
+        );
+
+        const costoRecursoMaterialInput = document.getElementById(
+          "costoRecursoMaterial"
+        );
+
+        unidadMedidaRecursoMaterialInput.value =
+          unidadMedida != null ? unidadMedida : "";
+
+        costoRecursoMaterialInput.value =
+          costoRecursoMaterial != null ? costoRecursoMaterial : "";
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
+
+const recursoMaterialIDInput = document.getElementById("recursoMaterialID");
+recursoMaterialIDInput.onchange = function (event) {
+  const recursoMaterialID = event.target.value;
+
+  obtenerUnidadMedidaYCostoRecursoMaterialPorRecursoMaterialID(
+    recursoMaterialID
+  );
+};
+
 const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
   (documentoID, solicitudProyectoID, proyectoObraCivilID) => {
     $.post(
