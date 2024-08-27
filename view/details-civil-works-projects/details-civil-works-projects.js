@@ -705,6 +705,39 @@ recursoMaterialIDInput.onchange = function (event) {
   );
 };
 
+// Función para multiplicar los valores de los inputs:
+const calcularSubTotalITBISCostoTotalRecursosMateriales = () => {
+  // Obtener los valores de los inputs:
+  const cantidadRecursosMaterialesValue =
+    parseFloat(document.getElementById("cantidadRecursosMateriales").value) ||
+    0;
+
+  const costoRecursoMaterialValue =
+    parseFloat(document.getElementById("costoRecursoMaterial").value) || 0;
+
+  // Multiplicar los valores:
+  const resultadoSubTotal =
+    cantidadRecursosMaterialesValue * costoRecursoMaterialValue;
+
+  document.getElementById("subTotalRecursoMaterial").value = resultadoSubTotal;
+
+  const porcentajeITBIS = 0.18;
+
+  const resultadoITBIS = resultadoSubTotal * porcentajeITBIS;
+
+  document.getElementById("itbisRecursoMaterial").value = resultadoITBIS;
+
+  const resultadoCostoTotalActividad = resultadoSubTotal + resultadoITBIS;
+
+  document.getElementById("costoTotalRecursoMaterial").value =
+    resultadoCostoTotalActividad;
+};
+
+// Agregar eventos de 'input' a los campos de entrada:
+document
+  .getElementById("cantidadRecursosMateriales")
+  .addEventListener("input", calcularSubTotalITBISCostoTotalRecursosMateriales);
+
 const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
   (documentoID, solicitudProyectoID, proyectoObraCivilID) => {
     $.post(
