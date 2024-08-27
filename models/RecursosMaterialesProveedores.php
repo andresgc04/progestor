@@ -81,12 +81,12 @@ class RecursosMaterialesProveedores extends Connection
                 return $resultado;
         }
 
-        public function obtener_listado_opciones_recursos_materiales_proveedores($proveedorID, $tipoRecursoMaterialID)
+        public function obtener_listado_opciones_recursos_materiales_proveedores_por_proveedor_ID_tipo_recurso_material_ID($proveedorID, $tipoRecursoMaterialID)
         {
                 $conectar = parent::Connection();
                 parent::set_names();
 
-                $query = 'SELECT recursosMaterialesProveedores.recurso_material_id,
+                $query = 'SELECT recursosMaterialesProveedores.RECURSO_MATERIAL_ID,
     	                         UCASE(recursosMateriales.RECURSO_MATERIAL) AS RECURSO_MATERIAl
                             FROM RECURSOS_MATERIALES_PROVEEDORES recursosMaterialesProveedores
                       INNER JOIN RECURSOS_MATERIALES recursosMateriales

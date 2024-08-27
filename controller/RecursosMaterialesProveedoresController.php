@@ -102,14 +102,17 @@ switch ($_GET['op']) {
             $_POST['proveedorID']
         );
         break;
-    case 'obtener_listado_opciones_provincias_por_paisID':
-        $datos = $provincias->obtener_listado_opciones_provincias_por_paisID($_POST['paisID']);
+    case 'obtener_listado_opciones_recursos_materiales_proveedores_por_proveedor_ID_tipo_recurso_material_ID':
+        $datos = $recursosMaterialesProveedores->obtener_listado_opciones_recursos_materiales_proveedores_por_proveedor_ID_tipo_recurso_material_ID(
+            $_POST['proveedorID'],
+            $_POST['tipoRecursoMaterialID']
+        );
 
         if (is_array($datos) == true and count($datos) > 0) {
-            $html .= '<option selected disabled>Por favor seleccione la provincia.</option>';
+            $html .= '<option selected disabled>Por favor seleccione el recurso material.</option>';
 
             foreach ($datos as $row) {
-                $html .= '<option value="' . $row['PROVINCIA_ID'] . '">' . $row['PROVINCIA'] . '</option>';
+                $html .= '<option value="' . $row['RECURSO_MATERIAL_ID'] . '">' . $row['RECURSO_MATERIAl'] . '</option>';
             }
 
             echo $html;
