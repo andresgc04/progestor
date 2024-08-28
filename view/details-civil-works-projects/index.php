@@ -161,7 +161,7 @@ if (isset($usuarioID)) {
                                         </table>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row mt-3">
                                         <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="costoTotalActividadesProyectosObrasCivilesValue">Costo Total De Las Actividades De Proyectos De Obras Civiles:</label>

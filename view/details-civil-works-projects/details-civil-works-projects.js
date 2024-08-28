@@ -373,6 +373,61 @@ const obtenerListadoDocumentosProyectosObrasCivilesDataTable = (
     .DataTable();
 };
 
+const obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID =
+  (proyectoObraCivilID) => {
+    $.post(
+      "../../controller/ActividadesProyectosObrasCivilesController.php?op=obtener_costos_totales_actividades_proyectos_obras_civiles_por_proyecto_obra_civil_ID",
+      {
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const { costoTotal } = responseData;
+
+          const costoTotalActividadesProyectosObrasCivilesValue =
+            document.getElementById(
+              "costoTotalActividadesProyectosObrasCivilesValue"
+            );
+
+          costoTotalActividadesProyectosObrasCivilesValue.value =
+            costoTotal != null ? costoTotal : "";
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
 (function () {
   //Initialize Select2 Elements:
   initializeSelect2Elements();
@@ -400,6 +455,10 @@ const obtenerListadoDocumentosProyectosObrasCivilesDataTable = (
   obtenerListadoActividadesProyectosObrasCivilesDataTable(proyectoObraCivilID);
 
   obtenerListadoRecursosMaterialesProyectosObrasCivilesDataTable(
+    proyectoObraCivilID
+  );
+
+  obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID(
     proyectoObraCivilID
   );
 
