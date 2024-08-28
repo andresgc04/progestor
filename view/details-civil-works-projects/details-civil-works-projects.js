@@ -802,7 +802,7 @@ document
   .addEventListener("input", calcularSubTotalITBISCostoTotalRecursosMateriales);
 
 const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
-  (documentoID, solicitudProyectoID = 0, proyectoObraCivilID) => {
+  (documentoID, solicitudProyectoID, proyectoObraCivilID) => {
     $.post(
       "../../controller/ProyectosObrasCivilesController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID_proyecto_obra_civil_ID",
       {
@@ -829,6 +829,8 @@ const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDO
           );
         } else {
           const responseData = data.data;
+
+          console.log(responseData);
 
           const { nombreDocumento } = responseData;
 

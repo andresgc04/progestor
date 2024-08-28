@@ -160,6 +160,15 @@ if (isset($usuarioID)) {
                                             <tbody></tbody>
                                         </table>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="costoTotalActividadesProyectosObrasCivilesValue">Costo Total De Las Actividades De Proyectos De Obras Civiles:</label>
+                                                <input type="text" id="costoTotalActividadesProyectosObrasCivilesValue" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -195,6 +204,15 @@ if (isset($usuarioID)) {
                                             </thead>
                                             <tbody></tbody>
                                         </table>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="costoTotalRecursosMaterialesValue">Costo Total De Los Recursos Materiales:</label>
+                                                <input type="text" id="costoTotalRecursosMaterialesValue" class="form-control" readonly>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
