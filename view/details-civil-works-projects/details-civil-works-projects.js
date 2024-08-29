@@ -154,6 +154,11 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
               ? presupuestoEstimadoProyecto
               : "";
 
+          localStorage.setItem(
+            "presupuestoEstimadoProyecto",
+            presupuestoEstimadoProyecto
+          );
+
           fechaEstimadaDeseadaInput.value =
             fechaEstimadaDeseada != null ? fechaEstimadaDeseada : "";
 
@@ -409,6 +414,11 @@ const obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID
 
           costoTotalActividadesProyectosObrasCivilesValue.value =
             costoTotal != null ? costoTotal : "";
+
+          localStorage.setItem(
+            "costoTotalActividadesProyectosObrasCiviles",
+            costoTotal
+          );
         }
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
@@ -463,6 +473,11 @@ const obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObra
 
           costoTotalRecursosMaterialesValue.value =
             costoTotal != null ? costoTotal : "";
+
+          localStorage.setItem(
+            "costoTotalRecursosMaterialesProyectosObrasCiviles",
+            costoTotal
+          );
         }
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
@@ -481,6 +496,62 @@ const obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObra
         );
       });
   };
+
+const obtenerCostoTotalProyectoObraCivil = () => {
+  const costoTotalActividadesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalActividadesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalRecursosMaterialesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosMaterialesProyectosObrasCiviles")
+    ) || 0;
+
+  const resultadoCostoTotalProyectoObraCivil =
+    costoTotalActividadesProyectosObrasCiviles +
+    costoTotalRecursosMaterialesProyectosObrasCiviles;
+
+  document.getElementById("costoTotalProyecto").value =
+    resultadoCostoTotalProyectoObraCivil;
+};
+
+const verificarConsumoPresupuestoCliente = () => {
+  const presupuestoEstimadoProyecto =
+    parseFloat(localStorage.getItem("presupuestoEstimadoProyecto")) || 0;
+
+  const costoTotalActividadesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalActividadesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalRecursosMaterialesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosMaterialesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalProyectoInput = document.getElementById("costoTotalProyecto");
+
+  const resultadoCostoTotalProyectoObraCivil =
+    costoTotalActividadesProyectosObrasCiviles +
+    costoTotalRecursosMaterialesProyectosObrasCiviles;
+
+  if (
+    resultadoCostoTotalProyectoObraCivil <
+    presupuestoEstimadoProyecto * 0.5
+  ) {
+    costoTotalProyectoInput.style.backgroundColor = "green";
+    costoTotalProyectoInput.style.color = "white";
+  } else if (
+    resultadoCostoTotalProyectoObraCivil < presupuestoEstimadoProyecto
+  ) {
+    costoTotalProyectoInput.style.backgroundColor = "yellow";
+    costoTotalProyectoInput.style.color = "white";
+  } else {
+    costoTotalProyectoInput.style.backgroundColor = "rojo";
+    costoTotalProyectoInput.style.color = "white";
+  }
+};
 
 (function () {
   //Initialize Select2 Elements:
@@ -524,6 +595,10 @@ const obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObra
     solicitudProyectoID,
     proyectoObraCivilID
   );
+
+  obtenerCostoTotalProyectoObraCivil();
+
+  verificarConsumoPresupuestoCliente();
 
   getSelectListProjectPhasesOptions(
     "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
