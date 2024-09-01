@@ -8,6 +8,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Tipos De Pagos");
 
+const openNewTypesPaymentsFormModal = () => {
+  $("#newTypesPaymentsFormModal").modal("show");
+};
+
+const newTypesPaymentsButton = document.getElementById(
+  "newTypesPaymentsButton"
+);
+newTypesPaymentsButton.addEventListener("click", () => {
+  openNewTypesPaymentsFormModal();
+});
+
 const obtenerListadoTiposPagosDataTable = () => {
   $("#listadoTiposPagosDataTable")
     .dataTable({
