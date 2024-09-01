@@ -237,6 +237,13 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <i class="fas fa-tasks nav-icon"></i>
                                         <p>Actividades De Los Proyectos</p>
                                     </a>
+                                  </li>';
+                        } elseif($modulo == 'Tipos Pagos' || $modulo == 'TIPOS PAGOS' || $modulo == 'tipos pagos'){
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeTypesPayments" href="../home-types-payments/" class="nav-link">
+                                        <i class="fas fa-tasks nav-icon"></i>
+                                        <p>Tipos De Pagos</p>
+                                    </a>
                                   </li>
                                 </ul>
                             </li>';
