@@ -1,6 +1,25 @@
 <?php
 class TiposPagos extends Connection
 {
+    public function registrar_tipos_pagos($tipoPago, $creadoPor)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO TIPOS_PAGOS (TIPO_PAGO, ESTADO_ID,
+                                           CREADO_POR, FECHA_CREACION 
+                                          )
+                                    VALUES(?, 1,
+                                           ?, NOW());';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $tipoPago);
+        $query->bindValue(2, $creadoPor);
+        $query->execute();
+
+        return $resultado = $query->fetchAll();
+    }
+
     public function listado_tipos_pagos()
     {
         $conectar = parent::Connection();
