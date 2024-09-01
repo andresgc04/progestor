@@ -46,4 +46,17 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_tipos_pagos':
+        $datos = $tiposPagos->obtener_listado_opciones_tipos_pagos();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el tipo de pago.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['TIPO_PAGO_ID'] . '">' . $row['TIPO_PAGO'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
