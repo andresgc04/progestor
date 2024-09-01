@@ -9,7 +9,7 @@ class TiposPagos extends Connection
         $query = 'INSERT INTO TIPOS_PAGOS (TIPO_PAGO, ESTADO_ID,
                                            CREADO_POR, FECHA_CREACION 
                                           )
-                                    VALUES(?, 1,
+                                    VALUES(UCASE(?), 1,
                                            ?, NOW());';
 
         $query = $conectar->prepare($query);
@@ -33,6 +33,25 @@ class TiposPagos extends Connection
                       ON tiposPagos.ESTADO_ID = estados.ESTADO_ID
                    WHERE tiposPagos.ESTADO_ID = 1
                 ORDER BY tiposPagos.TIPO_PAGO_ID DESC, tiposPagos.FECHA_CREACION DESC; ';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
+    public function obtener_listado_opciones_tipos_pagos()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT TIPO_PAGO_ID,
+                         UCASE(TIPO_PAGO) AS TIPO_PAGO
+                    FROM TIPOS_PAGOS
+                   WHERE ESTADO_ID = 1
+                ORDER BY TIPO_PAGO ASC;';
 
         $query = $conectar->prepare($query);
         $query->execute();
