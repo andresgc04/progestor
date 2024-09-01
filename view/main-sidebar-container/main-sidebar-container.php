@@ -238,11 +238,18 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                         <p>Actividades De Los Proyectos</p>
                                     </a>
                                   </li>';
-                        } elseif($modulo == 'Tipos Pagos' || $modulo == 'TIPOS PAGOS' || $modulo == 'tipos pagos'){
+                        } elseif ($modulo == 'Tipos Pagos' || $modulo == 'TIPOS PAGOS' || $modulo == 'tipos pagos') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeTypesPayments" href="../home-types-payments/" class="nav-link">
-                                        <i class="fas fa-tasks nav-icon"></i>
+                                        <i class="fas fa-money-check-alt nav-icon"></i>
                                         <p>Tipos De Pagos</p>
+                                    </a>
+                                  </li>';
+                        } elseif ($modulo == 'Recursos Manos Obras' || $modulo == 'RECURSOS MANOS OBRAS' || $modulo == 'recursos manos obras') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeLaborResources" href="../home-labor-resources/" class="nav-link">
+                                        <i class="fas fa-users nav-icon"></i>
+                                        <p>Recursos De Manos De Obras</p>
                                     </a>
                                   </li>
                                 </ul>
