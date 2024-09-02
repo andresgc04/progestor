@@ -8,6 +8,17 @@ setBreadCrumbContentHeaderTitle("../dashboard/", "Dashboard");
 
 setBreadCrumbContentHeaderSubTitle("Listado De Recursos De Manos De Obras");
 
+const openNewLaborResourcesFormModal = () => {
+  $("#newLaborResourcesFormModal").modal("show");
+};
+
+const newLaborResourcesButton = document.getElementById(
+  "newLaborResourcesButton"
+);
+newLaborResourcesButton.addEventListener("click", () => {
+  openNewLaborResourcesFormModal();
+});
+
 const obtenerListadoRecursosManosObrasDataTable = () => {
   $("#listadoRecursosManosObrasDataTable")
     .dataTable({
@@ -65,6 +76,11 @@ const obtenerListadoRecursosManosObrasDataTable = () => {
 (function () {
   //Initialize Select2 Elements:
   initializeSelect2Elements();
+
+  getSelectListTypesPaymentsOptions(
+    "../../controller/TiposPagosController.php?op=obtener_listado_opciones_tipos_pagos",
+    "#tipoPagoID"
+  );
 
   obtenerListadoRecursosManosObrasDataTable();
 })();
