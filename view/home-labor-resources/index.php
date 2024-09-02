@@ -119,6 +119,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="../../public/js/functions/select2-elements/set-select2-elements.js"></script>
         <script type="text/javascript" src="../../public/js/functions/components_select_list_options/select_list_types_payments_options.js"></script>
         <script type="text/javascript" src="home-labor-resources.js"></script>
+        <script type="text/javascript" src="new-labor-resources.js"></script>
     </body>
 
     </html>
