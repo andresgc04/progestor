@@ -57,4 +57,23 @@ class RecursosManosObras extends Connection
 
         return $resultado;
     }
+
+    public function obtener_listado_opciones_recursos_manos_obras()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT RECURSO_MANO_OBRA_ID,
+	                     UCASE(RECURSO_MANO_OBRA) AS RECURSO_MANO_OBRA
+  	                FROM RECURSOS_MANOS_OBRAS
+                   WHERE ESTADO_ID = 1
+                ORDER BY RECURSO_MANO_OBRA ASC;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
