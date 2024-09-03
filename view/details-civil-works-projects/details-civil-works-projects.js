@@ -614,6 +614,16 @@ const verificarConsumoPresupuestoCliente = () => {
     "../../controller/TiposRecursosMaterialesController.php?op=obtener_listado_opciones_tipos_recursos_materiales",
     "#tipoRecursoMaterialID"
   );
+
+  getSelectListProjectPhasesOptions(
+    "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
+    "#faseProyectoIDRecursoManoObra"
+  );
+
+  getSelectListLaborResourcesOptions(
+    "../../controller/RecursosManosObrasController.php?op=obtener_listado_opciones_recursos_manos_obras",
+    "#recursoManoObraID"
+  );
 })();
 
 const openAddNewProjectActivityFormModal = () => {
@@ -1078,4 +1088,20 @@ const addNewProjectDocumentButton = document.getElementById(
 );
 addNewProjectDocumentButton.addEventListener("click", () => {
   openAddNewProjectDocument();
+});
+
+const openAddNewLaborResourcesFormModal = () => {
+  const addLaborResourcesProyectoObraCivilID = document.getElementById(
+    "addLaborResourcesProyectoObraCivilID"
+  );
+  addLaborResourcesProyectoObraCivilID.value = getParams("proyectoObraCivilID");
+
+  $("#newLaborResourcesFormModal").modal("show");
+};
+
+const addNewLaborResourcesButton = document.getElementById(
+  "addNewLaborResourcesButton"
+);
+addNewLaborResourcesButton.addEventListener("click", () => {
+  openAddNewLaborResourcesFormModal();
 });
