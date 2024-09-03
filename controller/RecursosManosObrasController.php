@@ -53,4 +53,17 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_listado_opciones_recursos_manos_obras':
+        $datos = $recursosManosObras->obtener_listado_opciones_recursos_manos_obras();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el recurso de mano de obra.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['RECURSO_MANO_OBRA_ID'] . '">' . $row['RECURSO_MANO_OBRA'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
 }
