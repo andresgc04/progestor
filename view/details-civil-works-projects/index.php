@@ -218,6 +218,50 @@ if (isset($usuarioID)) {
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Recursos De Manos De Obras Del Proyecto</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                                            <button id="addNewLaborResourcesButton" type="button" class="btn btn-primary"><span>Agregar Nuevo Recurso De Mano De Obra</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="listadoRecursosManosObrasProyectosObrasCivilesDataTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>RECURSO DE MANO DE OBRA</th>
+                                                    <th>TIPO DE PAGO</th>
+                                                    <th>COSTO TOTAL</th>
+                                                    <th>ESTADO</th>
+                                                    <th>ACCIONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="costoTotalRecursosManosObrasValue">Costo Total De Los Recursos De Manos De Obras:</label>
+                                                <input type="number" id="costoTotalRecursosManosObrasValue" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                             <div class="card card-info">
                                 <div class="card-header">
                                     <h3 class="card-title">Documentos Del Proyecto</h3>
