@@ -1,6 +1,49 @@
 <?php
 class RecursosManosObrasProyectosObrasCiviles extends Connection
 {
+    public function registrar_recursos_manos_obras_proyectos_obras_civiles(
+        $proyectoObraCivilID,
+        $faseProyectoID,
+        $recursoManoObraID,
+        $tipoPago,
+        $cantidadRecursoManoObra,
+        $costoPagoRecursoManoObra,
+        $costoTotal,
+        $creadoPor
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'INSERT INTO RECURSOS_MANOS_OBRAS_PROYECTOS_OBRAS_CIVILES (
+                              PROYECTO_OBRA_CIVIL_ID, FASE_PROYECTO_ID,
+                              RECURSO_MANO_OBRA_ID, TIPO_PAGO,
+                              CANTIDAD_RECURSO_MANO_OBRA, COSTO_PAGO_RECURSO_MANO_OBRA,
+                              COSTO_TOTAL, ESTADO_ID,
+                              CREADO_POR, FECHA_CREACION
+                             )
+                       VALUES(?, ?,
+                              ?, ?,
+                              ?, ?,
+                              ?, 1,
+                              ?, NOW()
+                             );';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $proyectoObraCivilID);
+        $query->bindValue(2, $faseProyectoID);
+        $query->bindValue(3, $recursoManoObraID);
+        $query->bindValue(4, $tipoPago);
+        $query->bindValue(5, $cantidadRecursoManoObra);
+        $query->bindValue(6, $costoPagoRecursoManoObra);
+        $query->bindValue(7, $costoTotal);
+        $query->bindValue(8, $creadoPor);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
     public function listado_recursos_manos_obras_proyectos_obras_civiles()
     {
         $conectar = parent::Connection();
