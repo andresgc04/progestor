@@ -1,19 +1,17 @@
-function saveNewProjectActivity() {
-  let newProjectActivityFormData = new FormData(
-    $("#newProjectActivityForm")[0]
-  );
+function saveNewLaborResources() {
+  let newLaborResourcesFormData = new FormData($("#newLaborResourcesForm")[0]);
 
   $.ajax({
-    url: "../../controller/ActividadesProyectosObrasCivilesController.php?op=registrar_actividades_proyectos_obras_civiles",
+    url: "../../controller/RecursosManosObrasProyectosObrasCivilesController.php?op=registrar_recursos_manos_obras_proyectos_obras_civiles",
     type: "POST",
-    data: newProjectActivityFormData,
+    data: newLaborResourcesFormData,
     contentType: false,
     processData: false,
     success: function (data) {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Actividad Del Proyecto Registrado Correctamente",
+        title: "Recurso De Mano De Obra Del Proyecto Registrado Correctamente",
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
@@ -43,37 +41,33 @@ function saveNewProjectActivity() {
 $(function () {
   $.validator.setDefaults({
     submitHandler: function () {
-      saveNewProjectActivity();
+      saveNewLaborResources();
     },
   });
 
-  $("#newProjectActivityForm").validate({
+  $("#newLaborResourcesForm").validate({
     rules: {
-      faseProyectoID: {
+      faseProyectoIDRecursoManoObra: {
         required: true,
       },
-      tipoActividadID: {
+      recursoManoObraID: {
         required: true,
       },
-      actividadProyectoID: {
-        required: true,
-      },
-      cantidadActividades: {
+      cantidadRecursosManosObras: {
         required: true,
       },
     },
     messages: {
-      faseProyectoID: {
+      faseProyectoIDRecursoManoObra: {
         required: "Por favor seleccione la fase del proyecto.",
       },
-      tipoActividadID: {
-        required: "Por favor seleccione el tipo de actividad del proyecto.",
+      recursoManoObraID: {
+        required:
+          "Por favor seleccione el recurso de mano de obra del proyecto.",
       },
-      actividadProyectoID: {
-        required: "Por favor seleccione la actividad del proyecto.",
-      },
-      cantidadActividades: {
-        required: "Por favor ingrese la cantidad de esta actvidad a necesitar.",
+      cantidadRecursosManosObras: {
+        required:
+          "Por favor ingrese la cantidad de este recurso de mano de obra a necesitar.",
       },
     },
     errorElement: "span",

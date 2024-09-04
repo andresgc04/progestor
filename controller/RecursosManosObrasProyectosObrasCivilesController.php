@@ -11,7 +11,7 @@ $modificadoPor = $creadoPor;
 $recursosManosObrasProyectosObrasCiviles = new RecursosManosObrasProyectosObrasCiviles();
 
 switch ($_GET['op']) {
-    case "registrar_recursos_manos_obras":
+    case "registrar_recursos_manos_obras_proyectos_obras_civiles":
         $recursosManosObrasProyectosObrasCiviles->registrar_recursos_manos_obras_proyectos_obras_civiles(
             $_POST['addLaborResourcesProyectoObraCivilID'],
             $_POST['faseProyectoIDRecursoManoObra'],

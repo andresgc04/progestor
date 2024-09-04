@@ -19,49 +19,7 @@ function saveNewResourcesMaterial() {
         timerProgressBar: true,
       }).then(
         (willClose = () => {
-          $("#addResourceMaterialProyectoObraCivilID").val("");
-
-          getSelectListProjectPhasesOptions(
-            "../../controller/FasesProyectosController.php?op=obtener_listado_opciones_fases_proyectos",
-            "#faseProyectoIDRecursoMaterial"
-          );
-
-          getSelectListSuppliersOptions(
-            "../../controller/ProveedoresController.php?op=obtener_listado_opciones_proveedores",
-            "#proveedorID"
-          );
-
-          getSelectListTypesMaterialResourcesOptions(
-            "../../controller/TiposRecursosMaterialesController.php?op=obtener_listado_opciones_tipos_recursos_materiales",
-            "#tipoRecursoMaterialID"
-          );
-
-          const tipoRecursoMaterialIDInput = document.getElementById(
-            "tipoRecursoMaterialID"
-          );
-          tipoRecursoMaterialIDInput.onchange = function (event) {
-            const proveedorID = document.getElementById("proveedorID").value;
-            const tipoRecursoMaterialID = event.target.value;
-
-            getSelectListMaterialResourcesSuppliersOptionsByProveedorIDAndTipoRecursoMaterialID(
-              "../../controller/RecursosMaterialesProveedoresController.php?op=obtener_listado_opciones_recursos_materiales_proveedores_por_proveedor_ID_tipo_recurso_material_ID",
-              proveedorID,
-              tipoRecursoMaterialID,
-              "#recursoMaterialID"
-            );
-          };
-
-          $("#unidadMedidaRecursoMaterial").val("");
-          $("#cantidadRecursosMateriales").val("");
-          $("#costoRecursoMaterial").val("");
-          $("#subTotalRecursoMaterial").val("");
-          $("#itbisRecursoMaterial").val("");
-          $("#costoTotalRecursoMaterial").val("");
-
-          $("#newResourcesMaterialFormModal").modal("hide");
-          $("#listadoRecursosMaterialesProyectosObrasCivilesDataTable")
-            .DataTable()
-            .ajax.reload();
+          window.location.reload();
         })
       );
     },

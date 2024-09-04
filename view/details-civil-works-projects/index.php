@@ -339,6 +339,7 @@ if (isset($usuarioID)) {
         <script type="text/javascript" src="new-project-activity.js"></script>
         <script type="text/javascript" src="new-resources-material.js"></script>
         <script type="text/javascript" src="new-project-documents.js"></script>
+        <script type="text/javascript" src="new-labor-resources.js"></script>
         <script type="text/javascript" src="update-project-activity.js"></script>
     </body>
 

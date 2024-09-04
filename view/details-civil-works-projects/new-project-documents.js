@@ -19,13 +19,7 @@ function saveNewProjectDocuments() {
         timerProgressBar: true,
       }).then(
         (willClose = () => {
-          $("#addProjectDocumentsProyectoObraCivilID").val("");
-          $("#documento").val("");
-
-          $("#newProjectDocumentsFormModal").modal("hide");
-          $("#listadoDocumentosProyectosObrasCivilesDataTable")
-            .DataTable()
-            .ajax.reload();
+          window.location.reload();
         })
       );
     },
