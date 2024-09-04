@@ -56,4 +56,25 @@ class Documentos extends Connection
             echo "No se seleccionó ningún archivo o hubo un error en la subida.";
         }
     }
+
+    public function obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID(
+        $documentoID,
+        $solicitudProyectoID,
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT NOMBRE_DOCUMENTO
+                    FROM DOCUMENTOS
+                   WHERE DOCUMENTO_ID = ? AND SOLICITUD_PROYECTO_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $documentoID);
+        $query->bindValue(2, $solicitudProyectoID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
