@@ -1176,13 +1176,68 @@ document
   .getElementById("cantidadRecursosMateriales")
   .addEventListener("input", calcularSubTotalITBISCostoTotalRecursosMateriales);
 
-const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID =
-  (documentoID, solicitudProyectoID, proyectoObraCivilID) => {
+const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoID =
+  (documentoID, solicitudProyectoID) => {
     $.post(
-      "../../controller/ProyectosObrasCivilesController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID_proyecto_obra_civil_ID",
+      "../../controller/DocumentosController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID",
       {
         documentoID: documentoID,
         solicitudProyectoID: solicitudProyectoID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          console.log(responseData);
+
+          const { nombreDocumento } = responseData;
+
+          const rutaDocumento = `../../documents/${nombreDocumento}`;
+
+          console.log(rutaDocumento);
+
+          window.open(rutaDocumento, "_blank");
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYProyectoObraCivilID =
+  (documentoID, proyectoObraCivilID) => {
+    $.post(
+      "../../controller/DocumentosController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_proyecto_obra_civil_ID",
+      {
+        documentoID: documentoID,
         proyectoObraCivilID: proyectoObraCivilID,
       },
       "json"
@@ -1238,11 +1293,17 @@ const verDetallesDocumentosProyectosObrasCiviles = (
   solicitudProyectoID,
   proyectoObraCivilID
 ) => {
-  obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoIDODocumentoIDYProyectoObraCivilID(
-    documentoID,
-    solicitudProyectoID,
-    proyectoObraCivilID
-  );
+  if (solicitudProyectoID != null) {
+    obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoID(
+      documentoID,
+      solicitudProyectoID
+    );
+  } else {
+    obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYProyectoObraCivilID(
+      documentoID,
+      proyectoObraCivilID
+    );
+  }
 };
 
 const openAddNewProjectDocument = () => {
