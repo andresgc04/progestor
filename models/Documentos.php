@@ -77,4 +77,25 @@ class Documentos extends Connection
 
         return $resultado;
     }
+
+    public function obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_proyecto_obra_civil_ID(
+        $documentoID,
+        $proyectoObraCivilID,
+    ) {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT NOMBRE_DOCUMENTO
+                    FROM DOCUMENTOS
+                   WHERE DOCUMENTO_ID = ? AND PROYECTO_OBRA_CIVIL_ID = ?;';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $documentoID);
+        $query->bindValue(2, $proyectoObraCivilID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
