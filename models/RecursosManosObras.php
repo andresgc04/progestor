@@ -76,4 +76,27 @@ class RecursosManosObras extends Connection
 
         return $resultado;
     }
+
+    public function obtener_tipos_pagos_costos_pagos_recursos_manos_obras_por_recurso_mano_obra_ID($recursoManoObraID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDAD_MEDIDA,
+                         recursosMaterialesProveedores.COSTO_RECURSO_MATERIAL
+                    FROM RECURSOS_MATERIALES_PROVEEDORES recursosMaterialesProveedores
+              INNER JOIN RECURSOS_MATERIALES recursosMateriales
+		              ON recursosMaterialesProveedores.RECURSO_MATERIAL_ID = recursosMateriales.RECURSO_MATERIAL_ID
+              INNER JOIN UNIDADES_MEDIDAS unidadesMedidas
+                      ON recursosMateriales.UNIDAD_MEDIDA_ID = unidadesMedidas.UNIDAD_MEDIDA_ID
+                   WHERE recursosMaterialesProveedores.RECURSO_MATERIAL_ID = ?';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $recursoManoObraID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
