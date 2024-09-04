@@ -77,4 +77,22 @@ class RecursosManosObrasProyectosObrasCiviles extends Connection
 
         return $resultado;
     }
+
+    public function obtener_costos_totales_recursos_manos_obras_proyectos_obras_civiles_por_proyecto_obra_civil_ID($proyectoObraCivilID)
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT SUM(COSTO_TOTAL) AS COSTO_TOTAL
+                    FROM RECURSOS_MANOS_OBRAS_PROYECTOS_OBRAS_CIVILES 
+                   WHERE PROYECTO_OBRA_CIVIL_ID = ?; ';
+
+        $query = $conectar->prepare($query);
+        $query->bindValue(1, $proyectoObraCivilID);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
 }
