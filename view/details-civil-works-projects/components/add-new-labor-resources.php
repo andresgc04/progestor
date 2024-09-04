@@ -33,8 +33,8 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label for="tipoPagoID">Tipo De Pago:</label>
-                                <input type="text" id="tipoPagoID" name="tipoPagoID" class="form-control" readonly>
+                                <label for="tipoPago">Tipo De Pago:</label>
+                                <input type="text" id="tipoPago" name="tipoPago" class="form-control" readonly>
                             </div>
                         </div>
                     </div>

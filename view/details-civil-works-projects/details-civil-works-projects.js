@@ -1166,3 +1166,69 @@ const addNewLaborResourcesButton = document.getElementById(
 addNewLaborResourcesButton.addEventListener("click", () => {
   openAddNewLaborResourcesFormModal();
 });
+
+const obtenerTipoPagoYCostoRecursoManoObraPorRecursoManoObraID = (
+  recursoManoObraID
+) => {
+  $.post(
+    "../../controller/RecursosManosObrasController.php?op=obtener_tipos_pagos_costos_pagos_recursos_manos_obras_por_recurso_mano_obra_ID",
+    {
+      recursoManoObraID: recursoManoObraID,
+    },
+    "json"
+  )
+    .done(function (data) {
+      if (data.error) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Ocurrio un error!!",
+          text: `${data.error}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      } else {
+        const responseData = data.data;
+
+        const { tipoPago, costoPagoRecursoManoObra } = responseData;
+
+        const tipoPagoInput = document.getElementById("tipoPago");
+
+        const costoRecursoManoObraInput = document.getElementById(
+          "costoRecursoManoObra"
+        );
+
+        tipoPagoInput.value = tipoPago != null ? tipoPago : "";
+
+        costoRecursoManoObraInput.value =
+          costoPagoRecursoManoObra != null ? costoPagoRecursoManoObra : "";
+      }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: `${textStatus}`,
+        text: `${errorThrown}`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(
+        (willClose = () => {
+          window.location.reload();
+        })
+      );
+    });
+};
+
+const recursoManoObraIDInput = document.getElementById("recursoManoObraID");
+recursoManoObraIDInput.onchange = function (event) {
+  const recursoManoObraID = event.target.value;
+
+  obtenerTipoPagoYCostoRecursoManoObraPorRecursoManoObraID(recursoManoObraID);
+};
