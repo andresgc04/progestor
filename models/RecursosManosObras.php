@@ -82,14 +82,12 @@ class RecursosManosObras extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT UCASE(unidadesMedidas.UNIDAD_MEDIDA) AS UNIDAD_MEDIDA,
-                         recursosMaterialesProveedores.COSTO_RECURSO_MATERIAL
-                    FROM RECURSOS_MATERIALES_PROVEEDORES recursosMaterialesProveedores
-              INNER JOIN RECURSOS_MATERIALES recursosMateriales
-		              ON recursosMaterialesProveedores.RECURSO_MATERIAL_ID = recursosMateriales.RECURSO_MATERIAL_ID
-              INNER JOIN UNIDADES_MEDIDAS unidadesMedidas
-                      ON recursosMateriales.UNIDAD_MEDIDA_ID = unidadesMedidas.UNIDAD_MEDIDA_ID
-                   WHERE recursosMaterialesProveedores.RECURSO_MATERIAL_ID = ?';
+        $query = 'SELECT UCASE(tiposPagos.TIPO_PAGO) AS TIPO_PAGO,
+    	                 recursosManosObras.COSTO_PAGO_RECURSO_MANO_OBRA
+                    FROM RECURSOS_MANOS_OBRAS recursosManosObras
+              INNER JOIN TIPOS_PAGOS tiposPagos
+                      ON recursosManosObras.TIPO_PAGO_ID = tiposPagos.TIPO_PAGO_ID
+                   WHERE recursosManosObras.RECURSO_MANO_OBRA_ID = ?; ';
 
         $query = $conectar->prepare($query);
         $query->bindValue(1, $recursoManoObraID);
