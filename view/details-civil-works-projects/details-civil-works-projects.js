@@ -1232,3 +1232,26 @@ recursoManoObraIDInput.onchange = function (event) {
 
   obtenerTipoPagoYCostoRecursoManoObraPorRecursoManoObraID(recursoManoObraID);
 };
+
+// Función para multiplicar los valores de los inputs:
+const calcularCostoTotalRecursosManosObras = () => {
+  // Obtener los valores de los inputs:
+  const cantidadRecursosManosObrasValue =
+    parseFloat(document.getElementById("cantidadRecursosManosObras").value) ||
+    0;
+
+  const costoRecursoManoObraValue =
+    parseFloat(document.getElementById("costoRecursoManoObra").value) || 0;
+
+  // Multiplicar los valores:
+  const resultadoCostoTotalRecursosManosObrasValue =
+    cantidadRecursosManosObrasValue * costoRecursoManoObraValue;
+
+  document.getElementById("costoTotalRecursoManoObra").value =
+    resultadoCostoTotalRecursosManosObrasValue;
+};
+
+// Agregar eventos de 'input' a los campos de entrada:
+document
+  .getElementById("cantidadRecursosManosObras")
+  .addEventListener("input", calcularCostoTotalRecursosManosObras);
