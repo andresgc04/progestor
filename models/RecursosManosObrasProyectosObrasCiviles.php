@@ -44,7 +44,7 @@ class RecursosManosObrasProyectosObrasCiviles extends Connection
         return $resultado;
     }
 
-    public function listado_recursos_manos_obras_proyectos_obras_civiles()
+    public function listado_recursos_manos_obras_proyectos_obras_civiles($proyectoObraCivilID)
     {
         $conectar = parent::Connection();
         parent::set_names();
@@ -64,11 +64,13 @@ class RecursosManosObrasProyectosObrasCiviles extends Connection
                          recursosManosObras.RECURSO_MANO_OBRA_ID
               INNER JOIN ESTADOS estados
                       ON recursosManosObrasProyectosObrasCiviles.ESTADO_ID = estados.ESTADO_ID
-	               WHERE recursosManosObrasProyectosObrasCiviles.ESTADO_ID = 1
+	               WHERE recursosManosObrasProyectosObrasCiviles.PROYECTO_OBRA_CIVIL_ID = ?
+                     AND recursosManosObrasProyectosObrasCiviles.ESTADO_ID = 1
                 ORDER BY recursosManosObrasProyectosObrasCiviles.RECURSO_MANO_OBRA_PROYECTO_OBRA_CIVIL_ID DESC,
 		                 recursosManosObrasProyectosObrasCiviles.FECHA_CREACION DESC;';
 
         $query = $conectar->prepare($query);
+        $query->bindValue(1, $proyectoObraCivilID);
         $query->execute();
 
         $resultado = $query->fetchAll();

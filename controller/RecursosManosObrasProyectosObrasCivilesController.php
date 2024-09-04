@@ -12,7 +12,7 @@ $recursosManosObrasProyectosObrasCiviles = new RecursosManosObrasProyectosObrasC
 
 switch ($_GET['op']) {
     case "listado_recursos_manos_obras_proyectos_obras_civiles":
-        $datos = $recursosManosObrasProyectosObrasCiviles->listado_recursos_manos_obras_proyectos_obras_civiles();
+        $datos = $recursosManosObrasProyectosObrasCiviles->listado_recursos_manos_obras_proyectos_obras_civiles($_POST['proyectoObraCivilID']);
         $data = array();
 
         foreach ($datos as $row) {

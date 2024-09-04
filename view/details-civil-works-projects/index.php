@@ -239,6 +239,7 @@ if (isset($usuarioID)) {
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>FASE DEL PROYECTO</th>
                                                     <th>RECURSO DE MANO DE OBRA</th>
                                                     <th>TIPO DE PAGO</th>
                                                     <th>COSTO TOTAL</th>
