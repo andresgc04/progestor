@@ -149,9 +149,16 @@ const obtenerDatosProyectosObrasCivilesPorProyectoObraCivilIDSolicitudProyectoID
 
           ubicacionInput.value = ubicacion != null ? ubicacion : "";
 
+          const presupuestoEstimadoProyectoFormatValue = parseFloat(
+            presupuestoEstimadoProyecto
+          ).toLocaleString("es-DO", {
+            style: "currency",
+            currency: "DOP",
+          });
+
           presupuestoEstimadoProyectoInput.value =
-            presupuestoEstimadoProyecto != null
-              ? presupuestoEstimadoProyecto
+            presupuestoEstimadoProyectoFormatValue != null
+              ? presupuestoEstimadoProyectoFormatValue
               : "";
 
           localStorage.setItem(
@@ -464,13 +471,21 @@ const obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID
 
           const { costoTotal } = responseData;
 
+          const costoTotalFormatValue = parseFloat(costoTotal).toLocaleString(
+            "es-DO",
+            {
+              style: "currency",
+              currency: "DOP",
+            }
+          );
+
           const costoTotalActividadesProyectosObrasCivilesValue =
             document.getElementById(
               "costoTotalActividadesProyectosObrasCivilesValue"
             );
 
           costoTotalActividadesProyectosObrasCivilesValue.value =
-            costoTotal != null ? costoTotal : "";
+            costoTotalFormatValue != null ? costoTotalFormatValue : "";
 
           localStorage.setItem(
             "costoTotalActividadesProyectosObrasCiviles",
@@ -524,15 +539,90 @@ const obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObra
 
           const { costoTotal } = responseData;
 
+          const costoTotalFormatValue = parseFloat(costoTotal).toLocaleString(
+            "es-DO",
+            {
+              style: "currency",
+              currency: "DOP",
+            }
+          );
+
           const costoTotalRecursosMaterialesValue = document.getElementById(
             "costoTotalRecursosMaterialesValue"
           );
 
           costoTotalRecursosMaterialesValue.value =
-            costoTotal != null ? costoTotal : "";
+            costoTotalFormatValue != null ? costoTotalFormatValue : "";
 
           localStorage.setItem(
             "costoTotalRecursosMaterialesProyectosObrasCiviles",
+            costoTotal
+          );
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const obtenerCostosTotalesRecursosManosObrasProyectosObrasCivilesPorProyectoObraCivilID =
+  (proyectoObraCivilID) => {
+    $.post(
+      "../../controller/RecursosManosObrasProyectosObrasCivilesController.php?op=obtener_costos_totales_recursos_manos_obras_proyectos_obras_civiles_por_proyecto_obra_civil_ID",
+      {
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const { costoTotal } = responseData;
+
+          const costoTotalFormatValue = parseFloat(costoTotal).toLocaleString(
+            "es-DO",
+            {
+              style: "currency",
+              currency: "DOP",
+            }
+          );
+
+          const costoTotalRecursosManosObrasValue = document.getElementById(
+            "costoTotalRecursosManosObrasValue"
+          );
+
+          costoTotalRecursosManosObrasValue.value =
+            costoTotalFormatValue != null ? costoTotalFormatValue : "";
+
+          localStorage.setItem(
+            "costoTotalRecursosManosObrasProyectosObrasCiviles",
             costoTotal
           );
         }
@@ -565,12 +655,24 @@ const obtenerCostoTotalProyectoObraCivil = () => {
       localStorage.getItem("costoTotalRecursosMaterialesProyectosObrasCiviles")
     ) || 0;
 
+  const costoTotalRecursosManosObrasProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosManosObrasProyectosObrasCiviles")
+    ) || 0;
+
   const resultadoCostoTotalProyectoObraCivil =
     costoTotalActividadesProyectosObrasCiviles +
-    costoTotalRecursosMaterialesProyectosObrasCiviles;
+    costoTotalRecursosMaterialesProyectosObrasCiviles +
+    costoTotalRecursosManosObrasProyectosObrasCiviles;
+
+  const resultadoCostoTotalProyectoObraCivilFormatValue =
+    resultadoCostoTotalProyectoObraCivil.toLocaleString("es-DO", {
+      style: "currency",
+      currency: "DOP",
+    });
 
   document.getElementById("costoTotalProyecto").value =
-    resultadoCostoTotalProyectoObraCivil;
+    resultadoCostoTotalProyectoObraCivilFormatValue;
 };
 
 const verificarConsumoPresupuestoCliente = () => {
@@ -587,11 +689,17 @@ const verificarConsumoPresupuestoCliente = () => {
       localStorage.getItem("costoTotalRecursosMaterialesProyectosObrasCiviles")
     ) || 0;
 
+  const costoTotalRecursosManosObrasProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosManosObrasProyectosObrasCiviles")
+    ) || 0;
+
   const costoTotalProyectoInput = document.getElementById("costoTotalProyecto");
 
   const resultadoCostoTotalProyectoObraCivil =
     costoTotalActividadesProyectosObrasCiviles +
-    costoTotalRecursosMaterialesProyectosObrasCiviles;
+    costoTotalRecursosMaterialesProyectosObrasCiviles +
+    costoTotalRecursosManosObrasProyectosObrasCiviles;
 
   if (
     resultadoCostoTotalProyectoObraCivil <
@@ -649,6 +757,10 @@ const verificarConsumoPresupuestoCliente = () => {
   );
 
   obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObraCivilID(
+    proyectoObraCivilID
+  );
+
+  obtenerCostosTotalesRecursosManosObrasProyectosObrasCivilesPorProyectoObraCivilID(
     proyectoObraCivilID
   );
 

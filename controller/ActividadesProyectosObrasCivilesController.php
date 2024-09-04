@@ -36,7 +36,7 @@ switch ($_GET['op']) {
             $sub_array[] = $row['FASE_PROYECTO'];
             $sub_array[] = $row['TIPO_ACTIVIDAD'];
             $sub_array[] = $row['ACTIVIDAD_PROYECTO'];
-            $sub_array[] = $row['COSTO_TOTAL'];
+            $sub_array[] = "RD$ " . number_format($row['COSTO_TOTAL'], 2, '.', ',');
 
             if ($row["ESTADOS"] === "ACTIVO") {
                 $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';

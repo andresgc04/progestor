@@ -143,9 +143,13 @@ const obtenerEncabezadoSolicitudesProyectosPorSolicitudProyectoID = (
 
         ubicacionInput.value = ubicacion != null ? ubicacion : "";
 
+        const presupuestoEstimadoProyectoFormatValue = parseFloat(
+          presupuestoEstimadoProyecto
+        ).toLocaleString("es-DO", { style: "currency", currency: "DOP" });
+
         presupuestoEstimadoProyectoInput.value =
-          presupuestoEstimadoProyecto != null
-            ? presupuestoEstimadoProyecto
+          presupuestoEstimadoProyectoFormatValue != null
+            ? presupuestoEstimadoProyectoFormatValue
             : "";
 
         fechaEstimadaDeseadaInput.value =

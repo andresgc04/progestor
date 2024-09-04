@@ -92,7 +92,7 @@ if (isset($usuarioID)) {
                                     </div>
                                     <div class="form-group">
                                         <label for="presupuestoEstimadoProyecto">Presupuesto Estimado:</label>
-                                        <input type="number" id="presupuestoEstimadoProyecto" name="presupuestoEstimadoProyecto" class="form-control" readonly>
+                                        <input type="text" id="presupuestoEstimadoProyecto" name="presupuestoEstimadoProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaEstimadaDeseada">Fecha Estimada Deseada:</label>
@@ -116,7 +116,7 @@ if (isset($usuarioID)) {
                                     </div>
                                     <div class="form-group">
                                         <label for="costoTotalProyecto">Costo Total Del Proyecto:</label>
-                                        <input type="number" id="costoTotalProyecto" name="costoTotalProyecto" class="form-control" readonly>
+                                        <input type="text" id="costoTotalProyecto" name="costoTotalProyecto" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="estadoProyecto">Estado:</label>
@@ -165,7 +165,7 @@ if (isset($usuarioID)) {
                                         <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="costoTotalActividadesProyectosObrasCivilesValue">Costo Total De Las Actividades De Proyectos De Obras Civiles:</label>
-                                                <input type="number" id="costoTotalActividadesProyectosObrasCivilesValue" class="form-control" readonly>
+                                                <input type="text" id="costoTotalActividadesProyectosObrasCivilesValue" class="form-control" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@ if (isset($usuarioID)) {
                                         <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="costoTotalRecursosMaterialesValue">Costo Total De Los Recursos Materiales:</label>
-                                                <input type="number" id="costoTotalRecursosMaterialesValue" class="form-control" readonly>
+                                                <input type="text" id="costoTotalRecursosMaterialesValue" class="form-control" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@ if (isset($usuarioID)) {
                                         <div class="col-xl-12 col-lg-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="costoTotalRecursosManosObrasValue">Costo Total De Los Recursos De Manos De Obras:</label>
-                                                <input type="number" id="costoTotalRecursosManosObrasValue" class="form-control" readonly>
+                                                <input type="text" id="costoTotalRecursosManosObrasValue" class="form-control" readonly>
                                             </div>
                                         </div>
                                     </div>
