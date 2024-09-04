@@ -66,4 +66,38 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_tipos_pagos_costos_pagos_recursos_manos_obras_por_recurso_mano_obra_ID':
+        $data = $recursosManosObras->obtener_tipos_pagos_costos_pagos_recursos_manos_obras_por_recurso_mano_obra_ID($_POST['recursoManoObraID']);
+
+        if (is_array($data) == true and count($data) > 0) {
+            // Normalizar la estructura de los datos si es necesario
+            $normalizedData = array();
+
+            foreach ($data as $item) {
+                // Si los datos son un array asociativo con claves numéricas y asociativas,
+                // seleccionar las claves que deseas mantener o normalizar la estructura según sea necesario.
+                $normalizedItem = [
+                    'tipoPago' => $item['TIPO_PAGO'],
+                    'costoPagoRecursoManoObra' => $item['COSTO_PAGO_RECURSO_MANO_OBRA'],
+                ];
+
+                // Agregar el elemento normalizado al array resultante
+                $normalizedData = $normalizedItem;
+            }
+
+            // Crear un array asociativo con la clave "data"
+            $response = array('data' => $normalizedData);
+
+            // Convertir el array de objetos a formato JSON:
+            $json = json_encode($response, JSON_UNESCAPED_UNICODE);
+
+            // Configurar la cabecera para indicar que la respuesta es JSON
+            header('Content-Type: application/json');
+
+            // Retornar o imprimir el JSON
+            echo $json;
+        } else {
+            echo json_encode(['data' => []]);
+        }
+        break;
 }
