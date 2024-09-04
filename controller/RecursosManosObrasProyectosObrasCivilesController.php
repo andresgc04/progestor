@@ -11,6 +11,18 @@ $modificadoPor = $creadoPor;
 $recursosManosObrasProyectosObrasCiviles = new RecursosManosObrasProyectosObrasCiviles();
 
 switch ($_GET['op']) {
+    case "registrar_recursos_manos_obras":
+        $recursosManosObrasProyectosObrasCiviles->registrar_recursos_manos_obras_proyectos_obras_civiles(
+            $_POST['addLaborResourcesProyectoObraCivilID'],
+            $_POST['faseProyectoIDRecursoManoObra'],
+            $_POST['recursoManoObraID'],
+            $_POST['tipoPago'],
+            $_POST['cantidadRecursosManosObras'],
+            $_POST['costoRecursoManoObra'],
+            $_POST['costoTotalRecursoManoObra'],
+            $creadoPor
+        );
+        break;
     case "listado_recursos_manos_obras_proyectos_obras_civiles":
         $datos = $recursosManosObrasProyectosObrasCiviles->listado_recursos_manos_obras_proyectos_obras_civiles($_POST['proyectoObraCivilID']);
         $data = array();
