@@ -181,6 +181,57 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case 'obtener_documentos_proyectos_obras_civiles_clientes_por_solicitud_proyecto_ID_proyecto_obra_civil_ID':
+        $datos = $proyectosObrasCiviles->obtener_documentos_proyectos_obras_civiles_por_solicitud_proyecto_ID_proyecto_obra_civil_ID($_POST['solicitudProyectoID'], $_POST['proyectoObraCivilID']);
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['DOCUMENTO_ID'];
+            $sub_array[] = $row['NOMBRE_DOCUMENTO'];
+            $sub_array[] = $row['TIPO_DOCUMENTO'];
+
+            if ($row['ESTADOS'] === "ACTIVO") {
+                $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
+            }
+
+            if ($row['ESTADOS'] === "PENDIENTE") {
+                $sub_array[] = '<span class="badge badge-warning">PENDIENTE</span>';
+            }
+
+            if ($row['ESTADOS'] === "CANCELADO") {
+                $sub_array[] = '<span class="badge badge-danger">CANCELADO</span>';
+            }
+
+            if ($row['ESTADOS'] === "RECHAZADO") {
+                $sub_array[] = '<span class="badge badge-danger">RECHAZADO</span>';
+            }
+
+            if ($row['ESTADOS'] === "APROBADO") {
+                $sub_array[] = '<span class="badge badge-success">APROBADO</span>';
+            }
+
+            $solicitudProyectoID = isset($row['SOLICITUD_PROYECTO_ID']) ? $row['SOLICITUD_PROYECTO_ID'] : 'null';
+            $proyectoObraCivilID = isset($row['PROYECTO_OBRA_CIVIL_ID']) ? $row['PROYECTO_OBRA_CIVIL_ID'] : 'null';
+
+            $sub_array[] = '<td class="text-right py-0 align-middle">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" id="' . $row['DOCUMENTO_ID'] . '" onclick="verDetallesDocumentosProyectosObrasCiviles(' . $row['DOCUMENTO_ID'] . ',' . $solicitudProyectoID . ',' . $proyectoObraCivilID . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                </td>';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
+        break;
     case 'obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID_proyecto_obra_civil_ID':
         $data = $proyectosObrasCiviles->obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID_proyecto_obra_civil_ID(
             $_POST['documentoID'],
