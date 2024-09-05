@@ -61,6 +61,40 @@ switch ($_GET['op']) {
 
         echo json_encode($resultados);
         break;
+    case "listado_actividades_proyectos_obras_civiles_clientes_por_proyecto_obra_civil_ID":
+        $datos = $actividadesProyectosObrasCiviles->listado_actividades_proyectos_obras_civiles_por_proyecto_obra_civil_ID($_POST['proyectoObraCivilID']);
+        $data = array();
+
+        foreach ($datos as $row) {
+            $sub_array = array();
+            $sub_array[] = $row['ACTIVIDAD_PROYECTO_OBRA_CIVIL_ID'];
+            $sub_array[] = $row['FASE_PROYECTO'];
+            $sub_array[] = $row['TIPO_ACTIVIDAD'];
+            $sub_array[] = $row['ACTIVIDAD_PROYECTO'];
+            $sub_array[] = "RD$ " . number_format($row['COSTO_TOTAL'], 2, '.', ',');
+
+            if ($row["ESTADOS"] === "ACTIVO") {
+                $sub_array[] = '<span class="badge badge-primary">ACTIVO</span>';
+            }
+
+            $sub_array[] = '<td class="text-right py-0 align-middle">
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" id="' . $row['ACTIVIDAD_PROYECTO_OBRA_CIVIL_ID'] . '" onclick="verDetalleActividadProyectoObraCivil(' . $row['ACTIVIDAD_PROYECTO_OBRA_CIVIL_ID'] . ', ' . $row['PROYECTO_OBRA_CIVIL_ID'] . ')" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                                        </div>
+                                    </td>';
+
+            $data[] = $sub_array;
+        }
+
+        $resultados = array(
+            "sEcho" => 1,
+            "iTotalRecords" => count($data),
+            "iTotalDisplayRecords" => count($data),
+            "aaData" => $data
+        );
+
+        echo json_encode($resultados);
+        break;
     case 'obtener_detalles_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID':
         $data = $actividadesProyectosObrasCiviles->obtener_detalles_actividades_proyectos_obras_civiles_por_actividad_proyecto_obra_civil_ID_proyecto_obra_civil_ID(
             $_POST['actividadProyectoObraCivilID'],
