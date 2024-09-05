@@ -65,6 +65,13 @@ $usuarioID = $_SESSION[$USUARIO_ID];
                                             <p>Dashboard</p>
                                         </a>
                                     </li>';
+                        } elseif ($modulo == 'Proyectos' || $modulo == 'PROYECTOS' || $modulo == 'proyectos') {
+                            echo '<li class="nav-item">
+                                    <a id="navLinkHomeProjects" href="../home-clients-civil-works-projects/" class="nav-link">
+                                        <i class="nav-icon fas fa-clipboard-list"></i>
+                                        <p>Proyectos</p>
+                                    </a>
+                                </li>';
                         } elseif ($modulo == 'Solicitudes Proyectos' || $modulo == 'SOLICITUDES PROYECTOS' || $modulo == 'solicitudes proyectos') {
                             echo '<li class="nav-item">
                                     <a id="navLinkHomeProjectRequests" href="../home-project-requests/" class="nav-link">
