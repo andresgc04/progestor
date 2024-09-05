@@ -890,3 +890,13 @@ const verDetallesDocumentosProyectosObrasCiviles = (
     );
   }
 };
+
+const viewQuotesButton = document.getElementById("viewQuotesButton");
+viewQuotesButton.onclick = function () {
+  window.open(
+    `../../view/reports/quotes/index.php?proyectoObraCivilID=${getParams(
+      "proyectoObraCivilID"
+    )}&solicitudProyectoObraCivilID=${getParams("solicitudProyectoID")}`,
+    "_blank"
+  );
+};
