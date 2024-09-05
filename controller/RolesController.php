@@ -58,6 +58,19 @@ switch ($_GET['op']) {
             echo $html;
         }
         break;
+    case 'obtener_listado_opciones_todos_roles':
+        $datos = $roles->obtener_listado_opciones_todos_roles();
+
+        if (is_array($datos) == true and count($datos) > 0) {
+            $html .= '<option selected disabled>Por favor seleccione el rol.</option>';
+
+            foreach ($datos as $row) {
+                $html .= '<option value="' . $row['rol_id'] . '">' . $row['rol'] . '</option>';
+            }
+
+            echo $html;
+        }
+        break;
     case 'obtener_detalles_roles_por_rol_ID':
         $data = $roles->obtener_detalles_roles_por_rol_ID($_POST['rolID']);
 
