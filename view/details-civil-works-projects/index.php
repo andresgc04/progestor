@@ -122,6 +122,9 @@ if (isset($usuarioID)) {
                                         <label for="estadoProyecto">Estado:</label>
                                         <input type="text" id="estadoProyecto" name="estadoProyecto" class="form-control" readonly>
                                     </div>
+                                    <div class="mt-2">
+                                        <button type="button" id="viewQuotesButton" class="btn btn-primary">Ver Cotizacion</button>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

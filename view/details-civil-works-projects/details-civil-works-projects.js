@@ -1428,3 +1428,8 @@ const calcularCostoTotalRecursosManosObras = () => {
 document
   .getElementById("cantidadRecursosManosObras")
   .addEventListener("input", calcularCostoTotalRecursosManosObras);
+
+const viewQuotesButton = document.getElementById("viewQuotesButton");
+viewQuotesButton.onclick = function () {
+  window.open("../../view/reports/quotes/index.php", "_blank");
+};
