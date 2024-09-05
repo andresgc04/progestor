@@ -442,6 +442,282 @@ const obtenerListadoDocumentosProyectosObrasCivilesClientesDataTable = (
     .DataTable();
 };
 
+const obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID =
+  (proyectoObraCivilID) => {
+    $.post(
+      "../../controller/ActividadesProyectosObrasCivilesController.php?op=obtener_costos_totales_actividades_proyectos_obras_civiles_por_proyecto_obra_civil_ID",
+      {
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const { costoTotal } = responseData;
+
+          const costoTotalFormatValue = parseFloat(costoTotal).toLocaleString(
+            "es-DO",
+            {
+              style: "currency",
+              currency: "DOP",
+            }
+          );
+
+          const costoTotalActividadesProyectosObrasCivilesValue =
+            document.getElementById(
+              "costoTotalActividadesProyectosObrasCivilesValue"
+            );
+
+          costoTotalActividadesProyectosObrasCivilesValue.value =
+            costoTotalFormatValue != null ? costoTotalFormatValue : "";
+
+          localStorage.setItem(
+            "costoTotalActividadesProyectosObrasCiviles",
+            costoTotal
+          );
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObraCivilID =
+  (proyectoObraCivilID) => {
+    $.post(
+      "../../controller/RecursosMaterialesProyectosObrasCivilesController.php?op=obtener_costos_totales_recursos_materiales_proyectos_obras_civiles_por_proyecto_obra_civil_ID",
+      {
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const { costoTotal } = responseData;
+
+          const costoTotalFormatValue = parseFloat(costoTotal).toLocaleString(
+            "es-DO",
+            {
+              style: "currency",
+              currency: "DOP",
+            }
+          );
+
+          const costoTotalRecursosMaterialesValue = document.getElementById(
+            "costoTotalRecursosMaterialesValue"
+          );
+
+          costoTotalRecursosMaterialesValue.value =
+            costoTotalFormatValue != null ? costoTotalFormatValue : "";
+
+          localStorage.setItem(
+            "costoTotalRecursosMaterialesProyectosObrasCiviles",
+            costoTotal
+          );
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const obtenerCostosTotalesRecursosManosObrasProyectosObrasCivilesPorProyectoObraCivilID =
+  (proyectoObraCivilID) => {
+    $.post(
+      "../../controller/RecursosManosObrasProyectosObrasCivilesController.php?op=obtener_costos_totales_recursos_manos_obras_proyectos_obras_civiles_por_proyecto_obra_civil_ID",
+      {
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          const { costoTotal } = responseData;
+
+          const costoTotalFormatValue = parseFloat(costoTotal).toLocaleString(
+            "es-DO",
+            {
+              style: "currency",
+              currency: "DOP",
+            }
+          );
+
+          const costoTotalRecursosManosObrasValue = document.getElementById(
+            "costoTotalRecursosManosObrasValue"
+          );
+
+          costoTotalRecursosManosObrasValue.value =
+            costoTotalFormatValue != null ? costoTotalFormatValue : "";
+
+          localStorage.setItem(
+            "costoTotalRecursosManosObrasProyectosObrasCiviles",
+            costoTotal
+          );
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const obtenerCostoTotalProyectoObraCivil = () => {
+  const costoTotalActividadesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalActividadesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalRecursosMaterialesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosMaterialesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalRecursosManosObrasProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosManosObrasProyectosObrasCiviles")
+    ) || 0;
+
+  const resultadoCostoTotalProyectoObraCivil =
+    costoTotalActividadesProyectosObrasCiviles +
+    costoTotalRecursosMaterialesProyectosObrasCiviles +
+    costoTotalRecursosManosObrasProyectosObrasCiviles;
+
+  const resultadoCostoTotalProyectoObraCivilFormatValue =
+    resultadoCostoTotalProyectoObraCivil.toLocaleString("es-DO", {
+      style: "currency",
+      currency: "DOP",
+    });
+
+  document.getElementById("costoTotalProyecto").value =
+    resultadoCostoTotalProyectoObraCivilFormatValue;
+};
+
+const verificarConsumoPresupuestoCliente = () => {
+  const presupuestoEstimadoProyecto =
+    parseFloat(localStorage.getItem("presupuestoEstimadoProyecto")) || 0;
+
+  const costoTotalActividadesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalActividadesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalRecursosMaterialesProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosMaterialesProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalRecursosManosObrasProyectosObrasCiviles =
+    parseFloat(
+      localStorage.getItem("costoTotalRecursosManosObrasProyectosObrasCiviles")
+    ) || 0;
+
+  const costoTotalProyectoInput = document.getElementById("costoTotalProyecto");
+
+  const resultadoCostoTotalProyectoObraCivil =
+    costoTotalActividadesProyectosObrasCiviles +
+    costoTotalRecursosMaterialesProyectosObrasCiviles +
+    costoTotalRecursosManosObrasProyectosObrasCiviles;
+
+  if (
+    resultadoCostoTotalProyectoObraCivil <
+    presupuestoEstimadoProyecto * 0.5
+  ) {
+    costoTotalProyectoInput.style.backgroundColor = "green";
+    costoTotalProyectoInput.style.color = "white";
+  } else if (
+    resultadoCostoTotalProyectoObraCivil < presupuestoEstimadoProyecto
+  ) {
+    costoTotalProyectoInput.style.backgroundColor = "yellow";
+    costoTotalProyectoInput.style.color = "white";
+  } else {
+    costoTotalProyectoInput.style.backgroundColor = "rojo";
+    costoTotalProyectoInput.style.color = "white";
+  }
+};
+
 (function () {
   const proyectoObraCivilID = getParams("proyectoObraCivilID");
   const solicitudProyectoID = getParams("solicitudProyectoID");
@@ -463,24 +739,154 @@ const obtenerListadoDocumentosProyectosObrasCivilesClientesDataTable = (
     proyectoObraCivilID
   );
 
-  //   obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID(
-  //     proyectoObraCivilID
-  //   );
+  obtenerCostosTotalesActividadesProyectosObrasCivilesPorProyectoObraCivilID(
+    proyectoObraCivilID
+  );
 
-  //   obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObraCivilID(
-  //     proyectoObraCivilID
-  //   );
+  obtenerCostosTotalesRecursosMaterialesProyectosObrasCivilesPorProyectoObraCivilID(
+    proyectoObraCivilID
+  );
 
-  //   obtenerCostosTotalesRecursosManosObrasProyectosObrasCivilesPorProyectoObraCivilID(
-  //     proyectoObraCivilID
-  //   );
+  obtenerCostosTotalesRecursosManosObrasProyectosObrasCivilesPorProyectoObraCivilID(
+    proyectoObraCivilID
+  );
 
   obtenerListadoDocumentosProyectosObrasCivilesClientesDataTable(
     solicitudProyectoID,
     proyectoObraCivilID
   );
 
-  //   obtenerCostoTotalProyectoObraCivil();
+  obtenerCostoTotalProyectoObraCivil();
 
-  //   verificarConsumoPresupuestoCliente();
+  verificarConsumoPresupuestoCliente();
 })();
+
+const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoID =
+  (documentoID, solicitudProyectoID) => {
+    $.post(
+      "../../controller/DocumentosController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_solicitud_proyecto_ID",
+      {
+        documentoID: documentoID,
+        solicitudProyectoID: solicitudProyectoID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          console.log(responseData);
+
+          const { nombreDocumento } = responseData;
+
+          const rutaDocumento = `../../documents/${nombreDocumento}`;
+
+          console.log(rutaDocumento);
+
+          window.open(rutaDocumento, "_blank");
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYProyectoObraCivilID =
+  (documentoID, proyectoObraCivilID) => {
+    $.post(
+      "../../controller/DocumentosController.php?op=obtener_ruta_documento_proyecto_obra_civil_por_documento_ID_proyecto_obra_civil_ID",
+      {
+        documentoID: documentoID,
+        proyectoObraCivilID: proyectoObraCivilID,
+      },
+      "json"
+    )
+      .done(function (data) {
+        if (data.error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Ocurrio un error!!",
+            text: `${data.error}`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          }).then(
+            (willClose = () => {
+              window.location.reload();
+            })
+          );
+        } else {
+          const responseData = data.data;
+
+          console.log(responseData);
+
+          const { nombreDocumento } = responseData;
+
+          const rutaDocumento = `../../documents/${nombreDocumento}`;
+
+          console.log(rutaDocumento);
+
+          window.open(rutaDocumento, "_blank");
+        }
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${textStatus}`,
+          text: `${errorThrown}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        }).then(
+          (willClose = () => {
+            window.location.reload();
+          })
+        );
+      });
+  };
+
+const verDetallesDocumentosProyectosObrasCiviles = (
+  documentoID,
+  solicitudProyectoID,
+  proyectoObraCivilID
+) => {
+  if (solicitudProyectoID != null) {
+    obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYSolicitudProyectoID(
+      documentoID,
+      solicitudProyectoID
+    );
+  } else {
+    obtenerRutaDocumentoProyectoObraCivilIDPorDocumentoIDYProyectoObraCivilID(
+      documentoID,
+      proyectoObraCivilID
+    );
+  }
+};
