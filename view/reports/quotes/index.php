@@ -11,10 +11,7 @@ class PDF extends FPDF
         $this->Cell(150);
         $this->Cell(132, 10, 'Progestor', 0, 0, 'C');
         $this->Ln(20);
-        $this->Cell(105);
-        $this->SetFont('Arial', 'B', 16);
-        $this->Cell(225, 10, 'Cotizaciones', 0, 0, 'C');
-        $this->Ln(20);
+        $this->Ln(10);
     }
 
     //Page footer:
@@ -34,5 +31,17 @@ class PDF extends FPDF
 $pdf = new PDF('L', 'mm', 'A3');
 $pdf->AddPage();
 $pdf->AliasNbPages();
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(0, 0, 'Multidom S.R.L', 0, 0, 'L');
+$pdf->Ln(10);
+$pdf->Cell(0, 0, 'Direccion: C/2da.San Pedro de Macoris, Rep.Dominicana', 0, 0, 'L');
+$pdf->Ln(10);
+$pdf->Cell(0, 0, 'Telefono: +1 (809) 392-9967');
+$pdf->Ln(10);
+$pdf->Cell(0, 0, 'Correo Electronico: multidomsrl@gmail.com');
+$pdf->Ln(20);
+$pdf->Cell(0, 0, 'Cotizacion No.: ' . mt_rand(0, 1000000));
+$pdf->Ln(10);
+$pdf->Cell(0, 0, 'Fecha: ' . date('d-m-Y'));
 
-$pdf->Output('I', 'Cotizacion' . getdate());
+$pdf->Output('I', 'Cotizacion' . date('Y-m-d'));
