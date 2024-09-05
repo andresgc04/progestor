@@ -42,7 +42,7 @@ class Roles extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT rol_id, rol 
+        $query = 'SELECT rol_id, UCASE(rol) AS rol 
                     FROM ROLES
                    WHERE rol_id != 2;';
 
@@ -57,9 +57,10 @@ class Roles extends Connection
         $conectar = parent::Connection();
         parent::set_names();
 
-        $query = 'SELECT rol_id, rol 
+        $query = 'SELECT rol_id, UCASE(rol) AS rol
                     FROM ROLES
-                   WHERE estado_id = 1;';
+                   WHERE estado_id = 1;
+                ORDER BY rol ASC';
 
         $query = $conectar->prepare($query);
         $query->execute();

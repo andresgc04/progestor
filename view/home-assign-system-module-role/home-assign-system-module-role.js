@@ -76,7 +76,7 @@ const obtenerListadoAccesosModulosSistemaDataTable = () => {
   initializeSelect2Elements();
 
   getSelectListRolesOptions(
-    "../../controller/RolesController.php?op=obtener_listado_opciones_roles",
+    "../../controller/RolesController.php?op=obtener_listado_opciones_todos_roles",
     "#rolID"
   );
 
