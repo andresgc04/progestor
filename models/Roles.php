@@ -52,6 +52,23 @@ class Roles extends Connection
         return $resultado = $query->fetchAll();
     }
 
+    public function obtener_listado_opciones_todos_roles()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+
+        $query = 'SELECT rol_id, rol 
+                    FROM ROLES
+                   WHERE estado_id = 1;';
+
+        $query = $conectar->prepare($query);
+        $query->execute();
+
+        $resultado = $query->fetchAll();
+
+        return $resultado;
+    }
+
     public function obtener_detalles_roles_por_rol_ID($rolID)
     {
         $conectar = parent::Connection();
